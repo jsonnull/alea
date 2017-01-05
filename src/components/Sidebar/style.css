@@ -1,0 +1,31 @@
+@import 'base';
+
+.sidebar {
+  background-color: $lightGray;
+  position: fixed;
+  top: $toolbarHeight;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  padding: 2rem;
+  box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  border-right: 1px solid $borderColorLight;
+}
+
+.header {
+  border-bottom: 1px solid $borderColorLight;
+}
+  .headerTitle {
+    font-size: 3rem;
+    font-family: 'Alice';
+    color: $veryDarkGray;
+    line-height: $line-unit;
+    margin: 0;
+  }
+  .headerSubtitle {
+    font-weight: normal;
+    font-size: 1.5rem;
+    font-family: 'Cinzel Decorative';
+    line-height: $line-unit;
+    margin: 0;
+  }

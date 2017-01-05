@@ -1,0 +1,119 @@
+@import "base"; 
+@import "input"; 
+
+.unpinned {}
+.darkTheme {}
+
+.chat {
+  background-color: $lightGray;
+  width: $chatWidth;
+  position: absolute;
+  top: $toolbarHeight;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  border-left: 1px solid $borderColorLight;
+}
+  .darkTheme .chat {
+    background-color: $darkGray;
+  }
+  .unpinned .chat {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+  }
+  .chatScrollArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 100px;
+    right: 0;
+    padding: 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-bottom: 1px solid $borderColorLight;
+  }
+    .unpinned .chatScrollArea {
+      padding-bottom: 0;
+      overflow: hidden;
+      border: none;
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      align-items: flex-end;
+      -webkit-align-items: flex-end;
+      justify-content: flex-end;
+      -webkit-justify-content: flex-end;
+    }
+
+.message {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid $borderColorLight;
+  border-bottom: 2px solid $borderColorLight;
+  background-color: $white;
+  max-width: 280px;
+  display: inline-block;
+  float: left;
+  clear: left;
+}
+  .unpinned .message {
+    border: 1px solid $lightGray;
+    border-bottom: 2px solid $borderColorLight;
+    float: none;
+    clear: none;
+    background-color: $white;
+  }
+  .messageFrom {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: $darkGray;
+    padding: 0.5rem 1rem 0;
+  }
+  .messageText {
+    padding: 0 1rem 0.5rem;
+  }
+  .messageResult {
+    background-color: $borderColorLight;
+    font-weight: bold;
+    padding: 0 1rem;
+    border-radius: 3px;
+  }
+    .unpinned .messageResult {
+      background-color: $lightGray;
+    }
+
+.form {
+  position: fixed;
+  bottom: 25px;
+  right: 2rem;
+  width: 260px;
+  background-color: $veryLightGray;
+  border-radius: 5px;
+}
+  .darkTheme .form {
+    background-color: $veryDarkGray;
+  }
+  .unpinned .form {
+    background: transparent;
+  }
+  .formInput {
+    @extends %input;
+    border: 0;
+    height: 50px;
+    display: block;
+    padding: 1.2rem 1rem;
+    width: 260px;
+    resize: none;
+    color: black;
+    background-color: $white;
+    border-radius: 5px;
+    border: 1px solid $lightGray;
+  }
+    .darkTheme .formInput {
+      color: $veryLightGray;
+      background-color: $veryDarkGray;
+    }
+    .unpinned .formInput {
+    }

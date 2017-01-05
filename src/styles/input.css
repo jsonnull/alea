@@ -1,0 +1,31 @@
+@define-placeholder button {
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 3.6rem;
+  height: 3.6rem;
+  padding: 0 2rem;
+  outline: 0;
+  font-family: 'Cinzel Decorative';
+  color: #9c9b7a;
+  background-color: #3d2324;
+  box-shadow: inset 0 0 0 1px #bfbca5;
+  border: 1px solid #7f7d6e;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+@define-placeholder buttonHover {
+  box-shadow: inset 0 0 0 1px #ff974f;
+  text-shadow: 0 0 3px white;
+  color: #fffdbc;
+  transition: all 0.1s ease-out;
+}
+
+@define-placeholder input {
+  line-height: 3.6rem;
+  height: 3.6rem;
+  padding: 6px 1rem;
+  border: 1px solid #7f7d6e;
+  border-radius: 4px;
+}
