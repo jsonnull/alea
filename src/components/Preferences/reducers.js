@@ -21,7 +21,10 @@ export default function reducer (state = initialState, action) {
         chatPinned: !state.chatPinned
       })
     case RECEIVE_PREFS:
-      return Object.assign({}, state, action.prefs)
+      const { theme, chatPinned } = action.prefs
+      return Object.assign({}, state, {
+        theme, chatPinned
+      })
     default:
       return state
   }
