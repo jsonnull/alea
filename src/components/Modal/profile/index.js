@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { hideModal, MODALS } from '../../../actions'
+import {
+  hideModal,
+  logout,
+  MODALS
+} from '../../../actions'
 
 class Profile extends React.Component {
   constructor (props) {
@@ -22,11 +26,8 @@ class Profile extends React.Component {
   render () {
     return (
       <div>
-        <h1 className='modal-title'>Profile</h1>
-        <form
-          className='modal-form'
-          onSubmit={e => this.handleSubmit(e)}
-        >
+        { this.props.title('Profile') }
+        <form onSubmit={e => this.handleSubmit(e)} >
           <label className='modal-form-label'>
             Display Name:
             <input
@@ -36,23 +37,33 @@ class Profile extends React.Component {
               onChange={e => this.handleName(e)}
             />
           </label>
-          <div className="modal-buttons">
-            <input className='modal-form-submit' type='submit' value='Update' />
-          </div>
+          { this.props.buttons(
+            <div>
+              <button className='modal-form-submit' type='button' onClick={() => this.props.logout() }>Logout</button>
+              <input className='modal-form-submit' type='submit' value='Update' />
+            </div>
+          )}
         </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state, ownProps) => {
+  return Object.assign({
     displayName: state.user.displayName
+  }, ownProps)
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(logout())
   }
 }
 
 let ProfileModal = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Profile)
 
 export default ProfileModal

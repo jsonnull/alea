@@ -3,6 +3,8 @@ export const SEND_MESSAGE = 'SEND_MESSAGE'
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
 // user
 export const UPDATE_USER = 'UPDATE_USER'
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
 // modals
 export const SHOW_MODAL = 'SHOW_MODAL'
 export const HIDE_MODAL = 'SHOW_MODAL'
@@ -32,6 +34,14 @@ export function receiveMessage (message) {
 
 export function updateUser (user) {
   return { type: UPDATE_USER, user }
+}
+
+export function login (email, password) {
+  return { type: LOGIN, email, password } 
+}
+
+export function logout () {
+  return { type: LOGOUT }
 }
 
 export function showModal (modal) {

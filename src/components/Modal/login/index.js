@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { hideModal, MODALS } from '../../../actions'
+import {
+  hideModal,
+  login,
+  MODALS
+} from '../../../actions'
 
 class Login extends React.Component {
   constructor (props) {
@@ -18,7 +22,7 @@ class Login extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault()
-    this.props.firebase.signIn(
+    this.props.login(
       this.state.email,
       this.state.password
     )
@@ -53,3 +57,22 @@ class Login extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return Object.assign({
+    displayName: state.user.displayName
+  }, ownProps)
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (email, password) => dispatch(login(email, password))
+  }
+}
+
+let LoginModal = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login)
+
+export default LoginModal

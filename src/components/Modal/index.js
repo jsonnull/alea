@@ -18,23 +18,21 @@ class Modal extends React.Component {
       Child = Profile
     }
 
-    let closeIcon = '';//octicons.x.toSVG({ width: 20, height: 20 })
-    // closeIcon = closeIcon.replace('<svg', '<svg full="currentColor"')
-
-    let html = { __html: closeIcon }
+    const title = (text) => <h1 className={ styles.title }>{ text }</h1>
+    const buttons = (children) => <div className={ styles.buttons }>{ children }</div>
 
     return (
       <div>
-        <div
-          className={ styles.overlay }
-          onClick={() => this.props.onClose()}
-        >&nbsp;</div>
+        <div className={ styles.overlay } onClick={() => this.props.onClose()}>&nbsp;</div>
         <div className={ styles.modal }>
-          <Child firebase={this.props.firebase} />
+          <Child
+            title={ title } 
+            buttons={ buttons }
+          />
           <div
             className={ styles.close }
             onClick={() => this.props.onClose()}
-          />
+          ><i className='fa fa-close'></i></div>
         </div>
       </div>
     )
