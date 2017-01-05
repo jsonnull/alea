@@ -36,10 +36,10 @@ class Toolbar extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    pinned: state.chat.pinned
-  }
+const mapStateToProps = (state, ownProps) => {
+  return Object.assign({
+    pinned: state.preferences.chatPinned
+  }, ownProps)
 }
 
 const mapDispatchToProps = (dispatch) => {

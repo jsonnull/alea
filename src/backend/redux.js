@@ -4,17 +4,19 @@ import firebase from './middleware/firebase'
 import chat from '../components/Chat/reducers'
 import modal from '../components/Modal/reducers'
 import user from '../components/User/reducers'
+import preferences from '../components/Preferences/reducers'
 
-const reducers = combineReducers({
-  chat,
-  modal,
-  user
-})
+export default function createStoreWithMiddleware (firebaseContext) {
+  const reducers = combineReducers({
+    chat,
+    modal,
+    user,
+    preferences
+  })
 
-export default function createStoreWithMiddleware (firebaseService) {
   const middleware = applyMiddleware(
     commandParser,
-    firebase(firebaseService)
+    firebase(firebaseContext)
   )
 
   let store = createStore(reducers, middleware)

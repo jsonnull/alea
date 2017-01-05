@@ -2,12 +2,13 @@ import createStoreWithMiddleware from './redux'
 import Firebase from './firebase'
 import {
   updateUser,
-  receiveMessage
+  receiveMessage,
+  receivePreferences
 } from '../actions'
 
-export default class Backend {
+export default class ReduxBackend {
   constructor (config) {
-    // Create the firebase backend provider
+    // Create the firebase context
     let firebase = new Firebase(config)
 
     // Create the redux store
@@ -21,10 +22,13 @@ export default class Backend {
       console.log(this.store.getState())
     )
 
-    // Initialize the auth callback
-    firebase.initAuth(user => this.store.dispatch(updateUser(user)))
+    // Perform the initial login
+    firebase.initAuth(
+      user => this.store.dispatch(updateUser(user)),
+      prefs => this.store.dispatch(receivePreferences(prefs))
+    )
 
-    // Initialize the message reception callback
+    // Watch latest messages
     firebase.initMessages(message => this.store.dispatch(receiveMessage(message)))
   }
 }
