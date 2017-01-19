@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styles from './style.css'
 
-class Toolbar extends React.Component {
+class Sidebar extends React.Component {
   render () {
     return (
       <div className={styles.sidebar}>
@@ -21,13 +21,10 @@ class Toolbar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    messages: state.messages
+    open: state.sidebar.open
   }
 }
 
-
-const ToolbarView = connect(
+export default connect(
   mapStateToProps
-)(Toolbar)
-
-export default ToolbarView
+)(Sidebar)

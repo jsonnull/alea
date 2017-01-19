@@ -9,9 +9,7 @@ $borderColorLight: #b2aa9f;
 $borderColorDark: $1a1a1a;
 
 $fontSize: 1.5rem;
-// $lineHeight: 2.4rem; // 1.6
 $lineUnit: 2.4rem;
-// $borderColorDark: color($darkGray, l(+5%));
 
 $chatWidth: 300px;
 $toolbarHeight: 4.8rem;

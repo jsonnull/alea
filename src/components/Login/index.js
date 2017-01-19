@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-  hideModal,
-  login,
-  MODALS
-} from '../../../actions'
+  login
+} from '../../actions'
+import styles from './style.css'
 
 class Login extends React.Component {
   constructor (props) {
@@ -31,27 +30,24 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1 className='title'>Login</h1>
-        <form
-          className='modal-form'
-          onSubmit={e => this.handleSubmit(e)}
-        >
+      <div className={ styles.login }>
+        <h1 className={ styles.title }>Aleamancer</h1>
+        <form onSubmit={e => this.handleSubmit(e)}>
           <input
-            className='modal-form-input'
+            className={ styles.input }
             type='text'
             placeholder='email'
             value={this.state.email}
             onChange={e => this.handleEmail(e)}
           />
           <input
-            className='modal-form-input'
+            className={ styles.input }
             type='password'
             placeholder='password'
             value={this.state.password}
             onChange={e => this.handlePassword(e)}
           />
-          <input className='modal-form-submit' type='submit' value='Login' />
+          <input className={ styles.button } type='submit' value='Login' />
         </form>
       </div>
     )
@@ -70,9 +66,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-let LoginModal = connect(
+let LoginView = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login)
 
-export default LoginModal
+export default LoginView

@@ -1,93 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { sendMessage } from '../../actions'
+import Compose from './Compose'
+import {
+  sendMessage,
+  toggleChatPin
+} from '../../actions'
 import styles from './style.css'
 
-class Compose extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      value: '',
-      height: 0
-    }
-
-    this.focused = false
-
-    this.messageQueue = []
-  }
-
-  handleChange (event) {
-    const value = event.target.value
-
-    const setHeightImmediate = (value.length > this.state.value.length)
-
-    this.setState({
-      value
-    })
-
-    if (setHeightImmediate) {
-      this.calculateHeight()
-    } else {
-      this.setState({ height: 0 })
-      requestAnimationFrame(() => this.calculateHeight())
-    }
-  }
-
-  calculateHeight () {
-    const autogrow = this.refs.autogrow
-    const scrollHeight = autogrow.scrollHeight 
-
-    let height = 0
-    if (scrollHeight !== 48) {
-      height = scrollHeight + 2
-    }
-
-    this.setState({
-      height
-    })
-  }
-
-  handleKeyUp (event) {
-    if (event.key == 'Enter') {
-      this.handleSubmit()
-    }
-  }
-
-  handleSubmit () {
-    this.messageQueue.push(this.state.value)
-    this.props.onSend(this.state.value)
-    this.setState({
-      value: '',
-      height: 0
-    })
-  }
-
-  render () {
-    let style = {}
-    if (this.state.height !== 0) {
-      style = {
-        height: this.state.height + 'px'
-      }
-    }
-
-    return (
-      <div
-        className={ styles.form }
-      >
-        <textarea
-          className={ styles.formInput }
-          type='text'
-          placeholder='Send a message...'
-          value={ this.state.value }
-          ref='autogrow'
-          style={ style }
-          onChange={e => this.handleChange(e)}
-          onKeyUp={e => this.handleKeyUp(e)}
-        />
-      </div>
-    )
-  }
-}
 
 class Message extends React.Component {
   render () {
@@ -119,6 +38,10 @@ class Chat extends React.Component {
     let theme = (this.props.theme == 'dark')? styles.darkTheme : ''
     let pinned = (this.props.pinned)? '' : styles.unpinned
 
+    let toggleChat = (this.props.pinned == true)
+      ? <i className='fa fa-chevron-down'></i>
+      : <i className='fa fa-ellipsis-h'></i>
+
     let messages = this.props.messages
     if (this.props.pinned == false) {
       messages = this.props.messages.slice(-4)
@@ -127,7 +50,13 @@ class Chat extends React.Component {
     return (
       <div className={ theme + ' ' + pinned }>
         <div className={ styles.chat }>
-          <div className={ styles.chatScrollArea } ref='scroll'>
+          <div className={ styles.top }>
+            <div className={ styles.button + ' ' + styles.modRight }
+              onClick={() => { this.props.togglePinned() }}>
+              { toggleChat }
+            </div>
+          </div>
+          <div className={ styles.messages } ref='scroll'>
             {messages.map(message =>  
               <Message
                 key={message.key}
@@ -153,7 +82,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendMessage: (message) => { dispatch(sendMessage(message)) }
+    sendMessage: (message) => { dispatch(sendMessage(message)) },
+    togglePinned: () => dispatch(toggleChatPin())
   }
 }
 

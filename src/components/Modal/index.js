@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { hideModal, MODALS } from '../../actions'
-import Login from './login'
+// import Login from './login'
 import Profile from './profile'
 import styles from './style.css'
 
@@ -13,7 +13,7 @@ class Modal extends React.Component {
 
     let Child
     if (this.props.activeModal == MODALS.LOGIN_MODAL) {
-      Child = Login
+      // Child = Login
     } else if (this.props.activeModal == MODALS.PROFILE_MODAL) {
       Child = Profile
     }

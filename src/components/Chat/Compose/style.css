@@ -1,0 +1,30 @@
+@import 'base';
+@import 'input';
+
+.darkTheme {}
+.unpinned {}
+
+.form {
+  padding: 25px;
+  border-radius: 5px;
+}
+  .formInput {
+    @extend input;
+    border: 0;
+    height: 50px;
+    display: block;
+    padding: 1.2rem 1rem;
+    line-height: 2.4rem;
+    width: 100%;
+    resize: none;
+    color: black;
+    background-color: $white;
+    border-radius: 5px;
+    border: 1px solid $lightGray;
+  }
+    .darkTheme .formInput {
+      color: $veryLightGray;
+      background-color: $veryDarkGray;
+    }
+    .unpinned .formInput {
+    }

@@ -7,45 +7,46 @@
 .chat {
   background-color: $lightGray;
   width: $chatWidth;
+
   position: absolute;
-  top: $toolbarHeight;
+  top: 0;
   right: 0;
   bottom: 0;
-  box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.3);
+
   border-left: 1px solid $borderColorLight;
-}
-  .darkTheme .chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .darkTheme & {
     background-color: $darkGray;
   }
-  .unpinned .chat {
+
+  .unpinned & {
     background: transparent;
-    box-shadow: none;
+    border-color: transparent;
+  }
+}
+
+.messages {
+  padding: 0 25px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-bottom: 1px solid $borderColorLight;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .unpinned & {
+    flex: none;
+    align-items: flex-end;
+    padding-top: 10px;
+    overflow: hidden;
     border: none;
   }
-  .chatScrollArea {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 100px;
-    right: 0;
-    padding: 2rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    border-bottom: 1px solid $borderColorLight;
-  }
-    .unpinned .chatScrollArea {
-      padding-bottom: 0;
-      overflow: hidden;
-      border: none;
-      display: flex;
-      display: -webkit-flex;
-      flex-direction: column;
-      -webkit-flex-direction: column;
-      align-items: flex-end;
-      -webkit-align-items: flex-end;
-      justify-content: flex-end;
-      -webkit-justify-content: flex-end;
-    }
+}
 
 .message {
   margin-bottom: 1rem;
@@ -55,16 +56,12 @@
   background-color: $white;
   max-width: 280px;
   display: inline-block;
-  float: left;
-  clear: left;
-}
-  .unpinned .message {
+
+  .unpinned & {
     border: 1px solid $lightGray;
     border-bottom: 2px solid $borderColorLight;
-    float: none;
-    clear: none;
-    background-color: $white;
   }
+}
   .messageFrom {
     font-weight: bold;
     font-size: 1.3rem;
@@ -81,39 +78,42 @@
     border-radius: 3px;
   }
     .unpinned .messageResult {
-      background-color: $lightGray;
+      background-color: $borderColorLight;
     }
 
-.form {
-  position: fixed;
-  bottom: 25px;
-  right: 2rem;
-  width: 260px;
-  background-color: $veryLightGray;
-  border-radius: 5px;
+
+.top {
+  height: 4.8rem;
+  line-height: 4.8rem;
+  border-bottom: 1px solid $borderColorLight;
+  padding: 0 25px;
+  
+  .unpinned & {
+    border: none;
+  }
 }
-  .darkTheme .form {
-    background-color: $veryDarkGray;
+
+.button {
+  color: $lightGray;
+  height: 2.4rem;
+  width: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  margin-top: 1.2rem;
+  border-radius: 4px;
+  background-color: $darkGray;
+
+  .unpinned & {
+    background-color: $lightGray;
+    color: $darkGray;
   }
-  .unpinned .form {
-    background: transparent;
+
+  &:hover {
+    color: white;
+    background-color: $red;
+    cursor: pointer;
   }
-  .formInput {
-    @extends %input;
-    border: 0;
-    height: 50px;
-    display: block;
-    padding: 1.2rem 1rem;
-    width: 260px;
-    resize: none;
-    color: black;
-    background-color: $white;
-    border-radius: 5px;
-    border: 1px solid $lightGray;
+  &.modRight {
+    float: right;
   }
-    .darkTheme .formInput {
-      color: $veryLightGray;
-      background-color: $veryDarkGray;
-    }
-    .unpinned .formInput {
-    }
+}

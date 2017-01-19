@@ -1,19 +1,39 @@
 import React from 'react'
-import Toolbar from './Toolbar'
-import Sidebar from './Sidebar'
-import Profile from './User'
-import Chat from './Chat'
-import Modal from './Modal'
+import { connect } from 'react-redux'
 
-export default class Frontend extends React.Component {
+import Chat from './Chat'
+import Login from './Login'
+import Map from './Map'
+import Modal from './Modal'
+import Profile from './User'
+import Sidebar from './Sidebar'
+
+class Frontend extends React.Component {
   render () {
-    const theme = this.props.theme || 'light'
-    return <div>
-      <Sidebar theme={theme} />
-      <Profile theme={theme} />
-      <Chat theme={theme} />
-      <Toolbar theme={theme} />
-      <Modal theme={theme} />
-    </div>
+    if (this.props.loggedIn) {
+      return (
+        <div>
+          <Map/>
+          <Sidebar/>
+          <Profile/>
+          <Chat/>
+          <Modal/>
+        </div>
+      )
+    } else {
+      return <Login />
+    }
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.user.isLoggedIn
+  }
+}
+
+const ConnectedFrontend = connect(
+  mapStateToProps
+)(Frontend)
+
+export default ConnectedFrontend
