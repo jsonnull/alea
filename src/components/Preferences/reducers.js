@@ -13,18 +13,12 @@ const initialState = {
 export default function reducer (state = initialState, action) {
   switch (action.type) {
     case CHANGE_THEME:
-      return Object.assign({}, state, {
-        theme: action.theme
-      })
+      return { ...state, theme: action.theme }
     case TOGGLE_CHAT_PIN:
-      return Object.assign({}, state, {
-        chatPinned: !state.chatPinned
-      })
+      return { ...state, chatPinned: !state.chatPinned }
     case RECEIVE_PREFS:
       const { theme, chatPinned } = action.prefs
-      return Object.assign({}, state, {
-        theme, chatPinned
-      })
+      return { ...state, theme, chatPinned }
     default:
       return state
   }
