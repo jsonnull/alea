@@ -8,7 +8,32 @@
   bottom: 0;
   width: 300px;
   padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
 }
+
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+  .menuItem {
+    flex: 1;
+    border-left: 1px solid $borderColorLight;
+    text-align: center;
+    height: 3.6rem;
+    line-height: 3.6rem;
+
+    &:hover {
+      background-color: $red;
+      color: white;
+      cursor: pointer;
+    }
+
+    &:first-child {
+      border: none
+    }
+  }
 
 .header {
   border-bottom: 1px solid $borderColorLight;
