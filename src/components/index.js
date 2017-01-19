@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Chat from './Chat'
 import Login from './Login'
 import Map from './Map'
-import Modal from './Modal'
 import Profile from './User'
 import Sidebar from './Sidebar'
 
@@ -17,7 +16,6 @@ class Frontend extends React.Component {
           <Sidebar/>
           <Profile/>
           <Chat/>
-          <Modal/>
         </div>
       )
     } else {

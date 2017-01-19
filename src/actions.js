@@ -1,8 +1,3 @@
-export const MODALS = {
-  LOGIN_MODAL: 'LOGIN_MODAL',
-  PROFILE_MODAL: 'PROFILE_MODAL'
-}
-
 export const THEMES = {
   LIGHT: 'LIGHT',
   DARK: 'DARK'
@@ -28,13 +23,6 @@ export const login = (email, password) => ({ type: LOGIN, email, password })
 
 export const LOGOUT = 'LOGOUT'
 export const logout = () => ({ type: LOGOUT })
-
-/* Modals */
-export const SHOW_MODAL = 'SHOW_MODAL'
-export const showModal = modal => ({ type: SHOW_MODAL, modal })
-
-export const HIDE_MODAL = 'SHOW_MODAL'
-export const hideModal = () => ({ type: HIDE_MODAL })
 
 /* Preferences */
 export const TOGGLE_CHAT_PIN = 'TOGGLE_CHAT_PIN'
