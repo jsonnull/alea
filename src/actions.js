@@ -12,6 +12,8 @@ export const HIDE_MODAL = 'SHOW_MODAL'
 export const TOGGLE_CHAT_PIN = 'TOGGLE_CHAT_PIN'
 export const CHANGE_THEME = 'CHANGE_THEME'
 export const RECEIVE_PREFS = 'RECEIVE_PREFS'
+// sidebar
+export const CHANGE_SIDEBAR_TAB = 'CHANGE_SIDEBAR_TAB'
 
 export const MODALS = {
   LOGIN_MODAL: 'LOGIN_MODAL',
@@ -63,3 +65,5 @@ export function changeTheme (theme) {
 export function receivePreferences (prefs) {
   return { type: RECEIVE_PREFS, prefs }
 }
+
+export const changeSidebarTab = tab => ({ type: CHANGE_SIDEBAR_TAB, tab })
