@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { changeSidebarTab } from '../../actions'
+import Profile from './profile'
 import styles from './style.css'
 
 const MenuItem = (props) => {
@@ -12,6 +13,17 @@ const MenuItem = (props) => {
       <i className={`fa ${props.icon}`}></i>
     </div>
   )
+}
+
+const SidebarContent = (props) => {
+  switch (props.tab) {
+    case 'Home':
+      return <div />
+    case 'Profile':
+      return <Profile />
+    default:
+      return <div />
+  }
 }
 
 class Sidebar extends React.Component {
@@ -38,6 +50,7 @@ class Sidebar extends React.Component {
             }
           )}
         </div>
+        <SidebarContent tab={this.props.tab} />
       </div>
     )
   }

@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-  hideModal,
-  logout,
-  MODALS
+  logout
 } from '../../../actions'
 
 class Profile extends React.Component {
@@ -26,7 +24,6 @@ class Profile extends React.Component {
   render () {
     return (
       <div>
-        { this.props.title('Profile') }
         <form onSubmit={e => this.handleSubmit(e)} >
           <label className='modal-form-label'>
             Display Name:
@@ -37,12 +34,10 @@ class Profile extends React.Component {
               onChange={e => this.handleName(e)}
             />
           </label>
-          { this.props.buttons(
-            <div>
-              <button className='modal-form-submit' type='button' onClick={() => this.props.logout() }>Logout</button>
-              <input className='modal-form-submit' type='submit' value='Update' />
-            </div>
-          )}
+          <div>
+            <button className='modal-form-submit' type='button' onClick={() => this.props.logout() }>Logout</button>
+            <input className='modal-form-submit' type='submit' value='Update' />
+          </div>
         </form>
       </div>
     )
@@ -61,9 +56,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-let ProfileModal = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Profile)
-
-export default ProfileModal
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

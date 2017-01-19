@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { hideModal, MODALS } from '../../actions'
 // import Login from './login'
-import Profile from './profile'
+// import Profile from './profile'
 import styles from './style.css'
 
 class Modal extends React.Component {
