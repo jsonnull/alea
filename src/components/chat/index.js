@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Compose from './Compose'
+import Compose from './compose'
 import {
   sendMessage,
   toggleChatPin
