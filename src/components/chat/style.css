@@ -23,6 +23,7 @@
   }
 
   .unpinned & {
+    top: auto;
     background: transparent;
     border-color: transparent;
   }
