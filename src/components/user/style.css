@@ -3,7 +3,7 @@
 .profile {
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 300px;
   width: 250px;
   height: 100px;
 }
@@ -11,7 +11,7 @@
 .photo {
   position: absolute;
   top: 25px;
-  left: 20px;
+  left: 25px;
   width: 50px;
   height: 50px;
   border-radius: 5px;
@@ -22,7 +22,7 @@
 .name {
   position: absolute;
   top: 0;
-  left: 80px;
+  left: 85px;
   line-height: 100px;
   font-size: 2rem;
   font-family: 'Alice';
