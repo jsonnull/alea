@@ -17,7 +17,7 @@ const MenuItem = (props) => {
 
 const SidebarContent = (props) => {
   switch (props.tab) {
-    case 'Home':
+    case 'World':
       return <div />
     case 'Profile':
       return <Profile />
@@ -29,7 +29,8 @@ const SidebarContent = (props) => {
 class Sidebar extends React.Component {
   render () {
     const buttons = [
-      ['Home', 'fa-globe'],
+      ['World', 'fa-globe'],
+      ['Character', 'fa-id-card-o'],
       ['Profile', 'fa-user']
     ]
 

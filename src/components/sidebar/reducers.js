@@ -4,7 +4,7 @@ import {
 
 const initialState = {
   open: true,
-  tab: 'Home'
+  tab: 'World'
 }
 
 export default function reducer (state = initialState, action) {
