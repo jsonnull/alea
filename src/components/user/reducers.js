@@ -11,11 +11,12 @@ const initialState = {
 export default function reducer (state = initialState, action) {
   switch (action.type) {
     case UPDATE_USER:
+      const { isLoggedIn, displayName, photoURL } = action.user
       return {
         ...state,
-        isLoggedIn: state.isLoggedIn || action.user.isLoggedIn,
-        displayName: action.user.displayName || 'anonymous',
-        photoURL: action.user.photoURL || '/img/default.png'
+        isLoggedIn,
+        displayName,
+        photoURL
       }
     default:
       return state
