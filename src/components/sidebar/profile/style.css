@@ -2,6 +2,12 @@
 @import 'input';
 @import 'sidebar';
 
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .label {
   @extend label;
   include: true;
@@ -16,6 +22,8 @@
 .button {
   @extend button;
   margin-top: 1.2rem;
+  align-self: flex-start;
+  margin-top: auto;
 
   &:hover {
     @extend buttonHover;

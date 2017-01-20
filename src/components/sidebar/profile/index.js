@@ -24,7 +24,7 @@ class Profile extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className={ styles.container }>
         <label className={ styles.label }>
           Display Name:
         </label>
