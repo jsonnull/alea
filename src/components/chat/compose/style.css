@@ -20,7 +20,7 @@
     color: black;
     background-color: $white;
     border-radius: 5px;
-    border: 1px solid $lightGray;
+    border: 1px solid $borderColorLight;
   }
     .darkTheme .formInput {
       color: $veryLightGray;

@@ -1,13 +1,16 @@
 $red: #bf3542;
+
 $lightGray: #cdc5ba;
 $veryLightGray: #ebe3d6;
 $darkGray: #3c3c3c;
 $veryDarkGray: #2e2e2e;
+
 $white: #f7f7f7;
 
-$borderColorLight: #b2aa9f;
+$borderColorLight: #ADAB96;
 $borderColorDark: $1a1a1a;
 
+/* Sizes */
 $fontSize: 1.5rem;
 $lineUnit: 2.4rem;
 
