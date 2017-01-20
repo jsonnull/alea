@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import Chat from './chat'
 import Login from './login'
 import Map from './map'
@@ -11,7 +10,7 @@ class Frontend extends React.Component {
   render () {
     if (this.props.loggedIn) {
       return (
-        <div>
+        <div className={ this.props.theme }>
           <Map/>
           <Sidebar/>
           <Profile/>
@@ -26,7 +25,8 @@ class Frontend extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.user.isLoggedIn
+    loggedIn: state.user.isLoggedIn,
+    theme: state.preferences.theme
   }
 }
 

@@ -31,7 +31,7 @@ class Sidebar extends React.Component {
     const buttons = [
       ['World', 'fa-globe'],
       ['Character', 'fa-id-card-o'],
-      ['Profile', 'fa-user']
+      ['Profile', 'fa-cog']
     ]
 
     return (

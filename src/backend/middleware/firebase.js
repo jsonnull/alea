@@ -6,7 +6,8 @@ import {
   SEND_MESSAGE,
   LOGIN,
   LOGOUT,
-  TOGGLE_CHAT_PIN
+  TOGGLE_CHAT_PIN,
+  CHANGE_THEME
 } from '../../actions'
 
 const firebaseMiddleware = firebase => store => next => {
@@ -18,17 +19,24 @@ const firebaseMiddleware = firebase => store => next => {
   return action => {
     const handleAs = fn => delegate(fn, action)
 
-    if (action.type == SEND_MESSAGE) {
-      handleAs(sendMessage)
-    } else if (action.type == TOGGLE_CHAT_PIN) {
-      setTimeout(() => handleAs(savePreferences), 0)
-      next(action)
-    } else if (action.type == LOGIN) {
-      handleAs(signIn)
-    } else if (action.type == LOGOUT) {
-      handleAs(signOut)
-    } else {
-      next(action)
+    switch (action.type) {
+      case SEND_MESSAGE:
+        handleAs(sendMessage)
+        return
+      case TOGGLE_CHAT_PIN:
+      case CHANGE_THEME:
+        setTimeout(() => handleAs(savePreferences), 0)
+        next(action)
+        return
+      case LOGIN:
+        handleAs(signIn)
+        return
+      case LOGOUT:
+        handleAs(signOut)
+        return
+      default:
+        next(action)
+        return
     }
   }
 }

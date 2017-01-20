@@ -11,13 +11,7 @@ const initialState = {
 export default function reducer (state = initialState, action) {
   switch (action.type) {
     case UPDATE_USER:
-      const { isLoggedIn, displayName, photoURL } = action.user
-      return {
-        ...state,
-        isLoggedIn,
-        displayName,
-        photoURL
-      }
+      return { ...state, ...action.user }
     default:
       return state
   }

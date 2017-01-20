@@ -1,9 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
+  THEME_LIGHT,
+  THEME_DARK,
+  changeTheme,
   logout
 } from '../../../actions'
 import styles from './style.css'
+
+const Label = props => <label className={ styles.label }>{ props.children }</label>
+
+const ThemeButtons = props => {
+  const lightSelected = props.selected == THEME_LIGHT
+    ? ' ' + styles.themeButtonSelected
+    : ''
+  const darkSelected = props.selected == THEME_DARK
+    ? ' ' + styles.themeButtonSelected
+    : ''
+
+  return <div className={ styles.themeButtons }>
+    <div className={ styles.themeButton + lightSelected }
+      onClick={ () => props.changeThemeTo(THEME_LIGHT) }>
+      Light
+    </div>
+    <div className={ styles.themeButton + darkSelected }
+      onClick={ () => props.changeThemeTo(THEME_DARK) }>
+      Dark
+    </div>
+  </div>
+}
 
 class Profile extends React.Component {
   constructor (props) {
@@ -25,15 +50,18 @@ class Profile extends React.Component {
   render () {
     return (
       <div className={ styles.container }>
-        <label className={ styles.label }>
-          Display Name:
-        </label>
+        <h1 className={ styles.header }>Settings</h1>
+        <Label>Display Name:</Label>
         <input
           className={ styles.field }
           type='text'
           value={this.state.displayName}
           onChange={e => this.handleName(e)}
         />
+        <Label>Theme</Label>
+        <ThemeButtons selected={ this.props.theme }
+          changeThemeTo={ theme => this.props.updateTheme(theme) } />
+
         <button className={styles.button} type='button' onClick={() => this.props.logout() }>Logout</button>
       </div>
     )
@@ -42,13 +70,15 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return Object.assign({
-    displayName: state.user.displayName
+    displayName: state.user.displayName,
+    theme: state.preferences.theme
   }, ownProps)
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    updateTheme: theme => dispatch(changeTheme(theme))
   }
 }
 

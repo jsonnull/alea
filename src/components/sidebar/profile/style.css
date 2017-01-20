@@ -30,3 +30,38 @@
     include: true;
   }
 }
+
+.themeButtons {
+  display: flex;
+}
+  .themeButton {
+    @extend button;
+    margin-top: auto;
+    margin-left: 5px;
+    flex: 1;
+    text-align: center;
+    background-color: $white;
+    border: 1px solid $borderColorLight;
+    color: $darkGray;
+
+    &:hover {
+      @extend buttonHover;
+      background-color: $yellow;
+      border-color: $yellow;
+      color: white;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  .themeButtonSelected {
+    color: white;
+    background-color: $green;
+    border-color: $green;
+  }
+
+.header {
+  @extend header;
+  include: true;
+}

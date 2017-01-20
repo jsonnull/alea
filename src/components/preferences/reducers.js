@@ -2,11 +2,12 @@ import {
   CHANGE_THEME,
   TOGGLE_CHAT_PIN,
   RECEIVE_PREFS,
-  THEMES
+  THEME_DARK,
+  THEME_LIGHT
 } from '../../actions'
 
 const initialState = {
-  theme: THEMES.LIGHT,
+  theme: THEME_LIGHT,
   chatPinned: false
 }
 

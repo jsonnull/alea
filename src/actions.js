@@ -1,7 +1,5 @@
-export const THEMES = {
-  LIGHT: 'LIGHT',
-  DARK: 'DARK'
-}
+export const THEME_LIGHT = 'light'
+export const THEME_DARK = 'dark'
 
 /* Messages */
 
@@ -29,7 +27,7 @@ export const TOGGLE_CHAT_PIN = 'TOGGLE_CHAT_PIN'
 export const toggleChatPin = () => ({ type: TOGGLE_CHAT_PIN })
 
 export const CHANGE_THEME = 'CHANGE_THEME'
-export const changeTheme = theme => ({ type: CHANGE_THEME })
+export const changeTheme = theme => ({ type: CHANGE_THEME, theme })
 
 export const RECEIVE_PREFS = 'RECEIVE_PREFS'
 export const receivePreferences = prefs => ({ type: RECEIVE_PREFS, prefs })

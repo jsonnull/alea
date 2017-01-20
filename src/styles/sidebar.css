@@ -1,5 +1,13 @@
 @import 'base';
 
+@define-placeholder header {
+  font-size: 2.4rem;
+  font-family: 'Alice';
+  color: $veryDarkGray;
+  line-height: $line-unit;
+  margin-bottom: 1.2rem;
+}
+
 @define-placeholder label {
   font-size: 1.2rem;
   font-weight: bold;
@@ -13,5 +21,6 @@
   border-radius: 0;
   padding-left: 0;
   border-bottom: 1px solid $borderColorLight;
+  margin-bottom: 1.2rem;
   width: 100%;
 }
