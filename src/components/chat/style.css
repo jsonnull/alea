@@ -32,7 +32,6 @@
   padding: 0 25px;
   overflow-y: scroll;
   overflow-x: hidden;
-  border-bottom: 1px solid $borderColorLight;
 
   flex: 1;
   display: flex;
@@ -44,12 +43,11 @@
     align-items: flex-end;
     padding-top: 10px;
     overflow: hidden;
-    border: none;
   }
 }
 
 .message {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   border-radius: 5px;
   border: 1px solid $borderColorLight;
   border-bottom: 2px solid $borderColorLight;
@@ -90,6 +88,8 @@
   
   .unpinned & {
     border: none;
+    height: 2.4rem;
+    line-height: 2.4rem;
   }
 }
 
