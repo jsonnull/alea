@@ -51,7 +51,9 @@ class Sidebar extends React.Component {
             }
           )}
         </div>
-        <SidebarContent tab={this.props.tab} />
+        <div className={ styles.content }>
+          <SidebarContent tab={this.props.tab} />
+        </div>
       </div>
     )
   }

@@ -20,22 +20,24 @@
   .menuItem {
     flex: 1;
     border-left: 1px solid $borderColorLight;
+    border-top: 3px solid transparent;
     text-align: center;
     height: 3.6rem;
     line-height: 3.6rem;
 
     &:hover {
-      background-color: $red;
+      background-color: $yellow;
       color: white;
       cursor: pointer;
     }
 
     &:first-child {
-      border: none
+      border-left: none
     }
   }
     .menuItemSelected {
-      background-color: $lightGray;
+      border-top: 3px solid $yellow;
+      // background-color: $lightGray;
     }
 
 .header {
@@ -55,3 +57,7 @@
     line-height: $line-unit;
     margin: 0;
   }
+
+.content {
+  padding-top: 1.2rem;
+}

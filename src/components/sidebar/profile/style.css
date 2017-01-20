@@ -1,0 +1,24 @@
+@import 'base';
+@import 'input';
+@import 'sidebar';
+
+.label {
+  @extend label;
+  include: true;
+}
+
+.field {
+  @extend input;
+  @extend field;
+  include: true;
+}
+
+.button {
+  @extend button;
+  margin-top: 1.2rem;
+
+  &:hover {
+    @extend buttonHover;
+    include: true;
+  }
+}

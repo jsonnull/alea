@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {
   logout
 } from '../../../actions'
+import styles from './style.css'
 
 class Profile extends React.Component {
   constructor (props) {
@@ -24,21 +25,16 @@ class Profile extends React.Component {
   render () {
     return (
       <div>
-        <form onSubmit={e => this.handleSubmit(e)} >
-          <label className='modal-form-label'>
-            Display Name:
-            <input
-              className='modal-form-input'
-              type='text'
-              value={this.state.displayName}
-              onChange={e => this.handleName(e)}
-            />
-          </label>
-          <div>
-            <button className='modal-form-submit' type='button' onClick={() => this.props.logout() }>Logout</button>
-            <input className='modal-form-submit' type='submit' value='Update' />
-          </div>
-        </form>
+        <label className={ styles.label }>
+          Display Name:
+        </label>
+        <input
+          className={ styles.field }
+          type='text'
+          value={this.state.displayName}
+          onChange={e => this.handleName(e)}
+        />
+        <button className={styles.button} type='button' onClick={() => this.props.logout() }>Logout</button>
       </div>
     )
   }
