@@ -11,6 +11,11 @@
 .label {
   @extend label;
   include: true;
+
+  :global(.dark) & {
+    @extend labelDark;
+    include: true;
+  }
 }
 
 .field {
@@ -25,9 +30,19 @@
   align-self: flex-start;
   margin-top: auto;
 
+  :global(.dark) & {
+    @extend buttonDark;
+    include: true;
+  }
+
   &:hover {
     @extend buttonHover;
     include: true;
+
+    :global(.dark) & {
+      @extend buttonHoverDark;
+      force-include: true;
+    }
   }
 }
 
@@ -40,11 +55,18 @@
     margin-left: 5px;
     flex: 1;
     text-align: center;
-    background-color: $white;
+    background-color: transparent;
     border: 1px solid $borderColorLight;
     color: $darkGray;
 
-    &:hover {
+    :global(.dark) & {
+      @extend buttonDark;
+      background-color: transparent;
+      border-color: $borderColorDark;
+      color: $lightGray;
+    }
+
+    &:hover, :global(.dark) &:hover {
       @extend buttonHover;
       background-color: $yellow;
       border-color: $yellow;
@@ -55,7 +77,8 @@
       margin-left: 0;
     }
   }
-  .themeButtonSelected {
+  .themeButtonSelected,
+  :global(.dark) .themeButtonSelected { 
     color: white;
     background-color: $green;
     border-color: $green;
@@ -64,4 +87,9 @@
 .header {
   @extend header;
   include: true;
+
+  :global(.dark) & {
+    @extend headerDark;
+    include: true;
+  }
 }

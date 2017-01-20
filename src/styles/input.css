@@ -17,6 +17,10 @@
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
 }
+  @define-placeholder buttonDark {
+    background-color: $lightGray;
+    color: $darkGray;
+  }
 
 @define-placeholder buttonHover {
   text-shadow: 0 0 3px white;
@@ -26,6 +30,10 @@
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
 }
+  @define-placeholder buttonHoverDark {
+    background-color: $white;
+    color: black;
+  }
 
 @define-placeholder input {
   line-height: 3.6rem;
@@ -34,3 +42,6 @@
   border: 1px solid $borderColorLight;
   border-radius: 4px;
 }
+  @define-placeholder inputDark {
+    border-color: $borderColorDark;
+  }

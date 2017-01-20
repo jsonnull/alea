@@ -11,6 +11,10 @@
 
   display: flex;
   flex-direction: column;
+
+  :global(.dark) & {
+    background-color: $darkGray;
+  }
 }
 
 .menu {
@@ -19,7 +23,6 @@
 }
   .menuItem {
     flex: 1;
-    // border-left: 1px solid $borderColorLight;
     border-bottom: 3px solid transparent;
     text-align: center;
     height: 3.6rem;
@@ -37,16 +40,7 @@
   }
     .menuItemSelected {
       border-bottom: 3px solid $yellow;
-      // background-color: $lightGray;
     }
-
-  .headerSubtitle {
-    font-weight: normal;
-    font-size: 1.5rem;
-    font-family: 'Cinzel Decorative';
-    line-height: $line-unit;
-    margin: 0;
-  }
 
 .content {
   padding-top: 1.2rem;
