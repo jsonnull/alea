@@ -1,4 +1,9 @@
 import * as firebase from 'firebase'
+import savePreferences from './firebase/savePreferences.js' 
+import sendMessage from './firebase/sendMessage.js' 
+import login from './firebase/login.js' 
+import logout from './firebase/logout.js' 
+import updateUser from './firebase/updateUser.js' 
 
 export default class Firebase {
   constructor (config) {
@@ -65,4 +70,23 @@ export default class Firebase {
     this.messagesRef.limitToLast(12).on('child_changed', setMessage)
   }
 
+  savePreferences (state) {
+    savePreferences(this, state)
+  }
+
+  sendMessage (state, action) {
+    sendMessage(this, state, action)
+  }
+
+  login (email, password) {
+    login(this, email, password)
+  }
+
+  logout () {
+    logout(this)
+  }
+
+  updateUser (action) {
+    updateUser(this, action)
+  }
 }

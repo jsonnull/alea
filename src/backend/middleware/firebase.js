@@ -1,44 +1,48 @@
-import sendMessage from './firebase/sendMessage'
-import savePreferences from './firebase/savePreferences'
-import signIn from './firebase/signIn'
-import signOut from './firebase/signOut'
 import {
-  SEND_MESSAGE,
+  LOAD_MESSAGES,
   LOGIN,
   LOGOUT,
-  TOGGLE_CHAT_PIN,
-  CHANGE_THEME
+  SAVE_PREFERENCES,
+  SEND_MESSAGE,
+  UPDATE_USER
 } from '../../actions'
 
-const firebaseMiddleware = firebase => store => next => {
-  // handler function
-  const delegate = (fn, action) => {
-    fn.apply(null, [firebase, store, action])
-  }
+const firebaseMiddleware = firebase => store => next => action => {
+  const firebaseCommand = action.firebase
 
-  return action => {
-    const handleAs = fn => delegate(fn, action)
+  const state = store.getState()
 
-    switch (action.type) {
-      case SEND_MESSAGE:
-        handleAs(sendMessage)
-        return
-      case TOGGLE_CHAT_PIN:
-      case CHANGE_THEME:
-        setTimeout(() => handleAs(savePreferences), 0)
-        next(action)
-        return
+  if (firebaseCommand) {
+    if (firebaseCommand !== LOGIN && firebase.auth.currentUser == undefined) {
+      console.error('User is not signed in')
+      return
+    }
+
+    switch (firebaseCommand) {
+      case SAVE_PREFERENCES:
+        firebase.savePreferences(state)
+        break
+      case LOAD_MESSAGES:
+        firebase.loadMessages()
+        break
       case LOGIN:
-        handleAs(signIn)
-        return
+        firebase.login(action)
+        break
       case LOGOUT:
-        handleAs(signOut)
-        return
+        firebase.logout(state)
+        break
+      case SEND_MESSAGE:
+        firebase.sendMessage(state, action)
+        break
+      case UPDATE_USER:
+        firebase.updateUser(action)
+        break
       default:
-        next(action)
-        return
+        break
     }
   }
+
+  next(action)
 }
 
 export default firebaseMiddleware

@@ -1,34 +1,50 @@
-import createStoreWithMiddleware from './redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import Firebase from './firebase'
+// middleware
+import commandParser from './middleware/commands'
+import firebaseMiddleware from './middleware/firebase'
+// reducers
+import chat from '../components/Chat/reducers'
+import preferences from '../components/Preferences/reducers'
+import sidebar from '../components/Sidebar/reducers'
+import user from '../components/User/reducers'
+// actions
 import {
   updateUser,
   receiveMessage,
   receivePreferences
 } from '../actions'
 
-export default class ReduxBackend {
-  constructor (config) {
-    // Create the firebase context
-    let firebase = new Firebase(config)
+export default function createStoreWithMiddleware (config) {
+  // Create the firebase context
+  let firebase = new Firebase(config)
 
-    // Create the redux store
-    this.store = createStoreWithMiddleware(firebase)
+  const reducers = combineReducers({
+    chat,
+    preferences,
+    sidebar,
+    user
+  })
 
-    // Log the initial state
-    console.log(this.store.getState())
+  const middleware = applyMiddleware(
+    commandParser,
+    firebaseMiddleware(firebase)
+  )
 
-    // Every time the state changes, log it
-    let unsubscribe = this.store.subscribe(() =>
-      console.log(this.store.getState())
-    )
+  let store = createStore(reducers, middleware)
 
-    // Perform the initial login
-    firebase.initAuth(
-      user => this.store.dispatch(updateUser(user)),
-      prefs => this.store.dispatch(receivePreferences(prefs))
-    )
+  // Log the initial state
+  console.log(store.getState())
+  let unsubscribe = store.subscribe(() =>
+    console.log(store.getState())
+  )
 
-    // Watch latest messages
-    firebase.initMessages(message => this.store.dispatch(receiveMessage(message)))
-  }
+  // Register firebase callbacks
+  firebase.initAuth(
+    user => store.dispatch(updateUser(user)),
+    prefs => store.dispatch(receivePreferences(prefs))
+  )
+  firebase.initMessages(message => store.dispatch(receiveMessage(message)))
+
+  return store
 }

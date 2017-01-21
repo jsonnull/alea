@@ -1,5 +1,6 @@
 import {
-  UPDATE_USER,
+  LOGOUT,
+  UPDATE_USER
 } from '../../actions'
 
 const initialState = {
@@ -10,6 +11,8 @@ const initialState = {
 
 export default function reducer (state = initialState, action) {
   switch (action.type) {
+    case LOGOUT:
+      return { ...state, isLoggedIn: false }
     case UPDATE_USER:
       return { ...state, ...action.user }
     default:

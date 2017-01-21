@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import Frontend from './components/'
-import Backend from './backend/'
+import createStore from './backend/index'
 import './style.css'
 
 // Initialize Firebase
@@ -14,10 +14,10 @@ const config = {
   messagingSenderId: "120753444769"
 }
 
-let backend = new Backend(config)
+let store = createStore(config)
 
 ReactDOM.render(
-  <Provider store={backend.store}>
+  <Provider store={store}>
     <Frontend />
   </Provider>,
   document.getElementById('root')
