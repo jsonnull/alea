@@ -48,26 +48,22 @@ class Chat extends React.Component {
     }
 
     return (
-      <div className={ theme + ' ' + pinned }>
-        <div className={ styles.chat }>
-          <div className={ styles.top }>
-            <div className={ styles.button + ' ' + styles.modRight }
-              onClick={() => { this.props.togglePinned() }}>
-              { toggleChat }
-            </div>
-          </div>
-          <div className={ styles.messages } ref='scroll'>
-            {messages.map(message =>  
-              <Message
-                key={message.key}
-                text={message.text}
-                from={message.from}
-                result={message.result}
-              />
-            )}
-          </div>
-          <Compose onSend={message => this.sendMessage(message)} />
+      <div className={ styles.chat + ' ' + theme + ' ' + pinned }>
+        <div className={ styles.button }
+          onClick={() => { this.props.togglePinned() }}>
+          { toggleChat }
         </div>
+        <div className={ styles.messages } ref='scroll'>
+          {messages.map(message =>  
+            <Message
+              key={message.key}
+              text={message.text}
+              from={message.from}
+              result={message.result}
+            />
+          )}
+        </div>
+        <Compose onSend={message => this.sendMessage(message)} />
       </div>
     )
   }

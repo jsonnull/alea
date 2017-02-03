@@ -10,9 +10,12 @@ class Map extends React.Component {
   render () {
     const { sidebar, chat } = this.props
 
+    let left = (sidebar && chat) ? '600px'
+      :(!sidebar && !chat)? '0'
+      : '300px'
     let style = {
-      right: (chat)? '300px' : '0',
-      left: (sidebar)? '300px' : '0'
+      right: (false)? '300px' : '0',
+      left
     }
 
     return (

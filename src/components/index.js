@@ -5,16 +5,17 @@ import Login from './login'
 import Map from './map'
 import Profile from './user'
 import Sidebar from './sidebar'
+import styles from './style.css'
 
 class Frontend extends React.Component {
   render () {
     if (this.props.loggedIn) {
       return (
-        <div className={ this.props.theme }>
+        <div className={`${styles.app} ${this.props.theme}`}>
           <Map/>
           <Sidebar/>
-          <Profile/>
           <Chat/>
+          {/*<Profile/>*/}
         </div>
       )
     } else {

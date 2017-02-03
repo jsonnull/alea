@@ -22,6 +22,10 @@
     background-color: $white;
     border-radius: 5px;
     border: 1px solid $borderColorLight;
+
+    :global(.dark) & {
+      border: 1px solid $borderColorDark;
+    }
   }
     .darkTheme .formInput {
       color: $veryLightGray;

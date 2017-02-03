@@ -2,15 +2,10 @@
 
 .sidebar {
   background-color: $white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
   width: 300px;
-  padding: 2.5rem;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   :global(.dark) & {
     background-color: $darkGray;
@@ -19,32 +14,35 @@
 
 .menu {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 4.8rem;
+  padding: 2.5rem 0;
+  background-color: $veryLightGray;
+
+  :global(.dark) & {
+    background-color: $borderColorDark;
+  }
 }
   .menuItem {
-    flex: 1;
-    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
     text-align: center;
-    height: 3.6rem;
-    line-height: 3.6rem;
+    height: 4.8rem;
+    width: 4.8rem;
+    line-height: 4.8rem;
 
     &:hover {
       background-color: $yellow;
       color: white;
       cursor: pointer;
     }
-
-    &:first-child {
-      border-left: none
-    }
   }
     .menuItemSelected {
-      border-bottom: 3px solid $yellow;
+      border-left: 3px solid $yellow;
     }
 
 .content {
-  padding-top: 1.2rem;
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding: 2.5rem;
 }

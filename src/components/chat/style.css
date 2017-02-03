@@ -5,26 +5,23 @@
 .darkTheme {}
 
 .chat {
-  background-color: $lightGray;
+  background-color: $darkWhite;
   width: $chatWidth;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
 
   :global(.dark) & {
     background-color: $darkGray;
   }
 
-  .unpinned & {
+  &.unpinned {
     top: auto;
     background: transparent;
     border-color: transparent;
+    align-self: flex-end;
   }
 }
 
@@ -32,6 +29,7 @@
   padding: 0 25px;
   overflow-y: scroll;
   overflow-x: hidden;
+  width: 315px;
 
   flex: 1;
   display: flex;
@@ -40,7 +38,6 @@
 
   .unpinned & {
     flex: none;
-    align-items: flex-end;
     overflow: hidden;
   }
 }
@@ -48,8 +45,8 @@
 .message {
   margin-top: 1rem;
   border-radius: 5px;
-  border: 1px solid $borderColorLight;
-  border-bottom: 2px solid $borderColorLight;
+  border: 1px solid $borderColorGray;
+  border-bottom: 2px solid $borderColorGray;
   background-color: $white;
   max-width: 280px;
   display: inline-block;
@@ -65,7 +62,7 @@
     border-bottom: 2px solid $borderColorLight;
 
     :global(.dark) & {
-      border: 1px solid $veryDarkGray;
+      border: 1px solid $borderColorDark;
       border-bottom: 2px solid $borderColorDark;
     }
   }
@@ -84,32 +81,23 @@
     padding: 0 1rem 0.5rem;
   }
   .messageResult {
-    background-color: $borderColorLight;
+    background-color: $borderColorGray;
     font-weight: bold;
     padding: 0 1rem;
     border-radius: 3px;
-  }
-    .unpinned .messageResult {
-      background-color: $borderColorLight;
+
+    :global(.dark) & {
+      background-color: $borderColorDark;
     }
 
+    .unpinned & {
+      background-color: $borderColorLight;
 
-.top {
-  height: 4.8rem;
-  line-height: 4.8rem;
-  border-bottom: 1px solid $borderColorLight;
-  padding: 0 25px;
-
-  :global(.dark) & {
-    border-bottom: 1px solid $borderColorDark;
+      :global(.dark) & {
+        background-color: $borderColorDark;
+      }
+    }
   }
-  
-  .unpinned & {
-    border: none;
-    height: 2.4rem;
-    line-height: 2.4rem;
-  }
-}
 
 .button {
   color: $lightGray;
@@ -120,8 +108,12 @@
   margin-top: 1.2rem;
   border-radius: 4px;
   background-color: $darkGray;
+  position: absolute;
+  right: 2.4rem;
 
   .unpinned & {
+    position: static;
+    margin-left: 2.4rem;
     margin-top: 0;
     background-color: $lightGray;
     color: $darkGray;
@@ -131,8 +123,5 @@
     color: white;
     background-color: $red;
     cursor: pointer;
-  }
-  &.modRight {
-    float: right;
   }
 }
