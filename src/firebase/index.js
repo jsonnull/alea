@@ -2,12 +2,14 @@ import * as firebase from 'firebase'
 import savePreferences from './savePreferences.js' 
 import sendMessage from './sendMessage.js' 
 import login from './login.js' 
-import logout from './logout.js' 
-import updateUserFirebase from './updateUser.js' 
+import logoutBackend from './logout.js' 
+import updateUserFirebase from './updateUserProfile' 
 import {
-  updateUser,
+  updateUserProfile,
   receivePreferences,
-  setLoading
+  setLoading,
+  setUserLoggedIn,
+  logout
 } from '../actions'
 
 export default class Firebase {
@@ -22,8 +24,10 @@ export default class Firebase {
 
   // Initialize the auth submodule
   initAuth (store) {
-    const hydrateUser = user => store.dispatch(updateUser(user))
+    const hydrateUserProfile = user => store.dispatch(updateUserProfile(user))
     const hydratePreferences = prefs => store.dispatch(receivePreferences(prefs))
+    const hideLogin = user => store.dispatch(setUserLoggedIn())
+    const showLogin = () => store.dispatch(logout())
     const finishLoading = () => store.dispatch(setLoading(false))
 
     // Initiates Firebase auth and listen to auth state changes
@@ -32,12 +36,12 @@ export default class Firebase {
         // User is logged in
         const { displayName, photoURL } = this.auth.currentUser
         let user = {
-          isLoggedIn: true,
           displayName,
           photoURL
         }
 
-        hydrateUser(user)
+        hydrateUserProfile(user)
+        hideLogin()
 
         // load preferences
         const uid = this.auth.currentUser.uid
@@ -47,8 +51,7 @@ export default class Firebase {
           })
           .catch(e => console.error(e))
       } else {
-        // show login screen
-        hydrateUser({ isLoggedIn: false })
+        showLogin()
       }
 
       finishLoading()
@@ -95,10 +98,10 @@ export default class Firebase {
   }
 
   logout () {
-    logout(this)
+    logoutBackend(this)
   }
 
-  updateUser (action) {
+  updateUserProfile (action) {
     updateUserFirebase(this, action)
   }
 }

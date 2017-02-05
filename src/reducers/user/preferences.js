@@ -4,7 +4,7 @@ import {
   RECEIVE_PREFS,
   THEME_DARK,
   THEME_LIGHT
-} from '../actions'
+} from '../../actions'
 
 const initialState = {
   theme: THEME_LIGHT,

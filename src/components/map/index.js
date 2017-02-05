@@ -25,7 +25,7 @@ class Map extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return Object.assign({
     sidebar: state.sidebar.open,
-    chat: state.preferences.chatPinned
+    chat: state.user.preferences.chatPinned
   }, ownProps)
 }
 

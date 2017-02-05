@@ -15,13 +15,16 @@ export const receiveMessage = message => {
   return { type: RECEIVE_MESSAGE, key, from, text, result }
 }
 
-/* Loading screen */
+/* UI */
 export const SET_LOADING = 'SET_LOADING'
-export const setLoading = isLoading => ({ type: SET_LOADING, isLoading })
+export const setLoading = appIsLoading => ({ type: SET_LOADING, appIsLoading })
+
+export const SET_USER_LOGGED_IN = 'SET_USER_LOGGED_IN'
+export const setUserLoggedIn = () => ({ type: SET_USER_LOGGED_IN })
 
 /* User */
-export const UPDATE_USER = 'UPDATE_USER'
-export const updateUser = user => ({ type: UPDATE_USER, user, firebase: UPDATE_USER })
+export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE'
+export const updateUserProfile = user => ({ type: UPDATE_USER_PROFILE, user, firebase: UPDATE_USER_PROFILE })
 
 export const LOGIN = 'LOGIN'
 export const login = (email, password) => ({ type: LOGIN, email, password, firebase: LOGIN })

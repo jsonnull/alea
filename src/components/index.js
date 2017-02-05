@@ -9,13 +9,13 @@ import styles from './style.css'
 
 class Frontend extends React.Component {
   render () {
-    if (this.props.isLoading) {
+    if (this.props.appIsLoading) {
       return <div className={styles.app}>
         <Loading />
       </div>
     }
 
-    if (!this.props.isLoggedIn) {
+    if (!this.props.userIsLoggedIn) {
       return <div className={styles.app}>
         <Login />
       </div>
@@ -33,14 +33,10 @@ class Frontend extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    isLoading: state.loading,
-    isLoggedIn: state.user.isLoggedIn,
-    theme: state.preferences.theme
+    appIsLoading: state.ui.appIsLoading,
+    userIsLoggedIn: state.ui.userIsLoggedIn,
+    theme: state.user.preferences.theme
   }
 }
 
-const ConnectedFrontend = connect(
-  mapStateToProps
-)(Frontend)
-
-export default ConnectedFrontend
+export default connect(mapStateToProps)(Frontend)

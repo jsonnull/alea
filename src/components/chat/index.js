@@ -79,7 +79,7 @@ class Chat extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return Object.assign({
     messages: state.chat.messages,
-    pinned: state.preferences.chatPinned
+    pinned: state.user.preferences.chatPinned
   }, ownProps)
 }
 

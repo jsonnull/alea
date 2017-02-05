@@ -1,4 +1,4 @@
-export default function updateUser (firebase, action) {
+export default function updateUserProfile (firebase, action) {
   let user = firebase.auth.currentUser
 
   user.updateProfile({

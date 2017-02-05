@@ -5,10 +5,9 @@ import commandParser from './middleware/commands'
 import firebaseMiddleware from './middleware/firebase'
 // reducers
 import chat from './reducers/messages'
-import loading from './reducers/loading'
-import preferences from './reducers/preferences'
 import sidebar from './reducers/sidebar'
-import user from './reducers/user'
+import user from './reducers/user/'
+import ui from './reducers/ui'
 // actions
 import { receiveMessage } from './actions'
 
@@ -18,8 +17,7 @@ export default function createStoreWithMiddleware (config) {
 
   const reducers = combineReducers({
     chat,
-    loading,
-    preferences,
+    ui,
     sidebar,
     user
   })

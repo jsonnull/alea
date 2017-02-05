@@ -4,7 +4,7 @@ import {
   LOGOUT,
   SAVE_PREFERENCES,
   SEND_MESSAGE,
-  UPDATE_USER
+  UPDATE_USER_PROFILE
 } from '../actions'
 
 const firebaseMiddleware = firebase => store => next => action => {
@@ -38,8 +38,8 @@ const firebaseMiddleware = firebase => store => next => action => {
     case SEND_MESSAGE:
       firebase.sendMessage(state, action)
       break
-    case UPDATE_USER:
-      firebase.updateUser(action)
+    case UPDATE_USER_PROFILE:
+      firebase.updateUserProfile(action)
       break
     default:
       break

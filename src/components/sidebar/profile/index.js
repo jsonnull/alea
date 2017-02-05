@@ -70,8 +70,8 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return Object.assign({
-    displayName: state.user.displayName,
-    theme: state.preferences.theme
+    displayName: state.user.profile.displayName,
+    theme: state.user.preferences.theme
   }, ownProps)
 }
 
