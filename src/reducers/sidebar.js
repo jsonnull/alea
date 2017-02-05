@@ -1,6 +1,6 @@
 import {
   CHANGE_SIDEBAR_TAB
-} from '../../actions'
+} from '../actions'
 
 const initialState = {
   open: true,

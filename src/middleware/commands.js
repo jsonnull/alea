@@ -1,7 +1,7 @@
 import Random from 'random-js'
 import {
   SEND_MESSAGE
-} from '../../actions'
+} from '../actions'
 
 function runCommand (text, random) {
   let words = text.split(' ')

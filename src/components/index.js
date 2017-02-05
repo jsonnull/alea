@@ -4,7 +4,6 @@ import Chat from './chat'
 import Loading from './loading'
 import Login from './login'
 import Map from './map'
-import Profile from './user'
 import Sidebar from './sidebar'
 import styles from './style.css'
 
@@ -27,7 +26,6 @@ class Frontend extends React.Component {
         <Map/>
         <Sidebar/>
         <Chat/>
-        {/*<Profile/>*/}
       </div>
     )
   }

@@ -1,16 +1,16 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import Firebase from './firebase'
+import Firebase from './firebase/'
 // middleware
 import commandParser from './middleware/commands'
 import firebaseMiddleware from './middleware/firebase'
 // reducers
-import chat from '../components/Chat/reducers'
-import loading from '../components/loading/reducers'
-import preferences from '../components/Preferences/reducers'
-import sidebar from '../components/Sidebar/reducers'
-import user from '../components/User/reducers'
+import chat from './reducers/messages'
+import loading from './reducers/loading'
+import preferences from './reducers/preferences'
+import sidebar from './reducers/sidebar'
+import user from './reducers/user'
 // actions
-import { receiveMessage } from '../actions'
+import { receiveMessage } from './actions'
 
 export default function createStoreWithMiddleware (config) {
   // Create the firebase context

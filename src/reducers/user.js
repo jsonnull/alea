@@ -1,7 +1,7 @@
 import {
   LOGOUT,
   UPDATE_USER
-} from '../../actions'
+} from '../actions'
 
 const initialState = {
   isLoggedIn: false,

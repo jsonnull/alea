@@ -1,9 +1,9 @@
 import * as firebase from 'firebase'
-import savePreferences from './firebase/savePreferences.js' 
-import sendMessage from './firebase/sendMessage.js' 
-import login from './firebase/login.js' 
-import logout from './firebase/logout.js' 
-import updateUserFirebase from './firebase/updateUser.js' 
+import savePreferences from './savePreferences.js' 
+import sendMessage from './sendMessage.js' 
+import login from './login.js' 
+import logout from './logout.js' 
+import updateUserFirebase from './updateUser.js' 
 import {
   updateUser,
   receivePreferences,

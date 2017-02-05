@@ -5,7 +5,7 @@ import {
   SAVE_PREFERENCES,
   SEND_MESSAGE,
   UPDATE_USER
-} from '../../actions'
+} from '../actions'
 
 const firebaseMiddleware = firebase => store => next => action => {
   const firebaseCommand = action.firebase

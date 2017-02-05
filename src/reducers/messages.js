@@ -1,6 +1,6 @@
 import {
   RECEIVE_MESSAGE
-} from '../../actions'
+} from '../actions'
 
 const initialState = {
   messages: []

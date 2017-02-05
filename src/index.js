@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import Frontend from './components/'
-import createStore from './backend/index'
+import createStore from './redux'
 import './style.css'
 
 // Initialize Firebase

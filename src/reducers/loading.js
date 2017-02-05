@@ -1,6 +1,6 @@
 import {
   SET_LOADING
-} from '../../actions'
+} from '../actions'
 
 const initialState = true
 
