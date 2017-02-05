@@ -3,13 +3,8 @@
 
 .login {
   width: 300px;
-  height: 228px;
-  /* 36*2 + 48*2 + 24bottom + 24bottom */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-left: -150px;
-  margin-top: -114px;
+  align-self: center;
+  margin: 0 auto;
   background: $bgPrimary;
   border-radius: 5px;
   padding: 2.4rem;

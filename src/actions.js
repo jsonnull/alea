@@ -15,6 +15,10 @@ export const receiveMessage = message => {
   return { type: RECEIVE_MESSAGE, key, from, text, result }
 }
 
+/* Loading screen */
+export const SET_LOADING = 'SET_LOADING'
+export const setLoading = isLoading => ({ type: SET_LOADING, isLoading })
+
 /* User */
 export const UPDATE_USER = 'UPDATE_USER'
 export const updateUser = user => ({ type: UPDATE_USER, user, firebase: UPDATE_USER })
