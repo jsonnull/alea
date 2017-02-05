@@ -1,3 +1,4 @@
+/* State tree */
 export type State {
   messages: Array<Message>,
   ui: UIState,
@@ -7,7 +8,6 @@ export type State {
 
 export type MessagesState = Array<Message>
 
-/* State tree */
 export type UIState {
   appIsLoading: boolean,
   userIsLoggedIn: boolean
