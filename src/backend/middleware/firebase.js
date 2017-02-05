@@ -20,7 +20,7 @@ const firebaseMiddleware = firebase => store => next => action => {
 
     switch (firebaseCommand) {
       case SAVE_PREFERENCES:
-        firebase.savePreferences(state)
+        setTimeout(() => firebase.savePreferences(store.getState()), 0)
         break
       case LOAD_MESSAGES:
         firebase.loadMessages()
