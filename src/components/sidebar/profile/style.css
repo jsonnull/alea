@@ -44,6 +44,10 @@
       force-include: true;
     }
   }
+
+  &.logout {
+    background-color: $red;
+  }
 }
 
 .themeButtons {

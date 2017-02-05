@@ -19,9 +19,10 @@
     width: 100%;
     resize: none;
     color: black;
-    background-color: $white;
+    background-color: $bgPrimary;
     border-radius: 5px;
-    border: 1px solid $borderColorLight;
+    // border: 1px solid $borderColorLight;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 
     :global(.dark) & {
       border: 1px solid $borderColorDark;

@@ -62,7 +62,7 @@ class Profile extends React.Component {
         <ThemeButtons selected={ this.props.theme }
           changeThemeTo={ theme => this.props.updateTheme(theme) } />
 
-        <button className={styles.button} type='button' onClick={() => this.props.logout() }>Logout</button>
+        <button className={`${styles.button} ${styles.logout}`} type='button' onClick={() => this.props.logout() }>Logout</button>
       </div>
     )
   }

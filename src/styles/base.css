@@ -1,18 +1,23 @@
+/* Universal colors */
 $red: #bf3542;
 $yellow: #ff974f;
 $green: #8c9b7a;
+$blue: #046380;
+$lightBlue: #057091;
+
+/* Light */
+$bgPrimary: #f7f7f7;
+$bgSecondary: #ebe3d6;
+$map: #BFBCA5;
 
 $lightGray: #cdc5ba;
 $veryLightGray: #ebe3d6;
-
-$darkGray: #3c3c3c;
-$veryDarkGray: #2e2e2e;
-
-$white: #f7f7f7;
-$darkWhite: #e3e3e3;
-
 $borderColorGray: #ccc;
 $borderColorLight: #ADAB96;
+
+/* Dark */
+$darkGray: #3c3c3c;
+$veryDarkGray: #2e2e2e;
 $borderColorDark: #1a1a1a;
 
 /* Sizes */

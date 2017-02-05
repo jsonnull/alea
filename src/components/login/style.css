@@ -10,7 +10,7 @@
   left: 50%;
   margin-left: -150px;
   margin-top: -114px;
-  background: $white;
+  background: $bgPrimary;
   border-radius: 5px;
   padding: 2.4rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);

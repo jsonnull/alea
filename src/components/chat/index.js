@@ -10,16 +10,22 @@ import styles from './style.css'
 
 class Message extends React.Component {
   render () {
+    let Content
+    if (this.props.result) {
+      Content = <div className={styles.messageResult}>
+        { this.props.result }
+      </div>
+    } else {
+      Content = <div className={styles.messageText}>
+        { this.props.text }
+      </div>
+    }
+
     return <div className={styles.message}>
       <div className={styles.messageFrom}>
         { this.props.from }
       </div>
-      <div className={styles.messageText}>
-        { this.props.text }
-      </div>
-      <div className={styles.messageResult}>
-        { this.props.result }
-      </div>
+      {Content}
     </div>
   }
 }
@@ -62,6 +68,7 @@ class Chat extends React.Component {
               result={message.result}
             />
           )}
+          <div className={ styles.spacer }>&nbsp;</div>
         </div>
         <Compose onSend={message => this.sendMessage(message)} />
       </div>

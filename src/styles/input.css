@@ -31,7 +31,7 @@
   transition-timing-function: ease-out;
 }
   @define-placeholder buttonHoverDark {
-    background-color: $white;
+    background-color: $bgPrimary;
     color: black;
   }
 

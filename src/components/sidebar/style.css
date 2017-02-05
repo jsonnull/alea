@@ -1,7 +1,7 @@
 @import 'base';
 
 .sidebar {
-  background-color: $white;
+  background-color: $bgPrimary;
   width: 300px;
 
   display: flex;
@@ -17,7 +17,8 @@
   flex-direction: column;
   width: 4.8rem;
   padding: 2.5rem 0;
-  background-color: $veryLightGray;
+  color: white;
+  background-color: $blue;
 
   :global(.dark) & {
     background-color: $borderColorDark;
@@ -31,13 +32,13 @@
     line-height: 4.8rem;
 
     &:hover {
-      background-color: $yellow;
+      background-color: $lightBlue;
       color: white;
       cursor: pointer;
     }
   }
     .menuItemSelected {
-      border-left: 3px solid $yellow;
+      border-left: 3px solid $bgPrimary;
     }
 
 .content {

@@ -5,20 +5,21 @@
 .darkTheme {}
 
 .chat {
-  background-color: $darkWhite;
+  background-color: $bgPrimary;
   width: $chatWidth;
   position: relative;
   overflow: hidden;
 
   display: flex;
   flex-direction: column;
+  margin-left: auto;
 
   :global(.dark) & {
     background-color: $darkGray;
   }
 
   &.unpinned {
-    top: auto;
+    margin-top: auto;
     background: transparent;
     border-color: transparent;
     align-self: flex-end;
@@ -37,19 +38,30 @@
   align-items: flex-start;
 
   .unpinned & {
+    width: 300px;
     flex: none;
+    align-items: flex-end;
     overflow: hidden;
   }
 }
 
+.spacer {
+  height: 5px;
+  line-height: 5px;
+  font-size: 5px;
+  .unpinned & {
+    height: 10px;
+    line-height: 10px;
+    font-size: 10px;
+  }
+}
+
 .message {
-  margin-top: 1rem;
-  border-radius: 5px;
-  border: 1px solid $borderColorGray;
-  border-bottom: 2px solid $borderColorGray;
-  background-color: $white;
-  max-width: 280px;
+  margin: 0.5rem 0 0;
+  padding: 0 0 0.5rem;
+  border-bottom: 1px solid $borderColorGray;
   display: inline-block;
+  width: 250px;
 
   :global(.dark) & {
     border: 1px solid $borderColorDark;
@@ -58,8 +70,14 @@
   }
 
   .unpinned & {
-    border: 1px solid $lightGray;
-    border-bottom: 2px solid $borderColorLight;
+    margin: 1rem 0 0;
+    padding: 0;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: $bgPrimary;
+    width: auto;
+    max-width: 250px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 
     :global(.dark) & {
       border: 1px solid $borderColorDark;
@@ -71,32 +89,18 @@
     font-weight: bold;
     font-size: 1.3rem;
     color: $darkGray;
-    padding: 0.5rem 1rem 0;
+    padding: 0.2rem 1rem 0;
 
     :global(.dark) & {
       color: $lightGray;
     }
   }
   .messageText {
-    padding: 0 1rem 0.5rem;
+    padding: 0 1rem 0.2rem;
   }
   .messageResult {
-    background-color: $borderColorGray;
     font-weight: bold;
-    padding: 0 1rem;
-    border-radius: 3px;
-
-    :global(.dark) & {
-      background-color: $borderColorDark;
-    }
-
-    .unpinned & {
-      background-color: $borderColorLight;
-
-      :global(.dark) & {
-        background-color: $borderColorDark;
-      }
-    }
+    padding: 0 1rem 0.2rem;
   }
 
 .button {
@@ -112,16 +116,18 @@
   right: 2.4rem;
 
   .unpinned & {
-    position: static;
-    margin-left: 2.4rem;
+    position: relative;
+    align-self: flex-end;
+    right: 2.4rem;
     margin-top: 0;
-    background-color: $lightGray;
+    background-color: $bgPrimary;
     color: $darkGray;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
   }
 
   &:hover {
     color: white;
-    background-color: $red;
+    background-color: $blue;
     cursor: pointer;
   }
 }
