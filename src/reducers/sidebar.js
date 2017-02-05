@@ -1,15 +1,15 @@
-import {
-  CHANGE_SIDEBAR_TAB
-} from '../actions'
+/* @flow */
+import type { Action } from '../actions/types'
+import type { SidebarState } from '../types'
 
 const initialState = {
   open: true,
   tab: 'World'
 }
 
-export default function reducer (state = initialState, action) {
+export default function reducer (state: SidebarState = initialState, action: Action) {
   switch (action.type) {
-    case CHANGE_SIDEBAR_TAB:
+    case 'CHANGE_SIDEBAR_TAB':
       return { ...state, tab: action.tab }
     default:
       return state

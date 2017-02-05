@@ -5,7 +5,7 @@ import {
   THEME_DARK,
   changeTheme,
   logout
-} from '../../../actions'
+} from '../../../actions/'
 import styles from './style.css'
 
 const Label = props => <label className={ styles.label }>{ props.children }</label>

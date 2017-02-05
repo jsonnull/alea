@@ -1260,6 +1260,10 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+flow-bin:
+  version "0.38.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.38.0.tgz#3ae096d401c969cc8b5798253fb82381e2d0237a"
+
 for-in@^0.1.5:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-0.1.6.tgz#c9f96e89bfad18a545af5ec3ed352a1d9e5b4dc8"
@@ -1357,7 +1361,7 @@ glob-parent@^2.0.0:
   dependencies:
     is-glob "^2.0.0"
 
-glob@^7.0.5, glob@^7.1.1:
+glob@^7.0.5:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
@@ -2319,17 +2323,6 @@ postcss-import:
     read-cache "^1.0.0"
     resolve "^1.1.7"
 
-postcss-import@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-9.0.0.tgz#751fcd21c53eec6eb468890384ce3c114968b391"
-  dependencies:
-    object-assign "^4.0.1"
-    postcss "^5.0.14"
-    postcss-value-parser "^3.2.3"
-    promise-each "^2.2.0"
-    read-cache "^1.0.0"
-    resolve "^1.1.7"
-
 postcss-load-config@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/postcss-load-config/-/postcss-load-config-1.0.0.tgz#1399f60dcd6bd9c3124b2eb22960f77f9dc08b3d"
@@ -2475,13 +2468,6 @@ postcss-ordered-values@^2.1.0:
     postcss "^5.0.4"
     postcss-value-parser "^3.0.1"
 
-postcss-partial-import:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-partial-import/-/postcss-partial-import-3.1.0.tgz#170e8203880475974ac0bf56039bc68c43539987"
-  dependencies:
-    glob "^7.1.1"
-    postcss-import "^9.0.0"
-
 postcss-reduce-idents@^2.2.2:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/postcss-reduce-idents/-/postcss-reduce-idents-2.3.1.tgz#024e8e219f52773313408573db9645ba62d2d2fe"
@@ -2502,12 +2488,6 @@ postcss-reduce-transforms@^1.0.3:
     has "^1.0.1"
     postcss "^5.0.8"
     postcss-value-parser "^3.0.1"
-
-postcss-scss:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-0.4.0.tgz#087c052c529b9270d9580bd1248a0f93d3b40d57"
-  dependencies:
-    postcss "^5.2.5"
 
 postcss-selector-parser@^2.0.0:
   version "2.2.2"
@@ -2546,7 +2526,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.5, postcss@^5.2.6:
+postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.6:
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.8.tgz#05720c49df23c79bda51fd01daeb1e9222e94390"
   dependencies:

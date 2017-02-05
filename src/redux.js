@@ -9,7 +9,7 @@ import sidebar from './reducers/sidebar'
 import user from './reducers/user/'
 import ui from './reducers/ui'
 // actions
-import { receiveMessage } from './actions'
+import { receiveMessage } from './actions/'
 
 export default function createStoreWithMiddleware (config) {
   // Create the firebase context

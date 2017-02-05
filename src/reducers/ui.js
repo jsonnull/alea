@@ -1,21 +1,19 @@
-import {
-  LOGOUT,
-  SET_LOADING,
-  SET_USER_LOGGED_IN
-} from '../actions'
+/* @flow */
+import type { Action } from '../actions/types'
+import type { UIState } from '../types'
 
 const initialState = {
   appIsLoading: true,
   userIsLoggedIn: false
 }
 
-export default function reducer (state = initialState, action) {
+export default function reducer (state: UIState = initialState, action: Action) {
   switch (action.type) {
-    case LOGOUT:
+    case 'LOGOUT':
       return { ...state, userIsLoggedIn: false }
-    case SET_LOADING:
+    case 'SET_LOADING':
       return { ...state, appIsLoading: action.appIsLoading }
-    case SET_USER_LOGGED_IN:
+    case 'SET_USER_LOGGED_IN':
       return { ...state, userIsLoggedIn: true }
     default:
       return state

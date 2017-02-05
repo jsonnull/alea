@@ -1,19 +1,28 @@
+/* @flow */
 import * as firebase from 'firebase'
 import savePreferences from './savePreferences.js' 
 import sendMessage from './sendMessage.js' 
 import login from './login.js' 
 import logoutBackend from './logout.js' 
 import updateUserFirebase from './updateUserProfile' 
+import type { State } from '../types'
+import type { Action } from '../actions/types'
 import {
   updateUserProfile,
   receivePreferences,
   setLoading,
   setUserLoggedIn,
   logout
-} from '../actions'
+} from '../actions/'
 
 export default class Firebase {
-  constructor (config) {
+  auth: Object
+  database: Object
+  storage: Object
+  messagesRef: Object
+  messageReceived: Function
+
+  constructor (config: Object) {
     // Initialize
     firebase.initializeApp(config)
 
@@ -23,7 +32,7 @@ export default class Firebase {
   }
 
   // Initialize the auth submodule
-  initAuth (store) {
+  initAuth (store: Object) {
     const hydrateUserProfile = user => store.dispatch(updateUserProfile(user))
     const hydratePreferences = prefs => store.dispatch(receivePreferences(prefs))
     const hideLogin = user => store.dispatch(setUserLoggedIn())
@@ -59,7 +68,7 @@ export default class Firebase {
   }
 
   // Initialize messages functionality
-  initMessages (messageReceived) {
+  initMessages (messageReceived: Function) {
     this.messageReceived = (message) => { messageReceived(message) }
     this.loadMessages()
   }
@@ -85,23 +94,23 @@ export default class Firebase {
     this.messagesRef.limitToLast(12).on('child_changed', setMessage)
   }
 
-  savePreferences (state) {
+  savePreferences (state: State) {
     savePreferences(this, state)
   }
 
-  sendMessage (state, action) {
+  sendMessage (state: State, action: Action) {
     sendMessage(this, state, action)
   }
 
-  login (email, password) {
-    login(this, email, password)
+  login (action: Action) {
+    login(this, action)
   }
 
   logout () {
     logoutBackend(this)
   }
 
-  updateUserProfile (action) {
+  updateUserProfile (action: Action) {
     updateUserFirebase(this, action)
   }
 }

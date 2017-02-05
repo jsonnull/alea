@@ -1,16 +1,15 @@
-import {
-  LOGOUT,
-  UPDATE_USER_PROFILE
-} from '../../actions'
+/* @flow */
+import type { Action } from '../../actions/types'
+import type { UserProfileState } from '../../types'
 
 const initialState = {
   displayName: 'anonymous',
   photoURL: '/img/default.png'
 }
 
-export default function reducer (state = initialState, action) {
+export default function reducer (state: UserProfileState = initialState, action: Action) {
   switch (action.type) {
-    case UPDATE_USER_PROFILE:
+    case 'UPDATE_USER_PROFILE':
       return { ...state, ...action.user }
     default:
       return state

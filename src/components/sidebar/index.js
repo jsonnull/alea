@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { changeSidebarTab } from '../../actions'
+import { changeSidebarTab } from '../../actions/'
 import Profile from './profile'
 import styles from './style.css'
 

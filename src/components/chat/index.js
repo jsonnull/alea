@@ -4,7 +4,7 @@ import Compose from './compose'
 import {
   sendMessage,
   toggleChatPin
-} from '../../actions'
+} from '../../actions/'
 import styles from './style.css'
 
 

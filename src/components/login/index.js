@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {
   login
-} from '../../actions'
+} from '../../actions/'
 import styles from './style.css'
 
 class Login extends React.Component {

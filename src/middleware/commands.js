@@ -1,9 +1,8 @@
+/* @flow */
 import Random from 'random-js'
-import {
-  SEND_MESSAGE
-} from '../actions'
+import type { Action } from '../actions/types'
 
-function runCommand (text, random) {
+function runCommand (text: string, random: Object) {
   let words = text.split(' ')
 
   let args = words.slice(1).join(' ')
@@ -16,11 +15,13 @@ function runCommand (text, random) {
   }
 }
 
-function roll (text, random) {
+function roll (text: string, random: Object) {
   var args = text.split(' ')
 
   // Get the random number
   let [num, max] = args[0].split('d')
+  num = Number(num)
+  max = Number(max)
   console.log(num, max)
 
   let rands = []
@@ -35,11 +36,11 @@ function roll (text, random) {
   return message
 }
 
-const commandParser = store => next => {
+const commandParser = (store: Object) => (next: Function) => {
   let random = new Random(Random.engines.mt19937().autoSeed())
 
-  return action => {
-    if (action.type == SEND_MESSAGE) {
+  return (action: Action) => {
+    if (action.type === 'SEND_MESSAGE') {
       const { text } = action
 
       if (text[0] !== '/') {

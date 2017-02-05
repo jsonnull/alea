@@ -1,23 +1,19 @@
-import {
-  CHANGE_THEME,
-  TOGGLE_CHAT_PIN,
-  RECEIVE_PREFS,
-  THEME_DARK,
-  THEME_LIGHT
-} from '../../actions'
+/* @flow */
+import type { Action } from '../../actions/types'
+import type { UserPreferencesState } from '../../types'
 
 const initialState = {
-  theme: THEME_LIGHT,
+  theme: 'light',
   chatPinned: false
 }
 
-export default function reducer (state = initialState, action) {
+export default function reducer (state: UserPreferencesState = initialState, action: Action) {
   switch (action.type) {
-    case CHANGE_THEME:
+    case 'CHANGE_THEME':
       return { ...state, theme: action.theme }
-    case TOGGLE_CHAT_PIN:
+    case 'TOGGLE_CHAT_PIN':
       return { ...state, chatPinned: !state.chatPinned }
-    case RECEIVE_PREFS:
+    case 'RECEIVE_PREFERENCES':
       const { theme, chatPinned } = action.prefs
       return { ...state, theme, chatPinned }
     default:
