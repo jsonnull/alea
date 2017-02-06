@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Compose from './compose'
+import timeago from 'timeago.js'
 import {
   sendMessage,
   toggleChatPin
@@ -23,7 +24,10 @@ class Message extends React.Component {
 
     return <div className={styles.message}>
       <div className={styles.messageFrom}>
-        { this.props.from }
+        { this.props.from }{' '}
+        <span className={styles.messageFromDate}>
+          { new timeago().format(this.props.timestamp) }
+        </span>
       </div>
       {Content}
     </div>
@@ -31,6 +35,11 @@ class Message extends React.Component {
 }
 
 class Chat extends React.Component {
+  constructor (props) {
+    super(props)
+    setInterval(() => this.forceUpdate(), 60000)
+  }
+
   sendMessage (text) {
     // this.props.firebase.saveMessage(text)
     this.props.sendMessage(text.trim())
@@ -61,12 +70,7 @@ class Chat extends React.Component {
         </div>
         <div className={ styles.messages } ref='scroll'>
           {messages.map(message =>  
-            <Message
-              key={message.key}
-              text={message.text}
-              from={message.from}
-              result={message.result}
-            />
+            <Message {...message} />
           )}
           <div className={ styles.spacer }>&nbsp;</div>
         </div>

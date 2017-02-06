@@ -1,11 +1,11 @@
 /* @flow */
 import * as firebase from 'firebase'
 import savePreferences from './savePreferences.js' 
-import sendMessage from './sendMessage.js' 
+// import sendMessage from './sendMessage.js' 
 import login from './login.js' 
 import logoutBackend from './logout.js' 
 import updateUserFirebase from './updateUserProfile' 
-import type { State } from '../types'
+import type { State, Message, FirebaseMessage } from '../types'
 import type { Action } from '../actions/types'
 import {
   updateUserProfile,
@@ -16,6 +16,7 @@ import {
 } from '../actions/'
 
 export default class Firebase {
+  firebase: Object
   auth: Object
   database: Object
   storage: Object
@@ -26,6 +27,7 @@ export default class Firebase {
     // Initialize
     firebase.initializeApp(config)
 
+    this.firebase = firebase
     this.auth = firebase.auth()
     this.database = firebase.database()
     this.storage = firebase.storage()
@@ -80,18 +82,40 @@ export default class Firebase {
     this.messagesRef.off()
 
     const setMessage = data => {
-      const { name, text, result } = data.val()
-      const message = {
+      const { name, text, result, timestamp } = data.val()
+      const message: Message = {
         key: data.key,
         from: name,
         text,
-        result
+        result,
+        timestamp
       }
       this.messageReceived(message)
     }
 
     this.messagesRef.limitToLast(12).on('child_added', setMessage)
-    this.messagesRef.limitToLast(12).on('child_changed', setMessage)
+    // this.messagesRef.limitToLast(12).on('child_changed', setMessage)
+  }
+
+  handleAction(action: Action, store: Object) {
+    const state: State = store.getState()
+    switch (action.type) {
+      case 'TOGGLE_CHAT_PIN':
+      case 'CHANGE_THEME':
+        return setTimeout(() => this.savePreferences(store.getState()), 0)
+      case 'LOAD_MESSAGES':
+        return this.loadMessages()
+      case 'SEND_MESSAGE':
+        return this.sendMessage(state, action)
+      case 'LOGIN':
+        return this.login(action)
+      case 'LOGOUT':
+        return this.logout(state)
+      case 'UPDATE_USER_PROFILE':
+        return this.updateUserProfile(action)
+      default:
+        return
+    }
   }
 
   savePreferences (state: State) {
@@ -99,7 +123,21 @@ export default class Firebase {
   }
 
   sendMessage (state: State, action: Action) {
-    sendMessage(this, state, action)
+    if (action.type === 'SEND_MESSAGE') { // needed for flow type-checking to pass
+      const { text, result = null } = action
+
+      const message: FirebaseMessage = {
+        name: state.user.profile.displayName,
+        text,
+        result,
+        timestamp: this.firebase.database.ServerValue.TIMESTAMP
+      }
+
+      this.messagesRef
+        .push(message)
+        .then(() => {})
+        .catch(e => console.error(e))
+    }
   }
 
   login (action: Action) {

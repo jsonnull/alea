@@ -11,8 +11,8 @@ export const loadMessages = (): Action => ({ type: 'LOAD_MESSAGES', firebase: 'L
 export const sendMessage = (text: string): Action => ({ type: 'SEND_MESSAGE', text, result: null, firebase: 'SEND_MESSAGE' })
 
 export const receiveMessage = (message: Object): Action => {
-  const { key, from, text, result } = message
-  return { type: 'RECEIVE_MESSAGE', key, from, text, result }
+  const { key, from, text, result, timestamp } = message
+  return { type: 'RECEIVE_MESSAGE', key, from, text, result, timestamp }
 }
 
 /* UI */

@@ -35,7 +35,7 @@ export default class Compose extends React.Component {
     const scrollHeight = autogrow.scrollHeight 
 
     let height = 0
-    if (scrollHeight !== 48) {
+    if (scrollHeight !== 50) {
       height = scrollHeight + 2
     }
 

@@ -1,3 +1,4 @@
+/* @flow */
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import Firebase from './firebase/'
 // middleware
@@ -11,7 +12,7 @@ import ui from './reducers/ui'
 // actions
 import { receiveMessage } from './actions/'
 
-export default function createStoreWithMiddleware (config) {
+export default function createStoreWithMiddleware (config: Object) {
   // Create the firebase context
   let firebase = new Firebase(config)
 

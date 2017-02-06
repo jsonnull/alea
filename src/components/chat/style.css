@@ -95,6 +95,11 @@
       color: $lightGray;
     }
   }
+    .messageFromDate {
+      color: #999;
+      font-weight: normal;
+      font-style: italic;
+    }
   .messageText {
     padding: 0 1rem 0.2rem;
   }
