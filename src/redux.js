@@ -3,7 +3,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import Firebase from './firebase/'
 // middleware
 import commandParser from './middleware/commands'
-import firebaseMiddleware from './middleware/firebase'
 // reducers
 import messages from './reducers/messages'
 import sidebar from './reducers/sidebar'
@@ -25,7 +24,7 @@ export default function createStoreWithMiddleware (config: Object) {
 
   const middleware = applyMiddleware(
     commandParser,
-    firebaseMiddleware(firebase)
+    firebase.handleActionMiddleware()
   )
 
   let store = createStore(reducers, middleware)
@@ -36,9 +35,7 @@ export default function createStoreWithMiddleware (config: Object) {
     console.log(store.getState())
   )
 
-  // Register firebase callbacks
-  firebase.initAuth(store)
-  firebase.initMessages(message => store.dispatch(receiveMessage(message)))
+  firebase.init(store)
 
   return store
 }

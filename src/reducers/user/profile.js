@@ -10,6 +10,7 @@ const initialState = {
 export default function reducer (state: UserProfileState = initialState, action: Action) {
   switch (action.type) {
     case 'UPDATE_USER_PROFILE':
+    case 'LOAD_USER_PROFILE':
       return { ...state, ...action.user }
     default:
       return state

@@ -5,10 +5,10 @@ export const THEME_LIGHT = 'light'
 export const THEME_DARK = 'dark'
 
 // Firebase calls
-export const loadMessages = (): Action => ({ type: 'LOAD_MESSAGES', firebase: 'LOAD_MESSAGES' })
+export const loadMessages = (): Action => ({ type: 'LOAD_MESSAGES' })
 
 /* Messages */
-export const sendMessage = (text: string): Action => ({ type: 'SEND_MESSAGE', text, result: null, firebase: 'SEND_MESSAGE' })
+export const sendMessage = (text: string): Action => ({ type: 'SEND_MESSAGE', text, result: null })
 
 export const receiveMessage = (message: Object): Action => {
   const { key, from, text, result, timestamp } = message
@@ -21,16 +21,17 @@ export const setLoading = (appIsLoading: boolean): Action => ({ type: 'SET_LOADI
 export const setUserLoggedIn = (): Action => ({ type: 'SET_USER_LOGGED_IN' })
 
 /* User */
-export const updateUserProfile = (user: Object): Action => ({ type: 'UPDATE_USER_PROFILE', user, firebase: 'UPDATE_USER_PROFILE' })
+export const updateUserProfile = (user: Object): Action => ({ type: 'UPDATE_USER_PROFILE', user })
+export const loadUserProfile = (user: Object): Action => ({ type: 'LOAD_USER_PROFILE', user })
 
-export const login = (email: string, password: string): Action => ({ type: 'LOGIN', email, password, firebase: 'LOGIN' })
+export const login = (email: string, password: string): Action => ({ type: 'LOGIN', email, password })
 
 export const logout = (): Action => ({ type: 'LOGOUT' })
 
 /* Preferences */
-export const toggleChatPin = (): Action => ({ type: 'TOGGLE_CHAT_PIN', firebase: 'SAVE_PREFERENCES' })
+export const toggleChatPin = (): Action => ({ type: 'TOGGLE_CHAT_PIN' })
 
-export const changeTheme = (theme: string): Action => ({ type: 'CHANGE_THEME', theme, firebase: 'SAVE_PREFERENCES' })
+export const changeTheme = (theme: string): Action => ({ type: 'CHANGE_THEME', theme })
 
 export const receivePreferences = (prefs: Object): Action => ({ type: 'RECEIVE_PREFERENCES', prefs })
 

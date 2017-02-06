@@ -7,6 +7,7 @@ export type Action =
   | { type: 'SET_LOADING', appIsLoading: boolean }
   | { type: 'SET_USER_LOGGED_IN' }
   | { type: 'UPDATE_USER_PROFILE', user: Object }
+  | { type: 'LOAD_USER_PROFILE', user: Object }
   | { type: 'LOGIN', email: string, password: string }
   | { type: 'LOGOUT' }
   | { type: 'TOGGLE_CHAT_PIN' }

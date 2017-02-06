@@ -1,10 +1,9 @@
 /* @flow */
 import * as firebase from 'firebase'
-import savePreferences from './savePreferences.js' 
-// import sendMessage from './sendMessage.js' 
-import login from './login.js' 
-import logoutBackend from './logout.js' 
-import updateUserFirebase from './updateUserProfile' 
+import MessagesManager from './messages'
+import UserManager from './user'
+import Auth from './auth'
+
 import type { State, Message, FirebaseMessage } from '../types'
 import type { Action } from '../actions/types'
 import {
@@ -16,51 +15,26 @@ import {
 } from '../actions/'
 
 export default class Firebase {
-  firebase: Object
-  auth: Object
-  database: Object
-  storage: Object
-  messagesRef: Object
-  messageReceived: Function
+  messages: MessagesManager
+  user: UserManager
 
   constructor (config: Object) {
     // Initialize
     firebase.initializeApp(config)
-
-    this.firebase = firebase
-    this.auth = firebase.auth()
-    this.database = firebase.database()
-    this.storage = firebase.storage()
   }
 
   // Initialize the auth submodule
-  initAuth (store: Object) {
-    const hydrateUserProfile = user => store.dispatch(updateUserProfile(user))
-    const hydratePreferences = prefs => store.dispatch(receivePreferences(prefs))
-    const hideLogin = user => store.dispatch(setUserLoggedIn())
+  init (store: Object) {
+    const hideLogin = () => store.dispatch(setUserLoggedIn())
     const showLogin = () => store.dispatch(logout())
     const finishLoading = () => store.dispatch(setLoading(false))
 
     // Initiates Firebase auth and listen to auth state changes
-    this.auth.onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // User is logged in
-        const { displayName, photoURL } = this.auth.currentUser
-        let user = {
-          displayName,
-          photoURL
-        }
-
-        hydrateUserProfile(user)
+        this.messages = new MessagesManager(store)
+        this.user = new UserManager(store)
         hideLogin()
-
-        // load preferences
-        const uid = this.auth.currentUser.uid
-        this.database.ref(`prefs/${uid}`).once('value')
-          .then(prefs => {
-            hydratePreferences(prefs.val())
-          })
-          .catch(e => console.error(e))
       } else {
         showLogin()
       }
@@ -69,86 +43,40 @@ export default class Firebase {
     })
   }
 
-  // Initialize messages functionality
-  initMessages (messageReceived: Function) {
-    this.messageReceived = (message) => { messageReceived(message) }
-    this.loadMessages()
-  }
-
-  loadMessages () {
-    // Reference to the /messages/ database path
-    this.messagesRef = this.database.ref('messages')
-    // Make sure we remove all previous listeners
-    this.messagesRef.off()
-
-    const setMessage = data => {
-      const { name, text, result, timestamp } = data.val()
-      const message: Message = {
-        key: data.key,
-        from: name,
-        text,
-        result,
-        timestamp
+  handleActionMiddleware (): Function {
+    return (store: Object) => (next: Function) => (action: Action) => {
+      // Error on Firebase-y actions if there's no logged-in user
+      if (action.type !== 'LOGIN' && action.type !== 'SET_LOADING') {
+        if (firebase.auth().currentUser == undefined) {
+          console.error('User is not signed in')
+          return
+        }
       }
-      this.messageReceived(message)
-    }
 
-    this.messagesRef.limitToLast(12).on('child_added', setMessage)
-    // this.messagesRef.limitToLast(12).on('child_changed', setMessage)
+      this.handleAction(action, store)
+
+      next(action)
+    }
   }
 
-  handleAction(action: Action, store: Object) {
+  handleAction (action: Action, store: Object) {
     const state: State = store.getState()
     switch (action.type) {
       case 'TOGGLE_CHAT_PIN':
       case 'CHANGE_THEME':
-        return setTimeout(() => this.savePreferences(store.getState()), 0)
+        return setTimeout(() => this.user.savePreferences(store.getState()), 0)
       case 'LOAD_MESSAGES':
-        return this.loadMessages()
+        return this.messages.loadMessages()
       case 'SEND_MESSAGE':
-        return this.sendMessage(state, action)
+        return this.messages.sendMessage(state, action)
       case 'LOGIN':
-        return this.login(action)
+        return Auth.login(action)
       case 'LOGOUT':
-        return this.logout(state)
+        return Auth.logout(state)
       case 'UPDATE_USER_PROFILE':
-        return this.updateUserProfile(action)
+        return this.user.updateProfile(action)
       default:
         return
     }
-  }
-
-  savePreferences (state: State) {
-    savePreferences(this, state)
-  }
-
-  sendMessage (state: State, action: Action) {
-    if (action.type === 'SEND_MESSAGE') { // needed for flow type-checking to pass
-      const { text, result = null } = action
-
-      const message: FirebaseMessage = {
-        name: state.user.profile.displayName,
-        text,
-        result,
-        timestamp: this.firebase.database.ServerValue.TIMESTAMP
-      }
-
-      this.messagesRef
-        .push(message)
-        .then(() => {})
-        .catch(e => console.error(e))
-    }
-  }
-
-  login (action: Action) {
-    login(this, action)
-  }
-
-  logout () {
-    logoutBackend(this)
-  }
-
-  updateUserProfile (action: Action) {
-    updateUserFirebase(this, action)
   }
 }
