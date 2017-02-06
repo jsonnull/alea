@@ -4,7 +4,7 @@ import type { SidebarState } from '../types'
 
 const initialState = {
   open: true,
-  tab: 'World'
+  tab: 'Session'
 }
 
 export default function reducer (state: SidebarState = initialState, action: Action) {

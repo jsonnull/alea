@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { changeSidebarTab } from '../../actions/'
 import Profile from './profile'
+import Session from './session'
 import styles from './style.css'
 
 const MenuItem = (props) => {
@@ -17,10 +18,10 @@ const MenuItem = (props) => {
 
 const SidebarContent = (props) => {
   switch (props.tab) {
-    case 'World':
-      return <div />
     case 'Profile':
       return <Profile />
+    case 'Session':
+      return <Session />
     default:
       return <div />
   }
@@ -29,7 +30,7 @@ const SidebarContent = (props) => {
 class Sidebar extends React.Component {
   render () {
     const buttons = [
-      ['World', 'fa-globe'],
+      ['Session', 'fa-globe'],
       ['Character', 'fa-id-card-o'],
       ['Profile', 'fa-cog']
     ]

@@ -3,21 +3,26 @@
 /* State tree */
 export type State = {
   messages: Array<Message>,
-  ui: UIState,
+  session: SessionState,
   sidebar: SidebarState,
+  ui: UIState,
   user: UserState
 }
 
 export type MessagesState = Array<Message>
 
-export type UIState = {
-  appIsLoading: boolean,
-  userIsLoggedIn: boolean
+export type SessionState = {
+  [key: string]: string
 }
 
 export type SidebarState = {
   open: boolean,
   tab: string
+}
+
+export type UIState = {
+  appIsLoading: boolean,
+  userIsLoggedIn: boolean
 }
 
 export type UserState = {

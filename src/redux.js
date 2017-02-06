@@ -1,15 +1,12 @@
 /* @flow */
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import Firebase from './firebase/'
-// middleware
 import commandParser from './middleware/commands'
-// reducers
 import messages from './reducers/messages'
+import session from './reducers/session'
 import sidebar from './reducers/sidebar'
-import user from './reducers/user/'
 import ui from './reducers/ui'
-// actions
-import { receiveMessage } from './actions/'
+import user from './reducers/user/'
 
 export default function createStoreWithMiddleware (config: Object) {
   // Create the firebase context
@@ -17,8 +14,9 @@ export default function createStoreWithMiddleware (config: Object) {
 
   const reducers = combineReducers({
     messages,
-    ui,
+    session,
     sidebar,
+    ui,
     user
   })
 
