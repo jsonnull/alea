@@ -36,7 +36,6 @@
   }
 
 @define-placeholder input {
-  line-height: 3.6rem;
   height: 3.6rem;
   padding: 6px 1rem;
   border: 1px solid $borderColorLight;

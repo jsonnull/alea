@@ -1,4 +1,5 @@
 @import 'base';
+@import 'sidebar';
 
 .sidebar {
   background-color: $bgPrimary;
@@ -46,4 +47,14 @@
   flex-direction: column;
   flex: 1;
   padding: 2.5rem;
+}
+
+.header {
+  @extend header;
+  include: true;
+
+  :global(.dark) & {
+    @extend headerDark;
+    include: true;
+  }
 }

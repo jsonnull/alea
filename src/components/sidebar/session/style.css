@@ -1,18 +1,1 @@
 @import 'base';
-@import 'sidebar';
-
-.container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  @extend header;
-  include: true;
-
-  :global(.dark) & {
-    @extend headerDark;
-    include: true;
-  }
-}

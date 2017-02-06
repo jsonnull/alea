@@ -87,13 +87,3 @@
     background-color: $green;
     border-color: $green;
   }
-
-.header {
-  @extend header;
-  include: true;
-
-  :global(.dark) & {
-    @extend headerDark;
-    include: true;
-  }
-}

@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Editable from '../editable'
 import {
   THEME_LIGHT,
   THEME_DARK,
   changeTheme,
+  updateUserProfile,
   logout
 } from '../../../actions/'
 import styles from './style.css'
@@ -31,33 +33,19 @@ const ThemeButtons = props => {
 }
 
 class Profile extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { displayName: this.props.displayName }
-  }
-
-  handleName (event) {
-    this.setState({ displayName: event.target.value})
-  }
-
-  handleSubmit (event) {
-    event.preventDefault()
-    this.props.firebase.updateDisplayName(
-      this.state.displayName
-    )
+  updateProfileName (name) {
+    let user = { displayName: name }
+    this.props.updateUserProfile(user)
   }
 
   render () {
     return (
       <div className={ styles.container }>
-        <h1 className={ styles.header }>Settings</h1>
+        <h1 className={ this.props.headerStyle }>Settings</h1>
+
         <Label>Display Name:</Label>
-        <input
-          className={ styles.field }
-          type='text'
-          value={this.state.displayName}
-          onChange={e => this.handleName(e)}
-        />
+        <Editable className={ styles.field } value={this.props.displayName} onChange={val => this.updateProfileName(val)}/>
+
         <Label>Theme</Label>
         <ThemeButtons selected={ this.props.theme }
           changeThemeTo={ theme => this.props.updateTheme(theme) } />
@@ -78,7 +66,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    updateTheme: theme => dispatch(changeTheme(theme))
+    updateTheme: theme => dispatch(changeTheme(theme)),
+    updateUserProfile: user => dispatch(updateUserProfile(user))
   }
 }
 

@@ -19,9 +19,9 @@ const MenuItem = (props) => {
 const SidebarContent = (props) => {
   switch (props.tab) {
     case 'Profile':
-      return <Profile />
+      return <Profile {...props}/>
     case 'Session':
-      return <Session />
+      return <Session {...props} />
     default:
       return <div />
   }
@@ -53,7 +53,7 @@ class Sidebar extends React.Component {
           )}
         </div>
         <div className={ styles.content }>
-          <SidebarContent tab={this.props.tab} />
+          <SidebarContent tab={this.props.tab} headerStyle={styles.header} />
         </div>
       </div>
     )
