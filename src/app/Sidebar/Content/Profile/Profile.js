@@ -1,39 +1,28 @@
+/* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
-import Editable from 'app/components/Editable'
+import Header from '../Header'
+import Name from './Name'
+import ThemeSwitcher from './ThemeSwitcher'
+import Logout from './Logout'
 import {
-  THEME_LIGHT,
-  THEME_DARK,
   changeTheme,
   updateUserProfile,
   logout
 } from 'actions'
 import sidebarStyles from '../style.css'
-import styles from './style.css'
 
-const Label = props => <label className={ sidebarStyles.label }>{ props.children }</label>
-
-const ThemeButtons = props => {
-  const lightSelected = props.selected == THEME_LIGHT
-    ? ' ' + styles.themeButtonSelected
-    : ''
-  const darkSelected = props.selected == THEME_DARK
-    ? ' ' + styles.themeButtonSelected
-    : ''
-
-  return <div className={ styles.themeButtons }>
-    <div className={ styles.themeButton + lightSelected }
-      onClick={ () => props.changeThemeTo(THEME_LIGHT) }>
-      Light
-    </div>
-    <div className={ styles.themeButton + darkSelected }
-      onClick={ () => props.changeThemeTo(THEME_DARK) }>
-      Dark
-    </div>
-  </div>
+type Props = {
+  displayName: string,
+  theme: string,
+  logout: Function,
+  updateTheme: Function,
+  updateUserProfile: Function
 }
 
 class Profile extends React.Component {
+  props: Props
+
   updateProfileName (name) {
     let user = { displayName: name }
     this.props.updateUserProfile(user)
@@ -41,17 +30,17 @@ class Profile extends React.Component {
 
   render () {
     return (
-      <div className={ styles.container }>
-        <h1 className={ sidebarStyles.header }>Settings</h1>
+      <div className={ sidebarStyles.inner }>
+        <Header>Settings</Header>
 
-        <Label>Display Name:</Label>
-        <Editable className={ sidebarStyles.field } value={this.props.displayName} onChange={val => this.updateProfileName(val)}/>
+        <Name name={this.props.displayName} onChange={n => this.updateProfileName(n)} />
 
-        <Label>Theme</Label>
-        <ThemeButtons selected={ this.props.theme }
-          changeThemeTo={ theme => this.props.updateTheme(theme) } />
+        <ThemeSwitcher
+          currentTheme={ this.props.theme }
+          changeTheme={theme => this.props.updateTheme(theme)}
+        />
 
-        <button className={`${styles.button} ${styles.logout}`} type='button' onClick={() => this.props.logout() }>Logout</button>
+        <Logout logout={() => this.props.logout}/>
       </div>
     )
   }

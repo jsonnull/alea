@@ -1,12 +1,22 @@
+/* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
+import Header from '../Header'
 import sidebarStyles from '../style.css'
 import styles from './style.css'
 
+type Props = {
+  name: string
+}
+
 class Session extends React.Component {
+  props: Props
+
   render () {
     return (
-      <h1 className={ sidebarStyles.header }>{ this.props.name }</h1>
+      <div className={ sidebarStyles.container }>
+        <Header>{ this.props.name }</Header>
+      </div>
     )
   }
 }
