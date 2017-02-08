@@ -10,11 +10,12 @@ import {
   updateUserProfile,
   logout
 } from 'actions'
+import type { Theme } from 'types'
 import sidebarStyles from '../style.css'
 
 type Props = {
   displayName: string,
-  theme: string,
+  theme: Theme,
   logout: Function,
   updateTheme: Function,
   updateUserProfile: Function

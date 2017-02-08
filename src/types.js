@@ -31,7 +31,7 @@ export type UserState = {
 }
 
 export type UserPreferencesState = {
-  theme: string,
+  theme: Theme,
   chatPinned: boolean
 }
 
@@ -56,3 +56,5 @@ export type FirebaseMessage = {
   text: string,
   timestamp: number
 }
+
+export type Theme = 'light' | 'dark'

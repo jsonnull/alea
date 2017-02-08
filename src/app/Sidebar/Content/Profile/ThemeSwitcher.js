@@ -1,22 +1,19 @@
 /* @flow */
 import React from 'react'
 import Label from '../Label'
-import {
-  THEME_LIGHT,
-  THEME_DARK
-} from 'actions'
 import styles from './style.css'
+import type { Theme } from 'types'
 
 type Props = {
-  currentTheme: string,
-  changeTheme: Function
+  currentTheme: Theme,
+  changeTheme: (Theme) => void
 }
 
 const ThemeSwitcher = (props: Props) => {
-  const lightSelected = props.currentTheme == THEME_LIGHT
+  const lightSelected = props.currentTheme == 'light'
     ? ' ' + styles.themeButtonSelected
     : ''
-  const darkSelected = props.currentTheme == THEME_DARK
+  const darkSelected = props.currentTheme == 'dark'
     ? ' ' + styles.themeButtonSelected
     : ''
 
@@ -24,11 +21,11 @@ const ThemeSwitcher = (props: Props) => {
     <Label>Theme</Label>
     <div className={ styles.themeButtons }>
       <div className={ styles.themeButton + lightSelected }
-        onClick={ () => props.changeTheme(THEME_LIGHT) }>
+        onClick={ () => props.changeTheme('light') }>
         Light
       </div>
       <div className={ styles.themeButton + darkSelected }
-        onClick={ () => props.changeTheme(THEME_DARK) }>
+        onClick={ () => props.changeTheme('dark') }>
         Dark
       </div>
     </div>

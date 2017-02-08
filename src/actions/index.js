@@ -1,8 +1,6 @@
 /* @flow */
 import type { Action } from './types'
-
-export const THEME_LIGHT = 'light'
-export const THEME_DARK = 'dark'
+import type { Theme } from 'types'
 
 // Firebase calls
 export const loadMessages = (): Action => ({ type: 'LOAD_MESSAGES' })
@@ -31,7 +29,7 @@ export const logout = (): Action => ({ type: 'LOGOUT' })
 /* Preferences */
 export const toggleChatPin = (): Action => ({ type: 'TOGGLE_CHAT_PIN' })
 
-export const changeTheme = (theme: string): Action => ({ type: 'CHANGE_THEME', theme })
+export const changeTheme = (theme: Theme): Action => ({ type: 'CHANGE_THEME', theme })
 
 export const receivePreferences = (prefs: Object): Action => ({ type: 'RECEIVE_PREFERENCES', prefs })
 
