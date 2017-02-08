@@ -1,13 +1,13 @@
 /* @flow */
-import * as firebase from 'firebase/auth'
-import type { Action } from '../actions/types'
+import auth from 'firebase/auth'
+import type { Action } from 'actions/types'
 
 export default class AuthManager {
   static login (action: Action) {
     if (action.type === 'LOGIN') {
       const { email, password } = action
 
-      firebase.auth()
+      auth()
         .signInWithEmailAndPassword(email, password)
         .then(() => {})
         .catch(e => console.error(e))
@@ -15,7 +15,7 @@ export default class AuthManager {
   }
 
   static logout () {
-    firebase.auth()
+    auth()
       .signOut()
       .then(() => {})
       .catch(e => console.error(e))
