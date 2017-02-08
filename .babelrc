@@ -4,6 +4,7 @@
     "syntax-flow",
     "transform-flow-strip-types",
     "transform-class-properties",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    "transform-remove-strict-mode"
   ]
 }
