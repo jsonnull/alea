@@ -14,11 +14,15 @@
 }
 
 .menuItem {
-  border-left: 3px solid transparent;
   text-align: center;
   height: 4.8rem;
   width: 4.8rem;
   line-height: 4.8rem;
+  background-repeat: no-repeat;
+  background-size: 3px 0;
+  background-position: 0 50%;
+  background-image: linear-gradient(white 0%, white 100%);
+  transition: background-size 100ms, background-position 100ms;
 
   &:hover {
     background-color: $lightBlue;
@@ -28,5 +32,7 @@
 }
 
 .menuItemSelected {
-  border-left: 3px solid $bgPrimary;
+  background-size: 3px 100%;
+  background-position: 0 0;
+  transition: background-size 100ms, background-position 100ms;
 }
