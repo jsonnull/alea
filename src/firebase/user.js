@@ -1,5 +1,7 @@
 /* @flow */
-import * as firebase from 'firebase'
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 import type { State } from '../types'
 import type { Action } from '../actions/types'
 import { receivePreferences, loadUserProfile } from '../actions/'

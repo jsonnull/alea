@@ -1,5 +1,6 @@
 /* @flow */
-import * as firebase from 'firebase'
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
 import MessagesManager from './messages'
 import UserManager from './user'
 import Auth from './auth'

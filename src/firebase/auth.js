@@ -1,5 +1,5 @@
 /* @flow */
-import * as firebase from 'firebase'
+import * as firebase from 'firebase/auth'
 import type { Action } from '../actions/types'
 
 export default class AuthManager {

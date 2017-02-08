@@ -5,10 +5,19 @@ const {
   entryPoint,
   setOutput,
   sourceMaps
-} = require('@webpack-blocks/webpack')
+} = require('@webpack-blocks/webpack2')
 const babel = require('@webpack-blocks/babel6')
 const postcss = require('@webpack-blocks/postcss')
 const cssModules = require('@webpack-blocks/css-modules')
+const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
+
+const directoryNamed = () => (context) => ({
+  resolve: {
+    plugins: [
+      new DirectoryNamedPlugin()
+    ]
+  }
+})
 
 module.exports = createConfig([
   entryPoint('./src/index.js'),
@@ -21,5 +30,6 @@ module.exports = createConfig([
   }),
   env('development', [
     sourceMaps()
-  ])
+  ]),
+  directoryNamed()
 ])

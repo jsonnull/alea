@@ -4,6 +4,7 @@
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
   "dependencies": {
+    "directory-named-webpack-plugin": "2",
     "firebase": "^3.6.4",
     "random-js": "^1.0.8",
     "react": "^15.4.1",
@@ -31,6 +32,6 @@
     "postcss-extend": "^1.0.5",
     "postcss-import": "^9.1.0",
     "postcss-nested": "^1.0.0",
-    "webpack": "1"
+    "webpack": "2"
   }
 }
