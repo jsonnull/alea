@@ -5,7 +5,7 @@ import timeago from 'timeago.js'
 import {
   sendMessage,
   toggleChatPin
-} from '../../actions/'
+} from 'actions'
 import styles from './style.css'
 
 

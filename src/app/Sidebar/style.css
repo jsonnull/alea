@@ -1,0 +1,15 @@
+@import 'base';
+
+.sidebar {
+  background-color: $bgPrimary;
+  width: 300px;
+
+  display: flex;
+  flex-direction: row;
+
+  :global(.dark) & {
+    background-color: $darkGray;
+  }
+}
+
+

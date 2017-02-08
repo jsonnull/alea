@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Editable from '../editable'
+import Editable from 'app/components/Editable'
 import {
   THEME_LIGHT,
   THEME_DARK,
   changeTheme,
   updateUserProfile,
   logout
-} from '../../../actions/'
+} from 'actions'
+import sidebarStyles from '../style.css'
 import styles from './style.css'
 
 const Label = props => <label className={ styles.label }>{ props.children }</label>
@@ -41,7 +42,7 @@ class Profile extends React.Component {
   render () {
     return (
       <div className={ styles.container }>
-        <h1 className={ this.props.headerStyle }>Settings</h1>
+        <h1 className={ sidebarStyles.header }>Settings</h1>
 
         <Label>Display Name:</Label>
         <Editable className={ styles.field } value={this.props.displayName} onChange={val => this.updateProfileName(val)}/>

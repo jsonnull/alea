@@ -19,6 +19,12 @@ const directoryNamed = () => (context) => ({
   }
 })
 
+const customResolve = () => (context) => ({
+  resolve: {
+    modules: ['node_modules', 'src']
+  }
+})
+
 module.exports = createConfig([
   entryPoint('./src/index.js'),
   setOutput('./public/bundle.js'),
@@ -31,5 +37,6 @@ module.exports = createConfig([
   env('development', [
     sourceMaps()
   ]),
-  directoryNamed()
+  directoryNamed(),
+  customResolve()
 ])

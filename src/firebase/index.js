@@ -3,17 +3,16 @@ import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import MessagesManager from './messages'
 import UserManager from './user'
-import Auth from './auth'
-
-import type { State, Message, FirebaseMessage } from '../types'
-import type { Action } from '../actions/types'
+import Auth from './authentication'
+import type { State, Message, FirebaseMessage } from 'types'
+import type { Action } from 'actions/types'
 import {
   updateUserProfile,
   receivePreferences,
   setLoading,
   setUserLoggedIn,
   logout
-} from '../actions/'
+} from 'actions'
 
 export default class Firebase {
   messages: MessagesManager

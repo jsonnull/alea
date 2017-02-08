@@ -1,9 +1,9 @@
 /* @flow */
 import * as firebase from 'firebase/app'
 import 'firebase/database'
-import type { State, Message, FirebaseMessage } from '../types'
-import type { Action } from '../actions/types'
-import { receiveMessage } from '../actions/'
+import type { State, Message, FirebaseMessage } from 'types'
+import type { Action } from 'actions/types'
+import { receiveMessage } from 'actions'
 
 export default class MessagesManager {
   messagesRef: Object
