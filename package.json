@@ -4,6 +4,7 @@
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
   "dependencies": {
+    "@webpack-blocks/webpack2": "^0.4.0",
     "directory-named-webpack-plugin": "2",
     "firebase": "^3.6.4",
     "random-js": "^1.0.8",
@@ -17,7 +18,6 @@
     "@webpack-blocks/babel6": "^0.3.0",
     "@webpack-blocks/css-modules": "^0.3.0",
     "@webpack-blocks/postcss": "^0.3.0",
-    "@webpack-blocks/webpack": "^0.3.0",
     "autoprefixer": "^6.6.1",
     "babel": "^6.5.2",
     "babel-core": "^6.21.0",
