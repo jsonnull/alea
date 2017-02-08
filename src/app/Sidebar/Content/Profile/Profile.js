@@ -11,7 +11,7 @@ import {
 import sidebarStyles from '../style.css'
 import styles from './style.css'
 
-const Label = props => <label className={ styles.label }>{ props.children }</label>
+const Label = props => <label className={ sidebarStyles.label }>{ props.children }</label>
 
 const ThemeButtons = props => {
   const lightSelected = props.selected == THEME_LIGHT
@@ -45,7 +45,7 @@ class Profile extends React.Component {
         <h1 className={ sidebarStyles.header }>Settings</h1>
 
         <Label>Display Name:</Label>
-        <Editable className={ styles.field } value={this.props.displayName} onChange={val => this.updateProfileName(val)}/>
+        <Editable className={ sidebarStyles.field } value={this.props.displayName} onChange={val => this.updateProfileName(val)}/>
 
         <Label>Theme</Label>
         <ThemeButtons selected={ this.props.theme }

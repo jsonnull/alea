@@ -1,5 +1,5 @@
 @import 'base';
-@import 'sidebar';
+@import 'input';
 
 .content {
   display: flex;
@@ -19,4 +19,26 @@
   :global(.dark) & {
     color: $lightGray;
   }
+}
+
+.label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $darkGray;
+  display: block;
+
+  :global(.dark) & {
+    color: $lightGray;
+  }
+}
+
+.field {
+  @extend input;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding-left: 0;
+  border-bottom: 1px solid $borderColorLight;
+  margin-bottom: 1.2rem;
+  width: 100%;
 }
