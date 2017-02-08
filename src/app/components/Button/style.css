@@ -1,0 +1,55 @@
+@import 'base';
+
+.button {
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 3.6rem;
+  height: 3.6rem;
+  padding: 0 2rem;
+  outline: 0;
+  font-family: 'Cinzel Decorative';
+  color: $lightGray;
+  background-color: $darkGray;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background, text-shadow;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  :global(.dark) & {
+    background-color: $lightGray;
+    color: $darkGray;
+  }
+
+  &:hover {
+    text-shadow: 0 0 3px white;
+    background-color: $veryDarkGray;
+    color: $veryLightGray;
+    transition: background, text-shadow;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+    :global(.dark) & {
+      background-color: $bgPrimary;
+      color: black;
+    }
+  }
+}
+
+/* Red version */
+.red, .red:hover {
+  background-color: $red;
+  color: white;
+}
+
+/* Green version */
+.green, .green:hover {
+  background-color: $green;
+  color: white;
+}
+
+/* Outline version */
+.outline, .outline:hover {
+  background-color: transparent;
+  color: $darkGray;
+}
+

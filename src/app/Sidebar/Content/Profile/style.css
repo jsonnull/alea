@@ -1,66 +1,19 @@
 @import 'base';
 @import 'input';
 
-.button {
-  @extend button;
-  margin-top: 1.2rem;
-  align-self: flex-start;
+.logout {
   margin-top: auto;
-
-  :global(.dark) & {
-    @extend buttonDark;
-    include: true;
-  }
-
-  &:hover {
-    @extend buttonHover;
-    include: true;
-
-    :global(.dark) & {
-      @extend buttonHoverDark;
-      force-include: true;
-    }
-  }
-
-  &.logout {
-    background-color: $red;
-  }
 }
 
 .themeButtons {
   display: flex;
 }
   .themeButton {
-    @extend button;
     margin-top: auto;
     margin-left: 5px;
     flex: 1;
-    text-align: center;
-    background-color: transparent;
-    border: 1px solid $borderColorLight;
-    color: $darkGray;
-
-    :global(.dark) & {
-      @extend buttonDark;
-      background-color: transparent;
-      border-color: $borderColorDark;
-      color: $lightGray;
-    }
-
-    &:hover, :global(.dark) &:hover {
-      @extend buttonHover;
-      background-color: $yellow;
-      border-color: $yellow;
-      color: white;
-    }
 
     &:first-child {
       margin-left: 0;
     }
-  }
-  .themeButtonSelected,
-  :global(.dark) .themeButtonSelected { 
-    color: white;
-    background-color: $green;
-    border-color: $green;
   }

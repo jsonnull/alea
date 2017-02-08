@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react'
-import Editable from 'app/components/Editable'
-import Label from '../Label'
+import Button from 'app/components/Button'
 import styles from './style.css'
 
 type Props = {
@@ -9,13 +8,9 @@ type Props = {
 }
 
 const Logout = (props: Props) => {
-  return <button
-    className={`${styles.button} ${styles.logout}`}
-    type='button'
-    onClick={() => props.logout() }
-  >
+  return <Button onClick={() => props.logout() } customClass={styles.logout} variant='red'>
     Logout
-  </button>
+  </Button>
 }
 
 export default Logout

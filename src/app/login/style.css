@@ -31,11 +31,7 @@
 }
 
 .button {
-  @extend button;
   display: block;
   position: relative;
   margin: 0 auto 0;
 }
-  .button:hover {
-    @extend buttonHover;
-  }

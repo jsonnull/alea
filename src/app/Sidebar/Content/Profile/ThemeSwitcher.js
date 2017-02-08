@@ -1,8 +1,23 @@
 /* @flow */
 import React from 'react'
 import Label from '../Label'
+import Button from 'app/components/Button'
 import styles from './style.css'
 import type { Theme } from 'types'
+
+type ButtonProps = {
+  selected: boolean,
+  onClick: Function
+}
+const ThemeButton = (props: Object) => {
+  let variant = (props.selected)? 'green' : 'outline'
+  return <Button
+      customClass={styles.themeButton}
+      variant={variant}
+      onClick={() => props.onClick()}>
+    { props.children }
+  </Button>
+}
 
 type Props = {
   currentTheme: Theme,
@@ -10,24 +25,19 @@ type Props = {
 }
 
 const ThemeSwitcher = (props: Props) => {
-  const lightSelected = props.currentTheme == 'light'
-    ? ' ' + styles.themeButtonSelected
-    : ''
-  const darkSelected = props.currentTheme == 'dark'
-    ? ' ' + styles.themeButtonSelected
-    : ''
-
   return <div>
     <Label>Theme</Label>
     <div className={ styles.themeButtons }>
-      <div className={ styles.themeButton + lightSelected }
-        onClick={ () => props.changeTheme('light') }>
+      <ThemeButton
+          selected={ props.currentTheme == 'light' }
+          onClick={ () => props.changeTheme('light') }>
         Light
-      </div>
-      <div className={ styles.themeButton + darkSelected }
-        onClick={ () => props.changeTheme('dark') }>
+      </ThemeButton>
+      <ThemeButton
+          selected={ props.currentTheme == 'dark' }
+          onClick={ () => props.changeTheme('dark') }>
         Dark
-      </div>
+      </ThemeButton>
     </div>
   </div>
 }

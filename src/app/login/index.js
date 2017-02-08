@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {
   login
 } from 'actions'
+import Button from 'app/components/Button'
 import styles from './style.css'
 
 class Login extends React.Component {
@@ -47,7 +48,7 @@ class Login extends React.Component {
             value={this.state.password}
             onChange={e => this.handlePassword(e)}
           />
-          <input className={ styles.button } type='submit' value='Login' />
+          <Button onClick={() => this.handleSubmit()} customClass={styles.button}>Login</Button>
         </form>
       </div>
     )

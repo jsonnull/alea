@@ -41,7 +41,7 @@ class Profile extends React.Component {
           changeTheme={theme => this.props.updateTheme(theme)}
         />
 
-        <Logout logout={() => this.props.logout}/>
+        <Logout logout={() => this.props.logout()}/>
       </div>
     )
   }
