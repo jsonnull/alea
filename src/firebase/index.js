@@ -8,7 +8,6 @@ import type { State, Message, FirebaseMessage } from 'types'
 import type { Action } from 'actions/types'
 import {
   updateUserProfile,
-  receivePreferences,
   setLoading,
   setUserLoggedIn,
   logout

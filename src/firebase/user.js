@@ -4,7 +4,7 @@ import 'firebase/auth'
 import 'firebase/database'
 import type { State } from 'types'
 import type { Action } from 'actions/types'
-import { receivePreferences, loadUserProfile } from 'actions'
+import { hydratePreferences, hydrateUserProfile } from 'actions'
 
 export default class UserManager {
   store: Object
@@ -16,7 +16,7 @@ export default class UserManager {
   }
 
   loadPreferences () {
-    const hydratePreferences = prefs => this.store.dispatch(receivePreferences(prefs))
+    const loadPrefs = prefs => this.store.dispatch(hydratePreferences(prefs))
     const uid = firebase.auth().currentUser.uid
     firebase.database().ref(`prefs/${uid}`).once('value')
       .then(prefs => {
@@ -41,7 +41,7 @@ export default class UserManager {
       photoURL
     }
 
-    this.store.dispatch(loadUserProfile(user))
+    this.store.dispatch(hydrateUserProfile(user))
   }
 
   updateProfile (action: Action) {
