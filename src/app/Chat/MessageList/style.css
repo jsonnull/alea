@@ -1,0 +1,29 @@
+.messages {
+  padding: 0 25px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 315px;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  :global(.unpinned) & {
+    width: 300px;
+    flex: none;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+}
+
+.spacer {
+  height: 5px;
+  line-height: 5px;
+  font-size: 5px;
+  .unpinned & {
+    height: 10px;
+    line-height: 10px;
+    font-size: 10px;
+  }
+}

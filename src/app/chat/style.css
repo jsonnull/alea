@@ -1,8 +1,4 @@
 @import "base"; 
-@import "input"; 
-
-.unpinned {}
-.darkTheme {}
 
 .chat {
   background-color: $bgPrimary;
@@ -18,121 +14,10 @@
     background-color: $darkGray;
   }
 
-  &.unpinned {
+  &:global(.unpinned) {
     margin-top: auto;
     background: transparent;
     border-color: transparent;
     align-self: flex-end;
-  }
-}
-
-.messages {
-  padding: 0 25px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  width: 315px;
-
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  .unpinned & {
-    width: 300px;
-    flex: none;
-    align-items: flex-end;
-    overflow: hidden;
-  }
-}
-
-.spacer {
-  height: 5px;
-  line-height: 5px;
-  font-size: 5px;
-  .unpinned & {
-    height: 10px;
-    line-height: 10px;
-    font-size: 10px;
-  }
-}
-
-.message {
-  margin: 0.5rem 0 0;
-  padding: 0 0 0.5rem;
-  border-bottom: 1px solid $borderColorGray;
-  display: inline-block;
-  width: 250px;
-
-  :global(.dark) & {
-    border: 1px solid $borderColorDark;
-    border-bottom: 2px solid $borderColorDark;
-    background-color: $darkGray;
-  }
-
-  .unpinned & {
-    margin: 1rem 0 0;
-    padding: 0;
-    border-radius: 5px;
-    border-color: transparent;
-    background-color: $bgPrimary;
-    width: auto;
-    max-width: 250px;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-
-    :global(.dark) & {
-      border: 1px solid $borderColorDark;
-      border-bottom: 2px solid $borderColorDark;
-    }
-  }
-}
-  .messageFrom {
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: $darkGray;
-    padding: 0.2rem 1rem 0;
-
-    :global(.dark) & {
-      color: $lightGray;
-    }
-  }
-    .messageFromDate {
-      color: #999;
-      font-weight: normal;
-      font-style: italic;
-    }
-  .messageText {
-    padding: 0 1rem 0.2rem;
-  }
-  .messageResult {
-    font-weight: bold;
-    padding: 0 1rem 0.2rem;
-  }
-
-.button {
-  color: $lightGray;
-  height: 2.4rem;
-  width: 2.4rem;
-  line-height: 2.4rem;
-  text-align: center;
-  margin-top: 1.2rem;
-  border-radius: 4px;
-  background-color: $darkGray;
-  position: absolute;
-  right: 2.4rem;
-
-  .unpinned & {
-    position: relative;
-    align-self: flex-end;
-    right: 2.4rem;
-    margin-top: 0;
-    background-color: $bgPrimary;
-    color: $darkGray;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  &:hover {
-    color: white;
-    background-color: $blue;
-    cursor: pointer;
   }
 }

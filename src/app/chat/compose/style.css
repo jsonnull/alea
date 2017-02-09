@@ -27,10 +27,7 @@
     :global(.dark) & {
       border: 1px solid $borderColorDark;
     }
+
+    :global(.unpinned) & {
+    }
   }
-    .darkTheme .formInput {
-      color: $veryLightGray;
-      background-color: $veryDarkGray;
-    }
-    .unpinned .formInput {
-    }

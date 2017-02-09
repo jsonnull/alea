@@ -1,0 +1,53 @@
+@import 'base';
+
+.message {
+  margin: 0.5rem 0 0;
+  padding: 0 0 0.5rem;
+  border-bottom: 1px solid $borderColorGray;
+  display: inline-block;
+  width: 250px;
+
+  :global(.dark) & {
+    border: 1px solid $borderColorDark;
+    border-bottom: 2px solid $borderColorDark;
+    background-color: $darkGray;
+  }
+
+  :global(.unpinned) & {
+    margin: 1rem 0 0;
+    padding: 0;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: $bgPrimary;
+    width: auto;
+    max-width: 250px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+
+    :global(.dark) & {
+      border: 1px solid $borderColorDark;
+      border-bottom: 2px solid $borderColorDark;
+    }
+  }
+}
+  .messageFrom {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: $darkGray;
+    padding: 0.2rem 1rem 0;
+
+    :global(.dark) & {
+      color: $lightGray;
+    }
+  }
+    .messageFromDate {
+      color: #999;
+      font-weight: normal;
+      font-style: italic;
+    }
+  .messageText {
+    padding: 0 1rem 0.2rem;
+  }
+  .messageResult {
+    font-weight: bold;
+    padding: 0 1rem 0.2rem;
+  }

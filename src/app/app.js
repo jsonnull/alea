@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
-import Chat from './chat'
+import Chat from './Chat'
 import Loading from './loading'
 import Login from './login'
 import Map from './map'

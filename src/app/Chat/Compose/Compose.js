@@ -1,8 +1,23 @@
+/* @flow */
 import React from 'react'
 import styles from './style.css'
 
+type Props = {
+  onSend: Function 
+}
+
+type State = {
+  value: string,
+  height: number
+}
+
 export default class Compose extends React.Component {
-  constructor (props) {
+  props: Props
+  state: State
+  focused: boolean
+  messageQueue: Array<string>
+
+  constructor (props: Props) {
     super(props)
 
     this.state = {
@@ -13,7 +28,7 @@ export default class Compose extends React.Component {
     this.messageQueue = []
   }
 
-  handleChange (event) {
+  handleChange (event: Object) {
     const value = event.target.value
 
     const setHeightImmediate = (value.length > this.state.value.length)
@@ -44,7 +59,7 @@ export default class Compose extends React.Component {
     })
   }
 
-  handleKeyUp (event) {
+  handleKeyUp (event: Object) {
     if (event.key == 'Enter') {
       this.handleSubmit()
     }
