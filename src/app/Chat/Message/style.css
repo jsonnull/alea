@@ -29,25 +29,40 @@
     }
   }
 }
-  .messageFrom {
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: $darkGray;
-    padding: 0.2rem 1rem 0;
 
-    :global(.dark) & {
-      color: $lightGray;
-    }
+.from {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: $darkGray;
+  padding: 0.2rem 1rem 0;
+
+  :global(.dark) & {
+    color: $lightGray;
   }
-    .messageFromDate {
-      color: #999;
-      font-weight: normal;
-      font-style: italic;
-    }
-  .messageText {
-    padding: 0 1rem 0.2rem;
-  }
-  .messageResult {
-    font-weight: bold;
-    padding: 0 1rem 0.2rem;
-  }
+}
+
+.date {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.text {
+  padding: 0 1rem 0.2rem;
+}
+
+.result {
+  padding: 0 1rem 0.2rem;
+}
+
+.roll {
+  font-weight: bold;
+}
+
+.mod {
+  font-weight: bold;
+}
+
+.total {
+  font-weight: bold;
+}

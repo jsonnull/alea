@@ -44,7 +44,7 @@ export type UserProfileState = {
 export type Message = {
   from: string,
   key: string,
-  result: ?string,
+  result: ?MessageResult,
   text: string,
   timestamp: number
 }

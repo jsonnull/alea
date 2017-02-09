@@ -1,29 +1,25 @@
 /* @flow */
 import React from 'react'
+import type { Message } from 'types'
+import MessageResult from './MessageResult'
 import timeago from 'timeago.js'
 import styles from './style.css'
 
-export default class Message extends React.Component {
-  render () {
-    let Content
-    if (this.props.result) {
-      Content = <div className={styles.messageResult}>
-        { JSON.stringify(this.props.result) }
-      </div>
-    } else {
-      Content = <div className={styles.messageText}>
-        { this.props.text }
-      </div>
-    }
+export default class MessageView extends React.Component {
+  props: Message
 
+  render () {
     return <div className={styles.message}>
-      <div className={styles.messageFrom}>
+      <div className={styles.from}>
         { this.props.from }{' '}
-        <span className={styles.messageFromDate}>
+        <span className={styles.date}>
           { new timeago().format(this.props.timestamp) }
         </span>
       </div>
-      {Content}
+      <div className={styles.text}>
+        { this.props.text }
+      </div>
+      <MessageResult result={this.props.result} />
     </div>
   }
 }
