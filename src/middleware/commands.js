@@ -1,8 +1,9 @@
 /* @flow */
 import Random from 'random-js'
-import type { Action } from '../actions/types'
+import type { Action } from 'actions/types'
+import type { MessageResult } from 'types'
 
-function runCommand (text: string, random: Object) {
+function runCommand (text: string, random: Object): ?MessageResult {
   let words = text.split(' ')
   let args = words.slice(1).join(' ')
 
@@ -15,7 +16,7 @@ function runCommand (text: string, random: Object) {
   }
 }
 
-function roll (text: string, random: Object) {
+function roll (text: string, random: Object): MessageResult {
   var args = text.split(' ').join('')
   args = args.split('+').join(' + ').split('-').join(' - ').split(' ')
 
@@ -31,12 +32,12 @@ function roll (text: string, random: Object) {
         roll *= args[i - 1] === '-' ? -1 : 1
         rands.push(roll)
       }
-    } else if (!isNaN(args[i])) {      
+    } else if (!isNaN(args[i])) {
       if(args[i - 1] === '+') {
         modifier += Number(args[i])
       } else if(args[i - 1] === '-') {
         modifier -= Number(args[i])
-      }      
+      }
     }
   }
 

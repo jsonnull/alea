@@ -1,8 +1,9 @@
 /* @flow */
+import type { MessageResult } from 'types'
 
 export type Action =
     { type: 'LOAD_MESSAGES' }
-  | { type: 'SEND_MESSAGE', text: string, result: ?string }
+  | { type: 'SEND_MESSAGE', text: string, result: ?MessageResult }
   | { type: 'RECEIVE_MESSAGE', key: string, from: string, text: string, result: ?string, timestamp: number }
   | { type: 'SET_LOADING', appIsLoading: boolean }
   | { type: 'SET_USER_LOGGED_IN' }

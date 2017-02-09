@@ -52,9 +52,15 @@ export type Message = {
 /* Messages sent/received by Firebase */
 export type FirebaseMessage = {
   name: string,
-  result: ?string,
+  result: ?MessageResult,
   text: string,
   timestamp: number
+}
+
+export type MessageResult = {
+  mod: number,
+  rolls: Array<number>,
+  total: number
 }
 
 export type Theme = 'light' | 'dark'
