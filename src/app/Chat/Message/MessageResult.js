@@ -9,7 +9,7 @@ type RollsProps = {
 const Rolls = (props: RollsProps) => {
   return <span>
     {props.rolls.map((roll, i, arr) => (
-      <span>
+      <span key={i}>
         <span className={styles.roll}>
           { roll }
         </span>
