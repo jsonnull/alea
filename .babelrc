@@ -5,6 +5,10 @@
     "transform-flow-strip-types",
     "transform-class-properties",
     "transform-object-rest-spread",
-    "transform-remove-strict-mode"
+    "transform-remove-strict-mode",
+    "syntax-async-functions",
+    "transform-async-to-generator",
+    "transform-regenerator",
+    "transform-runtime"
   ]
 }
