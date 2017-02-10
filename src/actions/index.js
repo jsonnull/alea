@@ -67,6 +67,36 @@ export const changeTheme = (theme: Theme): Action => ({
 })
 
 /*
+ * User Data
+ */
+export const hydrateUserData = (user: Object): Action => ({
+  type: 'HYDRATE_USER_DATA', user
+})
+
+export const hydrateSessionMeta = (sessions: Array<Object>): Action => ({
+  type: 'HYDRATE_SESSION_META', sessions
+})
+
+export const userAddSession = (sessionId: string): Action => ({
+  type: 'USER_ADD_SESSION', sessionId
+})
+
+export const setUserSession = (sessionId: string): Action => ({
+  type: 'SET_USER_SESSION', sessionId
+})
+
+/*
+ * Session
+ */
+export const hydrateSession = (session: Object): Action => ({
+  type: 'HYDRATE_SESSION', session
+})
+
+export const createSession = (): Action => ({
+  type: 'CREATE_SESSION'
+})
+
+/*
  * Sidebar
  */
 export const changeSidebarTab = (tab: string): Action => ({

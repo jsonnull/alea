@@ -26,8 +26,14 @@ export type UIState = {
 }
 
 export type UserState = {
+  data: UserDataState,
   preferences: UserPreferencesState,
   profile: UserProfileState
+}
+
+export type UserDataState = {
+  currentSession: ?string,
+  sessions: Array<any>
 }
 
 export type UserPreferencesState = {

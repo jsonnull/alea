@@ -36,3 +36,7 @@
   background-position: 0 0;
   transition: background-size 100ms, background-position 100ms;
 }
+
+.menuSeparator {
+  margin-top: auto;
+}

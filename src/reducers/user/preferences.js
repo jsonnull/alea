@@ -13,7 +13,7 @@ export default function reducer (state: UserPreferencesState = initialState, act
       return { ...state, theme: action.theme }
     case 'TOGGLE_CHAT_PIN':
       return { ...state, chatPinned: !state.chatPinned }
-    case 'RECEIVE_PREFERENCES':
+    case 'HYDRATE_PREFERENCES':
       const { theme, chatPinned } = action.prefs
       return { ...state, theme, chatPinned }
     default:

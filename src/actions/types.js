@@ -19,5 +19,14 @@ export type Action =
   | { type: 'HYDRATE_PREFERENCES', prefs: Object }
   | { type: 'TOGGLE_CHAT_PIN' }
   | { type: 'CHANGE_THEME', theme: string }
+  /* User Data */
+  | { type: 'HYDRATE_USER_DATA', user: Object }
+  | { type: 'HYDRATE_SESSION_META', sessions: Array<Object> }
+  | { type: 'USER_ADD_SESSION', sessionId: string }
+  | { type: 'SET_USER_SESSION', sessionId: string }
+  /* Session */
+  | { type: 'HYDRATE_SESSION', session: Object }
+  | { type: 'SWITCH_TO_SESSION', sessionId: string }
+  | { type: 'CREATE_SESSION' }
   /* Sidebar */
   | { type: 'CHANGE_SIDEBAR_TAB', tab: string }
