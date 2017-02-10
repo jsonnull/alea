@@ -20,6 +20,13 @@
     css-loader "^0.25.0"
     style-loader "^0.13.1"
 
+"@webpack-blocks/extract-text2":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@webpack-blocks/extract-text2/-/extract-text2-0.4.0.tgz#99e100abb1f789c5c91c0c2dbad5fa3aa8d15a8a"
+  dependencies:
+    "@webpack-blocks/webpack-common" "^0.4.0"
+    extract-text-webpack-plugin "^2.0.0-rc.0"
+
 "@webpack-blocks/postcss@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@webpack-blocks/postcss/-/postcss-0.4.0.tgz#f311b20a75c0b777ad140695bb7d6e060de18bc0"
@@ -60,7 +67,7 @@ ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
 
-ajv@^4.7.0:
+ajv@^4.11.2, ajv@^4.7.0:
   version "4.11.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-4.11.2.tgz#f166c3c11cbc6cb9dcc102a5bcfe5b72c95287e6"
   dependencies:
@@ -1380,6 +1387,15 @@ extglob@^0.3.1:
   resolved "https://registry.yarnpkg.com/extglob/-/extglob-0.3.2.tgz#2e18ff3d2f49ab2765cec9023f011daa8d8349a1"
   dependencies:
     is-extglob "^1.0.0"
+
+extract-text-webpack-plugin@^2.0.0-rc.0:
+  version "2.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-2.0.0-rc.3.tgz#7381aa7869ce26d4b39a7bab71cf09e5a38432b2"
+  dependencies:
+    ajv "^4.11.2"
+    async "^2.1.2"
+    loader-utils "^0.2.16"
+    webpack-sources "^0.1.0"
 
 extsprintf@1.0.2:
   version "1.0.2"
@@ -3351,7 +3367,7 @@ webpack-merge@^2.3.1:
   dependencies:
     lodash "^4.17.4"
 
-webpack-sources@^0.1.4:
+webpack-sources@^0.1.0, webpack-sources@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-0.1.4.tgz#ccc2c817e08e5fa393239412690bb481821393cd"
   dependencies:

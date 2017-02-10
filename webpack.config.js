@@ -9,6 +9,7 @@ const {
 const babel = require('@webpack-blocks/babel6')
 const postcss = require('@webpack-blocks/postcss')
 const cssModules = require('@webpack-blocks/css-modules')
+const extractText = require('@webpack-blocks/extract-text2')
 const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
 
 const directoryNamed = () => (context) => ({
@@ -38,5 +39,6 @@ module.exports = createConfig([
     sourceMaps()
   ]),
   directoryNamed(),
-  customResolve()
+  customResolve(),
+  extractText('style.css')
 ])
