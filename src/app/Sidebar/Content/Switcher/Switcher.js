@@ -42,7 +42,7 @@ const mapStateToProps = (state, ownProps) => {
   }, ownProps)
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Function) => {
   return {
     createSession: () => dispatch(createSession()),
     setSession: sessionId => dispatch(setUserSession(sessionId))

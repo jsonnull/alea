@@ -52,16 +52,11 @@ const mapStateToProps = (state, ownProps) => {
   }, ownProps)
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Function) => {
   return {
     sendMessage: (message) => { dispatch(sendMessage(message)) },
     togglePinned: () => dispatch(toggleChatPin())
   }
 }
 
-const ChatMessages = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Chat)
-
-export default ChatMessages
+export default connect(mapStateToProps, mapDispatchToProps)(Chat)

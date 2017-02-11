@@ -54,7 +54,7 @@ function roll (text: string, random: Object): MessageResult {
 const commandParser = (store: Object) => (next: Function) => {
   let random = new Random(Random.engines.mt19937().autoSeed())
 
-  return (action: Action) => {
+  return (action: Action): Action => {
     if (action.type === 'SEND_MESSAGE') {
       const { text } = action
 
@@ -66,6 +66,8 @@ const commandParser = (store: Object) => (next: Function) => {
     }
 
     next(action)
+
+    return action
   }
 }
 

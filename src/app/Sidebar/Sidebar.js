@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Function) => {
   return {
     changeTab: tab => dispatch(changeSidebarTab(tab))
   }

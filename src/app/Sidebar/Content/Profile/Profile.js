@@ -54,7 +54,7 @@ const mapStateToProps = (state, ownProps) => {
   }, ownProps)
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Function) => {
   return {
     logout: () => dispatch(logout()),
     updateTheme: theme => dispatch(changeTheme(theme)),

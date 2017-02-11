@@ -1,11 +1,11 @@
 /* @flow */
-import type { MessageResult } from 'types'
+import type { Theme, MessageResult } from 'types'
 
 export type Action =
   /* Messages */
     { type: 'HYDRATE_MESSAGES' }
   | { type: 'SEND_MESSAGE', text: string, result: ?MessageResult }
-  | { type: 'RECEIVE_MESSAGE', key: string, from: string, text: string, result: ?string, timestamp: number }
+  | { type: 'RECEIVE_MESSAGE', key: string, from: string, text: string, result: ?MessageResult, timestamp: number }
   /* UI */
   | { type: 'SET_LOADING', appIsLoading: boolean }
   | { type: 'SET_USER_LOGGED_IN' }
@@ -18,7 +18,7 @@ export type Action =
   /* User Preferences */
   | { type: 'HYDRATE_PREFERENCES', prefs: Object }
   | { type: 'TOGGLE_CHAT_PIN' }
-  | { type: 'CHANGE_THEME', theme: string }
+  | { type: 'CHANGE_THEME', theme: Theme }
   /* User Data */
   | { type: 'HYDRATE_USER_DATA', user: Object }
   | { type: 'HYDRATE_SESSION_META', sessions: Array<Object> }
