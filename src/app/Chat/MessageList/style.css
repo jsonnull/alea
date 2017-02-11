@@ -21,7 +21,8 @@
   height: 5px;
   line-height: 5px;
   font-size: 5px;
-  .unpinned & {
+
+  :global(.unpinned) & {
     height: 10px;
     line-height: 10px;
     font-size: 10px;

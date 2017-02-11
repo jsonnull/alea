@@ -11,6 +11,9 @@ $bgSecondary: #ebe3d6;
 $map: #BFBCA5;
 $fgLight: #999;
 
+/* Dark */
+$darkBgPrimary: #2e2e2e;
+
 $lightGray: #cdc5ba;
 $veryLightGray: #ebe3d6;
 $borderColorGray: #ccc;
