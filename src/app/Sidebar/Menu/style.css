@@ -9,7 +9,7 @@
   background-color: $blue;
 
   :global(.dark) & {
-    background-color: $borderColorDark;
+    background-color: $bgSecondaryDark;
   }
 }
 
@@ -28,6 +28,10 @@
     background-color: $lightBlue;
     color: white;
     cursor: pointer;
+
+    :global(.dark) & {
+      background-color: $bgPrimaryDark;
+    }
   }
 }
 

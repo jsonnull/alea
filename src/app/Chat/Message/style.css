@@ -22,7 +22,7 @@
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 
     :global(.dark) & {
-      background-color: $darkBgPrimary;
+      background-color: $bgPrimaryDark;
     }
   }
 }
@@ -30,11 +30,11 @@
 .from {
   font-weight: bold;
   font-size: 1.3rem;
-  color: $darkGray;
+  color: $fgSecondary;
   padding: 0.2rem 1rem 0;
 
   :global(.dark) & {
-    color: $lightGray;
+    color: $fgSecondaryDark;
   }
 }
 

@@ -18,10 +18,15 @@ body {
   font-size: 1.5em;
   line-height: 2.4rem;
   overflow: hidden;
+  color: $fgPrimary;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
 }
 
 ::-webkit-scrollbar {
@@ -36,5 +41,5 @@ body {
 }
 
 :global(.dark) {
-  color: white;
+  color: $fgPrimaryDark;
 }

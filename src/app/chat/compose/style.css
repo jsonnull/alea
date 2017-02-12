@@ -18,16 +18,22 @@
     line-height: 2.4rem;
     width: 100%;
     resize: none;
-    color: black;
-    background-color: $bgPrimary;
+    color: $fgPrimary;
+    background-color: $bgSecondary;
     border-radius: 5px;
-    // border: 1px solid $borderColorLight;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 
     :global(.dark) & {
-      border: 1px solid $borderColorDark;
+      color: $fgPrimaryDark;
+      background-color: $bgSecondaryDark;
     }
 
     :global(.unpinned) & {
+      box-shadow: none;
+      background-color: $bgPrimary;
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+
+      :global(.dark) & {
+        background-color: $bgPrimaryDark;
+      }
     }
   }

@@ -1,23 +1,35 @@
+@import 'base';
+
 .button {
-  color: $lightGray;
+  color: $fgPrimaryDark;
   height: 2.4rem;
   width: 2.4rem;
   line-height: 2.4rem;
   text-align: center;
   margin-top: 1.2rem;
   border-radius: 4px;
-  background-color: $darkGray;
+  background-color: $bgPrimaryDark;
   position: absolute;
   right: 2.4rem;
+
+  :global(.dark) & {
+    color: $fgPrimary;
+    background-color: $bgPrimary;
+  }
 
   :global(.unpinned) & {
     position: relative;
     align-self: flex-end;
     right: 2.4rem;
     margin-top: 0;
+    color: $fgPrimary;
     background-color: $bgPrimary;
-    color: $darkGray;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+
+    :global(.dark) & {
+      color: $fgPrimaryDark;
+      background-color: $bgPrimaryDark;
+    }
   }
 
   &:hover {

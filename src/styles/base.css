@@ -8,20 +8,20 @@ $lightBlue: #057091;
 /* Light */
 $bgPrimary: #f7f7f7;
 $bgSecondary: #ebe3d6;
+/* $bgTertiary: #cdc5ba; */
 $map: #BFBCA5;
-$fgLight: #999;
-
-/* Dark */
-$darkBgPrimary: #2e2e2e;
-
-$lightGray: #cdc5ba;
-$veryLightGray: #ebe3d6;
-$borderColorGray: #ccc;
+$fgPrimary: black;
+$fgSecondary: #3c3c3c;
+$fgMedium: #999;
 $borderColorLight: #ADAB96;
 
 /* Dark */
-$darkGray: #3c3c3c;
-$veryDarkGray: #2e2e2e;
+$bgPrimaryDark: #3c3c3c;
+$bgSecondaryDark: #2b2b2b;
+$mapDark: #1a1a1a;
+$fgPrimaryDark: #eee;
+$fgSecondaryDark: #cdc5ba;
+$fgMediumDark: #999;
 $borderColorDark: #1a1a1a;
 
 /* Sizes */

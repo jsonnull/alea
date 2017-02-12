@@ -8,7 +8,7 @@
   flex-direction: row;
 
   :global(.dark) & {
-    background-color: $darkGray;
+    background-color: $bgPrimaryDark;
   }
 }
 
