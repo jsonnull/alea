@@ -1,5 +1,5 @@
 /* @flow */
-import type { Theme, MessageResult } from 'types'
+import type { Theme, MessageResult, Tab } from 'types'
 
 export type Action =
   /* Messages */
@@ -29,4 +29,4 @@ export type Action =
   | { type: 'SWITCH_TO_SESSION', sessionId: string }
   | { type: 'CREATE_SESSION' }
   /* Sidebar */
-  | { type: 'CHANGE_SIDEBAR_TAB', tab: string }
+  | { type: 'CHANGE_SIDEBAR_TAB', tab: Tab }

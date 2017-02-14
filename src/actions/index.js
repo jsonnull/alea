@@ -1,6 +1,6 @@
 /* @flow */
 import type { Action } from './types'
-import type { Theme } from 'types'
+import type { Theme, Tab } from 'types'
 
 /*
  * Messages
@@ -99,6 +99,6 @@ export const createSession = (): Action => ({
 /*
  * Sidebar
  */
-export const changeSidebarTab = (tab: string): Action => ({
+export const changeSidebarTab = (tab: Tab): Action => ({
   type: 'CHANGE_SIDEBAR_TAB', tab
 })

@@ -17,7 +17,7 @@ export type SessionState = {
 
 export type SidebarState = {
   open: boolean,
-  tab: string
+  tab: Tab
 }
 
 export type UIState = {
@@ -70,3 +70,5 @@ export type MessageResult = {
 }
 
 export type Theme = 'light' | 'dark'
+
+export type Tab = 'Session' | 'Character' | 'Sessions' | 'Profile'

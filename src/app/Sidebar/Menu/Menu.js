@@ -3,19 +3,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import MenuItem from './MenuItem'
 import MenuSeparator from './MenuSeparator'
-import type { State } from 'types'
+import type { State, Tab } from 'types'
 import styles from './style.css'
 
 type Props = {
-  tab: string,
+  tab: Tab,
   sessionActive: boolean,
   changeTab: Function
 }
 
-const buttons = [
+type MenuButton = [Tab, string] | 'separator'
+
+const buttons: Array<MenuButton> = [
   ['Session', 'fa-globe'],
   ['Character', 'fa-id-card-o'], 
-  ['separator'],
+  'separator',
   ['Sessions', 'fa-exchange'],
   ['Profile', 'fa-cog'],
 ]
@@ -33,12 +35,13 @@ class Menu extends React.Component {
     return (
       <div className={ styles.menu }>
         {view.map(button => {
+          if (button === 'separator') {
+            const [name] = button
+            return <MenuSeparator key={button}/>
+          }
+
           const [name, icon] = button
           const selected = name == this.props.tab
-
-          if (name == 'separator') {
-            return <MenuSeparator key={name}/>
-          }
 
           return <MenuItem
             key={name}
