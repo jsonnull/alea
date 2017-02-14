@@ -2,7 +2,7 @@
 import React from 'react'
 import Profile from './Profile'
 import Session from './Session'
-import Switcher from './Switcher'
+import Sessions from './Sessions'
 import styles from './style.css'
 
 type ContentProps = {
@@ -14,8 +14,8 @@ const SidebarContent = (props: ContentProps) => {
       return <Profile {...props}/>
     case 'Session':
       return <Session {...props} />
-    case 'Switcher':
-      return <Switcher {...props} />
+    case 'Sessions':
+      return <Sessions {...props} />
     default:
       return <div />
   }

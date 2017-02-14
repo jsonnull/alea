@@ -16,7 +16,7 @@ const buttons = [
   ['Session', 'fa-globe'],
   ['Character', 'fa-id-card-o'], 
   ['separator'],
-  ['Switcher', 'fa-exchange'],
+  ['Sessions', 'fa-exchange'],
   ['Profile', 'fa-cog'],
 ]
 

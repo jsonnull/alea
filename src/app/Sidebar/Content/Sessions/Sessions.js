@@ -2,8 +2,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Header from '../Header'
-import SessionCreator from './SessionCreator'
-import SessionList from './SessionList'
+import Create from './Create'
+import List from './List'
 import {
   createSession,
   setUserSession
@@ -17,19 +17,15 @@ type Props = {
   setSession: Function
 }
 
-class Switcher extends React.Component {
+class Sessions extends React.Component {
   props: Props
 
   render () {
     return (
-      <div className={ sidebarStyles.container }>
+      <div className={ sidebarStyles.inner }>
         <Header>Your Games</Header>
-
-        <SessionList sessions={this.props.sessions} setSession={this.props.setSession} />
-
-        <SessionCreator
-          createSession={this.props.createSession}
-        />
+        <List sessions={this.props.sessions} setSession={this.props.setSession} />
+        <Create createSession={this.props.createSession}/>
       </div>
     )
   }
@@ -49,4 +45,4 @@ const mapDispatchToProps = (dispatch: Function) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Switcher)
+export default connect(mapStateToProps, mapDispatchToProps)(Sessions)

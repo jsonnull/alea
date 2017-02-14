@@ -14,7 +14,7 @@ class Session extends React.Component {
 
   render () {
     return (
-      <div className={ sidebarStyles.container }>
+      <div className={ sidebarStyles.inner }>
         <Header>{ this.props.name }</Header>
       </div>
     )

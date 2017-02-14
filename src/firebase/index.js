@@ -30,7 +30,7 @@ export default class Firebase {
     const hideLogin = () => store.dispatch(setUserLoggedIn())
     const showLogin = () => store.dispatch(logout())
     const finishLoading = () => store.dispatch(setLoading(false))
-    const showSessionChooser = () => store.dispatch(changeSidebarTab('Switcher'))
+    const showSessionChooser = () => store.dispatch(changeSidebarTab('Sessions'))
 
     const sessionSelector = state => state.user.data.currentSession
 

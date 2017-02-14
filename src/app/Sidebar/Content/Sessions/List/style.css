@@ -1,0 +1,8 @@
+@import 'base';
+
+.session {
+  &:hover {
+    cursor: pointer;
+    background-color: $bgSecondary;
+  }
+}

@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import SessionButton from './SessionButton'
+import Item from './Item'
 import styles from './style.css'
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
   setSession: Function
 }
 
-const SessionList = (props: Props) => {
+const List = (props: Props) => {
   if (props.sessions.length == 0) {
     return <p>
       Yikes, looks like you're not a member of any games. Want to start one?
@@ -17,10 +17,10 @@ const SessionList = (props: Props) => {
 
   return <div>
     {props.sessions.map(session => (
-      <SessionButton key={session.key} session={session} setSession={props.setSession}/>
+      <Item key={session.key} session={session} setSession={props.setSession}/>
     ))}
   </div>
 }
 
-export default SessionList
+export default List
 

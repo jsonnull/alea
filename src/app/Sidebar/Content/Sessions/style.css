@@ -1,13 +1,7 @@
 @import 'base';
 
-.session {
-  &:hover {
-    cursor: pointer;
-    background-color: $bgSecondary;
-  }
-}
-
 .create {
+  align-self: flex-end;
   margin-top: 2.4rem;
 }
 
