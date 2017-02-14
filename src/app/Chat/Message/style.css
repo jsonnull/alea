@@ -3,11 +3,12 @@
 .message {
   margin: 0.5rem 0 0;
   padding: 0 0 0.5rem;
-  border-bottom: 1px solid $borderColorGray;
+  border-bottom: 1px solid $borderColorLight;
   display: inline-block;
   width: 250px;
 
   :global(.dark) & {
+    border-bottom: 1px solid $borderColorDark;
     background-color: $darkBgPrimary;
   }
 
