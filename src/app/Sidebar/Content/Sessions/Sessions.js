@@ -13,6 +13,7 @@ import styles from './style.css'
 
 type Props = {
   sessions: Array<Object>,
+  currentSession: string,
   createSession: Function,
   setSession: Function
 }
@@ -24,7 +25,11 @@ class Sessions extends React.Component {
     return (
       <div className={ sidebarStyles.inner }>
         <Header>Your Games</Header>
-        <List sessions={this.props.sessions} setSession={this.props.setSession} />
+        <List
+          sessions={this.props.sessions}
+          currentSession={this.props.currentSession}
+          setSession={this.props.setSession}
+          />
         <Create createSession={this.props.createSession}/>
       </div>
     )

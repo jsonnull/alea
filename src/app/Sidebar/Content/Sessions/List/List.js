@@ -4,6 +4,7 @@ import Item from './Item'
 import styles from './style.css'
 
 type Props = {
+  currentSession: string,
   sessions: Array<Object>,
   setSession: Function
 }
@@ -17,7 +18,10 @@ const List = (props: Props) => {
 
   return <div>
     {props.sessions.map(session => (
-      <Item key={session.key} session={session} setSession={props.setSession}/>
+      <Item key={session.key}
+        isCurrent={(session.sessionId == props.currentSession)}
+        session={session}
+        setSession={props.setSession} />
     ))}
   </div>
 }

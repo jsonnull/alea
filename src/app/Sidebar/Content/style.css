@@ -46,6 +46,6 @@
   border-radius: 0;
   padding-left: 0;
   border-bottom: 1px solid $borderColorLight;
-  margin-bottom: 1.2rem;
+  margin: 0 0 1.2rem;
   width: 100%;
 }
