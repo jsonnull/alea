@@ -11,6 +11,7 @@ import {
   logout
 } from 'actions'
 import type { Theme } from 'types'
+import type { State } from 'store'
 import sidebarStyles from '../style.css'
 
 type Props = {
@@ -47,7 +48,7 @@ class Profile extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
     displayName: state.user.profile.displayName,
     theme: state.user.preferences.theme

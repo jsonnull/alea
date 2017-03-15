@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { changeSidebarTab } from 'actions'
 import Menu from './Menu'
 import Content from './Content'
+import type { State } from 'store'
 import styles from './style.css'
 
 class Sidebar extends React.Component {
@@ -17,7 +18,7 @@ class Sidebar extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
   return {
     open: state.sidebar.open,
     tab: state.sidebar.tab

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {
   login
 } from 'actions'
+import type { State } from 'store'
 import Button from 'app/components/Button'
 import styles from './style.css'
 
@@ -55,7 +56,7 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
     displayName: state.user.displayName
   }, ownProps)

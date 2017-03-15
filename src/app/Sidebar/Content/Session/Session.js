@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Header from '../Header'
 import sidebarStyles from '../style.css'
+import type { State } from 'store'
 import styles from './style.css'
 
 type Props = {
@@ -21,7 +22,7 @@ class Session extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
     name: state.session.name
   }, ownProps)

@@ -1,9 +1,11 @@
+/* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
 // import {
   // sendMessage,
   // toggleChatPin
 // } from '../../actions'
+import type { State } from 'store'
 import styles from './style.css'
 
 class Map extends React.Component {
@@ -22,7 +24,7 @@ class Map extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
     sidebar: state.sidebar.open,
     chat: state.user.preferences.chatPinned

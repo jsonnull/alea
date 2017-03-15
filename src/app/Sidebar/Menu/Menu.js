@@ -57,7 +57,7 @@ class Menu extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state: State, ownProps) => ({
   sessionActive: state.user.data.currentSession !== null,
   ...ownProps
 })

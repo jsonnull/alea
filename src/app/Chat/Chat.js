@@ -9,6 +9,7 @@ import {
   toggleChatPin
 } from 'actions'
 import type { Message, Theme } from 'types'
+import type { State } from 'store'
 import styles from './style.css'
 
 type Props = {
@@ -45,7 +46,7 @@ class Chat extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
     messages: state.messages,
     pinned: state.user.preferences.chatPinned

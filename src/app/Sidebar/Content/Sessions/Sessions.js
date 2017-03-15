@@ -8,6 +8,7 @@ import {
   createSession,
   setUserSession
 } from 'actions'
+import type { State } from 'store'
 import sidebarStyles from '../style.css'
 import styles from './style.css'
 
@@ -36,7 +37,7 @@ class Sessions extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
     currentSession: state.user.data.currentSession,
     sessions: state.user.data.sessions
