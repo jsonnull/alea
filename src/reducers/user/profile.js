@@ -1,6 +1,10 @@
 /* @flow */
 import type { Action } from '../../actions/types'
-import type { UserProfileState } from '../../types'
+
+export type UserProfileState = {
+  displayName: string,
+  photoURL: string
+}
 
 const initialState = {
   displayName: 'anonymous',

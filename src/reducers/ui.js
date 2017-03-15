@@ -1,6 +1,10 @@
 /* @flow */
 import type { Action } from '../actions/types'
-import type { UIState } from '../types'
+
+export type UIState = {
+  appIsLoading: boolean,
+  userIsLoggedIn: boolean
+}
 
 const initialState = {
   appIsLoading: true,

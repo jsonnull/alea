@@ -1,6 +1,11 @@
 /* @flow */
 import type { Action } from '../actions/types'
-import type { SidebarState } from '../types'
+import type { Tab } from '../types'
+
+export type SidebarState = {
+  open: boolean,
+  tab: Tab
+}
 
 const initialState = {
   open: true,

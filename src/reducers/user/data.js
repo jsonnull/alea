@@ -1,6 +1,10 @@
 /* @flow */
 import type { Action } from 'actions/types'
-import type { UserDataState } from 'types'
+
+export type UserDataState = {
+  currentSession: ?string,
+  sessions: Array<any>
+}
 
 const initialState = {
   currentSession: null,

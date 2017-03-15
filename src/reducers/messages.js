@@ -1,6 +1,8 @@
 /* @flow */
 import type { Action } from '../actions/types'
-import type { MessagesState } from '../types'
+import type { Message } from 'types'
+
+export type MessagesState = Array<Message>
 
 const initialState = []
 

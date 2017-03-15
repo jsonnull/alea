@@ -2,7 +2,8 @@
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
-import type { State, Message, FirebaseMessage } from '../types'
+import type { Message, FirebaseMessage } from '../types'
+import type { State } from 'store'
 import type { Action } from 'actions/types'
 import {
   hydrateSession,

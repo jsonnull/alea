@@ -1,6 +1,9 @@
 /* @flow */
 import type { Action } from '../actions/types'
-import type { SessionState } from '../types'
+
+export type SessionState = {
+  [key: string]: string
+}
 
 const initialState = {
   name: ""

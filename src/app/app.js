@@ -6,7 +6,7 @@ import Loading from './loading'
 import Login from './login'
 import Map from './map'
 import Sidebar from './Sidebar'
-import type { State } from 'types'
+import type { State } from 'store'
 import styles from './style.css'
 
 type Props = {

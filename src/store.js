@@ -8,6 +8,21 @@ import sidebar from './reducers/sidebar'
 import ui from './reducers/ui'
 import user from './reducers/user/'
 
+import type { MessagesState } from './reducers/messages'
+import type { SessionState } from './reducers/session'
+import type { SidebarState } from './reducers/sidebar'
+import type { UIState } from './reducers/ui'
+import type { UserState } from './reducers/user'
+
+/* State tree */
+export type State = {
+  messages: MessagesState,
+  session: SessionState,
+  sidebar: SidebarState,
+  ui: UIState,
+  user: UserState
+}
+
 export default function createStoreWithMiddleware (config: Object) {
   // Create the firebase context
   let firebase = new Firebase(config)

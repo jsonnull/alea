@@ -5,7 +5,8 @@ import MessagesManager from './messages'
 import UserManager from './user'
 import SessionManager from './session'
 import Auth from './authentication'
-import type { State, Message, FirebaseMessage } from 'types'
+import type { Message, FirebaseMessage } from 'types'
+import type { State } from 'store'
 import type { Action } from 'actions/types'
 import {
   updateUserProfile,

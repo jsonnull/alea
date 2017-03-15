@@ -1,6 +1,11 @@
 /* @flow */
 import type { Action } from '../../actions/types'
-import type { UserPreferencesState } from '../../types'
+import type { Theme } from 'types'
+
+export type UserPreferencesState = {
+  theme: Theme,
+  chatPinned: boolean
+}
 
 const initialState = {
   theme: 'light',
