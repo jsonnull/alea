@@ -5,11 +5,10 @@ import type { Message } from 'types'
 import styles from './style.css'
 
 type Props = {
-  messages: Array<Message>,
-  sendMessage: Function,
+  messages: Array<Message>
 }
 
-export default class MessageList extends React.Component {
+export default class MessageList extends React.Component<*, Props, *> {
   constructor (props: Props) {
     super(props)
     // Every minute, update chat timestamps

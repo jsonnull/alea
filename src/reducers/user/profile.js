@@ -3,7 +3,7 @@ import type { Action } from '../../actions/types'
 
 export type UserProfileState = {
   displayName: string,
-  photoURL: string
+  photoURL: ?string
 }
 
 const initialState = {
