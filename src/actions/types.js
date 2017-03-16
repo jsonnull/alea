@@ -1,9 +1,13 @@
 /* @flow */
 import type { Theme, MessageResult, Tab } from 'types'
+import t from 'tcomb'
 
-export type Action =
+const ReduxActionString = t.refinement(t.String, (s) => s.indexOf('@@redux/') === 0, 'ReduxActionString')
+type ReduxInitAction = { type: ReduxActionString }
+
+export type Action = ReduxInitAction
   /* Messages */
-    { type: 'HYDRATE_MESSAGES' }
+  | { type: 'HYDRATE_MESSAGES' }
   | { type: 'SEND_MESSAGE', text: string, result: ?MessageResult }
   | { type: 'RECEIVE_MESSAGE', key: string, from: string, text: string, result: ?MessageResult, timestamp: number }
   /* UI */

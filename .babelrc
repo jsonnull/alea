@@ -1,14 +1,17 @@
 {
-  "presets": ["react", "es2015"],
+  "presets": [
+    "react",
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      },
+      "useBuiltIns": true
+    }]
+  ],
   "plugins": [
-    "syntax-flow",
-    "transform-flow-strip-types",
+    "tcomb",
     "transform-class-properties",
     "transform-object-rest-spread",
-    "transform-remove-strict-mode",
-    "syntax-async-functions",
-    "transform-async-to-generator",
-    "transform-regenerator",
-    "transform-runtime"
+    "transform-remove-strict-mode"
   ]
 }
