@@ -1,5 +1,6 @@
 const {
   createConfig,
+  customConfig,
   defineConstants,
   env,
   entryPoint,
@@ -40,5 +41,10 @@ module.exports = createConfig([
   ]),
   directoryNamed(),
   customResolve(),
-  extractText('style.css')
+  extractText('style.css'),
+  customConfig({
+    stats: {
+      children: false
+    }
+  })
 ])
