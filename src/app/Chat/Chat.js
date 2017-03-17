@@ -4,10 +4,7 @@ import { connect } from 'react-redux'
 import Compose from './Compose'
 import MessageList from './MessageList'
 import TogglePin from './TogglePin'
-import {
-  sendMessage,
-  toggleChatPin
-} from 'actions'
+import { Firebase, firebaseInject } from 'backend'
 import type { Message, Theme } from 'types'
 import type { State } from 'store'
 import styles from './style.css'
@@ -16,16 +13,19 @@ type Props = {
   theme: Theme,
   messages: Array<Message>,
   pinned: boolean,
-  sendMessage: Function,
-  togglePinned: Function
+  firebase: Firebase
 }
 
 class Chat extends React.Component {
   props: Props
   messageQueue: []
 
-  sendMessage (text) {
-    this.props.sendMessage(text.trim())
+  sendMessage = (text) => {
+    this.props.firebase.sendMessage(text.trim())
+  }
+
+  togglePinned = () => {
+    this.props.firebase.toggleChatPin()
   }
 
   render () {
@@ -38,9 +38,9 @@ class Chat extends React.Component {
 
     return (
       <div className={ styles.chat + ' ' + pinned }>
-        <TogglePin pinned={this.props.pinned} togglePinned={this.props.togglePinned} />
+        <TogglePin pinned={this.props.pinned} togglePinned={this.togglePinned} />
         <MessageList messages={messages} />
-        <Compose onSend={message => this.sendMessage(message)} />
+        <Compose onSend={this.sendMessage} />
       </div>
     )
   }
@@ -53,11 +53,4 @@ const mapStateToProps = (state: State, ownProps) => {
   }, ownProps)
 }
 
-const mapDispatchToProps = (dispatch: Function) => {
-  return {
-    sendMessage: (message) => { dispatch(sendMessage(message)) },
-    togglePinned: () => dispatch(toggleChatPin())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Chat)
+export default connect(mapStateToProps)(firebaseInject(Chat))

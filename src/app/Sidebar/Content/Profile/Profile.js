@@ -1,15 +1,11 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
+import { Firebase, firebaseInject } from 'backend'
 import Header from '../Header'
 import Name from './Name'
 import ThemeSwitcher from './ThemeSwitcher'
 import Logout from './Logout'
-import {
-  changeTheme,
-  updateUserProfile,
-  logout
-} from 'actions'
 import type { Theme } from 'types'
 import type { State } from 'store'
 import sidebarStyles from '../style.css'
@@ -17,32 +13,34 @@ import sidebarStyles from '../style.css'
 type Props = {
   displayName: string,
   theme: Theme,
-  logout: Function,
-  updateTheme: Function,
-  updateUserProfile: Function
+  firebase: Firebase
 }
 
 class Profile extends React.Component {
   props: Props
 
-  updateProfileName (name) {
+  updateProfileName = (name) => {
     let user = { displayName: name }
-    this.props.updateUserProfile(user)
+    this.props.firebase.updateUserProfile(user)
   }
+
+  changeTheme = theme => this.props.firebase.changeTheme(theme)
+
+  logout = () => this.props.firebase.logout()
 
   render () {
     return (
       <div className={ sidebarStyles.inner }>
         <Header>Settings</Header>
 
-        <Name name={this.props.displayName} onChange={n => this.updateProfileName(n)} />
+        <Name name={this.props.displayName} onChange={this.updateProfileName} />
 
         <ThemeSwitcher
           currentTheme={ this.props.theme }
-          changeTheme={theme => this.props.updateTheme(theme)}
+          changeTheme={this.changeTheme}
         />
 
-        <Logout logout={() => this.props.logout()}/>
+        <Logout logout={this.logout}/>
       </div>
     )
   }
@@ -55,12 +53,4 @@ const mapStateToProps = (state: State, ownProps) => {
   }, ownProps)
 }
 
-const mapDispatchToProps = (dispatch: Function) => {
-  return {
-    logout: () => dispatch(logout()),
-    updateTheme: theme => dispatch(changeTheme(theme)),
-    updateUserProfile: user => dispatch(updateUserProfile(user))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps)(firebaseInject(Profile))

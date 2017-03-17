@@ -1,13 +1,10 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
+import { Firebase, firebaseInject } from 'backend'
 import Header from '../Header'
 import Create from './Create'
 import List from './List'
-import {
-  createSession,
-  setUserSession
-} from 'actions'
 import type { State } from 'store'
 import sidebarStyles from '../style.css'
 import styles from './style.css'
@@ -15,12 +12,15 @@ import styles from './style.css'
 type Props = {
   sessions: Array<Object>,
   currentSession: string,
-  createSession: Function,
-  setSession: Function
+  firebase: Firebase
 }
 
 class Sessions extends React.Component {
   props: Props
+
+  createSession = () => this.props.firebase.createSession()
+
+  setSession = sessionId => this.props.firebase.setUserSession(sessionId)
 
   render () {
     return (
@@ -29,9 +29,9 @@ class Sessions extends React.Component {
         <List
           sessions={this.props.sessions}
           currentSession={this.props.currentSession}
-          setSession={this.props.setSession}
+          setSession={this.setSession}
           />
-        <Create createSession={this.props.createSession}/>
+        <Create createSession={this.createSession}/>
       </div>
     )
   }
@@ -44,11 +44,4 @@ const mapStateToProps = (state: State, ownProps) => {
   }, ownProps)
 }
 
-const mapDispatchToProps = (dispatch: Function) => {
-  return {
-    createSession: () => dispatch(createSession()),
-    setSession: sessionId => dispatch(setUserSession(sessionId))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sessions)
+export default connect(mapStateToProps)(firebaseInject(Sessions))

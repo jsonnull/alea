@@ -1,6 +1,7 @@
 /* @flow */
 import * as firebase from 'firebase/app'
 import 'firebase/database'
+import CommandParser from './commands'
 import type { Message, MessageResult } from 'types'
 import type { State } from 'store'
 import type { Action } from 'actions/types'
@@ -15,12 +16,15 @@ type FirebaseMessage = {
 }
 
 export default class MessagesManager {
+  commandParser: CommandParser
   messagesRef: Object
   store: Object
 
   constructor (store: Object) {
     this.store = store
     this.loadMessages()
+
+    this.commandParser = new CommandParser()
   }
 
   addMessageToStore(message: Message) {
@@ -52,21 +56,20 @@ export default class MessagesManager {
     // this.messagesRef.limitToLast(12).on('child_changed', setMessage)
   }
 
-  sendMessage (state: State, action: Action) {
-    if (action.type === 'SEND_MESSAGE') { // needed for flow type-checking to pass
-      const { text, result = null } = action
+  sendMessage (text: string) {
+    const state = this.store.getState()
+    const result = this.commandParser.getMessageResult(text)
 
-      const message: FirebaseMessage = {
-        name: state.user.profile.displayName,
-        text,
-        result,
-        timestamp: firebase.database.ServerValue.TIMESTAMP
-      }
-
-      this.messagesRef
-        .push(message)
-        .then(() => {})
-        .catch(e => console.error(e))
+    const message: FirebaseMessage = {
+      name: state.user.profile.displayName,
+      text,
+      result,
+      timestamp: firebase.database.ServerValue.TIMESTAMP
     }
+
+    this.messagesRef
+      .push(message)
+      .then(() => {})
+      .catch(e => console.error(e))
   }
 }

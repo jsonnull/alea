@@ -21,7 +21,7 @@ const ThemeButton = (props: Object) => {
 
 type Props = {
   currentTheme: Theme,
-  changeTheme: (Theme) => void
+  changeTheme: (Theme) => any
 }
 
 const ThemeSwitcher = (props: Props) => {

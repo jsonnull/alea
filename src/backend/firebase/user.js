@@ -63,15 +63,14 @@ export default class UserManager {
     this.store.dispatch(hydrateUserProfile(user))
   }
 
-  updateProfile (action: Action) {
-    if (action.type === 'UPDATE_USER_PROFILE') {
-      firebase.auth().currentUser
-        .updateProfile({
-          displayName: action.user.displayName
-        })
-        .then(() => {})
-        .catch(e => console.error(e))
-    }
+  // FIXME: user object
+  saveProfile (user: Object) {
+    firebase.auth().currentUser
+      .updateProfile({
+        displayName: user.displayName
+      })
+      .then(() => {})
+      .catch(e => console.error(e))
   }
 
   async loadData (): Promise<?Object> {
@@ -116,35 +115,29 @@ export default class UserManager {
   } 
 
   // Add a session to a user's profile
-  addSession (action: Action) {
-    if (action.type === 'USER_ADD_SESSION') {
-      const goToSessionTab = () => this.store.dispatch(changeSidebarTab('Session'))
-      const uid = firebase.auth().currentUser.uid
-      const { sessionId } = action
+  addSession (sessionId: string) {
+    const goToSessionTab = () => this.store.dispatch(changeSidebarTab('Session'))
+    const uid = firebase.auth().currentUser.uid
 
-      let userSessionId = firebase.database().ref(`users/${uid}/sessions`).push().key
-      let updates = {}
-      updates[`users/${uid}/currentSession`] = sessionId
-      updates[`users/${uid}/sessions/${userSessionId}`] = sessionId
+    let userSessionId = firebase.database().ref(`users/${uid}/sessions`).push().key
+    let updates = {}
+    updates[`users/${uid}/currentSession`] = sessionId
+    updates[`users/${uid}/sessions/${userSessionId}`] = sessionId
 
-      firebase.database().ref().update(updates)
-        .then(goToSessionTab)
-        .catch(e => console.error(e))
-    }
+    firebase.database().ref().update(updates)
+      .then(goToSessionTab)
+      .catch(e => console.error(e))
   }
 
-  setSession (action: Action) {
-    if (action.type === 'USER_SET_SESSION') {
-      const uid = firebase.auth().currentUser.uid
-      const { sessionId } = action
+  setSession (sessionId: string) {
+    const uid = firebase.auth().currentUser.uid
 
-      let updates = {}
-      updates[`users/${uid}/currentSession`] = sessionId
+    let updates = {}
+    updates[`users/${uid}/currentSession`] = sessionId
 
-      firebase.database().ref().update(updates)
-        .then(() => {})
-        .catch(e => console.error(e))
-    }
+    firebase.database().ref().update(updates)
+      .then(() => {})
+      .catch(e => console.error(e))
   }
 
   async loadSessionInfo () {

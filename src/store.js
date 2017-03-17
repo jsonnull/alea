@@ -1,7 +1,5 @@
 /* @flow */
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import Firebase from './firebase/'
-import commandParser from './middleware/commands'
 import messages from './reducers/messages'
 import session from './reducers/session'
 import sidebar from './reducers/sidebar'
@@ -23,10 +21,7 @@ export type State = {
   user: UserState
 }
 
-export default function createStoreWithMiddleware (config: Object) {
-  // Create the firebase context
-  let firebase = new Firebase(config)
-
+export default function createStoreWithMiddleware () {
   const reducers = combineReducers({
     messages,
     session,
@@ -35,20 +30,13 @@ export default function createStoreWithMiddleware (config: Object) {
     user
   })
 
-  const middleware = applyMiddleware(
-    commandParser,
-    firebase.handleActionMiddleware()
-  )
-
-  let store = createStore(reducers, middleware)
+  let store = createStore(reducers)
 
   // Log the initial state
   console.log(store.getState())
   let unsubscribe = store.subscribe(() =>
     console.log(store.getState())
   )
-
-  firebase.init(store)
 
   return store
 }

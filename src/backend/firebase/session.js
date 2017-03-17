@@ -6,8 +6,7 @@ import type { State } from 'store'
 import type { Action } from 'actions/types'
 import {
   hydrateSession,
-  hydrateSessionMeta,
-  userAddSession
+  hydrateSessionMeta
 } from 'actions'
 
 export default class SessionManager {
@@ -27,7 +26,8 @@ export default class SessionManager {
   }
 
   // Creates a new session with the current user as owner
-  createSession () {
+  // TODO: Object promise
+  async createSession (): Promise<Object> {
     let sessionsRef = firebase.database().ref('sessions')
 
     let thenable = sessionsRef.push({
@@ -35,13 +35,7 @@ export default class SessionManager {
       name: 'My new game'
     })
 
-    let sessionId = thenable.key
-    this.store.dispatch(userAddSession(sessionId))
-
-    thenable
-      // Session creation is complete
-      .then(session => this.loadSession())
-      .catch(e => console.error(e))
+    return thenable
   }
 
   loadSession () {
