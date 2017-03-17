@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.2.2",
     "babel-preset-react": "^6.16.0",
+    "babili-webpack-plugin": "^0.0.11",
     "directory-named-webpack-plugin": "2",
     "flow-bin": "^0.38.0",
     "postcss-advanced-variables": "^1.2.2",

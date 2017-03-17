@@ -1,7 +1,7 @@
 const {
+  addPlugins,
   createConfig,
   customConfig,
-  defineConstants,
   env,
   entryPoint,
   setOutput,
@@ -11,7 +11,9 @@ const babel = require('@webpack-blocks/babel6')
 const postcss = require('@webpack-blocks/postcss')
 const cssModules = require('@webpack-blocks/css-modules')
 const extractText = require('@webpack-blocks/extract-text2')
+const webpack = require('webpack')
 const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
+const BabiliPlugin = require('babili-webpack-plugin')
 
 const directoryNamed = () => (context) => ({
   resolve: {
@@ -27,17 +29,30 @@ const customResolve = () => (context) => ({
   }
 })
 
+const babili = () => (context) => ({
+  plugins: [
+    new BabiliPlugin()
+  ]
+})
+
 module.exports = createConfig([
   entryPoint('./src/index.js'),
   setOutput('./public/bundle.js'),
   babel(),
   postcss(),
   cssModules(),
-  defineConstants({
-    'process.env.NODE_ENV': process.env.NODE_ENV
-  }),
+  addPlugins([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+      }
+    })
+  ]),
   env('development', [
     sourceMaps()
+  ]),
+  env('production', [
+    babili()
   ]),
   directoryNamed(),
   customResolve(),
