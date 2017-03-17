@@ -1,10 +1,18 @@
 /* @flow */
 import * as firebase from 'firebase/app'
 import 'firebase/database'
-import type { Message, FirebaseMessage } from 'types'
+import type { Message, MessageResult } from 'types'
 import type { State } from 'store'
 import type { Action } from 'actions/types'
 import { receiveMessage } from 'actions'
+
+/* Messages sent/received by Firebase */
+type FirebaseMessage = {
+  name: string,
+  result: ?MessageResult,
+  text: string,
+  timestamp: number
+}
 
 export default class MessagesManager {
   messagesRef: Object
@@ -26,7 +34,10 @@ export default class MessagesManager {
     this.messagesRef.off()
 
     const setMessage = data => {
-      const { name, text, result, timestamp } = data.val()
+      // tcomb will validate incoming message matches schema
+      let firebaseMessage: FirebaseMessage = data.val()
+      const { name, text, result, timestamp } = firebaseMessage
+
       const message: Message = {
         key: data.key,
         from: name,

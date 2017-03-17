@@ -5,21 +5,24 @@ import MessageResult from './MessageResult'
 import timeago from 'timeago.js'
 import styles from './style.css'
 
-export default class MessageView extends React.Component {
-  props: Message
+type Props = {
+  message: Message
+}
 
+export default class MessageView extends React.Component<*, Props, *> {
   render () {
+    const { from, timestamp, text, result } = this.props.message
     return <div className={styles.message}>
       <div className={styles.from}>
-        { this.props.from }{' '}
+        { from }{' '}
         <span className={styles.date}>
-          { new timeago().format(this.props.timestamp) }
+          { new timeago().format(timestamp) }
         </span>
       </div>
       <div className={styles.text}>
-        { this.props.text }
+        { text }
       </div>
-      <MessageResult result={this.props.result} />
+      <MessageResult result={result} />
     </div>
   }
 }

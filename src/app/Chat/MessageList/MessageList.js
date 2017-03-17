@@ -22,7 +22,7 @@ export default class MessageList extends React.Component<*, Props, *> {
   render () {
     return <div className={ styles.messages } ref='scroll'>
       {this.props.messages.map(message =>  
-        <MessageView {...message} />
+        <MessageView key={message.key} message={message} />
       )}
       <div className={ styles.spacer }>&nbsp;</div>
     </div>

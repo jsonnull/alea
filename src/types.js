@@ -16,14 +16,6 @@ export type Message = {
   timestamp: number
 }
 
-/* Messages sent/received by Firebase */
-export type FirebaseMessage = {
-  name: string,
-  result: ?MessageResult,
-  text: string,
-  timestamp: number
-}
-
 export type Theme = 'light' | 'dark'
 
 export type Tab = 'Session' | 'Character' | 'Sessions' | 'Profile'
