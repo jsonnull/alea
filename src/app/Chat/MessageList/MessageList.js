@@ -9,14 +9,23 @@ type Props = {
 }
 
 export default class MessageList extends React.Component<*, Props, *> {
+  timer: Object
+
   constructor (props: Props) {
     super(props)
+  }
+
+  componentDidMount () {
     // Every minute, update chat timestamps
-    setInterval(() => this.forceUpdate(), 60000)
+    this.timer = setInterval(() => this.forceUpdate(), 60000)
   }
 
   componentDidUpdate () {
     this.refs.scroll.scrollTop += 10000
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.timer)
   }
 
   render () {
