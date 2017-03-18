@@ -3,14 +3,16 @@ import type { Theme, MessageResult, Tab } from 'types'
 import t from 'tcomb'
 
 const ReduxActionString = t.refinement(t.String, (s) => s.indexOf('@@redux/') === 0, 'ReduxActionString')
-type ReduxInitAction = { type: ReduxActionString }
+type ReduxInitAction =
+    { type: ReduxActionString }
+  | { type: '@@INIT' }
 
 export type Action = ReduxInitAction
   /* Messages */
   | { type: 'RECEIVE_MESSAGE', key: string, from: string, text: string, result: ?MessageResult, timestamp: number }
   /* UI */
   | { type: 'SET_LOADING', appIsLoading: boolean }
-  | { type: 'SET_USER_LOGGED_IN' }
+  | { type: 'SET_USER_LOGGED_IN', userIsLoggedIn: boolean }
   /* User Profile */
   | { type: 'HYDRATE_USER_PROFILE', user: Object }
   | { type: 'UPDATE_USER_PROFILE', user: Object }

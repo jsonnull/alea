@@ -29,7 +29,7 @@ export default class Firebase {
     this.store = store
 
     // Initialize the auth submodule
-    const hideLogin = () => store.dispatch(setUserLoggedIn())
+    const hideLogin = () => store.dispatch(setUserLoggedIn(true))
     const showLogin = () => this.logout()
     const finishLoading = () => store.dispatch(setLoading(false))
     const showSessionChooser = () => store.dispatch(changeSidebarTab('Sessions'))
@@ -37,7 +37,7 @@ export default class Firebase {
     const sessionSelector = state => state.user.data.currentSession
 
     let _this = this
-    async function userStateChanged (user: Object) {
+    async function userStateChanged (user: ?Object) {
       if (user) {
         _this.messages = new MessagesManager(_this.store)
         // Wait for user info before continuing
@@ -83,6 +83,7 @@ export default class Firebase {
 
   logout () {
     Auth.logout()
+    this.store.dispatch(setUserLoggedIn(false))
   }
 
   /* User */

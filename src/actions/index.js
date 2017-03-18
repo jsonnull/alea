@@ -17,8 +17,8 @@ export const setLoading = (appIsLoading: boolean): Action => ({
   type: 'SET_LOADING', appIsLoading
 })
 
-export const setUserLoggedIn = (): Action => ({
-  type: 'SET_USER_LOGGED_IN'
+export const setUserLoggedIn = (userIsLoggedIn: boolean): Action => ({
+  type: 'SET_USER_LOGGED_IN', userIsLoggedIn
 })
 
 /*

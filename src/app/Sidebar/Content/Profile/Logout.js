@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Logout = (props: Props) => {
-  return <Button onClick={() => props.logout() } customClass={styles.logout} variant='red'>
+  return <Button onClick={props.logout} customClass={styles.logout} variant='red'>
     Logout
   </Button>
 }

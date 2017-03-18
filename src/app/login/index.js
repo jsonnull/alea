@@ -1,13 +1,21 @@
+/* @flow */
 import React from 'react'
-import { connect } from 'react-redux'
-import {
-  login
-} from 'actions'
-import type { State } from 'store'
+import { Firebase, firebaseInject } from 'backend'
 import Button from 'app/components/Button'
 import styles from './style.css'
 
-class Login extends React.Component {
+type Props = {
+  firebase: Firebase
+}
+
+type State = {
+  email: string,
+  password: string
+}
+
+class Login extends React.Component<*, Props, *> {
+  state: State
+
   constructor (props) {
     super(props)
     this.state = { email: '', password: '' }
@@ -21,9 +29,9 @@ class Login extends React.Component {
     this.setState({password: event.target.value})
   }
 
-  handleSubmit (event) {
+  handleSubmit = event => {
     event.preventDefault()
-    this.props.login(
+    this.props.firebase.login(
       this.state.email,
       this.state.password
     )
@@ -49,28 +57,11 @@ class Login extends React.Component {
             value={this.state.password}
             onChange={e => this.handlePassword(e)}
           />
-          <Button onClick={() => this.handleSubmit()} customClass={styles.button}>Login</Button>
+          <Button onClick={this.handleSubmit} customClass={styles.button}>Login</Button>
         </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state: State, ownProps) => {
-  return Object.assign({
-    displayName: state.user.displayName
-  }, ownProps)
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    login: (email, password) => dispatch(login(email, password))
-  }
-}
-
-let LoginView = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login)
-
-export default LoginView
+export default firebaseInject(Login)
