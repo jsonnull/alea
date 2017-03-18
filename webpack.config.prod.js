@@ -1,15 +1,12 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
+const BabiliPlugin = require('babili-webpack-plugin')
 
 module.exports = {
   entry: {
-    'app': [
-      'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:8080',
-      'webpack/hot/only-dev-server',
-      './src/index.js'
-    ]
+    'app': './src/index.js'
   },
   output: {
     filename: 'bundle.js',
@@ -25,11 +22,13 @@ module.exports = {
       },
       {
         test: /\.css*/,
-        use: [
-          'style-loader',
-          'css-loader?modules&importLoaders=1',
-          'postcss-loader'
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?modules&importLoaders=1',
+            'postcss-loader'
+          ]
+        })
       }
     ]
   },
@@ -40,14 +39,14 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new ExtractTextPlugin('style.css'),
+    new BabiliPlugin()
   ],
-  devServer: {
-    hot: true,
-    contentBase: resolve(__dirname, 'public'),
-    publicPath: '/'
-  },
   stats: {
     children: false
   }

@@ -5,13 +5,15 @@
       "targets": {
         "browsers": ["last 2 versions"]
       },
-      "useBuiltIns": true
+      "useBuiltIns": true,
+      "modules": false
     }]
   ],
   "plugins": [
     "tcomb",
     "transform-class-properties",
     "transform-object-rest-spread",
-    "transform-remove-strict-mode"
+    "transform-remove-strict-mode",
+    "react-hot-loader/babel"
   ]
 }

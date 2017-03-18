@@ -3,6 +3,7 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { AppContainer } from 'react-hot-loader'
 import App from 'app/app'
 import { Firebase, FirebaseProvider } from './backend'
 import createStore from './store'
@@ -20,11 +21,21 @@ const config = {
 let store = createStore()
 let firebase = new Firebase(store, config)
 
-ReactDOM.render(
-  <FirebaseProvider firebase={firebase}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </FirebaseProvider>,
-  document.getElementById('root')
-)
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <FirebaseProvider firebase={firebase}>
+        <Provider store={store}>
+          <Component />
+        </Provider>
+      </FirebaseProvider>
+    </AppContainer>,
+    document.getElementById('root')
+  )
+}
+
+render(App)
+
+if (module.hot) {
+  module.hot.accept('app/app', () => { render(App) })
+}
