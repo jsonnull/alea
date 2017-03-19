@@ -10,10 +10,22 @@
     }]
   ],
   "plugins": [
-    "tcomb",
     "transform-class-properties",
     "transform-object-rest-spread",
     "transform-remove-strict-mode",
     "react-hot-loader/babel"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "tcomb",
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "tcomb"
+      ]
+    }
+  }
 }

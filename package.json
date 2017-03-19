@@ -2,6 +2,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "NODE_ENV=production webpack",
+    "test": "jest",
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
   "dependencies": {
@@ -19,9 +20,11 @@
     "autoprefixer": "^6.6.1",
     "babel": "^6.5.2",
     "babel-core": "^6.21.0",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-tcomb": "^0.3.25",
     "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
     "babel-polyfill": "^6.23.0",
@@ -32,6 +35,9 @@
     "directory-named-webpack-plugin": "2",
     "extract-text-webpack-plugin": "^2.1.0",
     "flow-bin": "^0.38.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^19.0.2",
+    "jest-directory-named-resolver": "jsonnull/jest-directory-named-resolver",
     "postcss-advanced-variables": "^1.2.2",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^9.1.0",
@@ -40,5 +46,19 @@
     "style-loader": "^0.14.1",
     "webpack": "2",
     "webpack-dev-server": "^2.4.2"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "resolver": "jest-directory-named-resolver",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }
