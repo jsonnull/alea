@@ -1,6 +1,8 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -9,10 +11,17 @@ module.exports = {
       'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
       './src/index.js'
+    ],
+    'vendor': [
+      'react',
+      'react-dom',
+      'firebase', 'firebase/auth', 'firebase/database', 'firebase/app',
+      'redux',
+      'react-redux'
     ]
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: resolve(__dirname, 'public'),
     publicPath: '/'
   },
@@ -40,6 +49,15 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+    new InlineManifestWebpackPlugin({
+      name: 'webpackManifest'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()
   ],

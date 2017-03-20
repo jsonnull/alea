@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js --progress",
     "test": "jest",
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
@@ -35,7 +35,9 @@
     "directory-named-webpack-plugin": "2",
     "extract-text-webpack-plugin": "^2.1.0",
     "flow-bin": "^0.38.0",
+    "html-webpack-plugin": "^2.28.0",
     "identity-obj-proxy": "^3.0.0",
+    "inline-manifest-webpack-plugin": "^3.0.1",
     "jest": "^19.0.2",
     "jest-directory-named-resolver": "jsonnull/jest-directory-named-resolver",
     "postcss-advanced-variables": "^1.2.2",

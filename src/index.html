@@ -11,12 +11,9 @@
   <link href="https://fonts.googleapis.com/css?family=Alice|Cinzel+Decorative" rel="stylesheet">
   <link rel="stylesheet" href="./normalize.css" />
   <link rel="stylesheet" href="./font-awesome.min.css">
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="preload" href="./bundle.js?v=3" />
-  <link rel="prefetch" href="./bundle.js?v=3" />
 </head>
 <body>
   <div id='root'></div>
-  <script src='./bundle.js?v=3'></script>
+  <%=htmlWebpackPlugin.files.webpackManifest%>
 </body>
 </html>

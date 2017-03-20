@@ -3,13 +3,22 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
 const BabiliPlugin = require('babili-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
 module.exports = {
   entry: {
-    'app': './src/index.js'
+    'app': './src/index.js',
+    'vendor': [
+      'react',
+      'react-dom',
+      'firebase', 'firebase/auth', 'firebase/database', 'firebase/app',
+      'redux',
+      'react-redux'
+    ]
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[chunkhash].js',
     path: resolve(__dirname, 'public'),
     publicPath: '/'
   },
@@ -39,12 +48,21 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+    new InlineManifestWebpackPlugin({
+      name: 'webpackManifest'
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin('style.[chunkhash].css'),
     new BabiliPlugin()
   ],
   stats: {

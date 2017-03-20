@@ -1,7 +1,6 @@
 node_modules/
 coverage/
-public/bundle.js
-public/bundle.js.map
-public/style.css
-public/style.css.map
+public/*
+!public/img
+!public/fonts
 public/img/hero.png
