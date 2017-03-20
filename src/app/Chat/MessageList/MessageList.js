@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default class MessageList extends React.Component<*, Props, *> {
-  timer: Object
+  timer: number
 
   constructor (props: Props) {
     super(props)
