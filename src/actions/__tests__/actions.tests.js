@@ -1,7 +1,10 @@
+/* @flow */
 import * as actions from '../index'
+import type { UserProfileState } from 'reducers/user/profile'
+import type { UserPreferencesState } from 'reducers/user/preferences'
+import type { UserDataState } from 'reducers/user/data'
 
 describe('actions', () => {
-  // TODO: Type-check on message
   it('should create an action to receive a message', () => {
     const message = {
       key: 'key',
@@ -10,10 +13,118 @@ describe('actions', () => {
       result: null,
       timestamp: 0
     }
-    const { key, from, text, result, timestamp } = message
-    const expectedAction = {
-      type: 'RECEIVE_MESSAGE', key, from, text, result, timestamp
+
+    expect(
+      actions.receiveMessage(message)
+    ).toEqual(
+      { type: 'RECEIVE_MESSAGE', message }
+    )
+  })
+
+  it('should create an action to indicate loading state', () => {
+    expect(
+      actions.setLoading(true)
+    ).toEqual(
+      { type: 'SET_LOADING', appIsLoading: true }
+    )
+  })
+
+  it('should create an action to indicate the user\'s logged-in state', () => {
+    expect(
+      actions.setUserLoggedIn(true)
+    ).toEqual(
+      { type: 'SET_USER_LOGGED_IN', userIsLoggedIn: true }
+    )
+  })
+
+  it('should create an action to fill in the user\'s profile', () => {
+    const user: UserProfileState = {
+      displayName: 'testing',
+      photoURL: null
     }
-    expect(actions.receiveMessage(message)).toEqual(expectedAction)
+
+    expect(
+      actions.hydrateUserProfile(user)
+    ).toEqual(
+      { type: 'HYDRATE_USER_PROFILE', user }
+    )
+
+    expect(
+      actions.updateUserProfile(user)
+    ).toEqual(
+      { type: 'UPDATE_USER_PROFILE', user }
+    )
+  })
+
+  it('should create an action to fill in the user\'s preferences', () => {
+    const prefs: UserPreferencesState = {
+      theme: 'light',
+      chatPinned: false
+    }
+
+    expect(
+      actions.hydratePreferences(prefs)
+    ).toEqual(
+      { type: 'HYDRATE_PREFERENCES', prefs }
+    )
+  })
+
+  it('should create an action to change the user\'s theme', () => {
+    expect(
+      actions.changeTheme('light')
+    ).toEqual(
+      { type: 'CHANGE_THEME', theme: 'light' }
+    )
+  })
+
+  it('should create an action to toggle the chat pin', () => {
+    expect(
+      actions.toggleChatPin()
+    ).toEqual(
+      { type: 'TOGGLE_CHAT_PIN' }
+    )
+  })
+
+  it('should create an action to fill in user data', () => {
+    const user: UserDataState = {
+      currentSession: null,
+      userSessions: {}
+    }
+
+    expect(
+      actions.hydrateUserData(user)
+    ).toEqual(
+      { type: 'HYDRATE_USER_DATA', user }
+    )
+  })
+
+  it('should create an action to populate session meta', () => {
+    expect(
+      actions.hydrateSessionMeta('id', { name: 'test' })
+    ).toEqual(
+      {
+        type: 'HYDRATE_SESSION_META',
+        userSessionId: 'id',
+        meta: {
+          name: 'test'
+        }
+      }
+    )
+  })
+
+  it('should create an action to populate session data', () => {
+    expect(
+      actions.hydrateSession({ mydata: 'data' })
+    ).toEqual(
+      { type: 'HYDRATE_SESSION', session: { mydata: 'data' }}
+    )
+  })
+
+  it('should create an action to change the current tab on the sidebar', () => {
+    expect(
+      actions.changeSidebarTab('Profile')
+    ).toEqual(
+      { type: 'CHANGE_SIDEBAR_TAB', tab: 'Profile' }
+    )
   })
 })

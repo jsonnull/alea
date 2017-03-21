@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react'
+import type { SessionInfo } from 'types'
 import styles from './style.css'
 
 const Meta = (props: { isCurrent: boolean }) => {
@@ -20,12 +21,12 @@ const Loading = () => (
 
 type Props = {
   isCurrent: boolean,
-  session: Object,
+  session: SessionInfo,
   setSession: Function
 }
 
 const Item = (props: Props) => {
-  if (!props.session.name) {
+  if (!props.session.meta) {
     return <Loading />
   }
 
@@ -34,7 +35,7 @@ const Item = (props: Props) => {
   return (
     <div className={styles.session + currentStyle}>
       <div className={styles.name}>
-        {props.session.name}
+        {props.session.meta.name}
       </div>
       <Meta isCurrent={props.isCurrent}/>
     </div>

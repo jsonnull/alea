@@ -6,11 +6,12 @@ import Header from '../Header'
 import Create from './Create'
 import List from './List'
 import type { State } from 'store'
+import type { SessionInfo } from 'types'
 import sidebarStyles from '../style.css'
 import styles from './style.css'
 
 type Props = {
-  sessions: Array<Object>,
+  sessions: { [key: string]: SessionInfo },
   currentSession: string,
   firebase: Firebase
 }
@@ -40,7 +41,7 @@ class Sessions extends React.Component {
 const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
     currentSession: state.user.data.currentSession,
-    sessions: state.user.data.sessions
+    sessions: state.user.data.userSessions
   }, ownProps)
 }
 

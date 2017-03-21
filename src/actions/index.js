@@ -1,13 +1,16 @@
 /* @flow */
 import type { Action } from './types'
-import type { Theme, Tab } from 'types'
+import type { SessionMeta, Message, Theme, Tab } from 'types'
+import type { UserProfileState } from 'reducers/user/profile'
+import type { UserPreferencesState } from 'reducers/user/preferences'
+import type { UserDataState } from 'reducers/user/data'
+import type { SessionState } from 'reducers/session'
 
 /*
  * Messages
  */
-export const receiveMessage = (message: Object): Action => {
-  const { key, from, text, result, timestamp } = message
-  return { type: 'RECEIVE_MESSAGE', key, from, text, result, timestamp }
+export const receiveMessage = (message: Message): Action => {
+  return { type: 'RECEIVE_MESSAGE', message }
 }
 
 /*
@@ -24,18 +27,18 @@ export const setUserLoggedIn = (userIsLoggedIn: boolean): Action => ({
 /*
  * User Profile
  */
-export const hydrateUserProfile = (user: Object): Action => ({
+export const hydrateUserProfile = (user: UserProfileState): Action => ({
   type: 'HYDRATE_USER_PROFILE', user
 })
 
-export const updateUserProfile = (user: Object): Action => ({
+export const updateUserProfile = (user: UserProfileState): Action => ({
   type: 'UPDATE_USER_PROFILE', user
 })
 
 /*
  * User Preferences
  */
-export const hydratePreferences = (prefs: Object): Action => ({
+export const hydratePreferences = (prefs: UserPreferencesState): Action => ({
   type: 'HYDRATE_PREFERENCES', prefs
 })
 
@@ -50,18 +53,18 @@ export const toggleChatPin = (): Action => ({
 /*
  * User Data
  */
-export const hydrateUserData = (user: Object): Action => ({
+export const hydrateUserData = (user: UserDataState): Action => ({
   type: 'HYDRATE_USER_DATA', user
 })
 
-export const hydrateSessionMeta = (sessions: Array<Object>): Action => ({
-  type: 'HYDRATE_SESSION_META', sessions
+export const hydrateSessionMeta = (userSessionId: string, meta: SessionMeta): Action => ({
+  type: 'HYDRATE_SESSION_META', userSessionId, meta
 })
 
 /*
  * Session
  */
-export const hydrateSession = (session: Object): Action => ({
+export const hydrateSession = (session: SessionState): Action => ({
   type: 'HYDRATE_SESSION', session
 })
 

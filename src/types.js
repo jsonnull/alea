@@ -9,11 +9,20 @@ export type MessageResult = {
 
 /* Message type */
 export type Message = {
-  from: string,
   key: string,
-  result: ?MessageResult,
+  from: string,
   text: string,
+  result: ?MessageResult,
   timestamp: number
+}
+
+export type SessionMeta = {
+  name: string
+}
+
+export type SessionInfo = {
+  sessionId: string,
+  meta?: SessionMeta
 }
 
 export type Theme = 'light' | 'dark'

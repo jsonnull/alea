@@ -1,14 +1,18 @@
 /* @flow */
 import type { Action } from 'actions/types'
+import type { SessionInfo, SessionMeta } from 'types'
 
+// TODO: Fix add sessions type
 export type UserDataState = {
   currentSession: ?string,
-  sessions: Array<any>
+  userSessions: {
+    [key: string] : SessionInfo
+  }
 }
 
 const initialState = {
   currentSession: null,
-  sessions: []
+  userSessions: {}
 }
 
 export default function reducer (state: UserDataState = initialState, action: Action) {
@@ -16,13 +20,16 @@ export default function reducer (state: UserDataState = initialState, action: Ac
     case 'HYDRATE_USER_DATA':
       return { ...state, ...action.user }
     case 'HYDRATE_SESSION_META':
-      const sessionMeta = action.sessions
+      const { meta, userSessionId } = action
       return {
         ...state,
-        sessions: state.sessions.map(session => ({
-          ...session,
-          ...sessionMeta.find(meta => meta.sessionId === session.sessionId)
-        }))
+        userSessions: {
+          ...state.userSessions,
+          [userSessionId]: {
+            ...state.userSessions[userSessionId],
+            meta: { ...meta }
+          }
+        }
       }
     default:
       return state

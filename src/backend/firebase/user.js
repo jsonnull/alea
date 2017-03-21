@@ -5,6 +5,8 @@ import 'firebase/database'
 import SessionManager from './session'
 import type { State } from 'store'
 import type { Action } from 'actions/types'
+import type { SessionInfo, SessionMeta } from 'types'
+import type { UserDataState } from 'reducers/user/data'
 import {
   hydrateUserData,
   hydratePreferences,
@@ -73,7 +75,7 @@ export default class UserManager {
       .catch(e => console.error(e))
   }
 
-  async loadData (): Promise<?Object> {
+  async loadData (): Promise<?UserDataState> {
     const hydrate = data => this.store.dispatch(hydrateUserData(data))
     const uid = firebase.auth().currentUser.uid
 
@@ -82,7 +84,7 @@ export default class UserManager {
 
     let userData = await new Promise(resolve => {
       this.userDataRef.on('value', user => {
-        let normalizedData = this.normalizeUserData(user.val())
+        let normalizedData: ?UserDataState = this.normalizeUserData(user.val())
         if (normalizedData) {
           hydrate(normalizedData)
         }
@@ -98,20 +100,19 @@ export default class UserManager {
       return null
     }
 
-    // Sessions map to array
-    const mapSessionsToArray = (sessions) => {
-      let arr = []
-      for (let key in sessions) {
-        if (sessions.hasOwnProperty(key)) {
-          arr.push({key: key, sessionId: sessions[key]})
-        }
+    const { currentSession, sessions } = userData
+
+    for (let key in sessions) {
+      if (sessions.hasOwnProperty(key)) {
+        const sessionId = sessions[key]
+        sessions[key] = { sessionId }
       }
-      return arr
     }
 
-    userData.sessions = mapSessionsToArray(userData.sessions)
-
-    return userData
+    return {
+      currentSession,
+      userSessions: sessions,
+    }
   } 
 
   // Add a session to a user's profile
@@ -141,11 +142,17 @@ export default class UserManager {
   }
 
   async loadSessionInfo () {
-    const sessions = this.store.getState().user.data.sessions
-    let collection = await Promise.all([
-      ...sessions.map(session => SessionManager.getSessionInfo(session.sessionId))
-    ])
+    const state: State = this.store.getState()
+    const sessions = state.user.data.userSessions
 
-    this.store.dispatch(hydrateSessionMeta(collection))
+    const store = this.store
+    async function getSessionMeta (userSessionId: string, sessionId: string) {
+      const meta: SessionMeta = await SessionManager.getSessionInfo(sessionId)
+      store.dispatch(hydrateSessionMeta(userSessionId, meta))
+    }
+
+    await Promise.all([
+      ...Object.keys(sessions).map(key => getSessionMeta(key, sessions[key].sessionId))
+    ])
   }
 }

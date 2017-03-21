@@ -4,6 +4,7 @@ import 'firebase/auth'
 import 'firebase/database'
 import type { State } from 'store'
 import type { Action } from 'actions/types'
+import type { SessionMeta } from 'types'
 import {
   hydrateSession,
   hydrateSessionMeta
@@ -59,14 +60,13 @@ export default class SessionManager {
     }
   }
 
-  static async getSessionInfo(sessionId: string) {
-    let info = await new Promise((resolve, reject) => {
+  static getSessionInfo (sessionId: string): Promise<SessionMeta> {
+    return new Promise((resolve, reject) => {
       firebase.database().ref(`sessions/${sessionId}/name`).once('value')
         .then(response => resolve({
-          name: response.val(), sessionId
+          name: response.val() 
         }))
         .catch(reject)
     })
-    return info
   }
 }
