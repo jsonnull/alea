@@ -6,7 +6,7 @@ export type SessionState = {
 }
 
 const initialState = {
-  name: ""
+  name: ''
 }
 
 export default function reducer (state: SessionState = initialState, action: Action) {

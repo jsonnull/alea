@@ -10,10 +10,7 @@ type Props = {
 
 export default class MessageList extends React.Component<*, Props, *> {
   timer: number
-
-  constructor (props: Props) {
-    super(props)
-  }
+  scroll: HTMLELement
 
   componentDidMount () {
     // Every minute, update chat timestamps
@@ -21,7 +18,7 @@ export default class MessageList extends React.Component<*, Props, *> {
   }
 
   componentDidUpdate () {
-    this.refs.scroll.scrollTop += 10000
+    this.scroll.scrollTop += 10000
   }
 
   componentWillUnmount () {
@@ -29,8 +26,11 @@ export default class MessageList extends React.Component<*, Props, *> {
   }
 
   render () {
-    return <div className={ styles.messages } ref='scroll'>
-      {this.props.messages.map(message =>  
+    return <div
+      className={ styles.messages }
+      ref={el => { this.scroll = el }}
+    >
+      {this.props.messages.map(message =>
         <MessageView key={message.key} message={message} />
       )}
       <div className={ styles.spacer }>&nbsp;</div>

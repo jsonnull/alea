@@ -17,10 +17,10 @@ type MenuButton = [Tab, string] | 'separator'
 
 const buttons: Array<MenuButton> = [
   ['Session', 'fa-globe'],
-  ['Character', 'fa-id-card-o'], 
+  ['Character', 'fa-id-card-o'],
   'separator',
   ['Sessions', 'fa-exchange'],
-  ['Profile', 'fa-cog'],
+  ['Profile', 'fa-cog']
 ]
 
 class Menu extends React.Component {
@@ -37,7 +37,6 @@ class Menu extends React.Component {
       <div className={ styles.menu }>
         {view.map(button => {
           if (button === 'separator') {
-            const [name] = button
             return <MenuSeparator key={button}/>
           }
 

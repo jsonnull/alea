@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './style.css'
 
 type Props = {
-  onSend: Function 
+  onSend: Function
 }
 
 type State = {
@@ -16,6 +16,7 @@ export default class Compose extends React.Component {
   state: State
   focused: boolean
   messageQueue: Array<string>
+  autogrow: HTMLElement
 
   constructor (props: Props) {
     super(props)
@@ -41,13 +42,13 @@ export default class Compose extends React.Component {
       this.calculateHeight()
     } else {
       this.setState({ height: 0 })
-      requestAnimationFrame(() => this.calculateHeight())
+      window.requestAnimationFrame(() => this.calculateHeight())
     }
   }
 
   calculateHeight () {
-    const autogrow = this.refs.autogrow
-    const scrollHeight = autogrow.scrollHeight 
+    const autogrow = this.autogrow
+    const scrollHeight = autogrow.scrollHeight
 
     let height = 0
     if (scrollHeight !== 50) {
@@ -91,7 +92,7 @@ export default class Compose extends React.Component {
           type='text'
           placeholder='Send a message...'
           value={ this.state.value }
-          ref='autogrow'
+          ref={el => { this.autogrow = el }}
           style={ style }
           onChange={e => this.handleChange(e)}
           onKeyUp={e => this.handleKeyUp(e)}

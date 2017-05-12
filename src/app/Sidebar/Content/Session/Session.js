@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Header from '../Header'
 import sidebarStyles from '../style.css'
 import type { State } from 'store'
-import styles from './style.css'
 
 type Props = {
   name: string

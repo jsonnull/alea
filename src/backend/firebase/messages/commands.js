@@ -1,6 +1,5 @@
 /* @flow */
 import Random from 'random-js'
-import type { Action } from 'actions/types'
 import type { MessageResult } from 'types'
 
 export default class CommandParser {
@@ -40,7 +39,7 @@ export default class CommandParser {
     // Get the random number
     let rands = []
     let modifier = 0
-    for(let i = 0; i < args.length; i++) {
+    for (let i = 0; i < args.length; i++) {
       if (args[i].indexOf('d') !== -1) {
         let [num, max] = args[i].split('d').map(n => Number(n))
 
@@ -50,9 +49,9 @@ export default class CommandParser {
           rands.push(roll)
         }
       } else if (!isNaN(args[i])) {
-        if(args[i - 1] === '+') {
+        if (args[i - 1] === '+') {
           modifier += Number(args[i])
-        } else if(args[i - 1] === '-') {
+        } else if (args[i - 1] === '-') {
           modifier -= Number(args[i])
         }
       }
@@ -61,9 +60,9 @@ export default class CommandParser {
     let total = rands.reduce((a, b) => a + b, 0) + modifier
 
     let result = {
-      'rolls': rands, 
+      'rolls': rands,
       'mod': modifier,
-      'total': total 
+      'total': total
     }
     return result
   }

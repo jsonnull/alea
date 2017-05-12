@@ -1,5 +1,6 @@
 /* @flow */
-import { Component, PropTypes, Children } from 'react'
+import { Component, Children } from 'react'
+import PropTypes from 'prop-types'
 import Firebase from '../firebase'
 
 type Props = {
@@ -19,7 +20,7 @@ class FirebaseProvider extends Component<*, Props, *> {
   }
 
   render () {
-    return Children.only(this.props.children) 
+    return Children.only(this.props.children)
   }
 }
 FirebaseProvider.childContextTypes = contextTypes

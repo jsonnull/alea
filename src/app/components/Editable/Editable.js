@@ -17,6 +17,7 @@ type State = {
 export default class Editable extends React.Component<*, Props, *> {
   state: State
   shouldFocus: boolean
+  input: HTMLElement
 
   constructor (props: Props) {
     super(props)
@@ -29,7 +30,7 @@ export default class Editable extends React.Component<*, Props, *> {
   }
 
   handleEdit (event: Object) {
-    this.setState({ value: event.target.value})
+    this.setState({ value: event.target.value })
   }
 
   handleSubmit () {
@@ -60,7 +61,7 @@ export default class Editable extends React.Component<*, Props, *> {
 
   componentDidUpdate () {
     if (this.shouldFocus == true) {
-      this.refs.input.focus()
+      this.input.focus()
       window.requestAnimationFrame(() => {
         this.shouldFocus = false
       })
@@ -80,12 +81,12 @@ export default class Editable extends React.Component<*, Props, *> {
         onMouseLeave={() => this.handleMouseLeave()}
       >
         { this.state.value }
-        { this.state.hover? background : null }
+        { this.state.hover ? background : null }
       </div>
     } else {
       return <input
         className={this.props.className}
-        ref="input"
+        ref={el => { this.input = el }}
         type="text"
         value={this.state.value}
         onChange={e => this.handleEdit(e)}

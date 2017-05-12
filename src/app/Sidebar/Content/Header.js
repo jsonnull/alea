@@ -9,4 +9,3 @@ const Header = (props: Object) => (
 )
 
 export default Header
-

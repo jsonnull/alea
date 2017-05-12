@@ -8,7 +8,6 @@ import List from './List'
 import type { State } from 'store'
 import type { SessionInfo } from 'types'
 import sidebarStyles from '../style.css'
-import styles from './style.css'
 
 type Props = {
   sessions: { [key: string]: SessionInfo },

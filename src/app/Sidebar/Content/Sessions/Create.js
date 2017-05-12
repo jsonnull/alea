@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import Label from '../Label'
+// import Label from '../Label'
 import Button from 'app/components/Button'
 import styles from './style.css'
 
@@ -15,4 +15,3 @@ const Create = (props: Props) => {
 }
 
 export default Create
-

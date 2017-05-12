@@ -2,7 +2,6 @@
 import React from 'react'
 import Item from './Item'
 import type { SessionInfo } from 'types'
-import styles from './style.css'
 
 type SessionInfoMap = { [key: string]: SessionInfo }
 
@@ -28,7 +27,7 @@ const List = (props: Props) => {
 
   if (sessions.length === 0) {
     return <p>
-      Yikes, looks like you're not a member of any games. Want to start one?
+      {"Yikes, looks like you're not a member of any games. Want to start one?"}
     </p>
   }
 
@@ -43,4 +42,3 @@ const List = (props: Props) => {
 }
 
 export default List
-

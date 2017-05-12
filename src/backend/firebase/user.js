@@ -4,8 +4,7 @@ import 'firebase/auth'
 import 'firebase/database'
 import SessionManager from './session'
 import type { State } from 'store'
-import type { Action } from 'actions/types'
-import type { SessionInfo, SessionMeta } from 'types'
+import type { SessionMeta } from 'types'
 import type { UserDataState } from 'reducers/user/data'
 import {
   hydrateUserData,
@@ -77,7 +76,6 @@ export default class UserManager {
 
   async loadData (): Promise<?UserDataState> {
     const hydrate = data => this.store.dispatch(hydrateUserData(data))
-    const uid = firebase.auth().currentUser.uid
 
     // Make sure we remove all previous listeners
     this.userDataRef.off()
@@ -111,9 +109,9 @@ export default class UserManager {
 
     return {
       currentSession,
-      userSessions: sessions,
+      userSessions: sessions
     }
-  } 
+  }
 
   // Add a session to a user's profile
   addSession (sessionId: string) {

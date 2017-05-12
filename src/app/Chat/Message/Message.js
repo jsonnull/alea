@@ -2,7 +2,7 @@
 import React from 'react'
 import type { Message } from 'types'
 import MessageResult from './MessageResult'
-import timeago from 'timeago.js'
+import Timeago from 'timeago.js'
 import styles from './style.css'
 
 type Props = {
@@ -16,7 +16,7 @@ export default class MessageView extends React.Component<*, Props, *> {
       <div className={styles.from}>
         { from }{' '}
         <span className={styles.date}>
-          { new timeago().format(timestamp) }
+          { new Timeago().format(timestamp) }
         </span>
       </div>
       <div className={styles.text}>

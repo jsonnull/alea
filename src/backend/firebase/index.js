@@ -5,9 +5,7 @@ import MessagesManager from './messages'
 import UserManager from './user'
 import SessionManager from './session'
 import Auth from './authentication'
-import type { State } from 'store'
 import type { Theme } from 'types'
-import type { Action } from 'actions/types'
 import {
   setLoading,
   setUserLoggedIn,
@@ -41,10 +39,10 @@ export default class Firebase {
       if (user) {
         _this.messages = new MessagesManager(_this.store)
         // Wait for user info before continuing
-        _this.user = await UserManager.init(_this.store) 
+        _this.user = await UserManager.init(_this.store)
         // Once user info loads, now we can initiate loading sessions
         _this.session = SessionManager.init(_this.store)
-        // See if the user is currently in a session 
+        // See if the user is currently in a session
         if (sessionSelector(_this.store.getState()) == null) {
           showSessionChooser()
         }

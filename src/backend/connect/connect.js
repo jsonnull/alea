@@ -1,5 +1,5 @@
 import React from 'react'
-import Firebase from '../firebase'
+import PropTypes from 'prop-types'
 
 function firebaseInject (WrappedComponent) {
   class FirebaseInjector extends React.Component {
@@ -8,7 +8,7 @@ function firebaseInject (WrappedComponent) {
     }
   }
 
-  FirebaseInjector.contextTypes = { firebase: React.PropTypes.object }
+  FirebaseInjector.contextTypes = { firebase: PropTypes.object }
 
   return FirebaseInjector
 }

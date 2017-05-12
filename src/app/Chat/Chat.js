@@ -29,7 +29,7 @@ class Chat extends React.Component {
   }
 
   render () {
-    let pinned = this.props.pinned? 'pinned' : 'unpinned'
+    let pinned = this.props.pinned ? 'pinned' : 'unpinned'
 
     let messages = this.props.messages
     if (this.props.pinned == false) {

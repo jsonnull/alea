@@ -2,16 +2,19 @@
   "parser": "babel-eslint",
   "extends": [
     "standard",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended"
   ],
   "env": {
     "jest": true
   },
   "plugins": [
-    "react"
+    "react",
+    "flowtype"
   ],
   "rules": {
     "eqeqeq": 0,
+    "import/no-webpack-loader-syntax": 0,
     "react/prop-types": 0
   }
 }

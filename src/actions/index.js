@@ -47,7 +47,7 @@ export const changeTheme = (theme: Theme): Action => ({
 })
 
 export const toggleChatPin = (): Action => ({
-  type: 'TOGGLE_CHAT_PIN' 
+  type: 'TOGGLE_CHAT_PIN'
 })
 
 /*

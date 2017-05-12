@@ -13,8 +13,8 @@ class Map extends React.Component {
     const { sidebar, chat } = this.props
 
     let style = {
-      right: (chat)? '300px' : '0',
-      left: (sidebar)? '300px' : '0'
+      right: (chat) ? '300px' : '0',
+      left: (sidebar) ? '300px' : '0'
     }
 
     return (

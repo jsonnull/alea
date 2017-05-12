@@ -116,7 +116,7 @@ describe('actions', () => {
     expect(
       actions.hydrateSession({ mydata: 'data' })
     ).toEqual(
-      { type: 'HYDRATE_SESSION', session: { mydata: 'data' }}
+      { type: 'HYDRATE_SESSION', session: { mydata: 'data' } }
     )
   })
 

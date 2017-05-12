@@ -1,12 +1,12 @@
 /* @flow */
 import type { Action } from 'actions/types'
-import type { SessionInfo, SessionMeta } from 'types'
+import type { SessionInfo } from 'types'
 
 // TODO: Fix add sessions type
 export type UserDataState = {
   currentSession: ?string,
   userSessions: {
-    [key: string] : SessionInfo
+    [key: string]: SessionInfo
   }
 }
 

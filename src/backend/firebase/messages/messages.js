@@ -3,8 +3,6 @@ import * as firebase from 'firebase/app'
 import 'firebase/database'
 import CommandParser from './commands'
 import type { Message, MessageResult } from 'types'
-import type { State } from 'store'
-import type { Action } from 'actions/types'
 import { receiveMessage } from 'actions'
 
 /* Messages sent/received by Firebase */
@@ -27,7 +25,7 @@ export default class MessagesManager {
     this.commandParser = new CommandParser()
   }
 
-  addMessageToStore(message: Message) {
+  addMessageToStore (message: Message) {
     this.store.dispatch(receiveMessage(message))
   }
 

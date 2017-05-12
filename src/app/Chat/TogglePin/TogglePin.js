@@ -8,9 +8,9 @@ type Props = {
 }
 
 const TogglePin = (props: Props) => {
-  let pinned = (props.pinned)? '' : styles.unpinned
+  const { pinned } = props
 
-  let toggleChat = (props.pinned == true)
+  let toggleChat = (pinned == true)
     ? <i className='fa fa-chevron-down'></i>
     : <i className='fa fa-ellipsis-h'></i>
 

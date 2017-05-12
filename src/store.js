@@ -1,5 +1,5 @@
 /* @flow */
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import messages from './reducers/messages'
 import session from './reducers/session'
 import sidebar from './reducers/sidebar'
@@ -37,7 +37,7 @@ export default function createStoreWithMiddleware () {
 
   // Log the initial state
   console.log(store.getState())
-  let unsubscribe = store.subscribe(() =>
+  store.subscribe(() =>
     console.log(store.getState())
   )
 

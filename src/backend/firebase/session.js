@@ -5,10 +5,7 @@ import 'firebase/database'
 import type { State } from 'store'
 import type { Action } from 'actions/types'
 import type { SessionMeta } from 'types'
-import {
-  hydrateSession,
-  hydrateSessionMeta
-} from 'actions'
+import { hydrateSession } from 'actions'
 
 export default class SessionManager {
   sessionRef: Object
@@ -56,7 +53,7 @@ export default class SessionManager {
   }
 
   updateSession (state: State, action: Action) {
-    if (action.type === 'UPDATE_SESSION') { 
+    if (action.type === 'UPDATE_SESSION') {
     }
   }
 
@@ -64,7 +61,7 @@ export default class SessionManager {
     return new Promise((resolve, reject) => {
       firebase.database().ref(`sessions/${sessionId}/name`).once('value')
         .then(response => resolve({
-          name: response.val() 
+          name: response.val()
         }))
         .catch(reject)
     })

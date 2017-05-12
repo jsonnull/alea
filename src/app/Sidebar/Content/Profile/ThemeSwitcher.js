@@ -9,8 +9,8 @@ type ButtonProps = {
   selected: boolean,
   onClick: Function
 }
-const ThemeButton = (props: Object) => {
-  let variant = (props.selected)? 'green' : 'outline'
+const ThemeButton = (props: ButtonProps) => {
+  let variant = (props.selected) ? 'green' : 'outline'
   return <Button
       customClass={styles.themeButton}
       variant={variant}
