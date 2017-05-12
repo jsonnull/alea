@@ -7,6 +7,7 @@ import { AppContainer } from 'react-hot-loader'
 import App from 'app/app'
 import { Firebase, FirebaseProvider } from './backend'
 import createStore from './store'
+import './assets'
 import './style.css'
 
 // Initialize Firebase

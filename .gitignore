@@ -1,6 +1,3 @@
 node_modules/
 coverage/
-public/*
-!public/img
-!public/fonts
-public/img/hero.png
+public/
