@@ -8,7 +8,7 @@ export type UserProfileState = {
 
 const initialState = {
   displayName: 'anonymous',
-  photoURL: '/img/default.png'
+  photoURL: ''
 }
 
 export default function reducer (state: UserProfileState = initialState, action: Action) {
