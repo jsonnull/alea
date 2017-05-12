@@ -2,4 +2,22 @@
   "projects": {
     "default": "avaland-db534"
   }
+  "hosting": {
+    "headers": [
+      {
+        "source": "index.html",
+        "headers": [{
+          "key" : "Cache-Control",
+          "value" : "max-age=300"
+        }]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [{
+          "key" : "Cache-Control",
+          "value" : "max-age=7200"
+        }]
+      }
+    ]
+  }
 }
