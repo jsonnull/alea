@@ -21,15 +21,8 @@ development.
 
 # Development workflow
 
-The webpack build server is started using `npm run start`. Unfortunately,
-hot-module-reloading is broken in recent versions of `react-redux`, so manual
-refreshes may be required.
+The webpack build server is started using `npm run start`. This will run
+`webpack-dev-server` and make the app available at localhost:8080.
 
-To view your local changes, simply open a local server that serves static
-assets from the `public/` dir. One easy way to do this is with the
-`http-server` command-line tool:
-
-```shell
-yarn global add http-server # or npm install -g http-server
-http-server -c-1 # will automatically serve public, and disables caching
-```
+Unfortunately, hot-module-reloading is broken in recent versions of
+`react-redux`, so manual refreshes may be required.
