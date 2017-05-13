@@ -5,9 +5,11 @@ import Button from 'app/components/Button'
 import styles from './style.css'
 import type { Theme } from 'types'
 
+// FIXME: Find a better way to annotate `children` in a way Flow accepts
 type ButtonProps = {
   selected: boolean,
-  onClick: Function
+  onClick: Function,
+  children?: any
 }
 const ThemeButton = (props: ButtonProps) => {
   let variant = (props.selected) ? 'green' : 'outline'
