@@ -9,11 +9,12 @@ creation, running, and playing of games enjoyable and compelling.
 
 ## Contributing
 
-We welcome contributions by the community. To get started hacking on
-Aleamancer, read our [developer docs](docs/development.md).
+We welcome contributions by the community.
 
-Not sure how to get started? We maintain a curated list of easy tasks for
-newcomers, just visit the [issue
+To get started hacking on Aleamancer, read our [developer
+docs](docs/development.md).
+
+We maintain a curated list of easy tasks for newcomers, just visit the [issue
 tracker](https://github.com/jsonnull/aleamancer/issues) and look for issues
 with the "difficulty: easy" tag.
 
