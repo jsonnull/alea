@@ -1,5 +1,6 @@
 /* @flow */
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
 import messages from './reducers/messages'
 import session from './reducers/session'
 import sidebar from './reducers/sidebar'
@@ -21,18 +22,24 @@ export type State = {
   user: UserState
 }
 
-export default function createStoreWithMiddleware () {
+export default function createStoreWithMiddleware (history: Object) {
   const reducers = combineReducers({
     messages,
     session,
     sidebar,
     ui,
-    user
+    user,
+    router: routerReducer
   })
+
+  const middleware = routerMiddleware(history)
+
+  // FIXME: Invoke like `devtool && devtool()`
+  const devtool = window.__REDUX_DEVTOOLS_EXTENSION
 
   let store = createStore(
     reducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(middleware)
   )
 
   // Log the initial state

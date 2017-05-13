@@ -4,6 +4,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader'
+import createBrowserHistory from 'history/createBrowserHistory'
+import { ConnectedRouter } from 'react-router-redux'
 import App from 'app/app'
 import { Firebase, FirebaseProvider } from './backend'
 import createStore from './store'
@@ -19,7 +21,8 @@ const config = {
   messagingSenderId: '120753444769'
 }
 
-let store = createStore()
+let history = createBrowserHistory()
+let store = createStore(history)
 let firebase = new Firebase(store, config)
 
 const render = Component => {
@@ -27,7 +30,9 @@ const render = Component => {
     <AppContainer>
       <FirebaseProvider firebase={firebase}>
         <Provider store={store}>
-          <Component />
+          <ConnectedRouter history={history}>
+            <Component />
+          </ConnectedRouter>
         </Provider>
       </FirebaseProvider>
     </AppContainer>,
