@@ -73,7 +73,12 @@ module.exports = {
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, 'public'),
-    publicPath: '/'
+    publicPath: '/',
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/$/, to: '/index.html' }
+      ]
+    }
   },
   stats: {
     children: false
