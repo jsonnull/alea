@@ -29,7 +29,7 @@ To view your local changes, simply open a local server that serves static
 assets from the `public/` dir. One easy way to do this is with the
 `http-server` command-line tool:
 
-```
+```shell
 yarn global add http-server # or npm install -g http-server
 http-server -c-1 # will automatically serve public, and disables caching
 ```
