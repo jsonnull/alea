@@ -1,12 +1,16 @@
 /* @flow */
 import React from 'react'
+import { connect } from 'react-redux'
+import selectSessionId from 'selectors/sessionId'
 import MenuItem from './MenuItem'
 import MenuSeparator from './MenuSeparator'
 import type { Tab } from 'types'
+import type { State } from 'store'
 import styles from './style.css'
 
 type Props = {
   tab: Tab,
+  sessionId: ?string,
   changeTab: Function
 }
 
@@ -24,12 +28,12 @@ class Menu extends React.Component {
   props: Props
 
   render () {
+    const { sessionId } = this.props
     let view = buttons
 
-    // FIXME: Do not show game tab if there's no active session
-    // if (!this.props.sessionActive) {
-      // view = buttons.slice(3)
-    // }
+    if (!sessionId) {
+      view = buttons.slice(3)
+    }
 
     return (
       <div className={ styles.menu }>
@@ -54,4 +58,8 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu
+const mapStateToProps = (state: State) => ({
+  sessionId: selectSessionId(state)
+})
+
+export default connect(mapStateToProps)(Menu)

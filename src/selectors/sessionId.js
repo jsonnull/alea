@@ -5,10 +5,8 @@ import type { State } from 'store'
 // All sessions begin with `/g/` in the URL
 const sessionPrefix = '/g/'
 
-// type LocationSelector = (State) => string
 const pathnameSelector = (state: State) => state.router.location.pathname
 
-// type SessionIdSelector = (State) => ?string
 const sessionIdSelector = createSelector(
   pathnameSelector,
   (location: string) => {
