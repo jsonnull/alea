@@ -13,13 +13,22 @@ import type { SidebarState } from './reducers/sidebar'
 import type { UIState } from './reducers/ui'
 import type { UserState } from './reducers/user'
 
+type RouterState = {
+  location: {
+    pathname: string,
+    search: string,
+    hash: string
+  }
+}
+
 /* State tree */
 export type State = {
   messages: MessagesState,
   session: SessionState,
   sidebar: SidebarState,
   ui: UIState,
-  user: UserState
+  user: UserState,
+  router: RouterState
 }
 
 export default function createStoreWithMiddleware (history: Object) {
@@ -34,12 +43,13 @@ export default function createStoreWithMiddleware (history: Object) {
 
   const middleware = routerMiddleware(history)
 
-  // FIXME: Invoke like `devtool && devtool()`
-  const devtool = window.__REDUX_DEVTOOLS_EXTENSION
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   let store = createStore(
     reducers,
-    applyMiddleware(middleware)
+    composeEnhancers(
+      applyMiddleware(middleware)
+    )
   )
 
   // Log the initial state

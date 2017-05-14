@@ -3,26 +3,13 @@ import React from 'react'
 import Item from './Item'
 import type { SessionInfo } from 'types'
 
-type SessionInfoMap = { [key: string]: SessionInfo }
-
 type Props = {
-  sessions: SessionInfoMap,
+  sessions: Array<SessionInfo>,
   setSession: Function
 }
 
-/*
- * Current way to type Object.values requires typecast to desired type through any
- * See https://github.com/facebook/flow/issues/2174
- * FIXME
- */
-function sessionInfoToArray (sessions: SessionInfoMap): Array<[string, SessionInfo]> {
-  let arr: any = Object.entries(sessions)
-  arr = (arr: Array<[string, SessionInfo]>)
-  return arr
-}
-
 const List = (props: Props) => {
-  const sessions = sessionInfoToArray(props.sessions)
+  const sessions = props.sessions
 
   if (sessions.length === 0) {
     return <p>
@@ -31,8 +18,8 @@ const List = (props: Props) => {
   }
 
   return <div>
-    {sessions.map(([key, session]) => (
-      <Item key={key}
+    {sessions.map(session => (
+      <Item key={session.sessionId}
         isCurrent={false}
         session={session}
         setSession={props.setSession} />

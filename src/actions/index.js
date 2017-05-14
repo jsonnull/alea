@@ -1,4 +1,6 @@
 /* @flow */
+import { push } from 'react-router-redux'
+import slug from 'slugg'
 import type { Action } from './types'
 import type { SessionMeta, Message, Theme, Tab } from 'types'
 import type { UserProfileState } from 'reducers/user/profile'
@@ -67,6 +69,10 @@ export const hydrateSessionMeta = (userSessionId: string, meta: SessionMeta): Ac
 export const hydrateSession = (session: SessionState): Action => ({
   type: 'HYDRATE_SESSION', session
 })
+
+export const goToSession = (sessionId: string, sessionName: string): Object => push(
+  `/g/${sessionId}/${slug(sessionName)}`
+)
 
 /*
  * Sidebar

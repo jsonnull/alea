@@ -33,7 +33,12 @@ const Item = (props: Props) => {
   let currentStyle = props.isCurrent ? ' ' + styles.current : ''
 
   return (
-    <div className={styles.session + currentStyle}>
+    <div
+      className={styles.session + currentStyle}
+      onClick={() => {
+        props.setSession(props.session.sessionId)
+      }}
+    >
       <div className={styles.name}>
         {props.session.meta.name}
       </div>

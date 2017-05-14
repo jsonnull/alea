@@ -25,6 +25,10 @@ export type SessionInfo = {
   meta?: SessionMeta
 }
 
+export type SessionList = {
+  [key: string]: SessionInfo
+}
+
 export type Theme = 'light' | 'dark'
 
 export type Tab = 'Session' | 'Character' | 'Sessions' | 'Profile'
