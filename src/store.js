@@ -43,7 +43,7 @@ export default function createStoreWithMiddleware (history: Object) {
 
   const middleware = routerMiddleware(history)
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
   let store = createStore(
     reducers,

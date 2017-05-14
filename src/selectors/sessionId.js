@@ -9,7 +9,7 @@ const sessionPrefix = '/g/'
 const pathnameSelector = (state: State) => state.router.location.pathname
 
 // type SessionIdSelector = (State) => ?string
-const sessionIdSelector = createSelector( 
+const sessionIdSelector = createSelector(
   pathnameSelector,
   (location: string) => {
     if (location.indexOf(sessionPrefix) !== 0) {
