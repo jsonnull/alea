@@ -17,7 +17,6 @@
     "react-hot-loader": "next",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
-    "tcomb": "^3.2.20",
     "timeago.js": "^2.0.5"
   },
   "devDependencies": {
@@ -27,7 +26,6 @@
     "babel-eslint": "^7.2.3",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.1",
-    "babel-plugin-tcomb": "^0.3.25",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",

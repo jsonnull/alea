@@ -18,13 +18,7 @@
   "env": {
     "test": {
       "plugins": [
-        "tcomb",
         "transform-es2015-modules-commonjs"
-      ]
-    },
-    "development": {
-      "plugins": [
-        "tcomb"
       ]
     }
   }

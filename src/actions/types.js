@@ -4,16 +4,10 @@ import type { UserProfileState } from 'reducers/user/profile'
 import type { UserPreferencesState } from 'reducers/user/preferences'
 import type { UserDataState } from 'reducers/user/data'
 import type { SessionState } from 'reducers/session'
-import t from 'tcomb'
 
-const ReduxActionString = t.refinement(t.String, (s) => s.indexOf('@@redux/') === 0, 'ReduxActionString')
-type ReduxInitAction =
-    { type: ReduxActionString }
-  | { type: '@@INIT' }
-
-export type Action = ReduxInitAction
+export type Action =
   /* Messages */
-  | { type: 'RECEIVE_MESSAGE', message: Message }
+    { type: 'RECEIVE_MESSAGE', message: Message }
   /* UI */
   | { type: 'SET_LOADING', appIsLoading: boolean }
   | { type: 'SET_USER_LOGGED_IN', userIsLoggedIn: boolean }

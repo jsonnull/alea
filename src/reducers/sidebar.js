@@ -12,6 +12,8 @@ const initialState = {
   tab: 'Session'
 }
 
+declare var type: string;
+
 export default function reducer (state: SidebarState = initialState, action: Action) {
   switch (action.type) {
     case 'CHANGE_SIDEBAR_TAB':
