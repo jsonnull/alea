@@ -3,6 +3,7 @@
 .session {
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
+  margin-bottom: 1.2rem;
 
   background-color: $bgSecondary;
 

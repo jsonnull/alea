@@ -4,14 +4,12 @@ import type { SessionInfo } from 'types'
 
 // TODO: Fix add sessions type
 export type UserDataState = {
-  currentSession: ?string,
   userSessions: {
     [key: string]: SessionInfo
   }
 }
 
 const initialState = {
-  currentSession: null,
   userSessions: {}
 }
 

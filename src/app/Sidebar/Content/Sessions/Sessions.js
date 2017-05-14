@@ -11,7 +11,7 @@ import sidebarStyles from '../style.css'
 
 type Props = {
   sessions: { [key: string]: SessionInfo },
-  currentSession: string,
+  // currentSession: string,
   firebase: Firebase
 }
 
@@ -28,7 +28,6 @@ class Sessions extends React.Component {
         <Header>Your Games</Header>
         <List
           sessions={this.props.sessions}
-          currentSession={this.props.currentSession}
           setSession={this.setSession}
           />
         <Create createSession={this.createSession}/>
@@ -39,7 +38,6 @@ class Sessions extends React.Component {
 
 const mapStateToProps = (state: State, ownProps) => {
   return Object.assign({
-    currentSession: state.user.data.currentSession,
     sessions: state.user.data.userSessions
   }, ownProps)
 }

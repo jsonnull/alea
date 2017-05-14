@@ -9,7 +9,6 @@ import styles from './style.css'
 
 type Props = {
   tab: Tab,
-  sessionActive: boolean,
   changeTab: Function
 }
 
@@ -29,9 +28,10 @@ class Menu extends React.Component {
   render () {
     let view = buttons
 
-    if (!this.props.sessionActive) {
-      view = buttons.slice(3)
-    }
+    // FIXME: Do not show game tab if there's no active session
+    // if (!this.props.sessionActive) {
+      // view = buttons.slice(3)
+    // }
 
     return (
       <div className={ styles.menu }>
@@ -56,9 +56,4 @@ class Menu extends React.Component {
   }
 }
 
-const mapStateToProps = (state: State, ownProps) => ({
-  sessionActive: state.user.data.currentSession !== null,
-  ...ownProps
-})
-
-export default connect(mapStateToProps)(Menu)
+export default Menu

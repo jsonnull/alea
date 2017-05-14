@@ -6,7 +6,6 @@ import type { SessionInfo } from 'types'
 type SessionInfoMap = { [key: string]: SessionInfo }
 
 type Props = {
-  currentSession: string,
   sessions: SessionInfoMap,
   setSession: Function
 }
@@ -34,7 +33,7 @@ const List = (props: Props) => {
   return <div>
     {sessions.map(([key, session]) => (
       <Item key={key}
-        isCurrent={(session.sessionId == props.currentSession)}
+        isCurrent={false}
         session={session}
         setSession={props.setSession} />
     ))}

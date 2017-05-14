@@ -29,8 +29,8 @@
         ".read": "auth != null",
         // Only users can edit their info
         ".write": "$uid === auth.uid",
-        // All users must have currentSession and sessions present
-        ".validate": "newData.hasChildren(['currentSession', 'sessions'])"
+        // All users must have sessions present
+        ".validate": "newData.hasChildren(['sessions'])"
       }
     },
 

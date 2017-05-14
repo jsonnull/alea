@@ -100,12 +100,12 @@ export default class UserManager {
     return userData
   }
 
-  normalizeUserData (userData: ?Object): ?Object {
+  normalizeUserData (userData: ?Object): ?UserDataState {
     if (!userData) {
       return null
     }
 
-    const { currentSession, sessions } = userData
+    const { sessions } = userData
 
     for (let key in sessions) {
       if (sessions.hasOwnProperty(key)) {
@@ -115,7 +115,6 @@ export default class UserManager {
     }
 
     return {
-      currentSession,
       userSessions: sessions
     }
   }
