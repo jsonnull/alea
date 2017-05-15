@@ -17,7 +17,7 @@ function * loadUserPreferences (): Generator<*, *, *> {
   yield put(hydratePreferences(prefs))
 }
 
-export default function * receiveMessages (): Generator<*, *, *> {
+export default function * loadPreferences (): Generator<*, *, *> {
   // Wait for user auth to complete
   yield takeEvery('USER_LOGGED_IN', loadUserPreferences)
 }
