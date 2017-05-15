@@ -3,6 +3,7 @@ import slug from 'slugg'
 import { put, select, takeEvery } from 'redux-saga/effects'
 import sessionIdSelector from 'selectors/sessionId'
 import { push } from 'react-router-redux'
+import { changeSidebarTab } from 'actions'
 import type { SessionList, SessionInfo } from 'types'
 
 // FIXME: remove duplicate entry elsewhere
@@ -28,6 +29,7 @@ function * switchToSession (action): Generator<*, *, *> {
       if (meta) {
         const sessionName = meta.name
         yield put(push(`/g/${sessionId}/${slug(sessionName)}`))
+        yield put(changeSidebarTab('Session'))
       }
     }
   }
