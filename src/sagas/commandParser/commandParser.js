@@ -26,7 +26,10 @@ export default class CommandParser {
     switch (words[0]) {
       case '/r':
       case '/roll':
-        return this.roll(args)
+        if (args.length > 0) {
+          return this.roll(args)
+        }
+        return null
       default:
         return null
     }
