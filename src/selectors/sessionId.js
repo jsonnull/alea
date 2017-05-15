@@ -17,9 +17,12 @@ const sessionIdSelector = createSelector(
     const id = location
       .replace(sessionPrefix, '')
       .split('/')
-      .slice(0, 1)
 
-    return id
+    if (id.length > 0) {
+      return id[0]
+    }
+
+    return null
   }
 )
 

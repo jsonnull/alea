@@ -45,26 +45,30 @@ export default function * loadCurrentSession (): Generator<*, *, *> {
   let sessionId = null
 
   while (true) {
-    console.log('listening for events')
     const action = yield take([
       'USER_LOGGED_IN',
       'SWITCH_TO_SESSION'
     ])
 
+    // Find out what the new session id is
     let newSessionId = yield select(currentSessionId)
-    // Wait for URL change
     if (action.type === 'SWITCH_TO_SESSION') {
       newSessionId = action.sessionId
     }
 
-    if (newSessionId !== sessionId) {
-      console.log('switched, cancelling old sub')
-      sessionId = newSessionId
+    // Should we switch?
+    const isNewSession = sessionId !== newSessionId
+
+    // If the user has switched to a different session, change subscriptions
+    if (isNewSession) {
       if (currentSubscription !== null) {
         yield cancel(currentSubscription)
       }
 
       currentSubscription = yield fork(subscribeToSession, newSessionId)
     }
+
+    // Save for next comparison
+    sessionId = newSessionId
   }
 }
