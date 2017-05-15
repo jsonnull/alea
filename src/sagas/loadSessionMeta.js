@@ -4,7 +4,6 @@ import 'firebase/auth'
 import 'firebase/database'
 import { all, select, call, put, takeLatest } from 'redux-saga/effects'
 import { hydrateSessionMeta } from 'actions'
-import type { SessionMeta } from 'types'
 
 function * loadSessionMeta (userSessionId: string, sessionId: string): Generator<*, *, *> {
   const getMeta = () => new Promise((resolve, reject) => {
