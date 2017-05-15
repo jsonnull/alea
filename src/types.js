@@ -16,6 +16,14 @@ export type Message = {
   timestamp: number
 }
 
+/* Messages sent/received by Firebase */
+export type FirebaseMessage = {
+  name: string,
+  result: ?MessageResult,
+  text: string,
+  timestamp: number
+}
+
 export type SessionMeta = {
   name: string
 }

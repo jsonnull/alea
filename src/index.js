@@ -6,8 +6,8 @@ import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
+import initializeFirebase from './firebase'
 import App from 'app/app'
-import { Firebase, FirebaseProvider } from './backend'
 import createStore from './store'
 import './assets'
 import './style.css'
@@ -23,18 +23,16 @@ const config = {
 
 let history = createBrowserHistory()
 let store = createStore(history)
-let firebase = new Firebase(store, config)
+initializeFirebase(config, store)
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <FirebaseProvider firebase={firebase}>
-        <Provider store={store}>
-          <ConnectedRouter history={history}>
-            <Component />
-          </ConnectedRouter>
-        </Provider>
-      </FirebaseProvider>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Component />
+        </ConnectedRouter>
+      </Provider>
     </AppContainer>,
     document.getElementById('root')
   )

@@ -11,24 +11,27 @@ import type { SessionState } from 'reducers/session'
 /*
  * Messages
  */
+export const sendMessage = (text: string): Action => {
+  return { type: 'SEND_MESSAGE', text }
+}
 export const receiveMessage = (message: Message): Action => {
   return { type: 'RECEIVE_MESSAGE', message }
 }
 
 /*
- * UI
+ * User
  */
-export const setLoading = (appIsLoading: boolean): Action => ({
-  type: 'SET_LOADING', appIsLoading
-})
-
-export const setUserLoggedIn = (userIsLoggedIn: boolean): Action => ({
-  type: 'SET_USER_LOGGED_IN', userIsLoggedIn
+export const login = (email: string, password: string): Action => ({
+  type: 'LOGIN', email, password
 })
 
 /*
  * User Profile
  */
+export const changeDisplayName = (name: string): Action => ({
+  type: 'CHANGE_DISPLAY_NAME', name
+})
+
 export const hydrateUserProfile = (user: UserProfileState): Action => ({
   type: 'HYDRATE_USER_PROFILE', user
 })
@@ -46,10 +49,6 @@ export const hydratePreferences = (prefs: UserPreferencesState): Action => ({
 
 export const changeTheme = (theme: Theme): Action => ({
   type: 'CHANGE_THEME', theme
-})
-
-export const toggleChatPin = (): Action => ({
-  type: 'TOGGLE_CHAT_PIN'
 })
 
 /*

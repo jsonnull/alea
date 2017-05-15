@@ -23,13 +23,17 @@ const getStyleVariant = (variant: string): string => {
 }
 
 const Button = (props: Props) => {
-  let { customClass = '', variant = '' } = props
+  let { customClass = '', variant = '', children, ...restProps } = props
 
   variant = getStyleVariant(variant)
 
-  let style = `${styles.button} ${variant} ${customClass}`
+  const style = `${styles.button} ${variant} ${customClass}`
 
-  return <button onClick={() => props.onClick()} className={ style }>
+  return <button
+    onClick={props.onClick}
+    className={ style }
+    {...restProps}
+  >
     { props.children }
   </button>
 }

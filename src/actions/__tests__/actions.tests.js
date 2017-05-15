@@ -21,22 +21,6 @@ describe('actions', () => {
     )
   })
 
-  it('should create an action to indicate loading state', () => {
-    expect(
-      actions.setLoading(true)
-    ).toEqual(
-      { type: 'SET_LOADING', appIsLoading: true }
-    )
-  })
-
-  it('should create an action to indicate the user\'s logged-in state', () => {
-    expect(
-      actions.setUserLoggedIn(true)
-    ).toEqual(
-      { type: 'SET_USER_LOGGED_IN', userIsLoggedIn: true }
-    )
-  })
-
   it('should create an action to fill in the user\'s profile', () => {
     const user: UserProfileState = {
       displayName: 'testing',
@@ -74,14 +58,6 @@ describe('actions', () => {
       actions.changeTheme('light')
     ).toEqual(
       { type: 'CHANGE_THEME', theme: 'light' }
-    )
-  })
-
-  it('should create an action to toggle the chat pin', () => {
-    expect(
-      actions.toggleChatPin()
-    ).toEqual(
-      { type: 'TOGGLE_CHAT_PIN' }
     )
   })
 

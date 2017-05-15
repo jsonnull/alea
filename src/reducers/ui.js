@@ -13,10 +13,21 @@ const initialState = {
 
 export default function reducer (state: UIState = initialState, action: Action) {
   switch (action.type) {
-    case 'SET_LOADING':
-      return { ...state, appIsLoading: action.appIsLoading }
-    case 'SET_USER_LOGGED_IN':
-      return { ...state, userIsLoggedIn: action.userIsLoggedIn }
+    case 'APP_FINISHED_LOADING':
+      return {
+        ...state,
+        appIsLoading: false
+      }
+    case 'USER_LOGGED_IN':
+      return {
+        ...state,
+        userIsLoggedIn: true
+      }
+    case 'USER_LOGGED_OUT':
+      return {
+        ...state,
+        userIsLoggedIn: false
+      }
     default:
       return state
   }

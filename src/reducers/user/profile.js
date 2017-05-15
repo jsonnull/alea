@@ -16,6 +16,8 @@ export default function reducer (state: UserProfileState = initialState, action:
     case 'UPDATE_USER_PROFILE':
     case 'HYDRATE_USER_PROFILE':
       return { ...state, ...action.user }
+    case 'CHANGE_DISPLAY_NAME':
+      return { ...state, displayName: action.name }
     default:
       return state
   }

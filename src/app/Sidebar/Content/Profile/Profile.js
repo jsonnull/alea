@@ -1,11 +1,11 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
-import { Firebase, firebaseInject } from 'backend'
 import Header from '../Header'
 import Name from './Name'
 import ThemeSwitcher from './ThemeSwitcher'
 import Logout from './Logout'
+import { changeTheme, changeDisplayName } from 'actions'
 import type { Theme } from 'types'
 import type { State } from 'store'
 import sidebarStyles from '../style.css'
@@ -13,20 +13,21 @@ import sidebarStyles from '../style.css'
 type Props = {
   displayName: string,
   theme: Theme,
-  firebase: Firebase
+  changeTheme: Function,
+  changeDisplayName: Function,
+  logout: Function
 }
 
 class Profile extends React.Component {
   props: Props
 
   updateProfileName = (name) => {
-    let user = { displayName: name }
-    this.props.firebase.updateUserProfile(user)
+    this.props.changeDisplayName(name)
   }
 
-  changeTheme = theme => this.props.firebase.changeTheme(theme)
+  changeTheme = theme => this.props.changeTheme(theme)
 
-  logout = () => this.props.firebase.logout()
+  logout = () => this.props.logout()
 
   render () {
     return (
@@ -53,4 +54,10 @@ const mapStateToProps = (state: State, ownProps) => {
   }, ownProps)
 }
 
-export default connect(mapStateToProps)(firebaseInject(Profile))
+const mapDispatchToProps = (dispatch: Function) => ({
+  changeTheme: (theme: Theme) => dispatch(changeTheme(theme)),
+  changeDisplayName: (name: string) => dispatch(changeDisplayName(name)),
+  logout: () => dispatch({ type: 'LOGOUT' })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

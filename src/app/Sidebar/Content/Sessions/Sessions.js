@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
-import { Firebase, firebaseInject } from 'backend'
 import { goToSession } from 'actions'
 import Header from '../Header'
 import Create from './Create'
@@ -12,14 +11,15 @@ import sidebarStyles from '../style.css'
 
 type Props = {
   sessions: Array<SessionInfo>,
-  goToSession: Function,
-  firebase: Firebase
+  goToSession: Function
 }
 
 class Sessions extends React.Component<*, Props, *> {
   props: Props
 
-  createSession = () => this.props.firebase.createSession()
+  // FIXME: Firebase
+  // createSession = () => this.props.firebase.createSession()
+  createSession = () => {}
 
   // FIXME: Clean up setUserSession from firebase
   // setSession = sessionId => this.props.firebase.setUserSession(sessionId)
@@ -71,4 +71,4 @@ const mapDispatchToProps = (dispatch: Function) => ({
   goToSession: (sessionId: string, sessionName: string) => dispatch(goToSession(sessionId, sessionName))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(firebaseInject(Sessions))
+export default connect(mapStateToProps, mapDispatchToProps)(Sessions)
