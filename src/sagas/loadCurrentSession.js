@@ -41,11 +41,8 @@ function * subscribeToSession (sessionId): Generator<*, *, *> {
 }
 
 export default function * loadCurrentSession (): Generator<*, *, *> {
-  // Wait for user login
-  yield take('USER_LOGGED_IN')
-
   let currentSubscription = null
-  let sessionId = yield select(currentSessionId)
+  let sessionId = null
 
   while (true) {
     console.log('listening for events')
