@@ -1,6 +1,4 @@
 /* @flow */
-import { push } from 'react-router-redux'
-import slug from 'slugg'
 import type { Action } from './types'
 import type { SessionMeta, Message, Theme, Tab } from 'types'
 import type { UserProfileState } from 'reducers/user/profile'
@@ -69,9 +67,9 @@ export const hydrateSession = (session: SessionState): Action => ({
   type: 'HYDRATE_SESSION', session
 })
 
-export const goToSession = (sessionId: string, sessionName: string): Object => push(
-  `/g/${sessionId}/${slug(sessionName)}`
-)
+export const switchToSession = (sessionId: string): Action => ({
+  type: 'SWITCH_TO_SESSION', sessionId
+})
 
 /*
  * Sidebar

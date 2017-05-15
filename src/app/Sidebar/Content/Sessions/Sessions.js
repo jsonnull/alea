@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
-import { goToSession } from 'actions'
+import { switchToSession } from 'actions'
 import Header from '../Header'
 import Create from './Create'
 import List from './List'
@@ -11,7 +11,7 @@ import sidebarStyles from '../style.css'
 
 type Props = {
   sessions: Array<SessionInfo>,
-  goToSession: Function
+  switchToSession: Function
 }
 
 class Sessions extends React.Component<*, Props, *> {
@@ -25,15 +25,7 @@ class Sessions extends React.Component<*, Props, *> {
   // setSession = sessionId => this.props.firebase.setUserSession(sessionId)
 
   setSession = (sessionId: string) => {
-    const { goToSession, sessions } = this.props
-    const session = sessions.find(el => el.sessionId === sessionId)
-    if (session) {
-      const meta = session.meta
-      if (meta) {
-        const sessionName = meta.name
-        goToSession(sessionId, sessionName)
-      }
-    }
+    this.props.switchToSession(sessionId)
   }
 
   render () {
@@ -68,7 +60,7 @@ const mapStateToProps = (state: State, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  goToSession: (sessionId: string, sessionName: string) => dispatch(goToSession(sessionId, sessionName))
+  switchToSession: (sessionId: string) => dispatch(switchToSession(sessionId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sessions)
