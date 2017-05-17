@@ -20,8 +20,7 @@ const buttons: Array<MenuButton> = [
   ['Session', 'fa-globe'],
   ['Character', 'fa-id-card-o'],
   'separator',
-  ['Sessions', 'fa-exchange'],
-  ['Profile', 'fa-cog']
+  ['Sessions', 'fa-exchange']
 ]
 
 class Menu extends React.Component {

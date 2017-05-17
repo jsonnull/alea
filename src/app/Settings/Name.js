@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react'
 import Editable from 'app/components/Editable'
-import Label from '../Label'
-import sidebarStyles from '../style.css'
+import Label from 'app/components/Label'
+import styles from './style.css'
 
 type Props = {
   name: string,
@@ -13,7 +13,7 @@ const Name = (props: Props) => {
   return <div>
     <Label>Display Name:</Label>
     <Editable
-      className={ sidebarStyles.field }
+      className={ styles.field }
       value={props.name}
       onChange={val => props.onChange(val)}/>
   </div>

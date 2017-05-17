@@ -4,7 +4,7 @@
 .login {
   width: 300px;
   align-self: center;
-  margin: 0 auto;
+  margin: auto;
   background: $bgPrimary;
   border-radius: 5px;
   padding: 2.4rem;

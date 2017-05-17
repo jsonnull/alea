@@ -1,0 +1,7 @@
+@import 'base';
+
+.header {
+  background: $bgPrimaryDark;
+  display: flex;
+  height: 4.8rem;
+}

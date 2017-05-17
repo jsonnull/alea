@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import Label from '../Label'
+import Label from 'app/components/Label'
 import Button from 'app/components/Button'
 import styles from './style.css'
 import type { Theme } from 'types'

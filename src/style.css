@@ -30,6 +30,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+input:focus {
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   width: 12px;  /* for vertical scrollbars */
   height: 12px; /* for horizontal scrollbars */

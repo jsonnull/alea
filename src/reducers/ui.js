@@ -3,12 +3,14 @@ import type { Action } from 'actions/types'
 
 export type UIState = {
   appIsLoading: boolean,
-  userIsLoggedIn: boolean
+  userIsLoggedIn: boolean,
+  showSettings: boolean
 }
 
 const initialState = {
   appIsLoading: true,
-  userIsLoggedIn: false
+  userIsLoggedIn: false,
+  showSettings: false
 }
 
 export default function reducer (state: UIState = initialState, action: Action) {
@@ -27,6 +29,16 @@ export default function reducer (state: UIState = initialState, action: Action) 
       return {
         ...state,
         userIsLoggedIn: false
+      }
+    case 'SHOW_SETTINGS':
+      return {
+        ...state,
+        showSettings: true
+      }
+    case 'HIDE_SETTINGS':
+      return {
+        ...state,
+        showSettings: false
       }
     default:
       return state

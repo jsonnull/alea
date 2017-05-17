@@ -1,6 +1,5 @@
 /* @flow */
 import React from 'react'
-import Profile from './Profile'
 import Session from './Session'
 import Sessions from './Sessions'
 import styles from './style.css'
@@ -10,8 +9,6 @@ type ContentProps = {
 }
 const SidebarContent = (props: ContentProps) => {
   switch (props.tab) {
-    case 'Profile':
-      return <Profile {...props}/>
     case 'Session':
       return <Session {...props} />
     case 'Sessions':

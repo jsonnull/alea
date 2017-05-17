@@ -1,10 +1,17 @@
 .app {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   position: absolute;
   top:0;
   left:0;
   right:0;
   bottom:0;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex: 1;
 }

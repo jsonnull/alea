@@ -14,6 +14,8 @@ export type Action =
   | { type: 'APP_FINISHED_LOADING' }
   | { type: 'USER_LOGGED_IN' }
   | { type: 'USER_LOGGED_OUT' }
+  | { type: 'SHOW_SETTINGS' }
+  | { type: 'HIDE_SETTINGS' }
   // User
   | { type: 'LOGIN', email: string, password: string }
   | { type: 'LOGOUT' }
