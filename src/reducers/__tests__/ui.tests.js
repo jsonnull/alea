@@ -9,7 +9,8 @@ describe('ui reducer', () => {
     ).toEqual(
       {
         appIsLoading: true,
-        userIsLoggedIn: false
+        userIsLoggedIn: false,
+        showSettings: false
       }
     )
   })
