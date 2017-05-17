@@ -98,9 +98,9 @@ describe('actions', () => {
 
   it('should create an action to change the current tab on the sidebar', () => {
     expect(
-      actions.changeSidebarTab('Profile')
+      actions.changeSidebarTab('Session')
     ).toEqual(
-      { type: 'CHANGE_SIDEBAR_TAB', tab: 'Profile' }
+      { type: 'CHANGE_SIDEBAR_TAB', tab: 'Session' }
     )
   })
 })

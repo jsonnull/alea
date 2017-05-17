@@ -40,10 +40,10 @@ class Settings extends React.Component {
     return (
       <div className={styles.settingsOuter} onClick={this.handleWrapperClick}>
         <div className={styles.settings} onClick={this.handleInnerClick}>
-          <Name name={this.props.displayName} onChange={this.updateProfileName} />
+          <Name name={displayName} onChange={this.updateProfileName} />
 
           <ThemeSwitcher
-            currentTheme={ this.props.theme }
+            currentTheme={theme}
             changeTheme={this.changeTheme}
           />
 

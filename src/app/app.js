@@ -39,7 +39,7 @@ class App extends React.Component {
     const settings = showSettings ? <Settings /> : null
 
     return (
-      <div className={`${styles.app} ${this.props.theme}`}>
+      <div className={`${styles.app} ${theme}`}>
         <Header/>
         <div className={styles.main}>
           <Map/>
