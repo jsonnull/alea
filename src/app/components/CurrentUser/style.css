@@ -1,21 +1,59 @@
 @import 'base';
 
-.user {
+.container {
   display: flex;
   margin-left: auto;
   width: $chatWidth;
 }
 
-.settings {
+.settings, .pin {
   width: 4.8rem;
   height: 4.8rem;
   line-height: 4.8rem;
   text-align: center;
-  color: white;
-  align-self: flex-end;
-  
+
   &:hover {
     cursor: pointer;
     background: $bgPrimaryDarkHover;
   }
 }
+
+.settings {
+  align-self: flex-end;
+}
+
+.username {
+  margin-left: auto;
+  line-height: 4.8rem;
+  padding-right: 0.6rem;
+}
+
+/*
+.pin {
+  :global(.dark) & {
+    color: $fgPrimary;
+    background-color: $bgPrimary;
+  }
+
+  :global(.unpinned) & {
+    position: relative;
+    align-self: flex-end;
+    right: 2.4rem;
+    margin-top: 0;
+    color: $fgPrimary;
+    background-color: $bgPrimary;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+
+    :global(.dark) & {
+      color: $fgPrimaryDark;
+      background-color: $bgPrimaryDark;
+    }
+  }
+
+  &:hover {
+    color: white;
+    background-color: $blue;
+    cursor: pointer;
+  }
+}
+*/

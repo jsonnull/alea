@@ -5,6 +5,8 @@ import ChatPin from './ChatPin'
 import styles from './style.css'
 
 type Props = {
+  showPin: boolean,
+  username: string,
   chatPinned: boolean,
   showSettings: Function,
   toggleChatPin: Function
@@ -12,11 +14,18 @@ type Props = {
 
 class CurrentUser extends React.Component<*, Props, *> {
   render () {
-    const { chatPinned, showSettings, toggleChatPin } = this.props
+    const { showPin = false, username, chatPinned, showSettings, toggleChatPin } = this.props
+
+    const chatPin = (showPin)
+      ? <ChatPin pinned={chatPinned} togglePinned={toggleChatPin} />
+      : null
 
     return (
-      <div className={styles.user}>
-        <ChatPin pinned={chatPinned} togglePinned={toggleChatPin} />
+      <div className={styles.container}>
+        { chatPin }
+        <div className={styles.username}>
+          { username }
+        </div>
         <div className={styles.settings} onClick={showSettings}>
           <i className={`fa fa-cog`}></i>
         </div>
@@ -26,6 +35,7 @@ class CurrentUser extends React.Component<*, Props, *> {
 }
 
 const mapStateToProps = (state: State, ownProps) => ({
+  username: state.user.profile.displayName,
   chatPinned: state.user.preferences.chatPinned
 })
 

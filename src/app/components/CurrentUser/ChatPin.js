@@ -16,7 +16,7 @@ const ChatPin = (props: Props) => {
 
   return (
     <div
-      className={ styles.button }
+      className={styles.pin}
       onClick={togglePinned}
     >
       { toggleChat }
