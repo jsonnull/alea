@@ -93,6 +93,9 @@ module.exports = {
     },
     quiet: true
   },
+  watchOptions: {
+    poll: 1000
+  },
   stats: {
     children: false
   }
