@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
+const PrettyOutput = require('./webpack/pluginPrettyOutput')
 
 module.exports = {
   entry: {
@@ -30,7 +31,17 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: [ /\/node_modules\// ],
-        use: ['babel-loader?cacheDirectory']
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            }
+          },
+          {
+            loader: 'eslint-loader'
+          }
+        ]
       },
       {
         test: /\.css*/,
@@ -68,7 +79,8 @@ module.exports = {
       name: 'webpackManifest'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new PrettyOutput()
   ],
   devServer: {
     hot: true,
@@ -78,7 +90,8 @@ module.exports = {
       rewrites: [
         { from: /^\/$/, to: '/index.html' }
       ]
-    }
+    },
+    quiet: true
   },
   stats: {
     children: false
