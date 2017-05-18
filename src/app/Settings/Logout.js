@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import Button from 'app/components/Button'
+import Button from 'App/components/Button'
 import styles from './style.css'
 
 type Props = {

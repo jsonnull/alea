@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 import initializeFirebase from './firebase'
-import App from 'app/app'
+import App from 'App/App'
 import createStore from './store'
 import './assets'
 import './style.css'
@@ -41,5 +41,5 @@ const render = Component => {
 render(App)
 
 if (module.hot) {
-  (module.hot: any).accept('app/app', () => { render(App) })
+  (module.hot: any).accept('App/App', () => { render(App) })
 }

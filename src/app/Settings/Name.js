@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
-import Editable from 'app/components/Editable'
-import Label from 'app/components/Label'
+import Editable from 'App/components/Editable'
+import Label from 'App/components/Label'
 import styles from './style.css'
 
 type Props = {

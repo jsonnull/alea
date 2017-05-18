@@ -1,0 +1,44 @@
+@import 'base';
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 4.8rem;
+  color: white;
+  background-color: $blue;
+
+  :global(.dark) & {
+    background-color: $bgSecondaryDark;
+  }
+
+  & *:first-child {
+  }
+}
+
+.menuItem {
+  text-align: center;
+  height: 4.8rem;
+  width: 4.8rem;
+  line-height: 4.8rem;
+  background-repeat: no-repeat;
+  background-size: 3px 0;
+  background-position: 0 50%;
+  background-image: linear-gradient(white 0%, white 100%);
+  transition: background-size 100ms, background-position 100ms;
+
+  &:hover {
+    background-color: $lightBlue;
+    color: white;
+    cursor: pointer;
+
+    :global(.dark) & {
+      background-color: $bgPrimaryDark;
+    }
+  }
+}
+
+.menuItemSelected {
+  background-size: 3px 100%;
+  background-position: 0 0;
+  transition: background-size 100ms, background-position 100ms;
+}

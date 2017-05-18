@@ -1,0 +1,24 @@
+@import "base"; 
+
+.chat {
+  background-color: $bgPrimary;
+  width: $chatWidth;
+  position: relative;
+  overflow: hidden;
+  padding-top: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+
+  :global(.dark) & {
+    background-color: $bgPrimaryDark;
+  }
+
+  &:global(.unpinned) {
+    margin-top: auto;
+    background: transparent;
+    border-color: transparent;
+    align-self: flex-end;
+  }
+}

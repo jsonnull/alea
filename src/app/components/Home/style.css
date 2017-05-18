@@ -1,24 +1,16 @@
 @import 'base';
 
 .home {
-  display: flex;
-}
-
-.button {
   width: 4.8rem;
   height: 4.8rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
   line-height: 4.8rem;
   text-align: center;
   font-family: $fontFamilyHeader;
 
   &:hover {
+    background-color: $lightBlue;
     cursor: pointer;
-    background: $bgPrimaryDarkHover;
   }
-}
-
-.title {
-  line-height: 4.8rem;
-  padding-left: 0.6rem;
-  font-family: $fontFamilyHeader;
 }

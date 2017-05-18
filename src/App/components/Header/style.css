@@ -1,0 +1,36 @@
+@import 'base';
+
+.header {
+  background: $blue;
+  display: flex;
+  height: 6rem;
+  color: white;
+}
+
+.title {
+  font-size: 2.4rem;
+  line-height: 6rem;
+  padding-left: 1.8rem;
+  font-family: $fontFamilyHeader;
+}
+
+.user {
+  margin-left: auto;
+  line-height: 6rem;
+  padding-right: 0.6rem;
+}
+
+.settings {
+  display: flex;
+  align: flex-end;
+  width: 4.8rem;
+  height: 4.8rem;
+  line-height: 4.8rem;
+  margin-top: 0.6rem;
+  position: relative;
+
+  &:hover {
+    background-color: $lightBlue;
+    cursor: pointer;
+  }
+}

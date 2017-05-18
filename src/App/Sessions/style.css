@@ -1,0 +1,14 @@
+@import 'base';
+
+.body {
+  margin: 0 1.2rem;
+}
+
+.create {
+  margin: 0 1.2rem;
+  align-self: flex-start;
+}
+
+.waitingIcon {
+  color: $fgMedium;
+}

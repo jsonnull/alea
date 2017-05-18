@@ -1,0 +1,40 @@
+@import 'base';
+@import 'input';
+
+.darkTheme {}
+.unpinned {}
+
+.form {
+  padding: 2.4rem 1.2rem;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+  .formInput {
+    @extend input;
+    border: 0;
+    height: 50px;
+    display: block;
+    padding: 1.2rem 1rem;
+    line-height: 2.4rem;
+    width: 100%;
+    resize: none;
+    color: $fgPrimary;
+    border: 1px solid $borderColorLight;
+    border-radius: 5px;
+
+    :global(.dark) & {
+      color: $fgPrimaryDark;
+      background-color: $bgPrimaryDark;
+      border: 1px solid $borderColorDark;
+    }
+
+    :global(.unpinned) & {
+      background-color: $bgPrimary;
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+      border: none;
+
+      :global(.dark) & {
+        background-color: $bgPrimaryDark;
+      }
+    }
+  }

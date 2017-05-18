@@ -1,13 +1,12 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
-import Header from './Header'
-import Chat from './Chat'
-import Loading from './loading'
-import Login from './login'
-import Map from './map'
+import { Switch, Route } from 'react-router'
+import Loading from './Loading'
+import Login from './Login'
+import Game from './Game'
+import Sessions from './Sessions'
 import Settings from './Settings'
-import Sidebar from './Sidebar'
 import type { State } from 'store'
 import styles from './style.css'
 
@@ -15,6 +14,7 @@ type Props = {
   appIsLoading: boolean,
   userIsLoggedIn: boolean,
   showSettings: boolean,
+  location: object,
   theme: string
 }
 
@@ -25,27 +25,21 @@ class App extends React.Component {
     const { appIsLoading, userIsLoggedIn, showSettings, theme } = this.props
 
     if (appIsLoading) {
-      return <div className={styles.app}>
-        <Loading />
-      </div>
+      return <Loading />
     }
 
     if (!userIsLoggedIn) {
-      return <div className={styles.app}>
-        <Login />
-      </div>
+      return <Login />
     }
 
     const settings = showSettings ? <Settings /> : null
 
     return (
       <div className={`${styles.app} ${theme}`}>
-        <Header/>
-        <div className={styles.main}>
-          <Map/>
-          <Sidebar/>
-          <Chat/>
-        </div>
+        <Switch>
+          <Route exact path="/" component={Sessions} />
+          <Route path="/g/:id/" component={Game} />
+        </Switch>
         { settings }
       </div>
     )
@@ -57,7 +51,8 @@ const mapStateToProps = (state: State) => {
     appIsLoading: state.ui.appIsLoading,
     userIsLoggedIn: state.ui.userIsLoggedIn,
     theme: state.user.preferences.theme,
-    showSettings: state.ui.showSettings
+    showSettings: state.ui.showSettings,
+    location: state.router.location
   }
 }
 

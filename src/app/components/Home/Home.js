@@ -1,28 +1,26 @@
 /* @flow */
 import React from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import styles from './style.css'
 
 type Props = {
-  showTitle: boolean
+  goHome: Function
 }
 
 class Home extends React.Component<*, Props, *> {
   render () {
-    const { showTitle = false } = this.props
-
-    const title = showTitle
-      ? <div className={styles.title}>Aleamancer</div>
-      : null
-
+    const { goHome } = this.props
     return (
-      <div className={styles.home}>
-        <div className={styles.button}>
-          A
-        </div>
-        { title }
+      <div className={styles.home} onClick={goHome}>
+        A
       </div>
     )
   }
 }
 
-export default Home
+const mapDispatchToProps = (dispatch: Function) => ({
+  goHome: () => dispatch(push('/'))
+})
+
+export default connect(null, mapDispatchToProps)(Home)
