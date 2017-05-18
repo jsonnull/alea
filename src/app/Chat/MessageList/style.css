@@ -1,5 +1,5 @@
 .messages {
-  padding: 0 2.4rem;
+  padding: 0 1.2rem;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 315px;
@@ -7,7 +7,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 
   :global(.unpinned) & {
     width: 300px;

@@ -5,7 +5,12 @@
   padding: 0 0 0.5rem;
   border-bottom: 1px solid $borderColorLight;
   display: inline-block;
-  width: 250px;
+  width: 100%;
+  min-width: 160px;
+
+  &:first-child {
+    margin-top: auto;
+  }
 
   :global(.dark) & {
     border-bottom: 1px solid $borderColorDark;

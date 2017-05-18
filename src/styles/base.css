@@ -8,12 +8,11 @@ $lightBlue: #057091;
 /* Light */
 $bgPrimary: #f7f7f7;
 $bgSecondary: #ebe3d6;
-/* $bgTertiary: #cdc5ba; */
-$map: #BFBCA5;
 $fgPrimary: black;
+$map: #BFBCA5;
 $fgSecondary: #3c3c3c;
 $fgMedium: #999;
-$borderColorLight: #ADAB96;
+$borderColorLight: #cdc5ba;
 
 /* Dark */
 $bgPrimaryDark: #3c3c3c;

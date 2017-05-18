@@ -1,7 +1,9 @@
 @import 'base';
 
 .user {
+  display: flex;
   margin-left: auto;
+  width: $chatWidth;
 }
 
 .settings {
@@ -10,6 +12,7 @@
   line-height: 4.8rem;
   text-align: center;
   color: white;
+  align-self: flex-end;
   
   &:hover {
     cursor: pointer;
