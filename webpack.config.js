@@ -91,6 +91,7 @@ module.exports = {
         { from: /^\/$/, to: '/index.html' }
       ]
     },
+    overlay: true,
     quiet: true
   },
   watchOptions: {
