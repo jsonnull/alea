@@ -1,6 +1,7 @@
 /* @flow */
 import React from 'react'
 import { connect } from 'react-redux'
+import type { State } from 'store'
 import styles from './style.css'
 
 type Props = {

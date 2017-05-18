@@ -19,7 +19,8 @@ const SidebarContent = (props: ContentProps) => {
 }
 
 type Props = {
-  tab: string
+  tab: string,
+  name: string
 }
 class Content extends React.Component {
   props: Props

@@ -14,7 +14,7 @@ type Props = {
   appIsLoading: boolean,
   userIsLoggedIn: boolean,
   showSettings: boolean,
-  location: object,
+  location: Object,
   theme: string
 }
 

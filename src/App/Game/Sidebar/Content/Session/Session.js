@@ -18,7 +18,6 @@ class Session extends React.Component {
   }
 }
 
-const mapStateToProps = (state: State) => {
-}
+const mapStateToProps = (state: State) => ({})
 
 export default connect(mapStateToProps)(Session)
