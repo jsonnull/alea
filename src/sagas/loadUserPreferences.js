@@ -15,6 +15,7 @@ function * loadUserPreferences (): Generator<*, *, *> {
   })
   const prefs = yield call(loadPrefs)
   yield put(hydratePreferences(prefs))
+  yield put({ type: 'APP_FINISHED_LOADING' })
 }
 
 export default function * loadPreferences (): Generator<*, *, *> {
