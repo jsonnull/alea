@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import Home from 'App/components/Home'
+import Header from 'App/components/Header'
 import MenuItem from './MenuItem'
 import type { Tab } from 'types'
 import styles from './style.css'
@@ -21,9 +21,8 @@ class Menu extends React.Component {
   props: Props
 
   render () {
-    return (
+    return <Header>
       <div className={ styles.menu }>
-        <Home />
         {buttons.map(button => {
           const [name, icon] = button
           const selected = name == this.props.tab
@@ -37,7 +36,7 @@ class Menu extends React.Component {
           />
         })}
       </div>
-    )
+    </Header>
   }
 }
 

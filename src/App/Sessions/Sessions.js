@@ -30,6 +30,7 @@ class Sessions extends React.Component<*, Props, *> {
       <div className={styles.container}>
         <Header showTitle />
         <div className={styles.body}>
+          <h1 className={styles.heading}>Your Games</h1>
           <List
             sessions={this.props.sessions}
             setSession={this.setSession}

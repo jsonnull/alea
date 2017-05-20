@@ -1,32 +1,20 @@
 /* @flow */
 import React from 'react'
-import Home from 'App/components/Home'
-import CurrentUser from 'App/components/CurrentUser'
-import SettingsButton from 'App/components/SettingsButton'
+import Home from './Home'
 import styles from './style.css'
 
 type Props = {
-  showTitle: boolean
+  children?: Object
 }
 
 class Header extends React.Component<*, Props, *> {
   render () {
-    const { showTitle = false } = this.props
-
-    const title = showTitle
-      ? <div className={styles.title}>Aleamancer</div>
-      : null
+    const { children } = this.props
 
     return (
       <div className={styles.header}>
         <Home />
-        { title }
-        <div className={styles.user}>
-          <CurrentUser />
-        </div>
-        <div className={styles.settings}>
-          <SettingsButton />
-        </div>
+        { children }
       </div>
     )
   }

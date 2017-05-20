@@ -1,10 +1,15 @@
 @import 'base';
 
 .header {
-  background: $blue;
   display: flex;
-  height: 6rem;
+  flex-direction: column;
+  width: 4.8rem;
   color: white;
+  background-color: $blue;
+
+  :global(.dark) & {
+    background-color: $bgSecondaryDark;
+  }
 }
 
 .title {
