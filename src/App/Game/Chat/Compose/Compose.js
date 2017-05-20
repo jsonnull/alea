@@ -52,7 +52,8 @@ export default class Compose extends React.Component {
 
     let height = 0
     if (scrollHeight !== 50) {
-      height = scrollHeight
+      // Must account for 2px of border
+      height = scrollHeight + 2
     }
 
     this.setState({
