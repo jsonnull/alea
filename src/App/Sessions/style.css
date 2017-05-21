@@ -2,7 +2,7 @@
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   flex: 1;
 }
@@ -26,7 +26,7 @@
   padding: 1.2rem 0;
   color: $fgPrimary;
   line-height: $line-unit;
-  margin: 0 0 1.2rem;
+  margin: 0;
 
   :global(.dark) & {
     color: $fgPrimaryDark;

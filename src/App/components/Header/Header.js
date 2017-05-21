@@ -4,16 +4,17 @@ import Home from './Home'
 import styles from './style.css'
 
 type Props = {
+  showTitle?: boolean,
   children?: Object
 }
 
 class Header extends React.Component<*, Props, *> {
   render () {
-    const { children } = this.props
+    const { showTitle = false, children } = this.props
 
     return (
       <div className={styles.header}>
-        <Home />
+        <Home showTitle={showTitle} />
         { children }
       </div>
     )

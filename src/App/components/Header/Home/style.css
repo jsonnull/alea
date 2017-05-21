@@ -3,14 +3,16 @@
 .home {
   width: 4.8rem;
   height: 4.8rem;
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
   line-height: 4.8rem;
-  text-align: center;
+  padding: 0 1.85rem;
   font-family: $fontFamilyHeader;
 
   &:hover {
     background-color: $lightBlue;
     cursor: pointer;
   }
+}
+
+.title {
+  width: auto;
 }

@@ -5,15 +5,18 @@ import { push } from 'react-router-redux'
 import styles from './style.css'
 
 type Props = {
+  showTitle?: boolean,
   goHome: Function
 }
 
 class Home extends React.Component<*, Props, *> {
   render () {
-    const { goHome } = this.props
+    const { showTitle = false, goHome } = this.props
+    const title = showTitle ? 'Aleamancer' : 'A'
+    const titleClass = showTitle ? styles.title : ''
     return (
-      <div className={styles.home} onClick={goHome}>
-        A
+      <div className={`${styles.home} ${titleClass}`} onClick={goHome}>
+        { title }
       </div>
     )
   }
