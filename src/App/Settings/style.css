@@ -56,4 +56,8 @@
   border-bottom: 1px solid $borderColorLight;
   margin: 0 0 1.2rem;
   width: 100%;
+  font-family:
+/* 1 */ -apple-system, BlinkMacSystemFont,
+/* 2 */ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+/* 3 */ "Helvetica Neue", sans-serif;
 }
