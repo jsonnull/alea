@@ -61,9 +61,13 @@ export default class Compose extends React.Component {
     })
   }
 
-  cycleMessages () {
+  cycleMessages (cycleDirection: String) {
     if (this.messageQueue.length) {
-      this.messageQueue.unshift(this.messageQueue.pop())
+      if (cycleDirection == 'up') {
+        this.messageQueue.unshift(this.messageQueue.pop())
+      } else {
+        this.messageQueue.push(this.messageQueue.shift())
+      }
       this.setState({
         value: this.messageQueue[0]
       })
@@ -77,7 +81,10 @@ export default class Compose extends React.Component {
         this.handleSubmit()
         break
       case 'ArrowUp':
-        this.cycleMessages()
+        this.cycleMessages('up')
+        break
+      case 'ArrowDown':
+        this.cycleMessages('down')
         break
     }
   }
