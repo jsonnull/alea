@@ -61,9 +61,24 @@ export default class Compose extends React.Component {
     })
   }
 
+  cycleMessages () {
+    if (this.messageQueue.length) {
+      this.messageQueue.unshift(this.messageQueue.pop())
+      this.setState({
+        value: this.messageQueue[0]
+      })
+      this.calculateHeight()
+    }
+  }
+
   handleKeyUp (event: Object) {
-    if (event.key == 'Enter') {
-      this.handleSubmit()
+    switch (event.key) {
+      case 'Enter':
+        this.handleSubmit()
+        break
+      case 'ArrowUp':
+        this.cycleMessages()
+        break
     }
   }
 
