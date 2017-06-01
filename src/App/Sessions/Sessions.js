@@ -2,10 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { switchToSession } from 'actions'
-import Header from 'App/components/Header'
+// import Header from 'App/components/Header'
 import Create from './Create'
 import List from './List'
-import User from './User'
 import type { State } from 'store'
 import type { SessionList, SessionInfo } from 'types'
 import styles from './style.css'
@@ -29,9 +28,6 @@ class Sessions extends React.Component<*, Props, *> {
   render () {
     return (
       <div className={styles.container}>
-        <Header showTitle >
-          <User />
-        </Header>
         <div className={styles.body}>
           <h1 className={styles.heading}>Your Games</h1>
           <List

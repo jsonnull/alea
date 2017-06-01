@@ -4,8 +4,7 @@
   display: flex;
   flex-direction: row;
   height: 4.8rem;
-  color: white;
-  background-color: $blue;
+  color: black;
 
   :global(.dark) & {
     background-color: $bgSecondaryDark;
@@ -23,7 +22,7 @@
   background-repeat: no-repeat;
   background-size: 0 4px;
   background-position: 50% 4.4rem;
-  background-image: linear-gradient(white 0%, white 100%);
+  background-image: linear-gradient(black 0%, black 100%);
   transition: background-size 100ms, background-position 100ms;
 
   &:hover {

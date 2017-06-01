@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Compose from './Compose'
 import MessageList from './MessageList'
-import User from './User'
 import { sendMessage } from 'actions'
 import type { Message, Theme } from 'types'
 import type { State } from 'store'
@@ -37,7 +36,6 @@ class Chat extends React.Component {
       <div className={ styles.chat + ' ' + pinned }>
         <MessageList messages={messages} />
         <Compose onSend={this.sendMessage} />
-        <User />
       </div>
     )
   }

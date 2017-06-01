@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router'
 import Loading from './Loading'
 import Login from './Login'
 import Game from './Game'
+import Header from './Header'
 import Sessions from './Sessions'
 import Settings from './Settings'
 import type { State } from 'store'
@@ -36,6 +37,7 @@ class App extends React.Component {
 
     return (
       <div className={`${styles.app} ${theme}`}>
+        <Header />
         <Switch>
           <Route exact path="/" component={Sessions} />
           <Route path="/g/:id/" component={Game} />
