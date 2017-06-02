@@ -1,5 +1,6 @@
 [ignore]
 .*/node_modules/fbjs/.*
+.*/node_modules/styled-components/.*
 
 [options]
 module.name_mapper='^\(.*\)/\([A-Za-z]+\)$' -> '\1/\2/\2.js'
