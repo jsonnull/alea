@@ -1,6 +1,23 @@
 /* @flow */
 import React from 'react'
-import styles from './style.css'
+import styled from 'styled-components'
+import withTheme from 'containers/withTheme'
+import * as themes from 'styles/themes'
+
+const Background = withTheme(styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 3.6rem;
+  color: ${props => themes[props.theme].colorSecondary};
+`)
+
+const Display = styled.div`
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 type Props = {
   value: string,
@@ -77,22 +94,20 @@ export default class Editable extends React.Component<*, Props, *> {
 
   render () {
     if (this.state.mode == 'normal') {
-      const background = <div className={styles.background}>
-        <i className='fa fa-pencil'></i>
-      </div>
+      const icon = this.state.hover
+        ? <Background><i className='fa fa-pencil'></i></Background>
+        : null
 
-      return <div
-        className={this.props.className + ' ' + styles.editable}
+      return <Display
         onClick={e => this.handleClick()}
         onMouseEnter={() => this.handleMouseEnter()}
         onMouseLeave={() => this.handleMouseLeave()}
       >
         { this.state.value }
-        { this.state.hover ? background : null }
-      </div>
+        { icon }
+      </Display>
     } else {
       return <input
-        className={this.props.className}
         ref={el => { this.input = el }}
         type="text"
         value={this.state.value}
