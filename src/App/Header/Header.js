@@ -1,24 +1,28 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
+import * as colors from 'styles/colors'
 import Home from './Home'
 import CurrentUser from './CurrentUser'
-import styles from './style.css'
+import Settings from './Settings'
 
-type Props = {
-  showTitle?: boolean,
-}
+const Header = () => {
+  const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    color: white;
+    background-color: ${colors.blue};
+  `
 
-class Header extends React.Component<*, Props, *> {
-  render () {
-    const { showTitle = false } = this.props
-
-    return (
-      <div className={styles.header}>
-        <Home showTitle={showTitle} />
-        <CurrentUser />
-      </div>
-    )
-  }
+  return (
+    <Container>
+      <Home />
+      <CurrentUser />
+      <Settings />
+    </Container>
+  )
 }
 
 export default Header

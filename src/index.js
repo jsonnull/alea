@@ -10,7 +10,6 @@ import initializeFirebase from './firebase'
 import App from 'App/App'
 import createStore from './store'
 import './assets'
-import './style.css'
 
 // Initialize Firebase
 const config = {
