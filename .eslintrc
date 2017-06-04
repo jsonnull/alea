@@ -15,6 +15,7 @@
   "rules": {
     "eqeqeq": 0,
     "import/no-webpack-loader-syntax": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/display-name": 0
   }
 }
