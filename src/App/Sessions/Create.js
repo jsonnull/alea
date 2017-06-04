@@ -1,17 +1,19 @@
 /* @flow */
 import React from 'react'
-// import Label from '../Label'
-import Button from 'App/components/Button'
-import styles from './style.css'
+import Button from 'components/Button'
 
 type Props = {
   createSession: Function
 }
 
+const CreateButton = Button.extend`
+  align-self: flex-start;
+`
+
 const Create = (props: Props) => {
-  return <Button onClick={props.createSession} customClass={styles.create}>
+  return <CreateButton onClick={props.createSession}>
     Create Game
-  </Button>
+  </CreateButton>
 }
 
 export default Create

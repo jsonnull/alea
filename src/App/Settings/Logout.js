@@ -1,16 +1,23 @@
 /* @flow */
 import React from 'react'
-import Button from 'App/components/Button'
-import styles from './style.css'
+import styled from 'styled-components'
+import { RedButton } from 'components/Button'
 
 type Props = {
   logout: Function
 }
 
+const Container = styled.div`
+  margin-top: 2.4rem;
+  display: flex;
+`
+
 const Logout = (props: Props) => {
-  return <Button onClick={props.logout} customClass={styles.logout} variant='red'>
-    Logout
-  </Button>
+  return <Container>
+    <RedButton onClick={props.logout}>
+      Logout
+    </RedButton>
+  </Container>
 }
 
 export default Logout
