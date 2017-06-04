@@ -22,7 +22,7 @@ export const light: Theme = {
 export const dark: Theme = {
   background: '#3c3c3c',
   backgroundSecondary: '#2b2b2b',
-  color: 'eee',
+  color: '#eee',
   colorSecondary: '#cdc5ba',
   colorMedium: '#999',
   map: '#1a1a1a',

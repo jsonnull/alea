@@ -1,21 +1,52 @@
 /* @flow */
 import React from 'react'
-import Editable from 'App/components/Editable'
+import styled from 'styled-components'
+import editable from 'App/components/Editable'
 import Label from 'App/components/Label'
-import styles from './style.css'
+import Input from 'App/components/Input'
+import withTheme from 'containers/withTheme'
+import * as themes from 'styles/themes'
 
 type Props = {
   name: string,
   onChange: Function
 }
 
+const Editable = editable(withTheme(styled.div`
+  position: relative;
+  line-height: 3.6rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding-left: 0;
+  border-bottom: 1px solid ${props => themes[props.theme].borderColor};
+  color: ${props => themes[props.theme].color};
+  margin: 0 0 1.2rem;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+`))
+
+const NameInput = withTheme(Input.extend`
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid ${props => themes[props.theme].borderColor};
+  color: ${props => themes[props.theme].color};
+  margin: 0 0 1.2rem;
+  width: 100%;
+  padding: 0;
+`)
+
 const Name = (props: Props) => {
   return <div>
     <Label>Display Name:</Label>
     <Editable
-      className={ styles.field }
+      isHovering={true}
       value={props.name}
-      onChange={val => props.onChange(val)}/>
+      input={NameInput}
+      onChange={props.onChange}
+    />
   </div>
 }
 

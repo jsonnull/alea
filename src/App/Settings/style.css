@@ -2,32 +2,9 @@
 @import 'input';
 
 .settingsOuter {
-  display: flex;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-
-  :global(.dark) & {
-    background: rgba(0, 0, 0, 0.7);
-  }
 }
 
 .settings {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: auto;
-  border-radius: 5px;
-  padding: 2.4rem;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-
-  :global(.dark) & {
-    background-color: $bgSecondaryDark;
-  }
 }
 
 .logout {
@@ -49,11 +26,4 @@
 
 .field {
   @extend input;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding-left: 0;
-  border-bottom: 1px solid $borderColorLight;
-  margin: 0 0 1.2rem;
-  width: 100%;
 }
