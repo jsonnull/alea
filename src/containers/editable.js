@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { defaultProps, componentFromProp, branch, compose, withState, withHandlers } from 'recompose'
+import { defaultProps, branch, compose, withState, withHandlers } from 'recompose'
 import withTheme from 'containers/withTheme'
 import * as themes from 'styles/themes'
 
@@ -77,7 +77,6 @@ const Editing = (BaseComponent) => (props: Object) => {
   />
 }
 
-console.log(branch, withHover, Editing, withValue, componentFromProp)
 const editable = compose(
   withValue,
   branch(

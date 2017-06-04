@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import editable from 'App/components/Editable'
-import Label from 'App/components/Label'
-import Input from 'App/components/Input'
+import Label from 'components/Label'
+import Input from 'components/Input'
+import editable from 'containers/editable'
 import withTheme from 'containers/withTheme'
 import * as themes from 'styles/themes'
 
