@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { RedButton } from 'components/Button'
+import Button from 'components/Button'
 
 type Props = {
   logout: Function
@@ -14,9 +14,9 @@ const Container = styled.div`
 
 const Logout = (props: Props) => {
   return <Container>
-    <RedButton onClick={props.logout}>
+    <Button red onClick={props.logout}>
       Logout
-    </RedButton>
+    </Button>
   </Container>
 }
 

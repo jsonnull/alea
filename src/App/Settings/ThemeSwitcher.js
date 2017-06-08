@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import Label from 'components/Label'
-import { GreenButton, OutlineButton } from 'components/Button'
+import Button from 'components/Button'
 import styles from './style.css'
 import type { Theme } from 'types'
 
@@ -10,20 +10,27 @@ type Props = {
   changeTheme: (Theme) => any
 }
 
+const DarkButton = Button.extend`
+  margin-left: 5px;
+`
+
 const ThemeSwitcher = (props: Props) => {
   const isLightTheme = props.currentTheme == 'light'
   const isDarkTheme = props.currentTheme == 'dark'
 
-  const LightButton = isLightTheme ? GreenButton : OutlineButton
-  const DarkButton = isDarkTheme ? GreenButton : OutlineButton
+  const useGreen = { green: true }
+  const useOutline = { outline: true }
+
+  const lightButton = isLightTheme ? useGreen : useOutline
+  const darkButton = isDarkTheme ? useGreen : useOutline
 
   return <div>
     <Label>Theme</Label>
     <div className={ styles.themeButtons }>
-      <LightButton onClick={ () => props.changeTheme('light') }>
+      <Button {...lightButton} onClick={ () => props.changeTheme('light') }>
         Light
-      </LightButton>
-      <DarkButton onClick={ () => props.changeTheme('dark') }>
+      </Button>
+      <DarkButton {...darkButton} onClick={ () => props.changeTheme('dark') }>
         Dark
       </DarkButton>
     </div>

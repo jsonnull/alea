@@ -1,8 +1,34 @@
 /* @flow */
-import styled from 'styled-components'
-import withTheme from 'containers/withTheme'
+import styled, { css } from 'styled-components'
 import * as themes from 'styles/themes'
 import * as colors from 'styles/colors'
+
+const redMixin = css` 
+  background-color: ${colors.red};
+  color: white;
+  &:hover {
+    background-color: ${colors.red};
+    color: white;
+  }
+`
+
+const greenMixin = css` 
+  background-color: ${colors.green};
+  color: white;
+  &:hover {
+    background-color: ${colors.green};
+    color: white;
+  }
+`
+
+const outlineMixin = css`
+  background-color: transparent;
+  border: 1px solid ${props => themes['light'].color};
+  color: ${props => themes['light'].color};
+  &:hover {
+    background-color: transparent;
+  }
+`
 
 export const Button = styled.button`
   display: inline-block;
@@ -21,6 +47,9 @@ export const Button = styled.button`
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
   flex: 1;
+  ${props => props.red ? redMixin : null}
+  ${props => props.green ? greenMixin : null}
+  ${props => props.outline ? outlineMixin : null}
 
   &:hover {
     text-shadow: 0 0 3px white;
@@ -30,29 +59,5 @@ export const Button = styled.button`
     transition-timing-function: ease-out;
   }
 `
-
-export const RedButton = Button.extend`
-  background-color: ${colors.red};
-  color: white;
-  &:hover {
-    background-color: ${colors.red};
-    color: white;
-  }
-`
-
-export const GreenButton = Button.extend`
-  background-color: ${colors.green};
-  color: white;
-  &:hover {
-    background-color: ${colors.green};
-    color: white;
-  }
-`
-
-export const OutlineButton = withTheme(Button.extend`
-  background-color: transparent;
-  border: 1px solid ${props => themes[props.theme].color};
-  color: ${props => themes[props.theme].color};
-`)
 
 export default Button
