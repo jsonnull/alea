@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router'
+import styled, { ThemeProvider } from 'styled-components'
 import Loading from './Loading'
 import Login from './Login'
 import Game from './Game'
@@ -10,21 +11,20 @@ import Sessions from './Sessions'
 import Settings from './Settings'
 import * as themes from 'styles/themes'
 import type { State } from 'store'
-import styled from 'styled-components'
 
 type Props = {
   appIsLoading: boolean,
   userIsLoggedIn: boolean,
   showSettings: boolean,
   location: Object,
-  theme: string
+  theme: Object
 }
 
 class App extends React.Component {
   props: Props
 
   render () {
-    const { appIsLoading, userIsLoggedIn, showSettings } = this.props
+    const { appIsLoading, userIsLoggedIn, showSettings, theme } = this.props
 
     if (appIsLoading) {
       return <Loading />
@@ -49,14 +49,16 @@ class App extends React.Component {
     `
 
     return (
-      <App>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Sessions} />
-          <Route path="/g/:id/" component={Game} />
-        </Switch>
-        { settings }
-      </App>
+      <ThemeProvider theme={theme}>
+        <App>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Sessions} />
+            <Route path="/g/:id/" component={Game} />
+          </Switch>
+          { settings }
+        </App>
+      </ThemeProvider>
     )
   }
 }

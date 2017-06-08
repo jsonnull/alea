@@ -1,5 +1,5 @@
 /* @flow */
-import styled, { css } from 'styled-components'
+import styled, { css, withTheme } from 'styled-components'
 import * as themes from 'styles/themes'
 import * as colors from 'styles/colors'
 
@@ -23,14 +23,14 @@ const greenMixin = css`
 
 const outlineMixin = css`
   background-color: transparent;
-  border: 1px solid ${props => themes['light'].color};
-  color: ${props => themes['light'].color};
+  border: 1px solid ${props => props.theme.color};
+  color: ${props => props.theme.color};
   &:hover {
     background-color: transparent;
   }
 `
 
-export const Button = styled.button`
+export const Button = withTheme(styled.button`
   display: inline-block;
   font-size: 1.3rem;
   line-height: 3.6rem;
@@ -47,9 +47,6 @@ export const Button = styled.button`
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
   flex: 1;
-  ${props => props.red ? redMixin : null}
-  ${props => props.green ? greenMixin : null}
-  ${props => props.outline ? outlineMixin : null}
 
   &:hover {
     text-shadow: 0 0 3px white;
@@ -58,6 +55,10 @@ export const Button = styled.button`
     transition-duration: 0.1s;
     transition-timing-function: ease-out;
   }
-`
+
+  ${props => props.red ? redMixin : null}
+  ${props => props.green ? greenMixin : null}
+  ${props => props.outline ? outlineMixin : null}
+`)
 
 export default Button
