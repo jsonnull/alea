@@ -1,18 +1,22 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
 import Label from 'components/Label'
 import Button from 'components/Button'
-import styles from './style.css'
 import type { Theme } from 'types'
+
+const DarkButton = Button.extend`
+  margin-left: 5px;
+`
+
+const ThemeButtons = styled.div`
+  display: flex;
+`
 
 type Props = {
   currentTheme: Theme,
   changeTheme: (Theme) => any
 }
-
-const DarkButton = Button.extend`
-  margin-left: 5px;
-`
 
 const ThemeSwitcher = (props: Props) => {
   const isLightTheme = props.currentTheme == 'light'
@@ -26,14 +30,14 @@ const ThemeSwitcher = (props: Props) => {
 
   return <div>
     <Label>Theme</Label>
-    <div className={ styles.themeButtons }>
+    <ThemeButtons>
       <Button {...lightButton} onClick={ () => props.changeTheme('light') }>
         Light
       </Button>
       <DarkButton {...darkButton} onClick={ () => props.changeTheme('dark') }>
         Dark
       </DarkButton>
-    </div>
+    </ThemeButtons>
   </div>
 }
 
