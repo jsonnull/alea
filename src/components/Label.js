@@ -1,12 +1,10 @@
 /* @flow */
-import styled from 'styled-components'
-import withTheme from 'containers/withTheme'
-import * as themes from 'styles/themes'
+import styled, { withTheme } from 'styled-components'
 
 const Label = styled.label`
   font-size: 1.2rem;
-  color: ${props => themes[props.theme].colorSecondary};
-  font-weight: ${props => props.theme == 'dark' ? 'normal' : 'bold'};
+  color: ${props => props.theme.colorSecondary};
+  font-weight: ${props => props.theme.name == 'dark' ? 'normal' : 'bold'};
   display: block;
 `
 

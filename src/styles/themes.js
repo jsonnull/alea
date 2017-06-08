@@ -10,6 +10,7 @@ export type Theme = {
 }
 
 export const light: Theme = {
+  name: 'light',
   background: '#f7f7f7',
   backgroundSecondary: '#ebe3d6',
   color: 'black',
@@ -20,6 +21,7 @@ export const light: Theme = {
 }
 
 export const dark: Theme = {
+  name: 'dark',
   background: '#3c3c3c',
   backgroundSecondary: '#2b2b2b',
   color: '#eee',

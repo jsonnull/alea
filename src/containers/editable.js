@@ -1,9 +1,7 @@
 /* @flow */
 import React from 'react'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import { defaultProps, branch, compose, withState, withHandlers } from 'recompose'
-import withTheme from 'containers/withTheme'
-import * as themes from 'styles/themes'
 
 /*
 componentWillReceiveProps (nextProps: Props) {
@@ -20,7 +18,7 @@ const Background = withTheme(styled.div`
   top: 0;
   right: 0;
   line-height: 3.6rem;
-  color: ${props => themes[props.theme].colorSecondary};
+  color: ${props => props.theme.colorSecondary};
 `)
 
 const withHover = compose(

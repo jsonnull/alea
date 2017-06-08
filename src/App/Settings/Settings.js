@@ -2,14 +2,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { compose, withHandlers } from 'recompose'
-import styled from 'styled-components'
-import withTheme from 'containers/withTheme'
-import type { ThemeProps } from 'containers/withTheme'
+import styled, { withTheme } from 'styled-components'
 import Name from './Name'
 import ThemeSwitcher from './ThemeSwitcher'
 import Logout from './Logout'
 import { changeTheme, changeDisplayName } from 'actions'
-import * as themes from 'styles/themes'
 import type { State } from 'store'
 
 const withInteractions = compose(
@@ -51,7 +48,7 @@ const SettingsContainer = withTheme(styled.div`
   left: 0;
   right: 0;
   background: rgba(0, 0, 0,
-    ${props => props.theme === 'light' ? '0.5' : '0.7'}
+    ${props => props.theme.name === 'light' ? '0.5' : '0.7'}
   );
 `)
 
@@ -63,9 +60,9 @@ const SettingsInner = withTheme(styled.div`
   border-radius: 5px;
   padding: 2.4rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  background-color: ${props => props.theme == 'light'
+  background-color: ${props => props.theme.name == 'light'
     ? 'white'
-    : themes[props.theme].backgroundSecondary
+    : props.theme.backgroundSecondary
   };
 `)
 
@@ -75,7 +72,7 @@ const Settings = (props: Props) => (
       <Name name={props.displayName} onChange={props.updateProfileName} />
 
       <ThemeSwitcher
-        currentTheme={props.theme}
+        currentTheme={props.theme.name}
         changeTheme={props.changeTheme}
       />
 
