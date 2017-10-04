@@ -1,7 +1,9 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
 import type { MessageResult, Roll } from 'types'
-import styles from './style.css'
+
+const RollSpan = styled.span`font-weight: bold;`
 
 type RollProps = {
   result: number,
@@ -14,12 +16,12 @@ const Result = (props: RollProps) => {
 
   const shownOperation = showOperation ? ` ${operation} ` : ''
 
-  return <span>
-    { shownOperation }
-    <span className={styles.roll} style={{color}}>
-      { result }
+  return (
+    <span>
+      {shownOperation}
+      <RollSpan style={{ color }}>{result}</RollSpan>
     </span>
-  </span>
+  )
 }
 
 type RollContainerProps = {
@@ -31,7 +33,7 @@ const RollContainer = (props: RollContainerProps) => {
 
   // Handle the general case where the roll is a constant
   if (typeof roll === 'number') {
-    return <Result result={roll} operation='+' showOperation={!isFirst} />
+    return <Result result={roll} operation="+" showOperation={!isFirst} />
   }
 
   const { die, result, operation } = roll
@@ -43,8 +45,18 @@ const RollContainer = (props: RollContainerProps) => {
     color = 'red'
   }
 
-  return <Result result={result} color={color} operation={operation} showOperation={!isFirst} />
+  return (
+    <Result
+      result={result}
+      color={color}
+      operation={operation}
+      showOperation={!isFirst}
+    />
+  )
 }
+
+const ResultsContainer = styled.div`padding: 0 1rem 0.2rem;`
+const Total = styled.span`font-weight: bold;`
 
 type Props = {
   result: ?MessageResult
@@ -64,19 +76,16 @@ const Results = (props: Props) => {
   }, 0)
 
   return (
-    <div className={styles.result}>
-      <i className='fa fa-cube'></i>
-      {' '}
+    <ResultsContainer>
+      <i className="fa fa-cube" />{' '}
       {results.map((result, i, arr) => (
         <span key={i}>
-          <RollContainer roll={result} isFirst={i === 0}/>
+          <RollContainer roll={result} isFirst={i === 0} />
         </span>
       ))}
       {' = '}
-      <span className={styles.total}>
-        {total}
-      </span>
-    </div>
+      <Total>{total}</Total>
+    </ResultsContainer>
   )
 }
 

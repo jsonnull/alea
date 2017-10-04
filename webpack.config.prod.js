@@ -1,18 +1,20 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
+const DirectoryNamedPlugin = require('directory-named-webpack-plugin')
 const BabiliPlugin = require('babili-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
 module.exports = {
   entry: {
-    'app': './src/index.js',
-    'vendor': [
+    app: './src/index.js',
+    vendor: [
       'react',
       'react-dom',
-      'firebase', 'firebase/auth', 'firebase/database', 'firebase/app',
+      'firebase',
+      'firebase/auth',
+      'firebase/database',
+      'firebase/app',
       'redux',
       'react-redux'
     ]
@@ -26,35 +28,25 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: [ /\/node_modules\// ],
+        exclude: [/\/node_modules\//],
         use: ['babel-loader?cacheDirectory']
       },
       {
-        test: /\.css*/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?modules&importLoaders=1',
-            'postcss-loader'
-          ]
-        })
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [{
-          loader:'file-loader',
-          options: {
-            outputPath: 'img/'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'img/'
+            }
           }
-        }]
+        ]
       }
     ]
   },
   resolve: {
     modules: ['node_modules', 'src'],
-    plugins: [
-      new DirectoryNamedPlugin()
-    ]
+    plugins: [new DirectoryNamedPlugin()]
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -71,7 +63,6 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new ExtractTextPlugin('style.[chunkhash].css'),
     new BabiliPlugin()
   ],
   stats: {

@@ -1,22 +1,25 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
-const DirectoryNamedPlugin =  require('directory-named-webpack-plugin')
+const DirectoryNamedPlugin = require('directory-named-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 const PrettyOutput = require('./webpack/pluginPrettyOutput')
 
 module.exports = {
   entry: {
-    'app': [
+    app: [
       'react-hot-loader/patch',
       'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
       './src/index.js'
     ],
-    'vendor': [
+    vendor: [
       'react',
       'react-dom',
-      'firebase', 'firebase/auth', 'firebase/database', 'firebase/app',
+      'firebase',
+      'firebase/auth',
+      'firebase/database',
+      'firebase/app',
       'redux',
       'react-redux'
     ]
@@ -30,7 +33,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: [ /\/node_modules\// ],
+        exclude: [/\/node_modules\//],
         use: [
           {
             loader: 'babel-loader',
@@ -44,36 +47,21 @@ module.exports = {
         ]
       },
       {
-        test: /\.css*/,
-        use: [
-          'style-loader',
-          { 
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: '[name]__[local]--[hash:base64:5]'
-            }
-          },
-          'postcss-loader'
-        ]
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [{
-          loader:'file-loader',
-          options: {
-            outputPath: 'img/'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'img/'
+            }
           }
-        }]
+        ]
       }
     ]
   },
   resolve: {
     modules: ['node_modules', 'src'],
-    plugins: [
-      new DirectoryNamedPlugin()
-    ]
+    plugins: [new DirectoryNamedPlugin()]
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -94,9 +82,7 @@ module.exports = {
     contentBase: resolve(__dirname, 'public'),
     publicPath: '/',
     historyApiFallback: {
-      rewrites: [
-        { from: /^\/$/, to: '/index.html' }
-      ]
+      rewrites: [{ from: /^\/$/, to: '/index.html' }]
     },
     overlay: true,
     quiet: true

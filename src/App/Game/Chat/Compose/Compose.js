@@ -1,6 +1,41 @@
 /* @flow */
 import React from 'react'
-import styles from './style.css'
+import styled from 'styled-components'
+
+const Form = styled.form`
+  padding: 2.4rem 1.2rem;
+  padding-top: 10px;
+  border-radius: 5px;
+`
+
+const Input = styled.textarea.attrs({
+  type: 'text'
+})`
+  border: 0;
+  height: 50px;
+  display: block;
+  padding: 1.2rem 1rem;
+  line-height: 2.4rem;
+  width: 100%;
+  resize: none;
+  color: ${props => props.theme.color};
+  border: 1px solid ${props => props.theme.borderColor};
+  background-color ${props => props.theme.background};
+  border-radius: 5px;
+
+  /*
+  :global(.unpinned) & {
+    background-color: $bgPrimary;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid $bgPrimary;
+
+    :global(.dark) & {
+      background-color: $bgPrimaryDark;
+      border-color: $bgPrimaryDark;
+    }
+  }
+  */
+`
 
 type Props = {
   onSend: Function
@@ -18,7 +53,7 @@ export default class Compose extends React.Component {
   messageQueue: Array<string>
   autogrow: HTMLElement
 
-  constructor (props: Props) {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
@@ -29,10 +64,10 @@ export default class Compose extends React.Component {
     this.messageQueue = []
   }
 
-  handleChange (event: Object) {
+  handleChange(event: Object) {
     const value = event.target.value
 
-    const setHeightImmediate = (value.length > this.state.value.length)
+    const setHeightImmediate = value.length > this.state.value.length
 
     this.setState({
       value
@@ -46,7 +81,7 @@ export default class Compose extends React.Component {
     }
   }
 
-  calculateHeight () {
+  calculateHeight() {
     const autogrow = this.autogrow
     const scrollHeight = autogrow.scrollHeight
 
@@ -61,13 +96,13 @@ export default class Compose extends React.Component {
     })
   }
 
-  handleKeyUp (event: Object) {
+  handleKeyUp(event: Object) {
     if (event.key == 'Enter') {
       this.handleSubmit()
     }
   }
 
-  handleSubmit () {
+  handleSubmit() {
     this.messageQueue.push(this.state.value)
     this.props.onSend(this.state.value)
     this.setState({
@@ -76,7 +111,7 @@ export default class Compose extends React.Component {
     })
   }
 
-  render () {
+  render() {
     let style = {}
     if (this.state.height !== 0) {
       style = {
@@ -85,20 +120,18 @@ export default class Compose extends React.Component {
     }
 
     return (
-      <div
-        className={ styles.form }
-      >
-        <textarea
-          className={ styles.formInput }
-          type='text'
-          placeholder='Send a message...'
-          value={ this.state.value }
-          ref={el => { this.autogrow = el }}
-          style={ style }
+      <Form>
+        <Input
+          placeholder="Send a message..."
+          value={this.state.value}
+          ref={el => {
+            this.autogrow = el
+          }}
+          style={style}
           onChange={e => this.handleChange(e)}
           onKeyUp={e => this.handleKeyUp(e)}
         />
-      </div>
+      </Form>
     )
   }
 }

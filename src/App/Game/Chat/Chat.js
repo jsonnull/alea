@@ -1,12 +1,34 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import Compose from './Compose'
 import MessageList from './MessageList'
 import { sendMessage } from 'actions'
 import type { Message, Theme } from 'types'
 import type { State } from 'store'
-import styles from './style.css'
+
+const CHAT_WIDTH = '320px'
+const Container = styled.div`
+  background-color: ${props => props.theme.background};
+  width: ${props => props.chatWidth};
+  position: relative;
+  overflow: hidden;
+  padding-top: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+
+  /*
+  &:global(.unpinned) {
+    margin-top: auto;
+    background: transparent;
+    border-color: transparent;
+    align-self: flex-end;
+  }
+  */
+`
 
 type Props = {
   theme: Theme,
@@ -20,11 +42,11 @@ class Chat extends React.Component {
   props: Props
   messageQueue: []
 
-  sendMessage = (text) => {
+  sendMessage = text => {
     this.props.sendMessage(text.trim())
   }
 
-  render () {
+  render() {
     let pinned = this.props.pinned ? 'pinned' : 'unpinned'
 
     let messages = this.props.messages
@@ -33,19 +55,22 @@ class Chat extends React.Component {
     }
 
     return (
-      <div className={ styles.chat + ' ' + pinned }>
+      <Container chatWidth={CHAT_WIDTH}>
         <MessageList messages={messages} />
         <Compose onSend={this.sendMessage} />
-      </div>
+      </Container>
     )
   }
 }
 
 const mapStateToProps = (state: State, ownProps) => {
-  return Object.assign({
-    messages: state.messages,
-    pinned: state.user.preferences.chatPinned
-  }, ownProps)
+  return Object.assign(
+    {
+      messages: state.messages,
+      pinned: state.user.preferences.chatPinned
+    },
+    ownProps
+  )
 }
 
 const mapDispatchToProps = (dispatch: Function) => ({

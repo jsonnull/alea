@@ -1,18 +1,44 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { switchToSession } from 'actions'
+import { header } from 'styles/fonts'
 // import Header from 'App/components/Header'
 import Create from './Create'
 import List from './List'
 import type { State } from 'store'
 import type { SessionList, SessionInfo } from 'types'
-import styles from './style.css'
 
 type Props = {
   sessions: Array<SessionInfo>,
   switchToSession: Function
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+`
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: ${props => props.theme.background};
+  padding: 0 1.8rem;
+`
+
+const Heading = styled.h1`
+  font-size: 2.4rem;
+  line-height: 4.8rem;
+  font-family: ${header};
+  padding: 1.2rem 0;
+  color: ${props => props.theme.color};
+  line-height: 2.4rem;
+  margin: 0;
+`
 
 class Sessions extends React.Component<*, Props, *> {
   props: Props
@@ -25,18 +51,15 @@ class Sessions extends React.Component<*, Props, *> {
     this.props.switchToSession(sessionId)
   }
 
-  render () {
+  render() {
     return (
-      <div className={styles.container}>
-        <div className={styles.body}>
-          <h1 className={styles.heading}>Your Games</h1>
-          <List
-            sessions={this.props.sessions}
-            setSession={this.setSession}
-            />
-          <Create createSession={this.createSession}/>
-        </div>
-      </div>
+      <Container>
+        <Body>
+          <Heading>Your Games</Heading>
+          <List sessions={this.props.sessions} setSession={this.setSession} />
+          <Create createSession={this.createSession} />
+        </Body>
+      </Container>
     )
   }
 }
@@ -46,16 +69,19 @@ class Sessions extends React.Component<*, Props, *> {
  * See https://github.com/facebook/flow/issues/2174
  * FIXME
  */
-function sessionListToArray (sessions: SessionList): Array<SessionInfo> {
+function sessionListToArray(sessions: SessionList): Array<SessionInfo> {
   let arr: any = Object.values(sessions)
   arr = (arr: Array<SessionInfo>)
   return arr
 }
 
 const mapStateToProps = (state: State, ownProps) => {
-  return Object.assign({
-    sessions: sessionListToArray(state.user.data.userSessions)
-  }, ownProps)
+  return Object.assign(
+    {
+      sessions: sessionListToArray(state.user.data.userSessions)
+    },
+    ownProps
+  )
 }
 
 const mapDispatchToProps = (dispatch: Function) => ({

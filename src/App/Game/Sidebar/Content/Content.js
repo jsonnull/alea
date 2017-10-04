@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import Session from './Session'
 import type { State } from 'store'
-import styles from './style.css'
 
 type ContentProps = {
   tab: string
@@ -17,6 +17,12 @@ const SidebarContent = (props: ContentProps) => {
   }
 }
 
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`
+
 type Props = {
   tab: string,
   name: string
@@ -24,11 +30,11 @@ type Props = {
 class Content extends React.Component {
   props: Props
 
-  render () {
+  render() {
     return (
-      <div className={ styles.content }>
+      <ContentContainer>
         <SidebarContent tab={this.props.tab} />
-      </div>
+      </ContentContainer>
     )
   }
 }

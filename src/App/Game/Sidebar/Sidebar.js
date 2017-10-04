@@ -1,12 +1,33 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { changeSidebarTab } from 'actions'
 import Menu from './Menu'
 import Content from './Content'
 import type { State } from 'store'
 import type { Tab } from 'types'
-import styles from './style.css'
+import { lightGray } from 'styles/colors'
+import { header } from 'styles/fonts'
+
+const Container = styled.div`
+  background-color: ${props => props.theme.background};
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+`
+
+const Top = styled.div`background: ${lightGray};`
+
+const Header = styled.h1`
+  font-size: 2.4rem;
+  line-height: 4.8rem;
+  font-family: ${header};
+  padding: 1.2rem 1.8rem 0;
+  color: ${props => props.theme.color};
+  line-height: 2.4rem;
+  margin: 0;
+`
 
 type Props = {
   name: string,
@@ -15,18 +36,16 @@ type Props = {
 }
 
 class Sidebar extends React.Component<*, Props, *> {
-  render () {
+  render() {
     const { name, tab, changeTab } = this.props
     return (
-      <div className={ styles.sidebar }>
-        <div className={styles.top}>
-          <div className={styles.header}>
-            {name}
-          </div>
+      <Container>
+        <Top>
+          <Header>{name}</Header>
           <Menu tab={tab} changeTab={changeTab} />
-        </div>
+        </Top>
         <Content tab={tab} />
-      </div>
+      </Container>
     )
   }
 }

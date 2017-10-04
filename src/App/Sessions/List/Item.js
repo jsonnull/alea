@@ -1,11 +1,38 @@
 /* @flow */
 import React from 'react'
+import styled from 'styled-components'
 import type { SessionInfo } from 'types'
-import styles from './style.css'
+import { header } from 'styles/fonts'
+
+const Tag = styled.div`
+  display: inline-block;
+  border-radius: 2px;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${props => props.theme.backgroundSecondary};
+`
+
+const SessionName = styled.div`
+  font-family: ${header};
+  font-size: 1.8rem;
+`
+
+const Session = styled.div`
+  padding: 1.2rem;
+  border-radius: 5px;
+  margin: 0 1.2rem 2.4rem;
+  flex: 1 0 25%;
+  max-width: 25%;
+  min-height: 100px;
+  cursor: pointer;
+  background-color: ${props => props.theme.backgroundSecondary};
+`
 
 const Meta = (props: { isCurrent: boolean }) => {
   if (props.isCurrent) {
-    return <div className={styles.tag}>Current</div>
+    return <Tag>Current</Tag>
   }
 
   return null
@@ -13,8 +40,7 @@ const Meta = (props: { isCurrent: boolean }) => {
 
 const Loading = () => (
   <div>
-    <i className={`fa fa-circle-o-notch fa-spin fa-fw ${styles.waitingIcon}`}></i>
-    {' '}
+    <i className={`fa fa-circle-o-notch fa-spin fa-fw`} />{' '}
     <span>Retrieving game info...</span>
   </div>
 )
@@ -26,26 +52,25 @@ type Props = {
 }
 
 const Item = (props: Props) => {
-  let currentStyle = props.isCurrent ? ' ' + styles.current : ''
+  const { isCurrent } = props
 
-  const content = (!props.session.meta)
-    ? <Loading />
-    : <div>
-      <div className={styles.name}>
-        {props.session.meta.name}
-      </div>
-      <Meta isCurrent={props.isCurrent}/>
+  const content = !props.session.meta ? (
+    <Loading />
+  ) : (
+    <div>
+      <SessionName>{props.session.meta.name}</SessionName>
+      <Meta isCurrent={props.isCurrent} />
     </div>
+  )
 
   return (
-    <div
-      className={styles.session + currentStyle}
+    <Session
       onClick={() => {
         props.setSession(props.session.sessionId)
       }}
     >
-      { content }
-    </div>
+      {content}
+    </Session>
   )
 }
 
