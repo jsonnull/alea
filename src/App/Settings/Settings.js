@@ -7,7 +7,9 @@ import Name from './Name'
 import ThemeSwitcher from './ThemeSwitcher'
 import Logout from './Logout'
 import { changeTheme, changeDisplayName } from 'actions'
+import type { ThemeName } from 'types'
 import type { State } from 'store'
+import type { Theme } from 'styles/themes'
 
 const withInteractions = compose(
   withTheme,
@@ -17,7 +19,7 @@ const withInteractions = compose(
       showSettings: state.ui.showSettings
     }),
     (dispatch: Function) => ({
-      changeTheme: (theme: Theme) => dispatch(changeTheme(theme)),
+      changeTheme: (theme: ThemeName) => dispatch(changeTheme(theme)),
       changeDisplayName: (name: string) => dispatch(changeDisplayName(name)),
       logout: () => dispatch({ type: 'LOGOUT' }),
       hideSettings: () => dispatch({ type: 'HIDE_SETTINGS' })
@@ -34,25 +36,31 @@ const withInteractions = compose(
 
 type Props = {
   displayName: string,
+  hideSettings: Function,
+  theme: Theme,
   changeTheme: Function,
-  changeDisplayName: Function,
+  updateProfileName: Function,
   logout: Function,
-  hideSettings: Function
-} & ThemeProps
+  handleInnerClick: Function,
+  handleWrapperClick: Function
+}
 
-const SettingsContainer = withTheme(styled.div`
+const SettingsContainer = styled.div`
   display: flex;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0,
-    ${props => props.theme.name === 'light' ? '0.5' : '0.7'}
+  background: rgba(
+    0,
+    0,
+    0,
+    ${props => (props.theme.name === 'light' ? '0.5' : '0.7')}
   );
-`)
+`
 
-const SettingsInner = withTheme(styled.div`
+const SettingsInner = styled.div`
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -60,11 +68,9 @@ const SettingsInner = withTheme(styled.div`
   border-radius: 5px;
   padding: 2.4rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  background-color: ${props => props.theme.name == 'light'
-    ? 'white'
-    : props.theme.backgroundSecondary
-  };
-`)
+  background-color: ${props =>
+    props.theme.name == 'light' ? 'white' : props.theme.backgroundSecondary};
+`
 
 const Settings = (props: Props) => (
   <SettingsContainer onClick={props.handleWrapperClick}>
@@ -76,7 +82,7 @@ const Settings = (props: Props) => (
         changeTheme={props.changeTheme}
       />
 
-      <Logout logout={props.logout}/>
+      <Logout logout={props.logout} />
     </SettingsInner>
   </SettingsContainer>
 )

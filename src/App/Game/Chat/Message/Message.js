@@ -55,10 +55,10 @@ const Sent = styled.span`
 
 const Text = styled.div`padding: 0 1rem 0.2rem;`
 
-export default class MessageView extends React.Component<*, Props, *> {
+export default class MessageView extends React.Component<Props> {
   render() {
     const { from, timestamp, text, result } = this.props.message
-    const hoverText = Date(timestamp)
+    const hoverText = new Date(timestamp)
     const formattedDate = new Timeago().format(timestamp)
     return (
       <MessageContainer>

@@ -7,17 +7,8 @@ type Props = {
   name: string
 }
 
-class Session extends React.Component {
-  props: Props
-
-  render () {
-    return (
-      <div>
-      </div>
-    )
+export default class Session extends React.Component<Props> {
+  render() {
+    return <div />
   }
 }
-
-const mapStateToProps = (state: State) => ({})
-
-export default connect(mapStateToProps)(Session)

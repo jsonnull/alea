@@ -32,10 +32,11 @@ const Header = styled.h1`
 type Props = {
   name: string,
   open: boolean,
-  tab: Tab
+  tab: Tab,
+  changeTab: Function
 }
 
-class Sidebar extends React.Component<*, Props, *> {
+class Sidebar extends React.Component<Props> {
   render() {
     const { name, tab, changeTab } = this.props
     return (

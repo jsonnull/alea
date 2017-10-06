@@ -40,9 +40,7 @@ const Heading = styled.h1`
   margin: 0;
 `
 
-class Sessions extends React.Component<*, Props, *> {
-  props: Props
-
+class Sessions extends React.Component<Props> {
   // FIXME: Firebase
   // createSession = () => this.props.firebase.createSession()
   createSession = () => {}

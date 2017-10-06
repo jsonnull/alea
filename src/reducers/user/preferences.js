@@ -1,9 +1,9 @@
 /* @flow */
 import type { Action } from '../../actions/types'
-import type { Theme } from 'types'
+import type { ThemeName } from 'types'
 
 export type UserPreferencesState = {
-  theme: Theme,
+  theme: ThemeName,
   chatPinned: boolean
 }
 
@@ -12,7 +12,10 @@ const initialState = {
   chatPinned: false
 }
 
-export default function reducer (state: UserPreferencesState = initialState, action: Action) {
+export default function reducer(
+  state: UserPreferencesState = initialState,
+  action: Action
+) {
   switch (action.type) {
     case 'CHANGE_THEME':
       return { ...state, theme: action.theme }

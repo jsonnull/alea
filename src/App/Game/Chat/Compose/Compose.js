@@ -46,12 +46,12 @@ type State = {
   height: number
 }
 
-export default class Compose extends React.Component {
-  props: Props
-  state: State
+const defaultHeight = 50
+
+export default class Compose extends React.Component<Props, State> {
   focused: boolean
   messageQueue: Array<string>
-  autogrow: HTMLElement
+  autogrow: ?HTMLElement
 
   constructor(props: Props) {
     super(props)
@@ -82,11 +82,15 @@ export default class Compose extends React.Component {
   }
 
   calculateHeight() {
+    if (!this.autogrow) {
+      return
+    }
+
     const autogrow = this.autogrow
     const scrollHeight = autogrow.scrollHeight
 
     let height = 0
-    if (scrollHeight !== 50) {
+    if (scrollHeight !== defaultHeight) {
       // Must account for 2px of border
       height = scrollHeight + 2
     }

@@ -5,18 +5,6 @@ import { connect } from 'react-redux'
 import Session from './Session'
 import type { State } from 'store'
 
-type ContentProps = {
-  tab: string
-}
-const SidebarContent = (props: ContentProps) => {
-  switch (props.tab) {
-    case 'Session':
-      return <Session {...props} />
-    default:
-      return <div />
-  }
-}
-
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,19 +15,18 @@ type Props = {
   tab: string,
   name: string
 }
-class Content extends React.Component {
-  props: Props
-
+class Content extends React.Component<Props> {
   render() {
-    return (
-      <ContentContainer>
-        <SidebarContent tab={this.props.tab} />
-      </ContentContainer>
-    )
+    const { tab, ...restProps } = this.props
+
+    const session = tab === 'Session' ? <Session {...restProps} /> : null
+
+    return <ContentContainer>{session}</ContentContainer>
   }
 }
 
-const mapStateToProps = (state: State) => ({
+type StateProps = { name: string }
+const mapStateToProps = (state: State): StateProps => ({
   name: state.session.name
 })
 

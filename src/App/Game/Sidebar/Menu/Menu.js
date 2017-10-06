@@ -25,9 +25,7 @@ const buttons: Array<MenuButton> = [
   ['Character', 'fa-id-card-o']
 ]
 
-class Menu extends React.Component {
-  props: Props
-
+class Menu extends React.Component<Props> {
   render() {
     return (
       <MenuContainer>

@@ -12,9 +12,7 @@ const Container = styled.div`
   flex: 1;
 `
 
-type Props = {}
-
-class Game extends React.Component<*, Props, *> {
+class Game extends React.Component<*> {
   render() {
     return (
       <Container>

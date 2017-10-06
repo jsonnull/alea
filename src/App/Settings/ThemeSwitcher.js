@@ -3,19 +3,15 @@ import React from 'react'
 import styled from 'styled-components'
 import Label from 'components/Label'
 import Button from 'components/Button'
-import type { Theme } from 'types'
+import type { ThemeName } from 'types'
 
-const DarkButton = Button.extend`
-  margin-left: 5px;
-`
+const DarkButton = Button.extend`margin-left: 5px;`
 
-const ThemeButtons = styled.div`
-  display: flex;
-`
+const ThemeButtons = styled.div`display: flex;`
 
 type Props = {
-  currentTheme: Theme,
-  changeTheme: (Theme) => any
+  currentTheme: ThemeName,
+  changeTheme: ThemeName => any
 }
 
 const ThemeSwitcher = (props: Props) => {
@@ -28,17 +24,19 @@ const ThemeSwitcher = (props: Props) => {
   const lightButton = isLightTheme ? useGreen : useOutline
   const darkButton = isDarkTheme ? useGreen : useOutline
 
-  return <div>
-    <Label>Theme</Label>
-    <ThemeButtons>
-      <Button {...lightButton} onClick={ () => props.changeTheme('light') }>
-        Light
-      </Button>
-      <DarkButton {...darkButton} onClick={ () => props.changeTheme('dark') }>
-        Dark
-      </DarkButton>
-    </ThemeButtons>
-  </div>
+  return (
+    <div>
+      <Label>Theme</Label>
+      <ThemeButtons>
+        <Button {...lightButton} onClick={() => props.changeTheme('light')}>
+          Light
+        </Button>
+        <DarkButton {...darkButton} onClick={() => props.changeTheme('dark')}>
+          Dark
+        </DarkButton>
+      </ThemeButtons>
+    </div>
+  )
 }
 
 export default ThemeSwitcher

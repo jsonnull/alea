@@ -18,7 +18,7 @@ type Props = {
   togglePinned: Function
 }
 
-class ChatPin extends React.Component<*, Props, *> {
+class ChatPin extends React.Component<Props> {
   render() {
     const { pinned, togglePinned } = this.props
 
@@ -32,11 +32,13 @@ class ChatPin extends React.Component<*, Props, *> {
   }
 }
 
-const mapStateToProps = (state: State, ownProps) => ({
+type StateProps = { pinned: boolean }
+const mapStateToProps = (state: State, ownProps): StateProps => ({
   pinned: state.user.preferences.chatPinned
 })
 
-const mapDispatchToProps = (dispatch: Function) => ({
+type DispatchProps = { togglePinned: () => {} }
+const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
   togglePinned: () => dispatch({ type: 'TOGGLE_CHAT_PIN' })
 })
 

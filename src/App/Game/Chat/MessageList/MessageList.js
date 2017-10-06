@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import MessageView from '../Message'
 import type { Message } from 'types'
@@ -42,9 +42,9 @@ type Props = {
   messages: Array<Message>
 }
 
-export default class MessageList extends React.Component<*, Props, *> {
+export default class MessageList extends React.Component<Props> {
   timer: number
-  scroll: HTMLElement
+  scroll: ?HTMLElement
 
   componentDidMount() {
     // Every minute, update chat timestamps
@@ -52,7 +52,9 @@ export default class MessageList extends React.Component<*, Props, *> {
   }
 
   componentDidUpdate() {
-    this.scroll.scrollTop += 10000
+    if (this.scroll) {
+      this.scroll.scrollTop += 10000
+    }
   }
 
   componentWillUnmount() {

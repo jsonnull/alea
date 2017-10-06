@@ -20,10 +20,8 @@ type Props = {
   theme: Object
 }
 
-class App extends React.Component {
-  props: Props
-
-  render () {
+class App extends React.Component<Props> {
+  render() {
     const { appIsLoading, userIsLoggedIn, showSettings, theme } = this.props
 
     if (appIsLoading) {
@@ -56,21 +54,19 @@ class App extends React.Component {
             <Route exact path="/" component={Sessions} />
             <Route path="/g/:id/" component={Game} />
           </Switch>
-          { settings }
+          {settings}
         </App>
       </ThemeProvider>
     )
   }
 }
 
-const mapStateToProps = (state: State) => {
-  return {
-    appIsLoading: state.ui.appIsLoading,
-    userIsLoggedIn: state.ui.userIsLoggedIn,
-    theme: themes[state.user.preferences.theme],
-    showSettings: state.ui.showSettings,
-    location: state.router.location
-  }
-}
+const mapStateToProps = (state: State): Props => ({
+  appIsLoading: state.ui.appIsLoading,
+  userIsLoggedIn: state.ui.userIsLoggedIn,
+  theme: themes[state.user.preferences.theme],
+  showSettings: state.ui.showSettings,
+  location: state.router.location
+})
 
 export default connect(mapStateToProps)(App)

@@ -1,11 +1,13 @@
 /* @flow */
 
-export type Roll = number | {
-  die: number,
-  result: number,
-  mod?: 'keep' | 'drop',
-  operation: '+' | '-'
-}
+export type Roll =
+  | number
+  | {
+      die: number,
+      result: number,
+      mod?: 'keep' | 'drop',
+      operation: '+' | '-'
+    }
 
 export type MessageResult = Array<Roll>
 
@@ -39,6 +41,6 @@ export type SessionList = {
   [key: string]: SessionInfo
 }
 
-export type Theme = 'light' | 'dark'
+export type ThemeName = 'light' | 'dark'
 
 export type Tab = 'Session' | 'Character' | 'Sessions'

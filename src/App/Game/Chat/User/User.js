@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import CurrentUser from 'App/components/CurrentUser'
-import SettingsButton from 'App/components/SettingsButton'
-import ToggleChat from 'App/components/ToggleChat'
+// import CurrentUser from 'App/components/CurrentUser'
+// import SettingsButton from 'App/components/SettingsButton'
+// import ToggleChat from 'App/components/ToggleChat'
 import { lightBlue } from 'styles/colors'
 
 const CHAT_WIDTH = '320px'
@@ -66,12 +66,11 @@ const PinWrapper = SettingsWrapper.extend`
   */
 `
 
-type Props = {}
-
-class User extends React.Component<*, Props, *> {
+class User extends React.Component<*> {
   render() {
     return (
       <Container>
+        {/*
         <PinWrapper>
           <ToggleChat />
         </PinWrapper>
@@ -81,6 +80,7 @@ class User extends React.Component<*, Props, *> {
         <SettingsWrapper>
           <SettingsButton />
         </SettingsWrapper>
+        */}
       </Container>
     )
   }

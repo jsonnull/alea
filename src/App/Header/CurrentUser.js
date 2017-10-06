@@ -14,12 +14,10 @@ const CurrentUser = (props: Props) => {
     margin-left: auto;
   `
 
-  return <Username>
-    { props.username }
-  </Username>
+  return <Username>{props.username}</Username>
 }
 
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: State): Props => ({
   username: state.user.profile.displayName
 })
 

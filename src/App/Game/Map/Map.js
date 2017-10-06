@@ -2,10 +2,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-// import {
-// sendMessage,
-// toggleChatPin
-// } from '../../actions'
 import type { State } from 'store'
 
 const Container = styled.div`
@@ -18,7 +14,8 @@ const Container = styled.div`
   bottom: 0;
 `
 
-class Map extends React.Component {
+type Props = { sidebar: boolean, chat: boolean }
+class Map extends React.Component<Props> {
   render() {
     const { sidebar, chat } = this.props
 
@@ -31,21 +28,9 @@ class Map extends React.Component {
   }
 }
 
-const mapStateToProps = (state: State, ownProps) => {
-  return Object.assign(
-    {
-      sidebar: state.sidebar.open,
-      chat: state.user.preferences.chatPinned
-    },
-    ownProps
-  )
-}
-
-// const mapDispatchToProps = (dispatch) => {
-// return {
-// sendMessage: (message) => { dispatch(sendMessage(message)) },
-// togglePinned: () => dispatch(toggleChatPin())
-// }
-// }
+const mapStateToProps = (state: State): Props => ({
+  sidebar: state.sidebar.open,
+  chat: state.user.preferences.chatPinned
+})
 
 export default connect(mapStateToProps)(Map)

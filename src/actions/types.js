@@ -1,5 +1,5 @@
 /* @flow */
-import type { SessionMeta, Message, Theme, Tab } from 'types'
+import type { SessionMeta, Message, ThemeName, Tab } from 'types'
 import type { UserProfileState } from 'reducers/user/profile'
 import type { UserPreferencesState } from 'reducers/user/preferences'
 import type { UserDataState } from 'reducers/user/data'
@@ -7,7 +7,7 @@ import type { SessionState } from 'reducers/session'
 
 export type Action =
   /* Messages */
-    { type: 'LOAD_MESSAGES' }
+  | { type: 'LOAD_MESSAGES' }
   | { type: 'SEND_MESSAGE', text: string }
   | { type: 'RECEIVE_MESSAGE', message: Message }
   // UI
@@ -25,7 +25,7 @@ export type Action =
   | { type: 'UPDATE_USER_PROFILE', user: UserProfileState }
   // User Preferences
   | { type: 'HYDRATE_PREFERENCES', prefs: UserPreferencesState }
-  | { type: 'CHANGE_THEME', theme: Theme }
+  | { type: 'CHANGE_THEME', theme: ThemeName }
   | { type: 'TOGGLE_CHAT_PIN' }
   // User Data
   | { type: 'HYDRATE_USER_DATA', user: UserDataState }

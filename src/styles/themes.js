@@ -1,5 +1,8 @@
 /* @flow */
+import type { ThemeName } from 'types'
+
 export type Theme = {
+  name: ThemeName,
   background: string,
   backgroundSecondary: string,
   color: string,

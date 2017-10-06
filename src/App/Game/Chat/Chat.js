@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Compose from './Compose'
 import MessageList from './MessageList'
 import { sendMessage } from 'actions'
-import type { Message, Theme } from 'types'
+import type { Message, ThemeName } from 'types'
 import type { State } from 'store'
 
 const CHAT_WIDTH = '320px'
@@ -31,15 +31,13 @@ const Container = styled.div`
 `
 
 type Props = {
-  theme: Theme,
   messages: Array<Message>,
   pinned: boolean,
   toggleChatPin: Function,
   sendMessage: Function
 }
 
-class Chat extends React.Component {
-  props: Props
+class Chat extends React.Component<Props> {
   messageQueue: []
 
   sendMessage = text => {
@@ -63,15 +61,10 @@ class Chat extends React.Component {
   }
 }
 
-const mapStateToProps = (state: State, ownProps) => {
-  return Object.assign(
-    {
-      messages: state.messages,
-      pinned: state.user.preferences.chatPinned
-    },
-    ownProps
-  )
-}
+const mapStateToProps = (state: State, ownProps) => ({
+  messages: state.messages,
+  pinned: state.user.preferences.chatPinned
+})
 
 const mapDispatchToProps = (dispatch: Function) => ({
   sendMessage: (text: string) => dispatch(sendMessage(text))
