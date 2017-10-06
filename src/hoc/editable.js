@@ -1,7 +1,13 @@
 /* @flow */
 import React from 'react'
 import styled, { withTheme } from 'styled-components'
-import { defaultProps, branch, compose, withState, withHandlers } from 'recompose'
+import {
+  defaultProps,
+  branch,
+  compose,
+  withState,
+  withHandlers
+} from 'recompose'
 
 /*
 componentWillReceiveProps (nextProps: Props) {
@@ -48,31 +54,37 @@ const withValue = compose(
   defaultProps({ input: 'input' })
 )
 
-const Display = (BaseComponent) => (props: Object) => {
-  const icon = props.isHovering
-    ? <Background><i className='fa fa-pencil'></i></Background>
-    : null
+const Display = BaseComponent => (props: Object) => {
+  const icon = props.isHovering ? (
+    <Background>
+      <i className="fa fa-pencil" />
+    </Background>
+  ) : null
 
-  return <BaseComponent
-    onClick={props.handleClick}
-    onMouseEnter={props.handleMouseEnter}
-    onMouseLeave={props.handleMouseLeave}
-  >
-    { props.value }
-    { icon }
-  </BaseComponent>
+  return (
+    <BaseComponent
+      onClick={props.handleClick}
+      onMouseEnter={props.handleMouseEnter}
+      onMouseLeave={props.handleMouseLeave}
+    >
+      {props.value}
+      {icon}
+    </BaseComponent>
+  )
 }
 
-const Editing = (BaseComponent) => (props: Object) => {
+const Editing = BaseComponent => (props: Object) => {
   const Input = props.input
-  return <Input
-    autoFocus
-    type="text"
-    value={props.value}
-    onChange={props.handleEdit}
-    onKeyPress={props.handleKeyPress}
-    onBlur={props.handleSubmit}
-  />
+  return (
+    <Input
+      autoFocus
+      type="text"
+      value={props.value}
+      onChange={props.handleEdit}
+      onKeyPress={props.handleKeyPress}
+      onBlur={props.handleSubmit}
+    />
+  )
 }
 
 const editable = compose(
