@@ -13,11 +13,13 @@ const Container = styled.div`
 `
 
 const Logout = (props: Props) => {
-  return <Container>
-    <Button red onClick={props.logout}>
-      Logout
-    </Button>
-  </Container>
+  return (
+    <Container>
+      <Button red onClick={props.logout}>
+        Logout
+      </Button>
+    </Container>
+  )
 }
 
 export default Logout

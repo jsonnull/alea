@@ -8,7 +8,7 @@ import Login from './Login'
 import Game from './Game'
 import Header from './Header'
 import Sessions from './Sessions'
-import Settings from './Settings'
+import Settings from '../containers/Settings'
 import * as themes from 'styles/themes'
 import type { State } from 'store'
 
@@ -20,42 +20,50 @@ type Props = {
   theme: Object
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: ${props => props.theme.map};
+`
+
 class App extends React.Component<Props> {
   render() {
     const { appIsLoading, userIsLoggedIn, showSettings, theme } = this.props
 
     if (appIsLoading) {
-      return <Loading />
+      return (
+        <ThemeProvider theme={themes['light']}>
+          <Loading />
+        </ThemeProvider>
+      )
     }
 
     if (!userIsLoggedIn) {
-      return <Login />
+      return (
+        <ThemeProvider theme={themes['light']}>
+          <Login />
+        </ThemeProvider>
+      )
     }
 
     const settings = showSettings ? <Settings /> : null
 
-    const App = styled.div`
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: ${props => props.theme.map};
-    `
-
     return (
       <ThemeProvider theme={theme}>
-        <App>
+        <Container>
           <Header />
           <Switch>
             <Route exact path="/" component={Sessions} />
             <Route path="/g/:id/" component={Game} />
           </Switch>
           {settings}
-        </App>
+        </Container>
       </ThemeProvider>
     )
   }
