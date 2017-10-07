@@ -1,31 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { compose, withState, withHandlers } from 'recompose'
-// import Button from 'App/components/Button'
-import { login } from 'actions'
 import { header } from 'styles/fonts'
-
-const enhance = compose(
-  connect(null, (dispatch: Function) => ({
-    login: (email: string, password: string) => dispatch(login(email, password))
-  })),
-  withState('email', 'setEmail', ''),
-  withState('password', 'setPassword', ''),
-  withHandlers({
-    onEmailChange: ({ setEmail }) => (e: Object) => setEmail(e.target.value),
-    onPasswordChange: ({ setPassword }) => (e: Object) =>
-      setPassword(e.target.value),
-    onLogin: ({ login, email, password, setPassword }) => (e: Object) => {
-      e.preventDefault()
-      e.stopPropagation()
-
-      login(email, password)
-      setPassword('')
-    }
-  })
-)
 
 type Props = {
   email: string,
@@ -82,7 +58,7 @@ const Button = styled.button`
   margin: 0 auto 0;
 `
 
-export default enhance((props: Props) => {
+export default (props: Props) => {
   return (
     <Container>
       <Login>
@@ -107,4 +83,4 @@ export default enhance((props: Props) => {
       </Login>
     </Container>
   )
-})
+}
