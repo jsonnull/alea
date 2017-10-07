@@ -33,7 +33,7 @@ type ContentProps = {
   dismiss: Function,
   children: Function
 }
-class Content extends React.Component<Props> {
+class Content extends React.Component<ContentProps> {
   handleClickOutside = () => {
     this.props.dismiss()
   }
@@ -48,7 +48,7 @@ const ContentWithClick = onClickOutside(Content)
 type ModalProps = {
   dismiss: Function,
   children: Function,
-  noBackground: ?boolean
+  noBackground?: boolean
 }
 const Modal = (props: ModalProps) => {
   const { noBackground = false, ...restProps } = props
