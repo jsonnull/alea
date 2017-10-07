@@ -3,7 +3,7 @@ import styled, { css, withTheme } from 'styled-components'
 import * as themes from 'styles/themes'
 import * as colors from 'styles/colors'
 
-const redMixin = css` 
+const redMixin = css`
   background-color: ${colors.red};
   color: white;
   &:hover {
@@ -12,7 +12,7 @@ const redMixin = css`
   }
 `
 
-const greenMixin = css` 
+const greenMixin = css`
   background-color: ${colors.green};
   color: white;
   &:hover {
@@ -37,7 +37,6 @@ export const Button = withTheme(styled.button`
   height: 3.6rem;
   padding: 0 1.2rem;
   outline: 0;
-  font-family: 'Cinzel Decorative';
   color: ${themes.dark.color};
   background-color: ${colors.blue};
   border: none;
@@ -56,9 +55,9 @@ export const Button = withTheme(styled.button`
     transition-timing-function: ease-out;
   }
 
-  ${props => props.red ? redMixin : null}
-  ${props => props.green ? greenMixin : null}
-  ${props => props.outline ? outlineMixin : null}
+  ${props => (props.red ? redMixin : null)} ${props =>
+      props.green ? greenMixin : null} ${props =>
+      props.outline ? outlineMixin : null};
 `)
 
 export default Button
