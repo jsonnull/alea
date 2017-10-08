@@ -1,8 +1,6 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import type { State } from 'store'
 
 const Container = styled.div`
   background-color: ${props => props.theme.map};
@@ -14,7 +12,10 @@ const Container = styled.div`
   bottom: 0;
 `
 
-type Props = { sidebar: boolean, chat: boolean }
+type Props = {
+  sidebar: boolean,
+  chat: boolean
+}
 class Map extends React.Component<Props> {
   render() {
     const { sidebar, chat } = this.props
@@ -28,9 +29,4 @@ class Map extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: State): Props => ({
-  sidebar: state.sidebar.open,
-  chat: state.user.preferences.chatPinned
-})
-
-export default connect(mapStateToProps)(Map)
+export default Map

@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Chat from './Chat'
-import Map from './Map'
+import Map from 'containers/Map'
 import Sidebar from './Sidebar'
 
 const Container = styled.div`
