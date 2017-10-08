@@ -1,11 +1,8 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { changeSidebarTab } from 'actions'
 import Menu from './Menu'
-import Content from './Content'
-import type { State } from 'store'
+import Content from '../../containers/Sidebar/Content'
 import type { Tab } from 'types'
 import { lightGray } from 'styles/colors'
 import { header } from 'styles/fonts'
@@ -29,6 +26,12 @@ const Header = styled.h1`
   margin: 0;
 `
 
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`
+
 type Props = {
   name: string,
   open: boolean,
@@ -45,24 +48,12 @@ class Sidebar extends React.Component<Props> {
           <Header>{name}</Header>
           <Menu tab={tab} changeTab={changeTab} />
         </Top>
-        <Content tab={tab} />
+        <ContentContainer>
+          <Content tab={tab} />
+        </ContentContainer>
       </Container>
     )
   }
 }
 
-const mapStateToProps = (state: State) => {
-  return {
-    name: state.session.name,
-    open: state.sidebar.open,
-    tab: state.sidebar.tab
-  }
-}
-
-const mapDispatchToProps = (dispatch: Function) => {
-  return {
-    changeTab: tab => dispatch(changeSidebarTab(tab))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
+export default Sidebar

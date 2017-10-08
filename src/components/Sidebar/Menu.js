@@ -13,11 +13,6 @@ const MenuContainer = styled.div`
     props.theme.name === 'dark' ? props.theme.backgroundSecondary : ''};
 `
 
-type Props = {
-  tab: Tab,
-  changeTab: Function
-}
-
 type MenuButton = [Tab, string] | 'separator'
 
 const buttons: Array<MenuButton> = [
@@ -25,6 +20,10 @@ const buttons: Array<MenuButton> = [
   ['Character', 'fa-id-card-o']
 ]
 
+type Props = {
+  tab: Tab,
+  changeTab: Function
+}
 class Menu extends React.Component<Props> {
   render() {
     return (
