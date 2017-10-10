@@ -1,6 +1,5 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
-const DirectoryNamedPlugin = require('directory-named-webpack-plugin')
 const BabiliPlugin = require('babili-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
@@ -45,8 +44,7 @@ module.exports = {
     ]
   },
   resolve: {
-    modules: ['node_modules', 'src'],
-    plugins: [new DirectoryNamedPlugin()]
+    modules: ['node_modules', 'src']
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({

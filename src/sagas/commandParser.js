@@ -5,11 +5,11 @@ import type { MessageResult } from 'types'
 export default class CommandParser {
   random: Object
 
-  constructor () {
+  constructor() {
     this.random = new Random(Random.engines.mt19937().autoSeed())
   }
 
-  getMessageResult (text: string): ?MessageResult {
+  getMessageResult(text: string): ?MessageResult {
     let result = null
 
     if (text[0] === '/') {
@@ -19,7 +19,7 @@ export default class CommandParser {
     return result
   }
 
-  runCommand (text: string): ?MessageResult {
+  runCommand(text: string): ?MessageResult {
     let words = text.split(' ')
     let args = words.slice(1).join(' ')
 
@@ -35,12 +35,17 @@ export default class CommandParser {
     }
   }
 
-  roll (text: string): MessageResult {
+  roll(text: string): MessageResult {
     // Remove extra whitespace
     const args = text.split(' ').join('')
 
     // Split into a number of rolls
-    const rolls = args.split('+').join(' +').split('-').join(' -').split(' ')
+    const rolls = args
+      .split('+')
+      .join(' +')
+      .split('-')
+      .join(' -')
+      .split(' ')
 
     // Now we build up the array of results
     const results: MessageResult = []
