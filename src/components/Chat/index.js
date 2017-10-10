@@ -1,12 +1,9 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
 import Compose from './Compose'
 import MessageList from './MessageList'
-import { sendMessage } from 'actions'
-import type { Message, ThemeName } from 'types'
-import type { State } from 'store'
+import type { Message } from 'types'
 
 const CHAT_WIDTH = '320px'
 const Container = styled.div`
@@ -40,7 +37,7 @@ type Props = {
 class Chat extends React.Component<Props> {
   messageQueue: []
 
-  sendMessage = text => {
+  sendMessage = (text: string) => {
     this.props.sendMessage(text.trim())
   }
 
@@ -61,13 +58,4 @@ class Chat extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: State, ownProps) => ({
-  messages: state.messages,
-  pinned: state.user.preferences.chatPinned
-})
-
-const mapDispatchToProps = (dispatch: Function) => ({
-  sendMessage: (text: string) => dispatch(sendMessage(text))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Chat)
+export default Chat

@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react'
 import styled from 'styled-components'
-import MessageView from '../Message'
+import MessageView from './Message'
 import type { Message } from 'types'
 
 const Messages = styled.div`

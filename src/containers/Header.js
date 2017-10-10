@@ -1,6 +1,5 @@
 /* @flow */
 import React from 'react'
-import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import Header from 'components/Header'

@@ -3,12 +3,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router'
 import styled, { ThemeProvider } from 'styled-components'
-import Loading from 'components/Loading'
-import Login from 'containers/Login'
-import Game from './Game'
-import Header from '../containers/Header'
-import Sessions from '../containers/Sessions'
-import Settings from '../containers/Settings'
+import Loading from './components/Loading'
+import Login from './containers/Login'
+import Header from './containers/Header'
+import Sessions from './containers/Sessions'
+import Settings from './containers/Settings'
+import Chat from './containers/Chat'
+import Map from './containers/Map'
+import Sidebar from './containers/Sidebar'
 import * as themes from 'styles/themes'
 import type { State } from 'store'
 
@@ -31,6 +33,21 @@ const Container = styled.div`
   bottom: 0;
   background-color: ${props => props.theme.map};
 `
+
+const GameInner = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex: 1;
+`
+
+const Game = () => (
+  <Container>
+    <Map />
+    <Sidebar />
+    <Chat />
+  </Container>
+)
 
 class App extends React.Component<Props> {
   render() {
