@@ -2,7 +2,6 @@ const { resolve } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
-const PrettyOutput = require('./webpack/pluginPrettyOutput')
 
 module.exports = {
   entry: {
@@ -72,8 +71,7 @@ module.exports = {
       name: 'webpackManifest'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new PrettyOutput()
+    new webpack.NamedModulesPlugin()
   ],
   devServer: {
     hot: true,
@@ -87,8 +85,5 @@ module.exports = {
   },
   watchOptions: {
     poll: 1000
-  },
-  stats: {
-    children: false
   }
 }

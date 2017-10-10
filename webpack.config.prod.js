@@ -62,8 +62,5 @@ module.exports = {
       }
     }),
     new BabiliPlugin()
-  ],
-  stats: {
-    children: false
-  }
+  ]
 }
