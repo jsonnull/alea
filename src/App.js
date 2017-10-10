@@ -42,11 +42,11 @@ const GameInner = styled.div`
 `
 
 const Game = () => (
-  <Container>
+  <GameInner>
     <Map />
     <Sidebar />
     <Chat />
-  </Container>
+  </GameInner>
 )
 
 class App extends React.Component<Props> {
