@@ -1,6 +1,6 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
-const BabiliPlugin = require('babili-webpack-plugin')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
@@ -47,6 +47,7 @@ module.exports = {
     modules: ['node_modules', 'src']
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
@@ -61,6 +62,6 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new BabiliPlugin()
+    new MinifyPlugin()
   ]
 }

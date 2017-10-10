@@ -61,6 +61,7 @@ module.exports = {
     modules: ['node_modules', 'src']
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
