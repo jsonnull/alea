@@ -2,14 +2,20 @@ language: node_js
 cache: yarn
 node_js:
   - node
+before_install: yarn global add greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
 script:
   - npm run flow
   - npm run test
   - npm run build
   - npm run lint
+after_script: greenkeeper-lockfile-upload
 deploy:
   provider: firebase
   token: $FIREBASE_TOKEN
   skip_cleanup: true
   on:
     branch: master
+env:
+  global:
+    secure: Gh7Djusizxstop9IFl6GjZ7C162kmaKNmGJ2tPVl3PAmUqzPTKQdlzTtykCDNPPcYZESaYX4kiJr8JDKmHHs8EQTd2hWJ5tKxKeV02rfEX017Cb2z3dqwZU00cIi2zPzMF7YaBr3QKfs1MQeHX5Tfx+r+xBedkLJEQMDJccZJofszAWqfd9cuvSR68u/jBrtUYSw/V8Nj/XDucaEwN+meNSMCIlOE4cxZG8C5SQPbYdD/ZzGRfZN7kdHCztGzRgi+pGYYj0G1UX1TheZzfAUUzwtwysnvM8WASUJcw924kY+aVtJSS0fdau1ELjzq0JYeC/c4B5qRCHs04PuAUCt8mYysA5bGiTkmAzauYx0C++74sVS2x5BMsF+OiIZA9iaDTKVA1NQNvo3N5JgpQdA9kCLVQjhLKJDUkXwBXJmEbo7o21Jit+6JrF9y99mX5FuxyxVkALmlrGZetbIxXGYy75cYljEjhK5U3MPBF8nCI1xa1YWagGx4khuYgecyaNDSAZFm+wE7woGOk1wb6PU1PBpRkgykpUhx6y+zGjeG4lvcHWKwB4dBRZeNCgMLUm68vGKXPWdYbEzA6gBPoU8bY8Ck4rpvvbn9VdK5TRu+TuKGmvFp5B2loaxmqAL6Zb/o5wMSzV4RWet5Gf4oWsAu5LDLOCyuZ4ZBXnMgQWyORk=
