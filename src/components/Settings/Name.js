@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import styled, { withTheme } from 'styled-components'
+import styled from 'styled-components'
 import Label from 'components/Label'
 import Input from 'components/Input'
 import editable from 'hoc/editable'
@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Editable = editable(
-  withTheme(styled.div`
+  styled.div`
     position: relative;
     line-height: 3.6rem;
     background: transparent;
@@ -25,10 +25,10 @@ const Editable = editable(
     &:hover {
       cursor: pointer;
     }
-  `)
+  `
 )
 
-const NameInput = withTheme(Input.extend`
+const NameInput = Input.extend`
   background: transparent;
   border: none;
   border-bottom: 1px solid ${props => props.theme.borderColor};
@@ -36,7 +36,7 @@ const NameInput = withTheme(Input.extend`
   margin: 0 0 1.2rem;
   width: 100%;
   padding: 0;
-`)
+`
 
 const Name = (props: Props) => {
   return (
