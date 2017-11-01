@@ -14,6 +14,8 @@ const Container = styled.div`
   width: ${props => props.chatWidth};
   overflow: hidden;
   border-radius: ${props => (props.isPinned ? '0' : '5px')};
+  box-shadow: ${props =>
+    props.isPinned ? '' : '0 3px 5px 0 rgba(0, 0, 0, 0.2)'};
 
   position: absolute;
   top: ${props => (props.isPinned ? '4.8rem' : 'auto')};
