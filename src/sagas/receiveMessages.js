@@ -1,12 +1,12 @@
 /* @flow */
-import * as firebase from 'firebase/app'
-import 'firebase/database'
+import firebase from '@firebase/app'
+import '@firebase/database'
 import { eventChannel } from 'redux-saga'
 import { put, take } from 'redux-saga/effects'
 import { receiveMessage } from 'actions'
 import type { Message, FirebaseMessage } from 'types'
 
-function messageFromFirebaseData (data: Object): Message {
+function messageFromFirebaseData(data: Object): Message {
   let firebaseMessage: FirebaseMessage = data.val()
   const { name, text, result, timestamp } = firebaseMessage
 
@@ -21,15 +21,16 @@ function messageFromFirebaseData (data: Object): Message {
   return message
 }
 
-export default function * receiveMessages (): Generator<*, *, *> {
+export default function* receiveMessages(): Generator<*, *, *> {
   // Wait for user auth to complete
   yield take('APP_FINISHED_LOADING')
 
   const listener = eventChannel(emit => {
     const ref = firebase.database().ref('messages')
-    ref.orderByChild('timestamp')
-       .limitToLast(12)
-       .on('child_added', emit)
+    ref
+      .orderByChild('timestamp')
+      .limitToLast(12)
+      .on('child_added', emit)
 
     return () => {
       ref.off()

@@ -1,12 +1,12 @@
 /* @flow */
-import * as firebase from 'firebase/app'
-import 'firebase/database'
+import firebase from '@firebase/app'
+import '@firebase/database'
 import { eventChannel } from 'redux-saga'
 import { take, put, select, fork, cancel, cancelled } from 'redux-saga/effects'
 import currentSessionId from 'selectors/sessionId'
 import { hydrateSession } from 'actions'
 
-function createSubscription (sessionId: string) {
+function createSubscription(sessionId: string) {
   console.log(`subscribing to session ${sessionId}`)
 
   const subscription = eventChannel(emit => {
@@ -24,7 +24,7 @@ function createSubscription (sessionId: string) {
   return subscription
 }
 
-function * subscribeToSession (sessionId): Generator<*, *, *> {
+function* subscribeToSession(sessionId): Generator<*, *, *> {
   const subscription = createSubscription(sessionId)
 
   try {
@@ -40,15 +40,12 @@ function * subscribeToSession (sessionId): Generator<*, *, *> {
   }
 }
 
-export default function * loadCurrentSession (): Generator<*, *, *> {
+export default function* loadCurrentSession(): Generator<*, *, *> {
   let currentSubscription = null
   let sessionId = null
 
   while (true) {
-    const action = yield take([
-      'USER_LOGGED_IN',
-      'SWITCH_TO_SESSION'
-    ])
+    const action = yield take(['USER_LOGGED_IN', 'SWITCH_TO_SESSION'])
 
     // Find out what the new session id is
     let newSessionId = yield select(currentSessionId)

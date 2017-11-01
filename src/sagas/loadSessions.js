@@ -1,7 +1,7 @@
 /* @flow */
-import * as firebase from 'firebase/app'
-import 'firebase/database'
-import 'firebase/auth'
+import firebase from '@firebase/app'
+import '@firebase/database'
+import '@firebase/auth'
 import { put, takeEvery } from 'redux-saga/effects'
 import { hydrateUserData } from 'actions'
 import type { UserDataState } from 'reducers/user/data'
@@ -25,7 +25,7 @@ const normalizeUserData = (userData: ?Object): ?UserDataState => {
   }
 }
 
-function * loadSessions (): Generator<*, *, *> {
+function* loadSessions(): Generator<*, *, *> {
   const uid = firebase.auth().currentUser.uid
   const userDataRef = firebase.database().ref(`users/${uid}`)
 
@@ -37,7 +37,7 @@ function * loadSessions (): Generator<*, *, *> {
   }
 }
 
-export default function * loadSessionWatcher (): Generator<*, *, *> {
+export default function* loadSessionWatcher(): Generator<*, *, *> {
   // Wait for user auth to complete
   yield takeEvery('USER_LOGGED_IN', loadSessions)
 }

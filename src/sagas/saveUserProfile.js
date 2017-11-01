@@ -1,10 +1,10 @@
 /* @flow */
-import * as firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from '@firebase/app'
+import '@firebase/auth'
 import { changeDisplayName } from 'actions'
 import { put, call, select, takeEvery } from 'redux-saga/effects'
 
-function * saveLatestProfile (): Generator<*, *, *> {
+function* saveLatestProfile(): Generator<*, *, *> {
   const profile = yield select(state => state.user.profile)
 
   if (profile.displayName === '') {
@@ -15,8 +15,9 @@ function * saveLatestProfile (): Generator<*, *, *> {
       displayName: profile.displayName
     }
     const saveProfile = () => {
-      firebase.auth().currentUser
-        .updateProfile(profileToSave)
+      firebase
+        .auth()
+        .currentUser.updateProfile(profileToSave)
         .then(() => {})
         .catch(e => console.error(e))
     }
@@ -24,6 +25,6 @@ function * saveLatestProfile (): Generator<*, *, *> {
   }
 }
 
-export default function * saveUserProfile (): Generator<*, *, *> {
+export default function* saveUserProfile(): Generator<*, *, *> {
   yield takeEvery('CHANGE_DISPLAY_NAME', saveLatestProfile)
 }

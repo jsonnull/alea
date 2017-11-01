@@ -1,6 +1,6 @@
 /* @flow */
-import * as firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from '@firebase/app'
+import '@firebase/auth'
 import { put, call, takeEvery } from 'redux-saga/effects'
 
 type LoginAction = {
@@ -9,13 +9,15 @@ type LoginAction = {
   password: string
 }
 
-function * loginWithEmailAndPassword (action: LoginAction): Generator<*, *, *> {
-  const signIn = () => new Promise((resolve, reject) => {
-    firebase.auth()
-      .signInWithEmailAndPassword(action.email, action.password)
-      .then(resolve)
-      .catch(reject)
-  })
+function* loginWithEmailAndPassword(action: LoginAction): Generator<*, *, *> {
+  const signIn = () =>
+    new Promise((resolve, reject) => {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(action.email, action.password)
+        .then(resolve)
+        .catch(reject)
+    })
   try {
     const user = yield call(signIn)
     console.log(user)
@@ -25,6 +27,6 @@ function * loginWithEmailAndPassword (action: LoginAction): Generator<*, *, *> {
   }
 }
 
-export default function * login (): Generator<*, *, *> {
+export default function* login(): Generator<*, *, *> {
   yield takeEvery('LOGIN', loginWithEmailAndPassword)
 }

@@ -1,6 +1,5 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
-const MinifyPlugin = require('babel-minify-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
@@ -10,10 +9,9 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
-      'firebase',
-      'firebase/auth',
-      'firebase/database',
-      'firebase/app',
+      '@firebase/app',
+      '@firebase/auth',
+      '@firebase/database',
       'redux',
       'react-redux'
     ]
@@ -46,6 +44,7 @@ module.exports = {
   resolve: {
     modules: ['node_modules', 'src']
   },
+  devtool: 'source-map',
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
@@ -61,7 +60,6 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
-    }),
-    new MinifyPlugin()
+    })
   ]
 }

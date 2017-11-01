@@ -14,10 +14,9 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
-      'firebase',
-      'firebase/auth',
-      'firebase/database',
-      'firebase/app',
+      '@firebase/app',
+      '@firebase/auth',
+      '@firebase/database',
       'redux',
       'react-redux'
     ]

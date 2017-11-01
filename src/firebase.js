@@ -1,5 +1,5 @@
 /* @flow */
-import firebase from 'firebase/app'
+import firebase from '@firebase/app'
 
 // Initiates Firebase auth and listen to auth state changes
 const initialize = (config: Object, store: Object) => {
