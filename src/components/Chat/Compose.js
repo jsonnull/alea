@@ -1,12 +1,10 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
+import { body } from 'styles/fonts'
+import { fontSize } from 'styles/base'
 
-const Form = styled.form`
-  padding: 2.4rem 1.2rem;
-  padding-top: 10px;
-  border-radius: 5px;
-`
+const Form = styled.form``
 
 const Input = styled.textarea.attrs({
   type: 'text'
@@ -19,26 +17,15 @@ const Input = styled.textarea.attrs({
   width: 100%;
   resize: none;
   color: ${props => props.theme.color};
-  border: 1px solid ${props => props.theme.borderColor};
-  background-color ${props => props.theme.background};
+  background-color: ${props => props.theme.background};
   border-radius: 5px;
-
-  /*
-  :global(.unpinned) & {
-    background-color: $bgPrimary;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-    border: 1px solid $bgPrimary;
-
-    :global(.dark) & {
-      background-color: $bgPrimaryDark;
-      border-color: $bgPrimaryDark;
-    }
-  }
-  */
+  font-size: ${fontSize.normal};
+  font-family: ${body};
 `
 
 type Props = {
-  onSend: Function
+  onSend: Function,
+  isPinend: boolean
 }
 
 type State = {
@@ -91,8 +78,7 @@ export default class Compose extends React.Component<Props, State> {
 
     let height = 0
     if (scrollHeight !== defaultHeight) {
-      // Must account for 2px of border
-      height = scrollHeight + 2
+      height = scrollHeight
     }
 
     this.setState({
@@ -116,11 +102,11 @@ export default class Compose extends React.Component<Props, State> {
   }
 
   render() {
-    let style = {}
+    const { isPinned } = this.props
+
+    const style = {}
     if (this.state.height !== 0) {
-      style = {
-        height: this.state.height + 'px'
-      }
+      Object.assign(style, { height: this.state.height + 'px' })
     }
 
     return (
@@ -128,10 +114,11 @@ export default class Compose extends React.Component<Props, State> {
         <Input
           placeholder="Send a message..."
           value={this.state.value}
-          ref={el => {
+          innerRef={el => {
             this.autogrow = el
           }}
           style={style}
+          isPinned={isPinned}
           onChange={e => this.handleChange(e)}
           onKeyUp={e => this.handleKeyUp(e)}
         />

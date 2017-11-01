@@ -4,42 +4,32 @@ import styled from 'styled-components'
 import MessageView from './Message'
 import type { Message } from 'types'
 
+const MessagesWrapper = styled.div`
+  min-height: 0;
+  flex: 1;
+`
 const Messages = styled.div`
-  padding: 0 1.2rem;
-  overflow-y: scroll;
+  overflow-y: ${props => (props.isPinned ? 'scroll' : 'hidden')};
   overflow-x: hidden;
   width: 315px;
+  height: 100%;
 
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex: ${props => (props.isPinned ? '1' : 'none')};
 
-  /*
-  :global(.unpinned) & {
-    width: 300px;
-    flex: none;
-    align-items: flex-end;
-    overflow: hidden;
-  }
-  */
+  align-items: ${props => (props.isPinned ? '' : 'flex-end')};
 `
 
 const Spacer = styled.div`
-  height: 5px;
-  line-height: 5px;
-  font-size: 5px;
-
-  /*
-  :global(.unpinned) & {
-    height: 10px;
-    line-height: 10px;
-    font-size: 10px;
-  }
-  */
+  height: ${props => (props.isPinned ? '5px' : '10px')};
+  line-height: ${props => (props.isPinned ? '5px' : '10px')};
+  font-size: ${props => (props.isPinned ? '5px' : '10px')};
 `
 
 type Props = {
-  messages: Array<Message>
+  messages: Array<Message>,
+  isPinned: boolean
 }
 
 export default class MessageList extends React.Component<Props> {
@@ -62,17 +52,24 @@ export default class MessageList extends React.Component<Props> {
   }
 
   render() {
+    const { isPinned } = this.props
     return (
-      <Messages
-        ref={el => {
-          this.scroll = el
-        }}
-      >
-        {this.props.messages.map(message => (
-          <MessageView key={message.key} message={message} />
-        ))}
-        <Spacer>&nbsp;</Spacer>
-      </Messages>
+      <MessagesWrapper>
+        <Messages
+          isPinned={isPinned}
+          innerRef={el => {
+            this.scroll = el
+          }}
+        >
+          {this.props.messages.map(message => (
+            <MessageView
+              key={message.key}
+              message={message}
+              isPinned={isPinned}
+            />
+          ))}
+        </Messages>
+      </MessagesWrapper>
     )
   }
 }

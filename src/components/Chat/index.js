@@ -1,35 +1,32 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
+import Header from './Header'
+import Info from './Info'
 import Compose from './Compose'
 import MessageList from './MessageList'
 import type { Message } from 'types'
 
 const CHAT_WIDTH = '320px'
+
 const Container = styled.div`
   background-color: ${props => props.theme.background};
   width: ${props => props.chatWidth};
-  position: relative;
   overflow: hidden;
-  padding-top: 6rem;
+  border-radius: ${props => (props.isPinned ? '0' : '5px')};
+
+  position: absolute;
+  top: ${props => (props.isPinned ? '4.8rem' : 'auto')};
+  right: ${props => (props.isPinned ? '0' : '1rem')};
+  bottom: ${props => (props.isPinned ? '0' : '1rem')};
 
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-
-  /*
-  &:global(.unpinned) {
-    margin-top: auto;
-    background: transparent;
-    border-color: transparent;
-    align-self: flex-end;
-  }
-  */
 `
 
 type Props = {
   messages: Array<Message>,
-  pinned: boolean,
+  isPinned: boolean,
   toggleChatPin: Function,
   sendMessage: Function
 }
@@ -42,17 +39,16 @@ class Chat extends React.Component<Props> {
   }
 
   render() {
-    let pinned = this.props.pinned ? 'pinned' : 'unpinned'
+    const { isPinned, messages, toggleChatPin } = this.props
 
-    let messages = this.props.messages
-    if (this.props.pinned == false) {
-      messages = this.props.messages.slice(-4)
-    }
+    const shownMessages = isPinned ? messages : messages.slice(-4)
 
     return (
-      <Container chatWidth={CHAT_WIDTH}>
-        <MessageList messages={messages} />
-        <Compose onSend={this.sendMessage} />
+      <Container chatWidth={CHAT_WIDTH} isPinned={isPinned}>
+        <Header isPinned={isPinned} toggleChatPin={toggleChatPin} />
+        <MessageList messages={shownMessages} isPinned={isPinned} />
+        <Compose onSend={this.sendMessage} isPinned={isPinned} />
+        <Info />
       </Container>
     )
   }

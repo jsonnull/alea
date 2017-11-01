@@ -8,18 +8,20 @@ import type { State } from 'store'
 
 type StateProps = {
   messages: Array<Message>,
-  pinned: boolean
+  isPinned: boolean
 }
 const mapStateToProps = (state: State): StateProps => ({
   messages: state.messages,
-  pinned: state.user.preferences.chatPinned
+  isPinned: state.user.preferences.chatPinned
 })
 
 type DispatchProps = {
-  sendMessage: string => void
+  sendMessage: string => void,
+  toggleChatPin: () => void
 }
 const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
-  sendMessage: (text: string) => dispatch(sendMessage(text))
+  sendMessage: (text: string) => dispatch(sendMessage(text)),
+  toggleChatPin: () => dispatch({ type: 'TOGGLE_CHAT_PIN' })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat)
