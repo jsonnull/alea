@@ -1,21 +1,21 @@
 language: node_js
 cache: yarn
 node_js:
-  - node
+- node
 before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 script:
-  - npm run flow
-  - npm run test
-  - npm run build
-  - npm run lint
+- npm run flow
+- npm run test
+- npm run build
+- npm run lint
 after_script: greenkeeper-lockfile-upload
 deploy:
   provider: firebase
-  token: $FIREBASE_TOKEN
+  token: "$FIREBASE_TOKEN"
   skip_cleanup: true
   on:
     branch: master
 env:
   global:
-    secure: Gh7Djusizxstop9IFl6GjZ7C162kmaKNmGJ2tPVl3PAmUqzPTKQdlzTtykCDNPPcYZESaYX4kiJr8JDKmHHs8EQTd2hWJ5tKxKeV02rfEX017Cb2z3dqwZU00cIi2zPzMF7YaBr3QKfs1MQeHX5Tfx+r+xBedkLJEQMDJccZJofszAWqfd9cuvSR68u/jBrtUYSw/V8Nj/XDucaEwN+meNSMCIlOE4cxZG8C5SQPbYdD/ZzGRfZN7kdHCztGzRgi+pGYYj0G1UX1TheZzfAUUzwtwysnvM8WASUJcw924kY+aVtJSS0fdau1ELjzq0JYeC/c4B5qRCHs04PuAUCt8mYysA5bGiTkmAzauYx0C++74sVS2x5BMsF+OiIZA9iaDTKVA1NQNvo3N5JgpQdA9kCLVQjhLKJDUkXwBXJmEbo7o21Jit+6JrF9y99mX5FuxyxVkALmlrGZetbIxXGYy75cYljEjhK5U3MPBF8nCI1xa1YWagGx4khuYgecyaNDSAZFm+wE7woGOk1wb6PU1PBpRkgykpUhx6y+zGjeG4lvcHWKwB4dBRZeNCgMLUm68vGKXPWdYbEzA6gBPoU8bY8Ck4rpvvbn9VdK5TRu+TuKGmvFp5B2loaxmqAL6Zb/o5wMSzV4RWet5Gf4oWsAu5LDLOCyuZ4ZBXnMgQWyORk=
+    secure: CI68C7HlpXJnwRPQTBv73UvpQESI80HPKtjwsTgVbRZHKf7xwN/+wjvfZIZ6SoA2ckpWDuVWRxvJT2qRJCtniRr3A2mvqh/gW4XKJAciGXs7uZg58x56Fwqppc3zue+YtH/Rmkug8URH4w+2+hQ2sLtqsS17w1lA3GOiJ+Hm/OTYpslatS2dVh4NjhP8yNIOymsZY19M4P6CxljrQKbMiATWjZUXB22WnQapwQ7LIqFbSfwa3AtW86mzdIuq7ysJh9KdR7hP9adB6fFC6nwtdsNLXSnhn9cESpMFgpKVKpt4C//Rcohgu0cWAIfWis1FQ+SRioN38Kf9rQ576/6oznLXWCnJP66yqqReNVljofhCvK1kAKQkLnfvOEfAB2vBmAQT/dO5o0C3KruqNSlAGMTIHynJiJcxL2H8MNkCJr0cVjsdH4ysViGeGEVqty/dSws8zWCABAIcNec01kJbcQWoAPXIZbtHMugTbfPrJB871/6Jjo+RB/wF4Vuc+n6VTsfUJCPCL7pxe75+EtvhPg0mRuJ51efhtNILhcOa5GE55VrQMT7ypmM5GCIaImMIfjnAV7NVsMisHHwGTFZTqsr5q4iSgVp7K/50Irg9SPz5N9crp5MoPuQp/r40pb+WIAW8msN3xrjnV+c9bnUjumILVCgakawiPQr+V6AAre8=
