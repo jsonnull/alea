@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import type { SessionInfo } from 'types'
-import { header } from 'styles/fonts'
+import { fonts } from 'styles/common'
 
 const Tag = styled.div`
   display: inline-block;
@@ -15,7 +15,7 @@ const Tag = styled.div`
 `
 
 const SessionName = styled.div`
-  font-family: ${header};
+  font-family: ${fonts.heading};
   font-size: 1.8rem;
 `
 

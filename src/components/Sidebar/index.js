@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import Menu from './Menu'
 import Content from '../../containers/Sidebar/Content'
 import type { Tab } from 'types'
-import { lightGray } from 'styles/colors'
-import { header } from 'styles/fonts'
+import { colors, fonts } from 'styles/common'
 
 const Container = styled.div`
   background-color: ${props => props.theme.background};
@@ -14,12 +13,12 @@ const Container = styled.div`
   flex-direction: column;
 `
 
-const Top = styled.div`background: ${lightGray};`
+const Top = styled.div`background: ${colors.lightGray};`
 
 const Header = styled.h1`
   font-size: 2.4rem;
   line-height: 4.8rem;
-  font-family: ${header};
+  font-family: ${fonts.heading};
   padding: 1.2rem 1.8rem 0;
   color: ${props => props.theme.color};
   line-height: 2.4rem;

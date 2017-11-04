@@ -1,6 +1,6 @@
 /* @flow */
-import styled, { withTheme } from 'styled-components'
-import { body } from 'styles/fonts'
+import styled from 'styled-components'
+import { fonts } from 'styles/common'
 
 const Input = styled.input`
   height: 3.6rem;
@@ -9,8 +9,8 @@ const Input = styled.input`
   background: 1px solid ${props => props.theme.background};
   color: ${props => props.theme.color};
   border-radius: 4px;
-  font-family: ${body};
+  font-family: ${fonts.body};
   font-size: 1.5rem;
 `
 
-export default withTheme(Input)
+export default Input

@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import * as fonts from 'styles/fonts'
+import { fonts } from 'styles/common'
 
 const Button = styled.div`
   width: 4.8rem;

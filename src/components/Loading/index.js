@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { header } from 'styles/fonts'
+import { fonts } from 'styles/common'
 import spinner from './spinner.svg'
 
 const Container = styled.div`
@@ -27,7 +27,7 @@ const Loading = styled.div`
 `
 
 const Title = styled.h1`
-  font-family: ${header};
+  font-family: ${fonts.heading};
   text-align: center;
   margin: 0;
   margin-bottom: 1.2rem;

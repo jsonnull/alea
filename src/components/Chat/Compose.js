@@ -1,8 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { body } from 'styles/fonts'
-import { fontSize } from 'styles/base'
+import { fonts, fontSize } from 'styles/common'
 
 const Form = styled.form``
 
@@ -20,7 +19,7 @@ const Input = styled.textarea.attrs({
   background-color: ${props => props.theme.background};
   border-radius: 5px;
   font-size: ${fontSize.normal};
-  font-family: ${body};
+  font-family: ${fonts.body};
 `
 
 type Props = {

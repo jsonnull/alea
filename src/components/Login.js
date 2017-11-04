@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { header } from 'styles/fonts'
+import { fonts } from 'styles/common'
 
 type Props = {
   email: string,
@@ -33,7 +33,7 @@ const Login = styled.div`
 `
 
 const Heading = styled.h1`
-  font-family: ${header};
+  font-family: ${fonts.heading};
   text-align: center;
   margin: 0;
   margin-bottom: 1.2rem;

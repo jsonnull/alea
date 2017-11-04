@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { lightBlue } from 'styles/colors'
+import { colors } from 'styles/common'
 
 const Item = styled.div`
   text-align: center;
@@ -18,7 +18,7 @@ const Item = styled.div`
     background-color: ${props =>
       props.theme.name === 'dark'
         ? props.theme.backgroundSecondary
-        : lightBlue};
+        : colors.lightBlue};
     color: white;
     cursor: pointer;
   }

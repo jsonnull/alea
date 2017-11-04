@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { header } from 'styles/fonts'
+import { fonts } from 'styles/common'
 import Create from './Create'
 import List from './List'
 import type { SessionInfo } from 'types'
@@ -30,7 +30,7 @@ const Body = styled.div`
 const Heading = styled.h1`
   font-size: 2.4rem;
   line-height: 4.8rem;
-  font-family: ${header};
+  font-family: ${fonts.heading};
   padding: 1.2rem 0;
   color: ${props => props.theme.color};
   line-height: 2.4rem;

@@ -1,7 +1,7 @@
 /* @flow */
 import styled, { css, withTheme } from 'styled-components'
 import * as themes from 'styles/themes'
-import * as colors from 'styles/colors'
+import { colors } from 'styles/common'
 
 const redMixin = css`
   background-color: ${colors.red};

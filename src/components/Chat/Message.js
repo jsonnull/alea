@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import type { Message } from 'types'
 import MessageResult from './MessageResult'
 import Timeago from 'timeago.js'
-import { fontSize } from 'styles/base'
+import { fontSize } from 'styles/common'
 
 type Props = {
   message: Message,

@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import * as colors from 'styles/colors'
+import { colors } from 'styles/common'
 import styled from 'styled-components'
 
 const Button = styled.div`
