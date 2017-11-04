@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import styled, { withTheme } from 'styled-components'
+import styled from 'styled-components'
 import {
   defaultProps,
   branch,
@@ -9,23 +9,13 @@ import {
   withHandlers
 } from 'recompose'
 
-/*
-componentWillReceiveProps (nextProps: Props) {
-  if (this.state.value !== nextProps.value) {
-    this.setState({
-      value: nextProps.value
-    })
-  }
-}
-*/
-
-const Background = withTheme(styled.div`
+const Background = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  line-height: 3.6rem;
+  line-height: 3rem;
   color: ${props => props.theme.colorSecondary};
-`)
+`
 
 const withHover = compose(
   withState('isHovering', 'setHovering', false),

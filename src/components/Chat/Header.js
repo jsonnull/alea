@@ -1,6 +1,7 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
+import { fontSize } from 'styles/common'
 
 const Container = styled.div`
   background-color: ${props => props.theme.colorSecondary};
@@ -12,9 +13,9 @@ const Toggle = styled.div`
   margin-left: auto;
   display: block;
   transform: ${props => (props.isPinned ? 'none' : 'rotate(45deg)')};
-  font-size: 1.2rem;
+  font-size: ${fontSize.small};
   color: ${props => props.theme.background};
-  margin-right: 1.4rem;
+  margin-right: 1rem;
   cursor: pointer;
 `
 

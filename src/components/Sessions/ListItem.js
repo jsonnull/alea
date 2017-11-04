@@ -2,27 +2,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import type { SessionInfo } from 'types'
-import { fonts } from 'styles/common'
+import { fonts, fontSize } from 'styles/common'
 
 const Tag = styled.div`
   display: inline-block;
   border-radius: 2px;
-  height: 1.2rem;
-  line-height: 1.2rem;
-  font-size: 1.2rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: ${fontSize.small};
   font-weight: bold;
   color: ${props => props.theme.backgroundSecondary};
 `
 
 const SessionName = styled.div`
   font-family: ${fonts.heading};
-  font-size: 1.8rem;
+  font-size: ${fontSize.medium};
 `
 
 const Session = styled.div`
-  padding: 1.2rem;
+  padding: 1rem;
   border-radius: 5px;
-  margin: 0 1.2rem 2.4rem;
+  margin: 0 1rem 2rem;
   flex: 1 0 25%;
   max-width: 25%;
   min-height: 100px;

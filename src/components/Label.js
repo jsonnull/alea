@@ -1,11 +1,12 @@
 /* @flow */
-import styled, { withTheme } from 'styled-components'
+import styled from 'styled-components'
+import { fontSize } from 'styles/common'
 
 const Label = styled.label`
-  font-size: 1.2rem;
+  font-size: ${fontSize.small};
   color: ${props => props.theme.colorSecondary};
-  font-weight: ${props => props.theme.name == 'dark' ? 'normal' : 'bold'};
+  font-weight: ${props => (props.theme.name == 'dark' ? 'normal' : 'bold')};
   display: block;
 `
 
-export default withTheme(Label)
+export default Label

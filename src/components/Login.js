@@ -28,7 +28,7 @@ const Login = styled.div`
   margin: auto;
   background: ${props => props.theme.background};
   border-radius: 5px;
-  padding: 2.4rem;
+  padding: 2rew;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 `
 
@@ -36,8 +36,8 @@ const Heading = styled.h1`
   font-family: ${fonts.heading};
   text-align: center;
   margin: 0;
-  margin-bottom: 1.2rem;
-  line-height: 3.6rem;
+  margin-bottom: 1rem;
+  line-height: 3rem;
 `
 
 // FIXME: Extend input element
@@ -48,7 +48,7 @@ const Input = styled.input`
   padding: 0;
   border-bottom: 1px solid ${props => props.theme.borderColor};
   width: 100%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 `
 
 // FIXME: Extend button element

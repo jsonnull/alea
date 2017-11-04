@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Container = styled.div`
-  margin-top: 2.4rem;
+  margin-top: 2rem;
   display: flex;
 `
 

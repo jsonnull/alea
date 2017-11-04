@@ -10,9 +10,9 @@ const Input = styled.textarea.attrs({
 })`
   border: 0;
   height: 50px;
+  line-height: 3rem;
+  padding: 1rem;
   display: block;
-  padding: 1.2rem 1rem;
-  line-height: 2.4rem;
   width: 100%;
   resize: none;
   color: ${props => props.theme.color};

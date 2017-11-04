@@ -5,10 +5,10 @@ import { fontSize } from 'styles/common'
 
 const Container = styled.div`
   background-color: ${props => props.theme.backgroundSecondary};
-  height: 2.4rem;
+  line-height: 2.5rem;
   color: ${props => props.theme.colorMedium};
   font-size: ${fontSize.small};
-  padding: 0 1.2rem;
+  padding: 0 1rem;
 `
 
 const Info = () => (

@@ -4,13 +4,13 @@ import styled from 'styled-components'
 import Item from './ListItem'
 import type { SessionInfo } from 'types'
 
-const EmptyList = styled.div`margin: 2.4rem 0;`
+const EmptyList = styled.div`margin: 2rem 0;`
 
 const List = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-left: -1.2rem;
-  margin-right: -1.2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
 `
 
 type Props = {

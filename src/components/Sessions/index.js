@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { fonts } from 'styles/common'
+import { fonts, fontSize } from 'styles/common'
 import Create from './Create'
 import List from './List'
 import type { SessionInfo } from 'types'
@@ -24,16 +24,15 @@ const Body = styled.div`
   flex-direction: column;
   flex: 1;
   background: ${props => props.theme.background};
-  padding: 0 1.8rem;
+  padding: 0 2rem;
 `
 
 const Heading = styled.h1`
-  font-size: 2.4rem;
-  line-height: 4.8rem;
+  font-size: ${fontSize.large};
+  line-height: 1;
   font-family: ${fonts.heading};
-  padding: 1.2rem 0;
+  padding: 1rem 0;
   color: ${props => props.theme.color};
-  line-height: 2.4rem;
   margin: 0;
 `
 

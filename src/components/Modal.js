@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   width: 300px;
   margin: auto;
   border-radius: 5px;
-  padding: 2.4rem;
+  padding: 2rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   background-color: ${props =>
     props.theme.name == 'light' ? 'white' : props.theme.backgroundSecondary};

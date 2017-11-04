@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { fonts } from 'styles/common'
+import { fonts, fontSize } from 'styles/common'
 import spinner from './spinner.svg'
 
 const Container = styled.div`
@@ -18,7 +18,7 @@ const Loading = styled.div`
   width: 300px;
   background: ${props => props.theme.background};
   border-radius: 5px;
-  padding: 2.4rem;
+  padding: 2rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   align-self: center;
   margin: auto;
@@ -27,11 +27,12 @@ const Loading = styled.div`
 `
 
 const Title = styled.h1`
+  font-size: ${fontSize.large};
+  line-height: 1;
   font-family: ${fonts.heading};
   text-align: center;
   margin: 0;
-  margin-bottom: 1.2rem;
-  line-height: 3.6rem;
+  margin-bottom: 1rem;
 `
 
 const spin = keyframes`
@@ -48,7 +49,7 @@ const Spinner = styled.img.attrs({
 })`
   animation: ${spin} 1.4s infinite linear;
   transform: translateZ(0);
-  margin: 1.2rem auto 0;
+  margin: 1rem auto 0;
   width: 80px;
   height: 80px;
 `

@@ -1,7 +1,7 @@
 /* @flow */
 import styled, { css, withTheme } from 'styled-components'
 import * as themes from 'styles/themes'
-import { colors } from 'styles/common'
+import { fontSize, colors } from 'styles/common'
 
 const redMixin = css`
   background-color: ${colors.red};
@@ -32,10 +32,10 @@ const outlineMixin = css`
 
 export const Button = withTheme(styled.button`
   display: inline-block;
-  font-size: 1.3rem;
-  line-height: 3.6rem;
-  height: 3.6rem;
-  padding: 0 1.2rem;
+  font-size: ${fontSize.small};
+  line-height: 3rem;
+  height: 3rem;
+  padding: 0 1rem;
   outline: 0;
   color: ${themes.dark.color};
   background-color: ${colors.blue};
