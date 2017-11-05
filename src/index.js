@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 import initializeFirebase from './firebase'
-import App from './App'
+import App from './containers/App'
 import createStore from './store'
 import './assets'
 
