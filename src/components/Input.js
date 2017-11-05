@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import styled from 'styled-components'
 import { fonts, fontSize } from 'styles/common'
 

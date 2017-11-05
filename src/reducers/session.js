@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import type { Action } from '../actions/types'
 
 export type SessionState = {
@@ -9,7 +9,10 @@ const initialState = {
   name: ''
 }
 
-export default function reducer (state: SessionState = initialState, action: Action) {
+export default function reducer(
+  state: SessionState = initialState,
+  action: Action
+) {
   switch (action.type) {
     case 'UPDATE_SESSION':
       return state

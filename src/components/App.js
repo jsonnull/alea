@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import React from 'react'
 import { Switch, Route } from 'react-router'
 import styled, { ThemeProvider } from 'styled-components'

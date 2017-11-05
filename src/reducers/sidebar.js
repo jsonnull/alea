@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import type { Action } from '../actions/types'
 import type { Tab } from '../types'
 
@@ -12,9 +12,12 @@ const initialState = {
   tab: 'Session'
 }
 
-declare var type: string;
+declare var type: string
 
-export default function reducer (state: SidebarState = initialState, action: Action) {
+export default function reducer(
+  state: SidebarState = initialState,
+  action: Action
+) {
   switch (action.type) {
     case 'CHANGE_SIDEBAR_TAB':
       return { ...state, tab: action.tab }

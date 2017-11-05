@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import firebase from '@firebase/app'
 import '@firebase/auth'
 import { put, call, takeEvery } from 'redux-saga/effects'

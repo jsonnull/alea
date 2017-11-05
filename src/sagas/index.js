@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { fork } from 'redux-saga/effects'
 import defaultTab from './defaultTab'
 import loadCurrentSession from './loadCurrentSession'
@@ -14,7 +14,7 @@ import saveUserProfile from './saveUserProfile'
 import sendMessages from './sendMessages'
 import switchSessions from './switchSessions'
 
-export default function * rootSaga (): Generator<*, *, *> {
+export default function* rootSaga(): Generator<*, *, *> {
   yield fork(defaultTab)
   yield fork(loadCurrentSession)
   yield fork(loadSessionMeta)

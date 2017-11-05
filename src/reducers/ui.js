@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import type { Action } from 'actions/types'
 
 export type UIState = {
@@ -13,7 +13,7 @@ const initialState = {
   showSettings: false
 }
 
-export default function reducer (state: UIState = initialState, action: Action) {
+export default function reducer(state: UIState = initialState, action: Action) {
   switch (action.type) {
     case 'APP_FINISHED_LOADING':
       return {

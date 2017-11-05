@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { colors } from './common'
 import type { ThemeName } from 'types'
 

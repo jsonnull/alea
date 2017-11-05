@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import slug from 'slugg'
 import { put, select, takeEvery } from 'redux-saga/effects'
 import sessionIdSelector from 'selectors/sessionId'
@@ -7,13 +7,13 @@ import { changeSidebarTab } from 'actions'
 import type { SessionList, SessionInfo } from 'types'
 
 // FIXME: remove duplicate entry elsewhere
-function sessionListToArray (sessions: SessionList): Array<SessionInfo> {
+function sessionListToArray(sessions: SessionList): Array<SessionInfo> {
   let arr: any = Object.values(sessions)
   arr = (arr: Array<SessionInfo>)
   return arr
 }
 
-function * switchToSession (action): Generator<*, *, *> {
+function* switchToSession(action): Generator<*, *, *> {
   const sessionId = action.sessionId
   const currentSessionId = yield select(sessionIdSelector)
 
@@ -35,6 +35,6 @@ function * switchToSession (action): Generator<*, *, *> {
   }
 }
 
-export default function * switchSessions (): Generator<*, *, *> {
+export default function* switchSessions(): Generator<*, *, *> {
   yield takeEvery('SWITCH_TO_SESSION', switchToSession)
 }

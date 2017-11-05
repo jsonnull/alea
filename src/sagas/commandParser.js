@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import Random from 'random-js'
 import type { MessageResult } from 'types'
 

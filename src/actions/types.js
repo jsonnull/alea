@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import type { SessionMeta, Message, ThemeName, Tab } from 'types'
 import type { UserProfileState } from 'reducers/user/profile'
 import type { UserPreferencesState } from 'reducers/user/preferences'

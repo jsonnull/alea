@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import styled, { css, withTheme } from 'styled-components'
 import * as themes from 'styles/themes'
 import { fontSize, colors } from 'styles/common'
