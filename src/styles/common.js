@@ -1,7 +1,6 @@
 // @flow
 export const fonts = {
-  heading: 'Roboto Slab',
-
+  heading: 'Lora',
   body: `
     /* 1 */ -apple-system, BlinkMacSystemFont,
     /* 2 */ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
