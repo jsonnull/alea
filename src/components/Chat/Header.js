@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { fontSize } from 'styles/common'
 
 const Container = styled.div`
-  background-color: ${props => props.theme.colorSecondary};
+  background-color: ${props =>
+    props.isPinned ? props.theme.background : props.theme.backgroundInverted};
   display: flex;
   flex-direction: row;
 `
@@ -14,7 +15,8 @@ const Toggle = styled.div`
   display: block;
   transform: ${props => (props.isPinned ? 'none' : 'rotate(45deg)')};
   font-size: ${fontSize.small};
-  color: ${props => props.theme.background};
+  color: ${props =>
+    props.isPinned ? props.theme.color : props.theme.colorInverted};
   margin-right: 1rem;
   cursor: pointer;
 `
@@ -34,7 +36,7 @@ const Header = (props: Props) => {
   )
 
   return (
-    <Container>
+    <Container isPinned={isPinned}>
       <Toggle onClick={toggleChatPin} isPinned={isPinned}>
         {toggleChat}
       </Toggle>

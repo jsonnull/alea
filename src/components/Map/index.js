@@ -5,11 +5,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   background-color: ${props => props.theme.map};
   box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 4.8rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  flex: 1;
 `
 
 type Props = {

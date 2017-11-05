@@ -7,13 +7,19 @@ const Container = styled.div`
   color: white;
 
   svg {
-    height: 15px;
+    height: ${props => props.height};
     fill: currentColor;
   }
 `
 
-const Logo = () => {
-  return <Container dangerouslySetInnerHTML={{ __html: logo }} />
+type Props = {
+  height?: string
+}
+const Logo = (props: Props) => {
+  const { height = '16px' } = props
+  return (
+    <Container height={height} dangerouslySetInnerHTML={{ __html: logo }} />
+  )
 }
 
 export default Logo

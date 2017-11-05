@@ -23,3 +23,7 @@ export const colors = {
   lightBlue: '#057091',
   lightGray: '#e6e6e6'
 }
+
+export const CONSTS = {
+  headerHeight: '4.25rem'
+}

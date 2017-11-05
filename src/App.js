@@ -12,6 +12,7 @@ import Chat from './containers/Chat'
 import Map from './containers/Map'
 import Sidebar from './containers/Sidebar'
 import * as themes from 'styles/themes'
+import { CONSTS } from 'styles/common'
 import type { State } from 'store'
 
 type Props = {
@@ -26,11 +27,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: ${props => props.theme.map};
 `
 
@@ -39,12 +35,17 @@ const GameInner = styled.div`
   flex-direction: row;
   align-items: stretch;
   flex: 1;
+  position: absolute;
+  top: ${CONSTS.headerHeight};
+  right: 0;
+  bottom: 0;
+  left: 0;
 `
 
 const Game = () => (
   <GameInner>
-    <Map />
     <Sidebar />
+    <Map />
     <Chat />
   </GameInner>
 )

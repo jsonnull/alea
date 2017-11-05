@@ -1,15 +1,8 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from 'styles/common'
-
-const Button = styled.div`
-  width: 4.8rem;
-  height: 4.8rem;
-  line-height: 4.8rem;
-  padding: 0 1.85rem;
-  font-family: ${fonts.header};
-`
+import Button from './Button'
+import { fonts, fontSize } from 'styles/common'
 
 type Props = {
   goHome: Function
@@ -18,7 +11,11 @@ type Props = {
 const Home = (props: Props) => {
   const { goHome } = props
 
-  return <Button onClick={goHome}>Aleamancer</Button>
+  return (
+    <Button square onClick={goHome}>
+      <i className="fa fa-home" />
+    </Button>
+  )
 }
 
 export default Home

@@ -1,19 +1,29 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from 'styles/common'
+import { CONSTS, colors } from 'styles/common'
 import Home from './Home'
+import Logo from './Logo'
 import CurrentUser from './CurrentUser'
 import Settings from './Settings'
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  height: 4.8rem;
-  line-height: 4.8rem;
+  height: ${CONSTS.headerHeight};
+  line-height: ${CONSTS.headerHeight};
   color: white;
-  background-color: ${colors.blue};
+  background-color: ${props => props.theme.backgroundInverted};
 `
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 0.5rem;
+`
+
+const Right = Column.extend`justify-content: flex-end;`
 
 type Props = {
   username: string,
@@ -26,9 +36,16 @@ const Header = (props: Props) => {
 
   return (
     <Container>
-      <Home goHome={goHome} />
-      <CurrentUser username={username} />
-      <Settings showSettings={showSettings} />
+      <Column>
+        <Home goHome={goHome} />
+      </Column>
+      <Column>
+        <Logo />
+      </Column>
+      <Right>
+        <CurrentUser username={username} />
+        <Settings showSettings={showSettings} />
+      </Right>
     </Container>
   )
 }

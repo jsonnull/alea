@@ -17,8 +17,9 @@ const Container = styled.div`
   box-shadow: ${props =>
     props.isPinned ? '' : '0 3px 5px 0 rgba(0, 0, 0, 0.2)'};
 
-  position: absolute;
-  top: ${props => (props.isPinned ? '4.8rem' : 'auto')};
+  height: ${props => (props.isPinned ? '100%' : 'auto')};
+  position: ${props => (props.isPinned ? 'relative' : 'absolute')};
+  top: ${props => (props.isPinned ? '0' : 'auto')};
   right: ${props => (props.isPinned ? '0' : '1rem')};
   bottom: ${props => (props.isPinned ? '0' : '1rem')};
 
