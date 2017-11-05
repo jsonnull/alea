@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
+import Logo from './Logo'
 import { fonts } from 'styles/common'
 
 type Props = {
@@ -28,7 +29,7 @@ const Login = styled.div`
   margin: auto;
   background: ${props => props.theme.background};
   border-radius: 5px;
-  padding: 2rew;
+  padding: 2rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 `
 
@@ -62,7 +63,9 @@ export default (props: Props) => {
   return (
     <Container>
       <Login>
-        <Heading>Aleamancer</Heading>
+        <Heading>
+          <Logo height="25px" />
+        </Heading>
         <form onSubmit={props.onLogin}>
           <Input
             name="username"
