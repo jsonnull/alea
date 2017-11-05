@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import logo from '!raw-loader!./logo.svg'
 
 const Container = styled.div`
-  color: white;
-
   svg {
     height: ${props => props.height};
     fill: currentColor;

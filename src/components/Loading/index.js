@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import Logo from '../Logo'
 import { fonts, fontSize } from 'styles/common'
 import spinner from './spinner.svg'
 
@@ -26,10 +27,7 @@ const Loading = styled.div`
   flex-direction: column;
 `
 
-const Title = styled.h1`
-  font-size: ${fontSize.large};
-  line-height: 1;
-  font-family: ${fonts.heading};
+const Title = styled.div`
   text-align: center;
   margin: 0;
   margin-bottom: 1rem;
@@ -57,7 +55,9 @@ const Spinner = styled.img.attrs({
 const LoadingModal = () => (
   <Container>
     <Loading>
-      <Title>Aleamancer</Title>
+      <Title>
+        <Logo height="25px" />
+      </Title>
       <Spinner />
     </Loading>
   </Container>
