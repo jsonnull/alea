@@ -1,3 +1,4 @@
+// @flow
 import '!file-loader?name=[name].[ext]&outputPath=css/!font-awesome/css/font-awesome.min.css'
 import '!file-loader?name=[name].[ext]&outputPath=fonts/!font-awesome/fonts/FontAwesome.otf'
 import '!file-loader?name=[name].[ext]&outputPath=fonts/!font-awesome/fonts/fontawesome-webfont.eot'

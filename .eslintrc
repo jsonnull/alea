@@ -15,6 +15,12 @@
     "eqeqeq": 0,
     "import/no-webpack-loader-syntax": 0,
     "react/prop-types": 0,
-    "react/display-name": 0
+    "react/display-name": 0,
+    "flowtype/require-valid-file-annotation": [
+      2,
+      "always", {
+        "annotationStyle": "line"
+      }
+    ]
   }
 }
