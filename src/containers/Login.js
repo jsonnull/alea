@@ -7,7 +7,8 @@ import Login from 'components/Login'
 
 const enhance = compose(
   connect(null, (dispatch: Function) => ({
-    login: (email: string, password: string) => dispatch(login(email, password))
+    login: (email: string, password: string) =>
+      dispatch(performUserLogin(email, password))
   })),
   withState('email', 'setEmail', ''),
   withState('password', 'setPassword', ''),
@@ -19,7 +20,7 @@ const enhance = compose(
       e.preventDefault()
       e.stopPropagation()
 
-      performUserLogin(email, password)
+      login(email, password)
       setPassword('')
     }
   })
