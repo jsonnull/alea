@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
@@ -33,7 +33,7 @@ export type State = {
   router: RouterState
 }
 
-export default function createStoreWithMiddleware (history: Object) {
+export default function createStoreWithMiddleware(history: Object) {
   const reducers = combineReducers({
     messages,
     session,
@@ -44,18 +44,14 @@ export default function createStoreWithMiddleware (history: Object) {
   })
 
   const sagaMiddleware = createSagaMiddleware()
-  const middleware = [
-    routerMiddleware(history),
-    sagaMiddleware
-  ]
+  const middleware = [routerMiddleware(history), sagaMiddleware]
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
   let store = createStore(
     reducers,
-    composeEnhancers(
-      applyMiddleware(...middleware)
-    )
+    composeEnhancers(applyMiddleware(...middleware))
   )
 
   sagaMiddleware.run(sagas)

@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import type { Action } from '../../actions/types'
 
 export type UserProfileState = {
@@ -11,7 +11,10 @@ const initialState = {
   photoURL: ''
 }
 
-export default function reducer (state: UserProfileState = initialState, action: Action) {
+export default function reducer(
+  state: UserProfileState = initialState,
+  action: Action
+) {
   switch (action.type) {
     case 'UPDATE_USER_PROFILE':
     case 'HYDRATE_USER_PROFILE':

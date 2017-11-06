@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import firebase from '@firebase/app'
 
 // Initiates Firebase auth and listen to auth state changes

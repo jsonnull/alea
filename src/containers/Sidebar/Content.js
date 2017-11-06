@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import React from 'react'
 import Session from './Session'
 import type { Tab } from 'types'

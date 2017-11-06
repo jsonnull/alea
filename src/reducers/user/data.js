@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import type { Action } from 'actions/types'
 import type { SessionInfo } from 'types'
 
@@ -13,7 +13,10 @@ const initialState = {
   userSessions: {}
 }
 
-export default function reducer (state: UserDataState = initialState, action: Action) {
+export default function reducer(
+  state: UserDataState = initialState,
+  action: Action
+) {
   switch (action.type) {
     case 'HYDRATE_USER_DATA':
       return { ...state, ...action.user }

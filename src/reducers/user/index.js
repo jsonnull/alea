@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { combineReducers } from 'redux'
 import data from './data'
 import preferences from './preferences'
