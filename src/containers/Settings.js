@@ -25,7 +25,7 @@ export type DispatchProps = {
 const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
   changeTheme: (theme: ThemeName) => dispatch(changeTheme(theme)),
   changeDisplayName: (name: string) => dispatch(changeDisplayName(name)),
-  logout: () => dispatch({ type: 'LOGOUT' }),
+  logout: () => dispatch({ type: 'PERFORM_USER_LOGOUT' }),
   dismissSettings: () => dispatch({ type: 'HIDE_SETTINGS' })
 })
 

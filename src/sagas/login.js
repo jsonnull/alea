@@ -4,7 +4,7 @@ import '@firebase/auth'
 import { put, call, takeEvery } from 'redux-saga/effects'
 
 type LoginAction = {
-  type: 'LOGIN',
+  type: 'PERFORM_USER_LOGIN',
   email: string,
   password: string
 }
@@ -20,13 +20,11 @@ function* loginWithEmailAndPassword(action: LoginAction): Generator<*, *, *> {
     })
   try {
     const user = yield call(signIn)
-    console.log(user)
-    yield put({ type: 'USER_LOGGED_IN' })
   } catch (error) {
     console.log('there was an error')
   }
 }
 
 export default function* login(): Generator<*, *, *> {
-  yield takeEvery('LOGIN', loginWithEmailAndPassword)
+  yield takeEvery('PERFORM_USER_LOGIN', loginWithEmailAndPassword)
 }

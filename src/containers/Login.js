@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { compose, withState, withHandlers } from 'recompose'
-import { login } from 'actions'
+import { performUserLogin } from 'actions'
 import Login from 'components/Login'
 
 const enhance = compose(
@@ -19,7 +19,7 @@ const enhance = compose(
       e.preventDefault()
       e.stopPropagation()
 
-      login(email, password)
+      performUserLogin(email, password)
       setPassword('')
     }
   })

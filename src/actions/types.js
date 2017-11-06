@@ -12,13 +12,13 @@ export type Action =
   | { type: 'RECEIVE_MESSAGE', message: Message }
   // UI
   | { type: 'APP_FINISHED_LOADING' }
-  | { type: 'USER_LOGGED_IN' }
-  | { type: 'USER_LOGGED_OUT' }
   | { type: 'SHOW_SETTINGS' }
   | { type: 'HIDE_SETTINGS' }
   // User
-  | { type: 'LOGIN', email: string, password: string }
-  | { type: 'LOGOUT' }
+  | { type: 'PERFORM_USER_LOGIN', email: string, password: string }
+  | { type: 'USER_LOGGED_IN' }
+  | { type: 'PERFORM_USER_LOGOUT' }
+  | { type: 'USER_LOGGED_OUT' }
   // User Profile
   | { type: 'CHANGE_DISPLAY_NAME', name: string }
   | { type: 'HYDRATE_USER_PROFILE', user: UserProfileState }

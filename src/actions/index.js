@@ -19,8 +19,8 @@ export const receiveMessage = (message: Message): Action => {
 /*
  * User
  */
-export const login = (email: string, password: string): Action => ({
-  type: 'LOGIN',
+export const performUserLogin = (email: string, password: string): Action => ({
+  type: 'PERFORM_USER_LOGIN',
   email,
   password
 })

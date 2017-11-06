@@ -17,5 +17,5 @@ function* logoutCurrentUser(): Generator<*, *, *> {
 }
 
 export default function* logout(): Generator<*, *, *> {
-  yield takeEvery('LOGOUT', logoutCurrentUser)
+  yield takeEvery('PERFORM_USER_LOGOUT', logoutCurrentUser)
 }

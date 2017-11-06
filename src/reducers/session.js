@@ -14,8 +14,6 @@ export default function reducer(
   action: Action
 ) {
   switch (action.type) {
-    case 'UPDATE_SESSION':
-      return state
     case 'HYDRATE_SESSION':
       return { ...state, ...action.session }
     default:

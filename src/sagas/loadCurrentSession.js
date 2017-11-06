@@ -45,7 +45,11 @@ export default function* loadCurrentSession(): Generator<*, *, *> {
   let sessionId = null
 
   while (true) {
-    const action = yield take(['USER_LOGGED_IN', 'SWITCH_TO_SESSION'])
+    const action = yield take([
+      'USER_LOGGED_IN',
+      'SWITCH_TO_SESSION',
+      'USER_LOGGED_OUT'
+    ])
 
     // Find out what the new session id is
     let newSessionId = yield select(currentSessionId)
@@ -56,8 +60,10 @@ export default function* loadCurrentSession(): Generator<*, *, *> {
     // Should we switch?
     const isNewSession = sessionId !== newSessionId
 
-    // If the user has switched to a different session, change subscriptions
-    if (isNewSession) {
+    if (action.type === 'USER_LOGGED_OUT') {
+      yield cancel(currentSubscription)
+    } else if (isNewSession) {
+      // If the user has switched to a different session, change subscriptions
       if (currentSubscription !== null) {
         yield cancel(currentSubscription)
       }
