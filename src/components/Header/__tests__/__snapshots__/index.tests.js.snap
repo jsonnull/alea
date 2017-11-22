@@ -34,10 +34,10 @@ exports[`Header component renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-bZQynM jACUkF"
+    className="sc-bZQynM dLyoOX"
   >
     <div
-      className="sc-bxivhb bbGTbP"
+      className="sc-bxivhb lhzAFC"
     >
       test
     </div>
