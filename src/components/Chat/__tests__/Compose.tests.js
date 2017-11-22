@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 import sinon from 'sinon'
 import Compose from '../Compose.js'
 

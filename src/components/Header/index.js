@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import { CONSTS, colors } from 'styles/common'
+import { CONSTS } from 'styles/common'
 import Home from './Home'
 import Logo from './Logo'
 import CurrentUser from './CurrentUser'

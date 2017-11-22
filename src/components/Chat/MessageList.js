@@ -21,12 +21,6 @@ const Messages = styled.div`
   align-items: ${props => (props.isPinned ? '' : 'flex-end')};
 `
 
-const Spacer = styled.div`
-  height: ${props => (props.isPinned ? '5px' : '10px')};
-  line-height: ${props => (props.isPinned ? '5px' : '10px')};
-  font-size: ${props => (props.isPinned ? '5px' : '10px')};
-`
-
 type Props = {
   messages: Array<Message>,
   isPinned: boolean

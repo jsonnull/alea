@@ -12,7 +12,7 @@ const loginWithEmailAndPassword = (action: LoginAction) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(action.email, action.password)
-    .catch(error => {
+    .catch(() => {
       console.log('there was an error')
     })
 }

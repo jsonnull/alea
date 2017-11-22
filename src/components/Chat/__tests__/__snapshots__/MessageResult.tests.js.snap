@@ -2,7 +2,7 @@
 
 exports[`Chat MessageResult component renders correctly 1`] = `
 <div
-  className="sc-bwzfXH dslxFQ"
+  className="sc-bwzfXH kHFWUx"
 >
   <i
     className="fa fa-cube"
@@ -12,7 +12,7 @@ exports[`Chat MessageResult component renders correctly 1`] = `
     <span>
       
       <span
-        className="sc-bdVaJa hCboOS"
+        className="sc-bdVaJa koclZm"
         style={
           Object {
             "color": "inherit",
@@ -25,7 +25,7 @@ exports[`Chat MessageResult component renders correctly 1`] = `
   </span>
    = 
   <span
-    className="sc-htpNat joRjxB"
+    className="sc-htpNat ixiyzb"
   >
     4
   </span>

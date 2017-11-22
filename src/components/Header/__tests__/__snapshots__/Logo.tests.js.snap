@@ -2,10 +2,10 @@
 
 exports[`Header Logo component renders correctly 1`] = `
 <div
-  className="sc-htpNat gYJyLH"
+  className="sc-bwzfXH laoDIc"
 >
   <div
-    className="sc-bwzfXH dXutcX"
+    className="sc-bdVaJa fjGyyR"
     dangerouslySetInnerHTML={
       Object {
         "__html": Object {},

@@ -2,7 +2,6 @@
 import { call, select, takeEvery } from 'redux-saga/effects'
 import CommandParser from './commandParser'
 import { SEND_MESSAGE } from 'actions/types'
-import type { MessageResult } from 'types'
 import type { Action } from 'actions/types'
 
 export function* sendMessageWithResult(

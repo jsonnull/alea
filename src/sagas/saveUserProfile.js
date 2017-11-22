@@ -2,7 +2,6 @@
 import { take, put, call, select } from 'redux-saga/effects'
 import { changeDisplayName } from 'actions'
 import { CHANGE_DISPLAY_NAME } from 'actions/types'
-import type { UserProfileState } from 'reducers/user/profile'
 
 export default function* saveUserProfile(
   getCurrentUserEmail: () => string,

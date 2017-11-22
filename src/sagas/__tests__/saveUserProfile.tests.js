@@ -1,10 +1,9 @@
 // @flow
-import { take, put, call, select } from 'redux-saga/effects'
+import { take, put, call } from 'redux-saga/effects'
 import { cloneableGenerator } from 'redux-saga/utils'
 import { changeDisplayName } from 'actions'
 import { CHANGE_DISPLAY_NAME } from 'actions/types'
 import saveUserProfile from '../saveUserProfile'
-import type { UserProfileState } from 'reducers/user/profile'
 
 describe('saveUserProfile saga', () => {
   const mockEmail = 'email@example.com'

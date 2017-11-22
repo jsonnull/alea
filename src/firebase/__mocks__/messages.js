@@ -1,6 +1,5 @@
 // @flow
 import type { MessagesSubscription } from '../types'
-import type { Message } from 'types'
 
 export const mockMessage = {
   key: 'test',

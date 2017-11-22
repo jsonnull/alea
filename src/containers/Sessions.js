@@ -1,5 +1,4 @@
 // @flow
-import React from 'react'
 import { connect } from 'react-redux'
 import { switchToSession } from 'actions'
 import Sessions from '../components/Sessions'
@@ -28,7 +27,7 @@ const mapStateToProps = (state: State, ownProps): StateProps => ({
 type DispatchProps = {
   switchToSession: string => void
 }
-const mapDispatchToProps = (dispatch: Function) => ({
+const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
   switchToSession: (sessionId: string) => dispatch(switchToSession(sessionId))
 })
 

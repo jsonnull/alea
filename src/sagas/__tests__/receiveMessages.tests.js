@@ -1,6 +1,5 @@
 // @flow
-import { eventChannel, END } from 'redux-saga'
-import { put, take, fork, cancel, cancelled } from 'redux-saga/effects'
+import { put, take } from 'redux-saga/effects'
 import { createMockTask, cloneableGenerator } from 'redux-saga/utils'
 import { receiveMessage } from 'actions'
 import { USER_LOGGED_IN, USER_LOGGED_OUT } from 'actions/types'
@@ -8,8 +7,6 @@ import createMessagesSubscription, {
   mockMessage
 } from '../../firebase/__mocks__/messages'
 import receiveMessages, { subscribeToMessages } from '../receiveMessages'
-import type { Message } from 'types'
-import type { MessagesSubscription } from 'firebase/types'
 
 describe('subscribeToMessages generator', () => {
   const mockSubscription = createMessagesSubscription()

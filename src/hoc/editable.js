@@ -63,7 +63,7 @@ const Display = BaseComponent => (props: Object) => {
   )
 }
 
-const Editing = BaseComponent => (props: Object) => {
+const Editing = () => (props: Object) => {
   const Input = props.input
   return (
     <Input

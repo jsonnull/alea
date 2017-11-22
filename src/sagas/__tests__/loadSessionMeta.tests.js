@@ -5,8 +5,7 @@ import { HYDRATE_USER_DATA } from 'actions/types'
 import loadMeta, { loadAllMeta, loadSessionMeta } from '../loadSessionMeta'
 
 const mockData = { name: 'test' }
-const mockGetSessionMeta = (sessionId: string) =>
-  new Promise(resolve => resolve(mockData))
+const mockGetSessionMeta = () => new Promise(resolve => resolve(mockData))
 
 describe('loadSessionMeta generator', () => {
   const gen = loadSessionMeta(mockGetSessionMeta, 'userSessionId', 'sessionId')

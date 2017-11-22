@@ -1,8 +1,6 @@
 // @flow
 import React from 'react'
-import styled from 'styled-components'
 import Button from './Button'
-import { fonts, fontSize } from 'styles/common'
 
 type Props = {
   goHome: Function

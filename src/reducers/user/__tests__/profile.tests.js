@@ -1,6 +1,5 @@
 // @flow
 import reduce from '../profile'
-import * as types from 'actions/types'
 import {
   updateUserProfile,
   hydrateUserProfile,

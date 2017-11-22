@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
 import { fonts, fontSize } from 'styles/common'
 import Create from './Create'
 import List from './List'

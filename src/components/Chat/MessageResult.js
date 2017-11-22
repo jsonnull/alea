@@ -78,7 +78,7 @@ const Results = (props: Props) => {
   return (
     <ResultsContainer>
       <i className="fa fa-cube" />{' '}
-      {results.map((result, i, arr) => (
+      {results.map((result, i) => (
         <span key={i}>
           <RollContainer roll={result} isFirst={i === 0} />
         </span>

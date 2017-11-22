@@ -1,5 +1,4 @@
 // @flow
-import { END } from 'redux-saga'
 import { take, put } from 'redux-saga/effects'
 import { createMockTask, cloneableGenerator } from 'redux-saga/utils'
 import { switchToSession, hydrateSession } from 'actions'

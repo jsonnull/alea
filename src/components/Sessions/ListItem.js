@@ -52,7 +52,8 @@ type Props = {
 }
 
 const Item = (props: Props) => {
-  const { isCurrent } = props
+  // FIXME: Add visible distinction of current game
+  // const { isCurrent } = props
 
   const content = !props.session.meta ? (
     <Loading />

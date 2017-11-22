@@ -3,7 +3,6 @@ import { take, call, put } from 'redux-saga/effects'
 import { hydrateUserProfile } from 'actions'
 import { USER_LOGGED_IN } from 'actions/types'
 import loadUserProfile from '../loadUserProfile'
-import type { UserProfileState } from 'reducers/user/profile'
 
 const mockData = { displayName: 'test_user', photoURL: undefined }
 const mockGetProfile = () => mockData

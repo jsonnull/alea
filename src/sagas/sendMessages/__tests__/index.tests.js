@@ -3,7 +3,6 @@ import { call, takeEvery } from 'redux-saga/effects'
 import sendMessages, { sendMessageWithResult } from '../index'
 import CommandParser from '../commandParser'
 import { SEND_MESSAGE } from 'actions/types'
-import type { MessageResult } from 'types'
 
 const mockSendMessage = () => {}
 const commandParser = new CommandParser()

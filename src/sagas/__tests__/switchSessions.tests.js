@@ -1,12 +1,12 @@
 // @flow
 import slug from 'slugg'
-import { put, select, takeEvery } from 'redux-saga/effects'
+import { put, takeEvery } from 'redux-saga/effects'
 import { cloneableGenerator } from 'redux-saga/utils'
 import { push } from 'react-router-redux'
 import { changeSidebarTab } from 'actions'
 import { SWITCH_TO_SESSION } from 'actions/types'
 import switchSessions, { switchToSession } from '../switchSessions'
-import type { SessionList, SessionInfo } from 'types'
+import type { SessionList } from 'types'
 
 describe('switchToSession generator', () => {
   const mockId = 'testId'

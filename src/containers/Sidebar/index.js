@@ -1,5 +1,4 @@
 // @flow
-import React from 'react'
 import { connect } from 'react-redux'
 import { changeSidebarTab } from 'actions'
 import Sidebar from '../../components/Sidebar'

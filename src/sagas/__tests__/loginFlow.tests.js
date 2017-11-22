@@ -1,5 +1,5 @@
 // @flow
-import { take, call, put, select } from 'redux-saga/effects'
+import { take, put } from 'redux-saga/effects'
 import { performUserLogin } from 'actions'
 import {
   APP_FINISHED_LOADING,

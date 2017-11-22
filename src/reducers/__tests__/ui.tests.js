@@ -1,6 +1,5 @@
 // @flow
 import reduce from '../ui'
-import * as actions from 'actions'
 import * as types from 'actions/types'
 
 const INIT_ACTION = { type: '@@INIT' }

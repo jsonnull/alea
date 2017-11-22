@@ -1,6 +1,5 @@
 // @flow
 import React from 'react'
-import { connect } from 'react-redux'
 import Modal from 'components/Modal'
 import Logout from 'components/Settings/Logout'
 import Name from 'components/Settings/Name'
