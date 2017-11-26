@@ -25,7 +25,7 @@ service cloud.firestore {
     }
 
     // Preferences
-    match /preferences/${userId} {
+    match /preferences/{userId} {
       // Only allow the user to read/write their own preferences
       allow read, write: if request.auth.uid == userId;
     }
