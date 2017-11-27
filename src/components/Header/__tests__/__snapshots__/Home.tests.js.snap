@@ -2,11 +2,18 @@
 
 exports[`Header Home component renders correctly 1`] = `
 <div
-  className="sc-bdVaJa kgrFwP"
-  onClick={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
-  <i
-    className="fa fa-home"
-  />
+  <div>
+    <div
+      className="sc-bdVaJa kgrFwP"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-home"
+      />
+    </div>
+  </div>
 </div>
 `;

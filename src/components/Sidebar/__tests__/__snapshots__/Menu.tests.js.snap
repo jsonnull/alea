@@ -2,25 +2,39 @@
 
 exports[`Sidebar Menu component renders correctly 1`] = `
 <div
-  className="sc-bwzfXH dGbwvG"
+  className="sc-bxivhb cKnMKR"
 >
   <div
-    className="sc-bdVaJa doSZDF"
-    onClick={[Function]}
-    selected={true}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
-    <i
-      className="fa fa-globe"
-    />
+    <div>
+      <div
+        className="sc-htpNat lmVwuW"
+        onClick={[Function]}
+        selected={true}
+      >
+        <i
+          className="fa fa-globe"
+        />
+      </div>
+    </div>
   </div>
   <div
-    className="sc-bdVaJa dRxInu"
-    onClick={[Function]}
-    selected={false}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
-    <i
-      className="fa fa-id-card-o"
-    />
+    <div>
+      <div
+        className="sc-htpNat gFRrkw"
+        onClick={[Function]}
+        selected={false}
+      >
+        <i
+          className="fa fa-id-card-o"
+        />
+      </div>
+    </div>
   </div>
 </div>
 `;

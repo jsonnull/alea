@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
+import Tooltip from 'components/Tooltip'
 import { fontSize } from 'styles/common'
 
 const Container = styled.div`
@@ -11,15 +12,20 @@ const Container = styled.div`
 `
 
 const Toggle = styled.div`
-  margin-left: auto;
   display: block;
-  transform: ${props => (props.isPinned ? 'none' : 'rotate(45deg)')};
   font-size: ${fontSize.small};
   color: ${props =>
     props.isPinned ? props.theme.color : props.theme.colorInverted};
   margin-right: 1rem;
+  padding-left: 1rem;
   cursor: pointer;
+
+  i {
+    transform: ${props => (props.isPinned ? 'none' : 'rotate(45deg)')};
+  }
 `
+
+const Outer = styled.div`margin-left: auto;`
 
 type Props = {
   isPinned: boolean,
@@ -35,11 +41,17 @@ const Header = (props: Props) => {
     <i className="fa fa-thumb-tack" />
   )
 
+  const tooltip = isPinned ? 'Unpin Chat' : 'Pin Chat'
+
   return (
     <Container isPinned={isPinned}>
-      <Toggle onClick={toggleChatPin} isPinned={isPinned}>
-        {toggleChat}
-      </Toggle>
+      <Outer>
+        <Tooltip placement="left" content={tooltip}>
+          <Toggle onClick={toggleChatPin} isPinned={isPinned}>
+            {toggleChat}
+          </Toggle>
+        </Tooltip>
+      </Outer>
     </Container>
   )
 }

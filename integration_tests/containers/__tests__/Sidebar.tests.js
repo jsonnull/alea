@@ -2,7 +2,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
-import { ConnectedRouter, push } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
 import { hydrateSession } from '../../../src/actions'
 import setupStore, { history } from '../../setupStore'
 import Sidebar from '../../../src/containers/Sidebar'
@@ -28,7 +28,10 @@ describe('Sidebar container', () => {
 
   it('should allow the user to change tabs', () => {
     expect(store.getState().sidebar.tab).toEqual('Session')
-    wrapper.find('MenuItem[name="Character"]').simulate('click')
+    wrapper
+      .find('MenuItem[name="Character"]')
+      .find('div[selected=false]')
+      .simulate('click')
     expect(store.getState().sidebar.tab).toEqual('Character')
   })
 })

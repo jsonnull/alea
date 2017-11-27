@@ -2,15 +2,26 @@
 
 exports[`Chat header component renders correctly 1`] = `
 <div
-  className="sc-bdVaJa dMsinD"
+  className="sc-htpNat cXsAUZ"
 >
   <div
-    className="sc-bwzfXH ellkeL"
-    onClick={[Function]}
+    className="sc-ifAKCX Tbqhp"
   >
-    <i
-      className="fa fa-thumb-tack"
-    />
+    <div
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div>
+        <div
+          className="sc-bxivhb dHiVnA"
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-thumb-tack"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

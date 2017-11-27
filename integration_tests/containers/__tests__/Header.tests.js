@@ -2,7 +2,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
-import { ConnectedRouter, push } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
 import setupStore, { history, dispatchSpy } from '../../setupStore'
 import { SHOW_SETTINGS } from '../../../src/actions/types'
 import Header from '../../../src/containers/Header'
@@ -30,10 +30,7 @@ describe('Header container', () => {
   })
 
   it('should allow the user to navigate home', () => {
-    wrapper
-      .find('Home')
-      .find('div')
-      .simulate('click')
+    wrapper.find('Home').simulate('click')
     expect(store.getState().router.location.pathname).toEqual('/')
   })
 })

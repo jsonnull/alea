@@ -2,12 +2,19 @@
 
 exports[`Sidebar MenuItem component renders correctly 1`] = `
 <div
-  className="sc-bdVaJa doSZDF"
-  onClick={[Function]}
-  selected={true}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
-  <i
-    className="fa icon"
-  />
+  <div>
+    <div
+      className="sc-htpNat lmVwuW"
+      onClick={[Function]}
+      selected={true}
+    >
+      <i
+        className="fa icon"
+      />
+    </div>
+  </div>
 </div>
 `;

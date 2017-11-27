@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors } from 'styles/common'
+import Tooltip from 'components/Tooltip'
 
 const Item = styled.div`
   text-align: center;
@@ -35,9 +36,11 @@ const MenuItem = (props: Props) => {
   const { name, icon, selected, action } = props
 
   return (
-    <Item selected={selected} onClick={() => action(name)}>
-      <i className={`fa ${icon}`} />
-    </Item>
+    <Tooltip content={name} placement="bottom">
+      <Item selected={selected} onClick={() => action(name)}>
+        <i className={`fa ${icon}`} />
+      </Item>
+    </Tooltip>
   )
 }
 

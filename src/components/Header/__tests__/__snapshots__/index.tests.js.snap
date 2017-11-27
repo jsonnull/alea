@@ -2,28 +2,35 @@
 
 exports[`Header component renders correctly 1`] = `
 <div
-  className="sc-ifAKCX gbtnXH"
+  className="sc-bZQynM mLqIE"
 >
   <div
-    className="sc-EHOje iVzqUm"
+    className="sc-gzVnrw bsXxGB"
   >
     <div
-      className="sc-bdVaJa kgrFwP"
-      onClick={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
     >
-      <i
-        className="fa fa-home"
-      />
+      <div>
+        <div
+          className="sc-bdVaJa kgrFwP"
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-home"
+          />
+        </div>
+      </div>
     </div>
   </div>
   <div
-    className="sc-EHOje iVzqUm"
+    className="sc-gzVnrw bsXxGB"
   >
     <div
-      className="sc-htpNat gYJyLH"
+      className="sc-ifAKCX llvlPY"
     >
       <div
-        className="sc-bwzfXH dXutcX"
+        className="sc-bxivhb kGowsV"
         dangerouslySetInnerHTML={
           Object {
             "__html": Object {},
@@ -34,10 +41,10 @@ exports[`Header component renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-bZQynM dLyoOX"
+    className="sc-htoDjs dyWdAa"
   >
     <div
-      className="sc-bxivhb lhzAFC"
+      className="sc-EHOje fjTLAe"
     >
       test
     </div>
