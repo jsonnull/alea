@@ -50,7 +50,7 @@ exports[`App component renders correctly when settings should be showing 1`] = `
       />
       <Route
         component={[Function]}
-        path="/g/:id/"
+        path="/g/:name/:id"
       />
     </Switch>
     <Connect(Settings) />
@@ -86,7 +86,7 @@ exports[`App component renders correctly when user is logged in 1`] = `
       />
       <Route
         component={[Function]}
-        path="/g/:id/"
+        path="/g/:name/:id"
       />
     </Switch>
   </styled.div>

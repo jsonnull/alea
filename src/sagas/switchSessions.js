@@ -24,8 +24,8 @@ export function* switchToSession(action: Action): Generator<*, *, *> {
     if (session) {
       const meta = session.meta
       if (meta) {
-        const sessionName = meta.name
-        yield put(push(`/g/${sessionId}/${slug(sessionName)}`))
+        const name = slug(meta.name)
+        yield put(push(`/g/${name}/${sessionId}`))
         yield put(changeSidebarTab('Session'))
       }
     }

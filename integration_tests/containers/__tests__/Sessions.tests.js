@@ -57,7 +57,7 @@ describe('Sessions container', () => {
       .first()
       .simulate('click')
     expect(storeWithSessions.getState().router.location.pathname).toEqual(
-      '/g/id1/testname1'
+      '/g/testname1/id1'
     )
   })
 })

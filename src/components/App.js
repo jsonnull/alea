@@ -75,7 +75,7 @@ class App extends React.Component<Props> {
           <Header />
           <Switch>
             <Route exact path="/" component={Sessions} />
-            <Route path="/g/:id/" component={Game} />
+            <Route path="/g/:name/:id" component={Game} />
           </Switch>
           {settings}
         </Container>

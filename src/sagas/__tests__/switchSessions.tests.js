@@ -41,7 +41,7 @@ describe('switchToSession generator', () => {
   ]
   it('should redirect the user to the session', () => {
     expect(switchGen.next(sessions).value).toEqual(
-      put(push(`/g/${mockId}/${slug('session name')}`))
+      put(push(`/g/${slug('session name')}/${mockId}`))
     )
   })
 
