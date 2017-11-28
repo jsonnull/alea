@@ -8,7 +8,7 @@ exports[`Chat component renders correctly 1`] = `
     className="sc-htpNat cXsAUZ"
   >
     <div
-      className="sc-ifAKCX Tbqhp"
+      className="sc-ifAKCX hiytbS"
     >
       <div
         onMouseOut={[Function]}
