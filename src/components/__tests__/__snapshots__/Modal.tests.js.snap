@@ -2,7 +2,7 @@
 
 exports[`Modal component renders correctly 1`] = `
 <div
-  className="sc-bdVaJa bOsiER"
+  className="sc-bdVaJa kAYprr"
 >
   <div
     className="sc-bwzfXH hsISIs"
@@ -12,7 +12,7 @@ exports[`Modal component renders correctly 1`] = `
 
 exports[`Modal component renders correctly when not set to show 1`] = `
 <div
-  className="sc-bdVaJa ckWgxK"
+  className="sc-bdVaJa kWnJmF"
 >
   <div
     className="sc-bwzfXH bARPNA"
