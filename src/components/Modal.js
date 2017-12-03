@@ -83,7 +83,7 @@ const Modal = (props: ModalProps) => {
   const { show, ...restProps } = props
 
   return (
-    <Transition in={show} timeout={{ enter: 0, exit: 200 }}>
+    <Transition in={show} timeout={{ enter: 17, exit: 200 }}>
       {(state: TransitionState) => (
         <Background state={state}>
           <ContentWithClick state={state} {...restProps} />
