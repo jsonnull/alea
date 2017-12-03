@@ -1,5 +1,6 @@
 [ignore]
 .*/node_modules/fbjs/.*
+.*/node_modules/protobufjs/.*
 
 [options]
 module.name_mapper='^actions\(.*\)$' -> '<PROJECT_ROOT>/src/actions\1'
