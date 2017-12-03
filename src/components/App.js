@@ -43,13 +43,12 @@ const Game = () => (
 export type Props = {
   appIsLoading: boolean,
   userIsLoggedIn: boolean,
-  showSettings: boolean,
   location: Object,
   theme: Object
 }
 class App extends React.Component<Props> {
   render() {
-    const { appIsLoading, userIsLoggedIn, showSettings, theme } = this.props
+    const { appIsLoading, userIsLoggedIn, theme } = this.props
 
     if (appIsLoading) {
       return (
@@ -67,8 +66,6 @@ class App extends React.Component<Props> {
       )
     }
 
-    const settings = showSettings ? <Settings /> : null
-
     return (
       <ThemeProvider theme={theme}>
         <Container>
@@ -77,7 +74,7 @@ class App extends React.Component<Props> {
             <Route exact path="/" component={Sessions} />
             <Route path="/g/:name/:id" component={Game} />
           </Switch>
-          {settings}
+          <Settings />
         </Container>
       </ThemeProvider>
     )

@@ -13,7 +13,9 @@ export type Theme = {
   colorMedium: string,
   colorInverted: string,
   map: string,
-  borderColor: string
+  borderColor: string,
+  modalOverlay: string,
+  modalBackground: string
 }
 
 export const light: Theme = {
@@ -27,7 +29,9 @@ export const light: Theme = {
   colorMedium: '#999',
   colorInverted: '#f7f7f7',
   map: '#bfbca5',
-  borderColor: '#cdc5ba'
+  borderColor: '#cdc5ba',
+  modalBackground: '#f7f7f7',
+  modalOverlay: 'rgba(0, 0, 0, 0.5)'
 }
 
 export const dark: Theme = {
@@ -41,5 +45,7 @@ export const dark: Theme = {
   colorMedium: '#999',
   colorInverted: '#eee',
   map: '#1a1a1a',
-  borderColor: '#1a1a1a'
+  borderColor: '#1a1a1a',
+  modalBackground: '#2b2b2b',
+  modalOverlay: 'rgba(0, 0, 0, 0.7)'
 }

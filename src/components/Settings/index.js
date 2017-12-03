@@ -14,6 +14,7 @@ type Props = {
 
 const Settings = (props: Props) => {
   const {
+    showSettings,
     displayName,
     changeDisplayName,
     theme,
@@ -23,7 +24,7 @@ const Settings = (props: Props) => {
   } = props
 
   return (
-    <Modal dismiss={dismissSettings}>
+    <Modal show={showSettings} dismiss={dismissSettings}>
       {() => (
         <div>
           <Name name={displayName} onChange={changeDisplayName} />

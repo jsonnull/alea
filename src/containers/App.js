@@ -9,7 +9,6 @@ const mapStateToProps = (state: State): Props => ({
   appIsLoading: state.ui.appIsLoading,
   userIsLoggedIn: state.ui.userIsLoggedIn,
   theme: themes[state.user.preferences.theme],
-  showSettings: state.ui.showSettings,
   location: state.router.location
 })
 

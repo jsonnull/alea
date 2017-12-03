@@ -6,15 +6,19 @@ import Modal from '../Modal'
 describe('Modal component', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Modal dismiss={() => {}}>{() => {}}</Modal>)
+      .create(
+        <Modal show={true} dismiss={() => {}}>
+          {() => {}}
+        </Modal>
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it('renders correctly when no background option is set', () => {
+  it('renders correctly when not set to show', () => {
     const tree = renderer
       .create(
-        <Modal noBackground dismiss={() => {}}>
+        <Modal show={false} dismiss={() => {}}>
           {() => {}}
         </Modal>
       )

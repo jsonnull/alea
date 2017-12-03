@@ -14,6 +14,8 @@ exports[`App component renders correctly when loading 1`] = `
       "colorMedium": "#999",
       "colorSecondary": "#3c3c3c",
       "map": "#bfbca5",
+      "modalBackground": "#f7f7f7",
+      "modalOverlay": "rgba(0, 0, 0, 0.5)",
       "name": "light",
     }
   }
@@ -36,6 +38,8 @@ exports[`App component renders correctly when settings should be showing 1`] = `
       "colorMedium": "#999",
       "colorSecondary": "#3c3c3c",
       "map": "#bfbca5",
+      "modalBackground": "#f7f7f7",
+      "modalOverlay": "rgba(0, 0, 0, 0.5)",
       "name": "light",
     }
   }
@@ -72,6 +76,8 @@ exports[`App component renders correctly when user is logged in 1`] = `
       "colorMedium": "#999",
       "colorSecondary": "#3c3c3c",
       "map": "#bfbca5",
+      "modalBackground": "#f7f7f7",
+      "modalOverlay": "rgba(0, 0, 0, 0.5)",
       "name": "light",
     }
   }
@@ -89,6 +95,7 @@ exports[`App component renders correctly when user is logged in 1`] = `
         path="/g/:name/:id"
       />
     </Switch>
+    <Connect(Settings) />
   </styled.div>
 </ThemeProvider>
 `;

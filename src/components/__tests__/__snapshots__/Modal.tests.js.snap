@@ -2,16 +2,20 @@
 
 exports[`Modal component renders correctly 1`] = `
 <div
-  className="sc-bdVaJa hGAKWv"
+  className="sc-bdVaJa bOsiER"
 >
   <div
-    className="sc-bwzfXH kELLZF"
+    className="sc-bwzfXH hsISIs"
   />
 </div>
 `;
 
-exports[`Modal component renders correctly when no background option is set 1`] = `
+exports[`Modal component renders correctly when not set to show 1`] = `
 <div
-  className="sc-bwzfXH kELLZF"
-/>
+  className="sc-bdVaJa ckWgxK"
+>
+  <div
+    className="sc-bwzfXH bARPNA"
+  />
+</div>
 `;

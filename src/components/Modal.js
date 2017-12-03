@@ -1,36 +1,65 @@
 // @flow
 import React from 'react'
+import Transition from 'react-transition-group/Transition'
 import styled from 'styled-components'
 import onClickOutside from 'react-onclickoutside'
 
+type TransitionState = 'entering' | 'entered' | 'exiting' | 'exited'
+
+const transitionFromState = (state: TransitionState, transitions: Object) => {
+  if (transitions[state]) {
+    return transitions[state]
+  }
+
+  return transitions.default
+}
+
 const Background = styled.div`
-  display: flex;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(
-    0,
-    0,
-    0,
-    ${props => (props.theme.name === 'light' ? '0.5' : '0.7')}
-  );
+  background: ${props => props.theme.modalOverlay};
+  opacity: ${props =>
+    transitionFromState(props.state, {
+      entering: '0',
+      entered: '1',
+      exiting: '0',
+      exited: '0'
+    })};
+  transition: all 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: ${props =>
+    transitionFromState(props.state, {
+      exited: 'none',
+      default: 'flex'
+    })};
 `
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 600px;
   margin: auto;
   border-radius: 5px;
   padding: 2rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  background-color: ${props =>
-    props.theme.name == 'light' ? 'white' : props.theme.backgroundSecondary};
+  background-color: ${props => props.theme.modalBackground};
+  transform: ${props =>
+    transitionFromState(props.state, {
+      entering: 'scale(0.7)',
+      entered: 'scale(1)',
+      exiting: 'scale(0.7)',
+      exited: 'scale(0.7)'
+    })};
+  transition: all 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 `
+
 type ContentProps = {
   dismiss: Function,
+  state: TransitionState,
   children: Function
 }
 class Content extends React.Component<ContentProps> {
@@ -39,28 +68,28 @@ class Content extends React.Component<ContentProps> {
   }
 
   render() {
-    return <Wrapper>{this.props.children()}</Wrapper>
+    return <Wrapper state={this.props.state}>{this.props.children()}</Wrapper>
   }
 }
 
 const ContentWithClick = onClickOutside(Content)
 
 type ModalProps = {
+  show: boolean,
   dismiss: Function,
-  children: Function,
-  noBackground?: boolean
+  children: Function
 }
 const Modal = (props: ModalProps) => {
-  const { noBackground = false, ...restProps } = props
-
-  if (noBackground) {
-    return <Content {...restProps} />
-  }
+  const { show, ...restProps } = props
 
   return (
-    <Background>
-      <ContentWithClick {...restProps} />
-    </Background>
+    <Transition in={show} timeout={{ enter: 0, exit: 200 }}>
+      {(state: TransitionState) => (
+        <Background state={state}>
+          <ContentWithClick state={state} {...restProps} />
+        </Background>
+      )}
+    </Transition>
   )
 }
 
