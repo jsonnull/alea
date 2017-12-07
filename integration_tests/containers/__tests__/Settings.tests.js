@@ -1,9 +1,10 @@
 // @flow
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
-import { ConnectedRouter, push } from 'react-router-redux'
-import { hydrateUserData } from '../../../src/actions'
+import { ConnectedRouter } from 'react-router-redux'
+import { light } from 'styles/themes'
 import {
   APP_FINISHED_LOADING,
   USER_LOGGED_IN
@@ -16,11 +17,13 @@ describe('Settings container', () => {
   const store = setupStore()
   store.dispatch({ type: APP_FINISHED_LOADING })
   const wrapper = mount(
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Settings />
-      </ConnectedRouter>
-    </Provider>
+    <ThemeProvider theme={light}>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Settings />
+        </ConnectedRouter>
+      </Provider>
+    </ThemeProvider>
   )
 
   it('show the user display name', () => {

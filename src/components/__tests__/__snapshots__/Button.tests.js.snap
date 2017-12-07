@@ -2,24 +2,24 @@
 
 exports[`Button component renders correctly with green option set 1`] = `
 <button
-  className="sc-bdVaJa jMuSlE"
+  className="sc-bdVaJa cHCpXR"
 />
 `;
 
 exports[`Button component renders correctly with no options 1`] = `
 <button
-  className="sc-bdVaJa gXXZoz"
+  className="sc-bdVaJa cnOIaA"
 />
 `;
 
 exports[`Button component renders correctly with outline option set 1`] = `
 <button
-  className="sc-bdVaJa giJqZv"
+  className="sc-bdVaJa cPoPuq"
 />
 `;
 
 exports[`Button component renders correctly with red option set 1`] = `
 <button
-  className="sc-bdVaJa gyRotp"
+  className="sc-bdVaJa bEyvCe"
 />
 `;

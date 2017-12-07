@@ -2,20 +2,20 @@
 
 exports[`Settings component renders correctly 1`] = `
 <div
-  className="sc-bdVaJa kAYprr"
+  className="sc-bdVaJa brBhVF"
 >
   <div
-    className="sc-bwzfXH hsISIs"
+    className="sc-bwzfXH eXaRNR"
   >
     <div>
       <div>
         <label
-          className="sc-ifAKCX cmPjpt"
+          className="sc-ifAKCX iyagNL"
         >
           Display Name:
         </label>
         <div
-          className="sc-gzVnrw csXZdG"
+          className="sc-gzVnrw hFWLX"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
@@ -25,7 +25,7 @@ exports[`Settings component renders correctly 1`] = `
       </div>
       <div>
         <label
-          className="sc-ifAKCX cmPjpt"
+          className="sc-ifAKCX iyagNL"
         >
           Theme
         </label>
@@ -33,13 +33,13 @@ exports[`Settings component renders correctly 1`] = `
           className="sc-iwsKbI SIqHi"
         >
           <button
-            className="sc-htpNat eKDpsT"
+            className="sc-htpNat cwhfPC"
             onClick={[Function]}
           >
             Light
           </button>
           <button
-            className="sc-dnqmqq eRYZVa"
+            className="sc-dnqmqq gPRboo"
             onClick={[Function]}
           >
             Dark
@@ -50,7 +50,7 @@ exports[`Settings component renders correctly 1`] = `
         className="sc-bxivhb bIqXCY"
       >
         <button
-          className="sc-htpNat bnmVIn"
+          className="sc-htpNat hnNRQd"
           onClick={[Function]}
         >
           Logout

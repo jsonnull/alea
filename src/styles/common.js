@@ -24,6 +24,10 @@ export const colors = {
   lightGray: '#e6e6e6'
 }
 
+export const timings = {
+  easeOutQuad: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+}
+
 export const CONSTS = {
   headerHeight: '4.25rem'
 }

@@ -1,7 +1,9 @@
 // @flow
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
 import renderer from 'react-test-renderer'
 import Button from '../Button.js'
+import { light } from 'styles/themes'
 
 describe('Button component', () => {
   it('renders correctly with no options', () => {
@@ -20,7 +22,14 @@ describe('Button component', () => {
   })
 
   it('renders correctly with outline option set', () => {
-    const tree = renderer.create(<Button outline />).toJSON()
+    const tree = renderer
+      .create(
+        <ThemeProvider theme={light}>
+          <Button outline />
+        </ThemeProvider>
+      )
+      .toJSON()
+
     expect(tree).toMatchSnapshot()
   })
 })

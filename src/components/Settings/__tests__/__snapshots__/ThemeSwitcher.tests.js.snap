@@ -3,7 +3,7 @@
 exports[`Settings ThemeSwitcher component renders correctly 1`] = `
 <div>
   <label
-    className="sc-bdVaJa eHwgaL"
+    className="sc-bdVaJa kXwKrI"
   >
     Theme
   </label>
@@ -11,13 +11,13 @@ exports[`Settings ThemeSwitcher component renders correctly 1`] = `
     className="sc-bxivhb iamvSI"
   >
     <button
-      className="sc-bwzfXH cYzoFg"
+      className="sc-bwzfXH fkVwIj"
       onClick={[Function]}
     >
       Light
     </button>
     <button
-      className="sc-htpNat fzgoAl"
+      className="sc-htpNat hRbljB"
       onClick={[Function]}
     >
       Dark

@@ -5,7 +5,7 @@ exports[`Modal component renders correctly 1`] = `
   className="sc-bdVaJa kAYprr"
 >
   <div
-    className="sc-bwzfXH hsISIs"
+    className="sc-bwzfXH dcHuJA"
   />
 </div>
 `;
@@ -15,7 +15,7 @@ exports[`Modal component renders correctly when not set to show 1`] = `
   className="sc-bdVaJa kWnJmF"
 >
   <div
-    className="sc-bwzfXH bARPNA"
+    className="sc-bwzfXH cdUXKa"
   />
 </div>
 `;

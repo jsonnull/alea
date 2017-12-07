@@ -2,7 +2,7 @@
 
 exports[`Sessions Create component renders correctly 1`] = `
 <button
-  className="sc-bwzfXH ivxQvV"
+  className="sc-bwzfXH kFiFIo"
   onClick={[Function]}
 >
   Create Game

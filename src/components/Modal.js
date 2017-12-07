@@ -2,6 +2,7 @@
 import React from 'react'
 import Transition from 'react-transition-group/Transition'
 import styled from 'styled-components'
+import { timings } from 'styles/common'
 import onClickOutside from 'react-onclickoutside'
 
 type TransitionState = 'entering' | 'entered' | 'exiting' | 'exited'
@@ -30,7 +31,7 @@ const Background = styled.div`
       exited: '0'
     })};
   transition: opacity 0.2s;
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: ${timings.easeOutQuad};
   transform: ${props =>
     props.state === 'exited' ? 'translateX(-100000px)' : 'none'};
 `
@@ -51,8 +52,8 @@ const Wrapper = styled.div`
       exiting: 'scale(0.7)',
       exited: 'scale(0.7)'
     })};
-  transition: all 0.2s;
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.2s;
+  transition-timing-function: ${timings.easeOutQuad};
 `
 
 type ContentProps = {
@@ -82,14 +83,11 @@ const Modal = (props: ModalProps) => {
 
   return (
     <Transition in={show} timeout={{ enter: 200, exit: 200 }}>
-      {(state: TransitionState) => {
-        console.log(state)
-        return (
-          <Background state={state}>
-            <ContentWithClick state={state} {...restProps} />
-          </Background>
-        )
-      }}
+      {(state: TransitionState) => (
+        <Background state={state}>
+          <ContentWithClick state={state} {...restProps} />
+        </Background>
+      )}
     </Transition>
   )
 }
