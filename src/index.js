@@ -41,7 +41,7 @@ const render = Component => {
 render(App)
 
 if (module.hot) {
-  ;(module.hot: any).accept('containers/App', () => {
+  ;(module.hot: any).accept('./containers/App', () => {
     render(App)
   })
 }
