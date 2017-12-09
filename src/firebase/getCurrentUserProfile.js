@@ -1,9 +1,9 @@
 // @flow
 import firebase from '@firebase/app'
 import '@firebase/auth'
-import type { UserProfileState } from 'reducers/user/profile'
+import type { UserProfile } from 'types'
 
-const getCurrentUserProfile = (): UserProfileState => {
+const getCurrentUserProfile = (): UserProfile => {
   const currentUser = firebase.auth().currentUser
   const photoURL = currentUser.photoURL
   const displayName = currentUser.displayName || currentUser.email

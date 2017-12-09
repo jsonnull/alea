@@ -6,6 +6,7 @@ import { CHANGE_DISPLAY_NAME } from 'actions/types'
 import saveUserProfile from '../saveUserProfile'
 
 describe('saveUserProfile saga', () => {
+  const mockId = 'testUserId'
   const mockEmail = 'email@example.com'
   const mockGetUserEmail = () => mockEmail
   const mockSaveProfile = () => {}
@@ -14,8 +15,14 @@ describe('saveUserProfile saga', () => {
     mockSaveProfile
   )
 
+  const emptyNameAction = { type: CHANGE_DISPLAY_NAME, id: mockId, name: '' }
   const emptyNameProfile = {
     displayName: ''
+  }
+  const filledNameAction = {
+    type: CHANGE_DISPLAY_NAME,
+    id: mockId,
+    name: 'test'
   }
   const filledNameProfile = {
     displayName: 'test'
@@ -28,7 +35,7 @@ describe('saveUserProfile saga', () => {
   })
 
   it('should select the user profile from the store', () => {
-    expect(withEmptyName.next().value).toHaveProperty('SELECT')
+    expect(withEmptyName.next(emptyNameAction).value).toHaveProperty('SELECT')
   })
 
   it('should get the users email if no name is present', () => {
@@ -39,14 +46,14 @@ describe('saveUserProfile saga', () => {
 
   it('should put the users email in place of the name', () => {
     expect(withEmptyName.next(mockEmail).value).toEqual(
-      put(changeDisplayName(mockEmail))
+      put(changeDisplayName(mockId, mockEmail))
     )
   })
 
   it('should save the profile if name is present', () => {
     // Take, select
     withUserName.next()
-    withUserName.next()
+    withUserName.next(filledNameAction)
     expect(withUserName.next(filledNameProfile).value).toEqual(
       call(mockSaveProfile, filledNameProfile)
     )

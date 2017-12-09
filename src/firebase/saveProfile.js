@@ -1,9 +1,9 @@
 // @flow
 import firebase from '@firebase/app'
 import '@firebase/auth'
-import type { UserProfileState } from 'reducers/user/profile'
+import type { UserProfile } from 'types'
 
-const saveProfile = (profile: UserProfileState): void => {
+const saveProfile = (profile: UserProfile): void => {
   firebase
     .auth()
     .currentUser.updateProfile(profile)

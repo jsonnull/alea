@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { ConnectedRouter } from 'react-router-redux'
 import { light } from 'styles/themes'
+import { userLoggedIn, hydrateUserProfile } from '../../../src/actions'
 import {
   APP_FINISHED_LOADING,
   USER_LOGGED_IN
@@ -15,7 +16,16 @@ import Settings from '../../../src/containers/Settings'
 
 describe('Settings container', () => {
   const store = setupStore()
+  // Mimic user login and basic details
+  store.dispatch(userLoggedIn('testUserId'))
+  store.dispatch(
+    hydrateUserProfile('testUserId', {
+      displayName: 'anonymous',
+      photoURL: null
+    })
+  )
   store.dispatch({ type: APP_FINISHED_LOADING })
+
   const wrapper = mount(
     <ThemeProvider theme={light}>
       <Provider store={store}>

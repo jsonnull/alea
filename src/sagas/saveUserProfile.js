@@ -8,11 +8,11 @@ export default function* saveUserProfile(
   saveProfile: Function
 ): Generator<*, *, *> {
   while (true) {
-    yield take(CHANGE_DISPLAY_NAME)
+    const action = yield take(CHANGE_DISPLAY_NAME)
     const profile = yield select(state => state.user.profile)
     if (profile.displayName === '') {
       const email = yield call(getCurrentUserEmail)
-      yield put(changeDisplayName(email))
+      yield put(changeDisplayName(action.id, email))
     } else {
       const profileToSave = {
         displayName: profile.displayName

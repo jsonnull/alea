@@ -1,7 +1,10 @@
 // @flow
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
+import { createReducer } from 'redux-orm'
 import createSagaMiddleware from 'redux-saga'
+import orm from './models/orm'
+import currentUser from './reducers/currentUser'
 import messages from './reducers/messages'
 import session from './reducers/session'
 import sidebar from './reducers/sidebar'
@@ -9,6 +12,7 @@ import ui from './reducers/ui'
 import user from './reducers/user/'
 import sagas from './sagas/'
 
+import type { CurrentUserState } from './reducers/currentUser'
 import type { MessagesState } from './reducers/messages'
 import type { SessionState } from './reducers/session'
 import type { SidebarState } from './reducers/sidebar'
@@ -25,6 +29,8 @@ type RouterState = {
 
 /* State tree */
 export type State = {
+  orm: Object,
+  currentUser: CurrentUserState,
   messages: MessagesState,
   session: SessionState,
   sidebar: SidebarState,
@@ -35,6 +41,8 @@ export type State = {
 
 export default function createStoreWithMiddleware(history: Object) {
   const reducers = combineReducers({
+    orm: createReducer(orm),
+    currentUser,
     messages,
     session,
     sidebar,

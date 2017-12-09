@@ -23,7 +23,9 @@ describe('ui reducer', () => {
   })
 
   it('should handle USER_LOGGED_IN', () => {
-    expect(reduce(undefined, { type: types.USER_LOGGED_IN })).toEqual({
+    expect(
+      reduce(undefined, { type: types.USER_LOGGED_IN, id: 'test' })
+    ).toEqual({
       ...DEFAULT_STATE,
       userIsLoggedIn: true
     })

@@ -1,6 +1,5 @@
 // @flow
-import type { SessionMeta, Message, ThemeName, Tab } from 'types'
-import type { UserProfileState } from 'reducers/user/profile'
+import type { SessionMeta, Message, ThemeName, Tab, UserProfile } from 'types'
 import type { UserPreferencesState } from 'reducers/user/preferences'
 import type { UserDataState } from 'reducers/user/data'
 import type { SessionState } from 'reducers/session'
@@ -39,13 +38,13 @@ export type Action =
   | { type: 'HIDE_SETTINGS' }
   // User
   | { type: 'PERFORM_USER_LOGIN', email: string, password: string }
-  | { type: 'USER_LOGGED_IN' }
+  | { type: 'USER_LOGGED_IN', id: string }
   | { type: 'PERFORM_USER_LOGOUT' }
   | { type: 'USER_LOGGED_OUT' }
   // User Profile
-  | { type: 'CHANGE_DISPLAY_NAME', name: string }
-  | { type: 'HYDRATE_USER_PROFILE', user: UserProfileState }
-  | { type: 'UPDATE_USER_PROFILE', user: UserProfileState }
+  | { type: 'CHANGE_DISPLAY_NAME', id: string, name: string }
+  | { type: 'HYDRATE_USER_PROFILE', id: string, user: UserProfile }
+  | { type: 'UPDATE_USER_PROFILE', id: string, user: UserProfile }
   // User Preferences
   | { type: 'HYDRATE_PREFERENCES', prefs: UserPreferencesState }
   | { type: 'CHANGE_THEME', theme: ThemeName }

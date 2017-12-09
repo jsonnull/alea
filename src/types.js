@@ -32,3 +32,8 @@ export type SessionInfo = {
 export type ThemeName = 'light' | 'dark'
 
 export type Tab = 'Session' | 'Character'
+
+export type UserProfile = {
+  displayName: string,
+  photoURL: string | null
+}

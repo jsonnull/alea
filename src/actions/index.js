@@ -1,7 +1,6 @@
 // @flow
 import type { Action } from './types'
-import type { SessionMeta, Message, ThemeName, Tab } from 'types'
-import type { UserProfileState } from 'reducers/user/profile'
+import type { SessionMeta, Message, ThemeName, Tab, UserProfile } from 'types'
 import type { UserPreferencesState } from 'reducers/user/preferences'
 import type { UserDataState } from 'reducers/user/data'
 import type { SessionState } from 'reducers/session'
@@ -25,21 +24,29 @@ export const performUserLogin = (email: string, password: string): Action => ({
   password
 })
 
+export const userLoggedIn = (id: string): Action => ({
+  type: 'USER_LOGGED_IN',
+  id
+})
+
 /*
  * User Profile
  */
-export const changeDisplayName = (name: string): Action => ({
+export const changeDisplayName = (id: string, name: string): Action => ({
   type: 'CHANGE_DISPLAY_NAME',
+  id,
   name
 })
 
-export const hydrateUserProfile = (user: UserProfileState): Action => ({
+export const hydrateUserProfile = (id: string, user: UserProfile): Action => ({
   type: 'HYDRATE_USER_PROFILE',
+  id,
   user
 })
 
-export const updateUserProfile = (user: UserProfileState): Action => ({
+export const updateUserProfile = (id: string, user: UserProfile): Action => ({
   type: 'UPDATE_USER_PROFILE',
+  id,
   user
 })
 

@@ -4,12 +4,13 @@ import { push } from 'react-router-redux'
 import Header from 'components/Header'
 import { SHOW_SETTINGS } from 'actions/types'
 import type { State } from 'store'
+import displayNameSelector from 'selectors/displayName'
 
 type StateProps = {
   username: string
 }
 const mapStateToProps = (state: State): StateProps => ({
-  username: state.user.profile.displayName
+  username: displayNameSelector(state)
 })
 
 type DispatchProps = {

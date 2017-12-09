@@ -4,7 +4,9 @@ import { hydrateUserProfile } from 'actions'
 import { USER_LOGGED_IN } from 'actions/types'
 import loadUserProfile from '../loadUserProfile'
 
-const mockData = { displayName: 'test_user', photoURL: undefined }
+const mockId = 'testUserId'
+const mockAction = { type: USER_LOGGED_IN, id: mockId }
+const mockData = { displayName: 'test_user', photoURL: null }
 const mockGetProfile = () => mockData
 
 describe('loadUserProfile saga', () => {
@@ -15,11 +17,13 @@ describe('loadUserProfile saga', () => {
   })
 
   it('should call function to get user profile', () => {
-    expect(gen.next().value).toEqual(call(mockGetProfile))
+    expect(gen.next(mockAction).value).toEqual(call(mockGetProfile))
   })
 
   it('should hydrate the redux store with profile', () => {
-    expect(gen.next(mockData).value).toEqual(put(hydrateUserProfile(mockData)))
+    expect(gen.next(mockData).value).toEqual(
+      put(hydrateUserProfile(mockId, mockData))
+    )
   })
 
   it('should listen for next login', () => {

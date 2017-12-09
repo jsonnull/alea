@@ -13,6 +13,7 @@ describe('Settings component', () => {
           <Settings
             showSettings={true}
             displayName="test"
+            currentUserId="test"
             changeDisplayName={() => {}}
             theme={light}
             changeTheme={() => {}}

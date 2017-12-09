@@ -4,11 +4,22 @@ import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { ConnectedRouter } from 'react-router-redux'
 import setupStore, { history, dispatchSpy } from '../../setupStore'
+import { userLoggedIn, hydrateUserProfile } from '../../../src/actions'
 import { SHOW_SETTINGS } from '../../../src/actions/types'
 import Header from '../../../src/containers/Header'
 
 describe('Header container', () => {
   const store = setupStore()
+
+  // Mimic user login and basic details
+  store.dispatch(userLoggedIn('testUserId'))
+  store.dispatch(
+    hydrateUserProfile('testUserId', {
+      displayName: 'anonymous',
+      photoURL: null
+    })
+  )
+
   const wrapper = mount(
     <Provider store={store}>
       <ConnectedRouter history={history}>
