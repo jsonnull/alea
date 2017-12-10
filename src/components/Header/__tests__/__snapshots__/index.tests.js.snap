@@ -2,10 +2,10 @@
 
 exports[`Header component renders correctly 1`] = `
 <div
-  className="sc-bZQynM mLqIE"
+  className="sc-EHOje gfEPLT"
 >
   <div
-    className="sc-gzVnrw bsXxGB"
+    className="sc-bZQynM iWmotD"
   >
     <div
       onMouseOut={[Function]}
@@ -24,27 +24,17 @@ exports[`Header component renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-gzVnrw bsXxGB"
+    className="sc-bZQynM iWmotD"
   >
     <div
-      className="sc-ifAKCX llvlPY"
-    >
-      <div
-        className="sc-bxivhb kGowsV"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": Object {},
-          }
-        }
-        height="12px"
-      />
-    </div>
+      className="sc-bxivhb hLukyn"
+    />
   </div>
   <div
-    className="sc-htoDjs dyWdAa"
+    className="sc-gzVnrw lfBqcd"
   >
     <div
-      className="sc-EHOje fjTLAe"
+      className="sc-ifAKCX eQgzMa"
     >
       test
     </div>
