@@ -2,9 +2,9 @@
 import firebase from '@firebase/app'
 import '@firebase/auth'
 import '@firebase/firestore'
-import type { UserPreferencesState } from 'reducers/user/preferences'
+import type { PreferencesState } from 'reducers/preferences'
 
-const getUserPreferences = (): Promise<UserPreferencesState> => {
+const getUserPreferences = (): Promise<PreferencesState> => {
   return new Promise((resolve, reject) => {
     const uid = firebase.auth().currentUser.uid
     const db = firebase.firestore()

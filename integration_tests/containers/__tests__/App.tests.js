@@ -2,14 +2,13 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
-import { ConnectedRouter, push } from 'react-router-redux'
-import { sendMessage, receiveMessage } from '../../../src/actions'
+import { ConnectedRouter } from 'react-router-redux'
 import {
   APP_FINISHED_LOADING,
   SHOW_SETTINGS,
   USER_LOGGED_IN
 } from '../../../src/actions/types'
-import setupStore, { history, dispatchSpy } from '../../setupStore'
+import setupStore, { history } from '../../setupStore'
 import App from '../../../src/containers/App'
 
 describe('App container', () => {

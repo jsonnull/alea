@@ -1,11 +1,11 @@
 // @flow
 import { take, call } from 'redux-saga/effects'
 import { CHANGE_THEME, TOGGLE_CHAT_PIN } from 'actions/types'
-import saveUserPreferences from '../saveUserPreferences'
+import savePreferences from '../savePreferences'
 
-describe('saveUserPreferences saga', () => {
+describe('savePreferences saga', () => {
   const mockSaveFunction = () => {}
-  const gen = saveUserPreferences(mockSaveFunction)
+  const gen = savePreferences(mockSaveFunction)
 
   it('should wait for preferences to change', () => {
     expect(gen.next().value).toEqual(take([CHANGE_THEME, TOGGLE_CHAT_PIN]))

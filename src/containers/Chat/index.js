@@ -12,7 +12,7 @@ type StateProps = {
 }
 const mapStateToProps = (state: State): StateProps => ({
   messages: state.messages,
-  isPinned: state.user.preferences.chatPinned
+  isPinned: state.preferences.chatPinned
 })
 
 type DispatchProps = {

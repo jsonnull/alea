@@ -4,50 +4,19 @@ import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createReducer } from 'redux-orm'
 import createSagaMiddleware from 'redux-saga'
 import orm from './models/orm'
-import currentUser from './reducers/currentUser'
-import messages from './reducers/messages'
-import session from './reducers/session'
-import sidebar from './reducers/sidebar'
-import ui from './reducers/ui'
-import user from './reducers/user/'
+import * as reducers from './reducers'
 import sagas from './sagas/'
-
-import type { CurrentUserState } from './reducers/currentUser'
-import type { MessagesState } from './reducers/messages'
-import type { SessionState } from './reducers/session'
-import type { SidebarState } from './reducers/sidebar'
-import type { UIState } from './reducers/ui'
-import type { UserState } from './reducers/user'
-
-type RouterState = {
-  location: {
-    pathname: string,
-    search: string,
-    hash: string
-  }
-}
+import type { ReducerState } from './reducers'
 
 /* State tree */
 export type State = {
-  orm: Object,
-  currentUser: CurrentUserState,
-  messages: MessagesState,
-  session: SessionState,
-  sidebar: SidebarState,
-  ui: UIState,
-  user: UserState,
-  router: RouterState
-}
+  orm: Object
+} & ReducerState
 
 export default function createStoreWithMiddleware(history: Object) {
-  const reducers = combineReducers({
+  const reducer = combineReducers({
     orm: createReducer(orm),
-    currentUser,
-    messages,
-    session,
-    sidebar,
-    ui,
-    user,
+    ...reducers,
     router: routerReducer
   })
 
@@ -58,7 +27,7 @@ export default function createStoreWithMiddleware(history: Object) {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
   let store = createStore(
-    reducers,
+    reducer,
     composeEnhancers(applyMiddleware(...middleware))
   )
 

@@ -8,7 +8,7 @@ import type { Props } from '../components/App'
 const mapStateToProps = (state: State): Props => ({
   appIsLoading: state.ui.appIsLoading,
   userIsLoggedIn: state.ui.userIsLoggedIn,
-  theme: themes[state.user.preferences.theme],
+  theme: themes[state.preferences.theme],
   location: state.router.location
 })
 

@@ -1,7 +1,7 @@
 // @flow
 import type { Action } from './types'
 import type { SessionMeta, Message, ThemeName, Tab, UserProfile } from 'types'
-import type { UserPreferencesState } from 'reducers/user/preferences'
+import type { PreferencesState } from 'reducers/preferences'
 import type { UserDataState } from 'reducers/user/data'
 import type { SessionState } from 'reducers/session'
 
@@ -53,7 +53,7 @@ export const updateUserProfile = (id: string, user: UserProfile): Action => ({
 /*
  * User Preferences
  */
-export const hydratePreferences = (prefs: UserPreferencesState): Action => ({
+export const hydratePreferences = (prefs: PreferencesState): Action => ({
   type: 'HYDRATE_PREFERENCES',
   prefs
 })

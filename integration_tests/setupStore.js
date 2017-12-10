@@ -6,12 +6,7 @@ import { createReducer } from 'redux-orm'
 import createSagaMiddleware from 'redux-saga'
 import sinon from 'sinon'
 import orm from '../src/models/orm'
-import currentUser from 'reducers/currentUser'
-import messages from 'reducers/messages'
-import session from 'reducers/session'
-import sidebar from 'reducers/sidebar'
-import ui from 'reducers/ui'
-import user from 'reducers/user/'
+import * as reducers from '../src/reducers'
 import sagas from './setupSagas'
 
 export const history = createMemoryHistory()
@@ -24,22 +19,17 @@ const spyReducer = (state = {}, action) => {
 }
 
 export default function createStoreWithMiddleware() {
-  const reducers = combineReducers({
+  const reducer = combineReducers({
     spyReducer,
     orm: createReducer(orm),
-    currentUser,
-    messages,
-    session,
-    sidebar,
-    ui,
-    user,
+    ...reducers,
     router: routerReducer
   })
 
   const sagaMiddleware = createSagaMiddleware()
   const middleware = [routerMiddleware(history), sagaMiddleware]
 
-  let store = createStore(reducers, applyMiddleware(...middleware))
+  let store = createStore(reducer, applyMiddleware(...middleware))
 
   sagaMiddleware.run(sagas)
 

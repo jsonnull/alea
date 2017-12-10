@@ -41,11 +41,11 @@ describe('Settings container', () => {
   })
 
   it('should allow the user to change theme', () => {
-    expect(store.getState().user.preferences.theme).toEqual('light')
+    expect(store.getState().preferences.theme).toEqual('light')
     const darkButton = wrapper.find('button').at(1)
     expect(darkButton.text()).toContain('Dark')
     darkButton.simulate('click')
-    expect(store.getState().user.preferences.theme).toEqual('dark')
+    expect(store.getState().preferences.theme).toEqual('dark')
   })
 
   it('should allow the user to log out', () => {

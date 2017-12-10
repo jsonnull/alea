@@ -16,7 +16,7 @@ export type StateProps = {
   showSettings: boolean
 }
 const mapStateToProps = (state: State): StateProps => ({
-  theme: themes[state.user.preferences.theme],
+  theme: themes[state.preferences.theme],
   displayName: displayNameSelector(state),
   currentUserId: state.currentUser.id,
   showSettings: state.ui.showSettings

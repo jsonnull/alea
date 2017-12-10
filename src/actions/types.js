@@ -1,6 +1,6 @@
 // @flow
 import type { SessionMeta, Message, ThemeName, Tab, UserProfile } from 'types'
-import type { UserPreferencesState } from 'reducers/user/preferences'
+import type { PreferencesState } from 'reducers/preferences'
 import type { UserDataState } from 'reducers/user/data'
 import type { SessionState } from 'reducers/session'
 
@@ -46,7 +46,7 @@ export type Action =
   | { type: 'HYDRATE_USER_PROFILE', id: string, user: UserProfile }
   | { type: 'UPDATE_USER_PROFILE', id: string, user: UserProfile }
   // User Preferences
-  | { type: 'HYDRATE_PREFERENCES', prefs: UserPreferencesState }
+  | { type: 'HYDRATE_PREFERENCES', prefs: PreferencesState }
   | { type: 'CHANGE_THEME', theme: ThemeName }
   | { type: 'TOGGLE_CHAT_PIN' }
   // User Data

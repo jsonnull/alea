@@ -2,13 +2,13 @@
 import { take, call, put } from 'redux-saga/effects'
 import { hydratePreferences } from 'actions'
 import { USER_LOGGED_IN, APP_FINISHED_LOADING } from 'actions/types'
-import loadUserPreferences from '../loadUserPreferences'
+import loadPreferences from '../loadPreferences'
 
 const mockData = { theme: 'light', chatPinned: true }
 const mockGetPreferences = () => new Promise(resolve => resolve(mockData))
 
-describe('loadUserPreferences saga', () => {
-  const gen = loadUserPreferences(mockGetPreferences)
+describe('loadPreferences saga', () => {
+  const gen = loadPreferences(mockGetPreferences)
 
   it('should wait for USER_LOGGED_IN', () => {
     expect(gen.next().value).toEqual(take(USER_LOGGED_IN))

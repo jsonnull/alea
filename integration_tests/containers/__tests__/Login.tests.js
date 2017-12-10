@@ -2,10 +2,10 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
-import { ConnectedRouter, push } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
 import { performUserLogin } from '../../../src/actions'
 import { APP_FINISHED_LOADING } from '../../../src/actions/types'
-import setupStore, { history, dispatchSpy } from '../../setupStore'
+import setupStore, { history } from '../../setupStore'
 import { loginFunction } from '../../setupSagas'
 import Login from '../../../src/containers/Login'
 

@@ -32,9 +32,9 @@ describe('Chat container', () => {
   })
 
   it('should allow user to toggle pin state', () => {
-    expect(store.getState().user.preferences.chatPinned).toBe(false)
+    expect(store.getState().preferences.chatPinned).toBe(false)
     wrapper.find('i.fa-thumb-tack').simulate('click')
-    expect(store.getState().user.preferences.chatPinned).toBe(true)
+    expect(store.getState().preferences.chatPinned).toBe(true)
   })
 
   it('should allow the user to send messages', () => {
