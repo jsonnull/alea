@@ -27,7 +27,7 @@ type Props = {
 }
 
 export default class MessageList extends React.Component<Props> {
-  timer: number
+  timer: IntervalID
   scroll: ?HTMLElement
 
   componentDidMount() {

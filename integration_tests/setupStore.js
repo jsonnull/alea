@@ -19,6 +19,7 @@ const spyReducer = (state = {}, action) => {
 }
 
 export default function createStoreWithMiddleware() {
+  // $FlowFixMe: This is erroring for some reason
   const reducer = combineReducers({
     spyReducer,
     orm: createReducer(orm),
