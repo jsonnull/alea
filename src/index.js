@@ -3,7 +3,6 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { AppContainer } from 'react-hot-loader'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 import initializeFirebase from './firebase/initialize'
@@ -25,23 +24,11 @@ let history = createBrowserHistory()
 let store = createStore(history)
 initializeFirebase(config, store)
 
-const render = Component => {
-  ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <Component />
-        </ConnectedRouter>
-      </Provider>
-    </AppContainer>,
-    ((document.getElementById('root'): any): Element)
-  )
-}
-
-render(App)
-
-if (module.hot) {
-  ;(module.hot: any).accept('./containers/App', () => {
-    render(App)
-  })
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  ((document.getElementById('root'): any): Element)
+)
