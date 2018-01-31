@@ -1,5 +1,5 @@
 // @flow
-import { take, put } from 'redux-saga/effects'
+import { take, put, call } from 'redux-saga/effects'
 import { performUserLogin } from 'actions'
 import {
   APP_FINISHED_LOADING,
@@ -9,11 +9,13 @@ import {
   USER_LOGGED_OUT
 } from 'actions/types'
 import loginFlow from '../loginFlow'
+import login from 'firebase/login'
+import logout from 'firebase/logout'
+jest.mock('firebase/login')
+jest.mock('firebase/logout')
 
 describe('login saga', () => {
-  const loginFunction = () => {}
-  const logoutFunction = () => {}
-  const gen = loginFlow(loginFunction, logoutFunction)
+  const gen = loginFlow()
 
   it('should wait for app to finish loading', () => {
     expect(gen.next().value).toEqual(take(APP_FINISHED_LOADING))
@@ -34,7 +36,7 @@ describe('login saga', () => {
 
   const loginAction = performUserLogin('test@example.com', 'password')
   it('should perform login', () => {
-    expect(gen.next(loginAction).value).toHaveProperty('CALL.fn', loginFunction)
+    expect(gen.next(loginAction).value).toEqual(call(login, loginAction))
   })
 
   it('should ignore additional login instructions', () => {
@@ -50,10 +52,7 @@ describe('login saga', () => {
 
   const logoutAction = { type: PERFORM_USER_LOGOUT }
   it('should perform logout', () => {
-    expect(gen.next(logoutAction).value).toHaveProperty(
-      'CALL.fn',
-      logoutFunction
-    )
+    expect(gen.next(logoutAction).value).toEqual(call(logout))
   })
 
   it('should report user logged out', () => {
