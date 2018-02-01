@@ -2,12 +2,31 @@
 import styled, { css } from 'styled-components'
 import * as themes from 'styles/themes'
 import { fontSize, colors, timings } from 'styles/common'
-import { shade } from 'chromatism'
 
-const boxShadow = color => `inset 0 -20px 10px -10px ${shade(-6, color).hex}`
-const hoverBackground = color => shade(-9, color).hex
+function shade(hex: string, lum: number = 0) {
+  hex = hex.replace(/[^0-9a-f]/gi, '')
+
+  console.assert(hex.length === 6)
+
+  console.log(hex)
+
+  let rgb = '#'
+
+  for (let i = 0; i < 3; i++) {
+    let c = parseInt(hex.substr(i * 2, 2), 16)
+    c = Math.round(Math.min(Math.max(0, c + c * lum), 255)).toString(16)
+    rgb += ('00' + c).substr(c.length)
+  }
+
+  console.log(rgb)
+
+  return rgb
+}
+
+const boxShadow = color => `inset 0 -20px 10px -10px ${shade(color, -0.06)}`
+const hoverBackground = color => shade(color, -0.09)
 const hoverBoxShadow = color =>
-  `inset 0 -20px 10px -10px ${shade(-15, color).hex};`
+  `inset 0 -20px 10px -10px ${shade(color, -0.15)};`
 
 const redMixin = css`
   background: ${colors.red};
