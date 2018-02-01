@@ -11,7 +11,7 @@ type StateProps = {
 }
 const mapStateToProps = (state: State): StateProps => ({
   username: displayNameSelector(state),
-  userIsLoggedIn: state => state.currentUser.id !== null
+  userIsLoggedIn: state.currentUser.id !== null
 })
 
 type DispatchProps = {
@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
 })
 
 const mergeProps = (stateProps, dispatchProps) => {
+  console.log(stateProps)
   return {
     ...dispatchProps,
     username: stateProps.userIsLoggedIn ? stateProps.username : null
