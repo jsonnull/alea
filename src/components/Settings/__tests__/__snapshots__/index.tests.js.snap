@@ -33,13 +33,13 @@ exports[`Settings component renders correctly 1`] = `
           className="sc-iwsKbI SIqHi"
         >
           <button
-            className="sc-htpNat cwhfPC"
+            className="sc-htpNat fnOytD"
             onClick={[Function]}
           >
             Light
           </button>
           <button
-            className="sc-dnqmqq gPRboo"
+            className="sc-dnqmqq LUIxc"
             onClick={[Function]}
           >
             Dark
@@ -50,7 +50,7 @@ exports[`Settings component renders correctly 1`] = `
         className="sc-bxivhb bIqXCY"
       >
         <button
-          className="sc-htpNat hnNRQd"
+          className="sc-htpNat faaBHr"
           onClick={[Function]}
         >
           Logout

@@ -5,7 +5,7 @@ exports[`Settings Logout component renders correctly 1`] = `
   className="sc-bwzfXH RlJjI"
 >
   <button
-    className="sc-bdVaJa bEyvCe"
+    className="sc-bdVaJa EDIIL"
     onClick={[Function]}
   >
     Logout

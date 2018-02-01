@@ -11,13 +11,13 @@ exports[`Settings ThemeSwitcher component renders correctly 1`] = `
     className="sc-bxivhb iamvSI"
   >
     <button
-      className="sc-bwzfXH fkVwIj"
+      className="sc-bwzfXH hmxbOq"
       onClick={[Function]}
     >
       Light
     </button>
     <button
-      className="sc-htpNat hRbljB"
+      className="sc-htpNat kqwrsi"
       onClick={[Function]}
     >
       Dark

@@ -26,7 +26,6 @@ const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
 })
 
 const mergeProps = (stateProps, dispatchProps) => {
-  console.log(stateProps)
   return {
     ...dispatchProps,
     username: stateProps.userIsLoggedIn ? stateProps.username : null
