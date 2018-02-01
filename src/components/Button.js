@@ -8,8 +8,6 @@ function shade(hex: string, lum: number = 0) {
 
   console.assert(hex.length === 6)
 
-  console.log(hex)
-
   let rgb = '#'
 
   for (let i = 0; i < 3; i++) {
@@ -17,8 +15,6 @@ function shade(hex: string, lum: number = 0) {
     c = Math.round(Math.min(Math.max(0, c + c * lum), 255)).toString(16)
     rgb += ('00' + c).substr(c.length)
   }
-
-  console.log(rgb)
 
   return rgb
 }
