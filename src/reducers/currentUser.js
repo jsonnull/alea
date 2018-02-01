@@ -17,6 +17,8 @@ export default function reducer(
   switch (action.type) {
     case types.USER_LOGGED_IN:
       return { ...state, id: action.id }
+    case types.PERFORM_USER_LOGOUT:
+      return { ...state, id: null }
     default:
       return state
   }

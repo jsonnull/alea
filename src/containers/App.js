@@ -1,5 +1,4 @@
 // @flow
-import { hot } from 'react-hot-loader'
 import { connect } from 'react-redux'
 import App from '../components/App'
 import * as themes from 'styles/themes'
@@ -13,6 +12,4 @@ const mapStateToProps = (state: State): Props => ({
   location: state.router.location
 })
 
-const Container = connect(mapStateToProps)(App)
-
-export default hot(module)(Container)
+export default connect(mapStateToProps)(App)

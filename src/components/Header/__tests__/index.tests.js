@@ -7,7 +7,12 @@ describe('Header component', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <Header username="test" goHome={() => {}} showSettings={() => {}} />
+        <Header
+          username="test"
+          goHome={() => {}}
+          showLogin={() => {}}
+          showSettings={() => {}}
+        />
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

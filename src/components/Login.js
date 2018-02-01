@@ -1,7 +1,9 @@
 // @flow
 import React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+import Header from '../containers/Header'
 import Logo from './Logo'
+import { light as theme } from 'styles/themes'
 import { fonts } from 'styles/common'
 
 type Props = {
@@ -61,29 +63,32 @@ const Button = styled.button`
 
 export default (props: Props) => {
   return (
-    <Container>
-      <Login>
-        <Heading>
-          <Logo height="25px" />
-        </Heading>
-        <form onSubmit={props.onLogin}>
-          <Input
-            name="username"
-            type="text"
-            placeholder="email"
-            value={props.email}
-            onChange={props.onEmailChange}
-          />
-          <Input
-            name="password"
-            type="password"
-            placeholder="password"
-            value={props.password}
-            onChange={props.onPasswordChange}
-          />
-          <Button onClick={props.onLogin}>Login</Button>
-        </form>
-      </Login>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Header />
+        <Login>
+          <Heading>
+            <Logo height="25px" />
+          </Heading>
+          <form onSubmit={props.onLogin}>
+            <Input
+              name="username"
+              type="text"
+              placeholder="email"
+              value={props.email}
+              onChange={props.onEmailChange}
+            />
+            <Input
+              name="password"
+              type="password"
+              placeholder="password"
+              value={props.password}
+              onChange={props.onPasswordChange}
+            />
+            <Button onClick={props.onLogin}>Login</Button>
+          </form>
+        </Login>
+      </Container>
+    </ThemeProvider>
   )
 }

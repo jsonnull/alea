@@ -10,6 +10,9 @@ const currentUserSelector = createSelector(
   databaseSelector,
   currentUserIdSelector,
   (db, userId) => {
+    if (userId === null) {
+      return null
+    }
     const session = orm.session(db)
     return session.User.withId(userId)
   }

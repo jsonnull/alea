@@ -1,51 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login component renders correctly 1`] = `
-<div
-  className="sc-bwzfXH fYVOJF"
+<ThemeProvider
+  theme={
+    Object {
+      "background": "#f7f7f7",
+      "backgroundInverted": "#3c3c3c",
+      "backgroundInvertedSecondary": "#555",
+      "backgroundSecondary": "#ebe3d6",
+      "borderColor": "#cdc5ba",
+      "color": "black",
+      "colorInverted": "#f7f7f7",
+      "colorMedium": "#999",
+      "colorSecondary": "#3c3c3c",
+      "map": "#bfbca5",
+      "modalBackground": "#f7f7f7",
+      "modalOverlay": "rgba(0, 0, 0, 0.5)",
+      "name": "light",
+    }
+  }
 >
-  <div
-    className="sc-htpNat iwoucR"
-  >
-    <h1
-      className="sc-bxivhb kBnUkJ"
-    >
-      <div
-        className="sc-bdVaJa cNYobl"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": Object {},
-          }
-        }
-        height="25px"
-      />
-    </h1>
-    <form
-      onSubmit={[Function]}
-    >
-      <input
-        className="sc-ifAKCX frYxG"
-        name="username"
-        onChange={[Function]}
-        placeholder="email"
-        type="text"
-        value="test@example.com"
-      />
-      <input
-        className="sc-ifAKCX frYxG"
-        name="password"
-        onChange={[Function]}
-        placeholder="password"
-        type="password"
-        value="test"
-      />
-      <button
-        className="sc-EHOje hZyWZt"
-        onClick={[Function]}
+  <styled.div>
+    <Connect(Header) />
+    <styled.div>
+      <styled.h1>
+        <Logo
+          height="25px"
+        />
+      </styled.h1>
+      <form
+        onSubmit={[Function]}
       >
-        Login
-      </button>
-    </form>
-  </div>
-</div>
+        <styled.input
+          name="username"
+          onChange={[Function]}
+          placeholder="email"
+          type="text"
+          value="test@example.com"
+        />
+        <styled.input
+          name="password"
+          onChange={[Function]}
+          placeholder="password"
+          type="password"
+          value="test"
+        />
+        <styled.button
+          onClick={[Function]}
+        >
+          Login
+        </styled.button>
+      </form>
+    </styled.div>
+  </styled.div>
+</ThemeProvider>
 `;
