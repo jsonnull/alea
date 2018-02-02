@@ -1,101 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component renders correctly when finished loading 1`] = `
-<ThemeProvider
-  theme={
-    Object {
-      "background": "#f7f7f7",
-      "backgroundInverted": "#3c3c3c",
-      "backgroundInvertedSecondary": "#555",
-      "backgroundSecondary": "#ebe3d6",
-      "borderColor": "#cdc5ba",
-      "color": "black",
-      "colorInverted": "#f7f7f7",
-      "colorMedium": "#999",
-      "colorSecondary": "#3c3c3c",
-      "map": "#bfbca5",
-      "modalBackground": "#f7f7f7",
-      "modalOverlay": "rgba(0, 0, 0, 0.5)",
-      "name": "light",
-    }
-  }
->
-  <styled.div>
-    <Connect(Header) />
-    <Switch>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/sessions"
-      />
-      <Route
-        component={[Function]}
-        path="/g/:name/:id"
-      />
-    </Switch>
-    <Connect(Settings) />
-  </styled.div>
-</ThemeProvider>
+<styled.div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/sessions"
+    />
+    <Route
+      component={[Function]}
+      path="/g/:name/:id"
+    />
+  </Switch>
+</styled.div>
 `;
 
-exports[`App component renders correctly when loading 1`] = `
-<ThemeProvider
-  theme={
-    Object {
-      "background": "#f7f7f7",
-      "backgroundInverted": "#3c3c3c",
-      "backgroundInvertedSecondary": "#555",
-      "backgroundSecondary": "#ebe3d6",
-      "borderColor": "#cdc5ba",
-      "color": "black",
-      "colorInverted": "#f7f7f7",
-      "colorMedium": "#999",
-      "colorSecondary": "#3c3c3c",
-      "map": "#bfbca5",
-      "modalBackground": "#f7f7f7",
-      "modalOverlay": "rgba(0, 0, 0, 0.5)",
-      "name": "light",
-    }
-  }
->
-  <LoadingModal />
-</ThemeProvider>
-`;
+exports[`App component renders correctly when loading 1`] = `<LoadingModal />`;
 
 exports[`App component renders correctly when settings should be showing 1`] = `
-<ThemeProvider
-  theme={
-    Object {
-      "background": "#f7f7f7",
-      "backgroundInverted": "#3c3c3c",
-      "backgroundInvertedSecondary": "#555",
-      "backgroundSecondary": "#ebe3d6",
-      "borderColor": "#cdc5ba",
-      "color": "black",
-      "colorInverted": "#f7f7f7",
-      "colorMedium": "#999",
-      "colorSecondary": "#3c3c3c",
-      "map": "#bfbca5",
-      "modalBackground": "#f7f7f7",
-      "modalOverlay": "rgba(0, 0, 0, 0.5)",
-      "name": "light",
-    }
-  }
->
-  <styled.div>
-    <Connect(Header) />
-    <Switch>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/sessions"
-      />
-      <Route
-        component={[Function]}
-        path="/g/:name/:id"
-      />
-    </Switch>
-    <Connect(Settings) />
-  </styled.div>
-</ThemeProvider>
+<styled.div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/sessions"
+    />
+    <Route
+      component={[Function]}
+      path="/g/:name/:id"
+    />
+  </Switch>
+</styled.div>
 `;

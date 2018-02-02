@@ -1,10 +1,9 @@
 // @flow
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { compose, withHandlers, withState } from 'recompose'
 import { performUserLogin } from '../actions'
-import { light as theme } from '../styles/themes'
 import { fonts } from '../styles/common'
 import Logo from '../components/Logo'
 
@@ -65,32 +64,30 @@ const Button = styled.button`
 
 export const Login = (props: Props) => {
   return (
-    <ThemeProvider theme={theme}>
-      <Container>
-        <Dialog>
-          <Heading>
-            <Logo height="25px" />
-          </Heading>
-          <form onSubmit={props.onLogin}>
-            <Input
-              name="username"
-              type="text"
-              placeholder="email"
-              value={props.email}
-              onChange={props.onEmailChange}
-            />
-            <Input
-              name="password"
-              type="password"
-              placeholder="password"
-              value={props.password}
-              onChange={props.onPasswordChange}
-            />
-            <Button onClick={props.onLogin}>Login</Button>
-          </form>
-        </Dialog>
-      </Container>
-    </ThemeProvider>
+    <Container>
+      <Dialog>
+        <Heading>
+          <Logo height="25px" />
+        </Heading>
+        <form onSubmit={props.onLogin}>
+          <Input
+            name="username"
+            type="text"
+            placeholder="email"
+            value={props.email}
+            onChange={props.onEmailChange}
+          />
+          <Input
+            name="password"
+            type="password"
+            placeholder="password"
+            value={props.password}
+            onChange={props.onPasswordChange}
+          />
+          <Button onClick={props.onLogin}>Login</Button>
+        </form>
+      </Dialog>
+    </Container>
   )
 }
 

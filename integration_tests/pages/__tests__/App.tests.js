@@ -51,12 +51,4 @@ describe('App container', () => {
     expect(wrapper.find('Sessions')).toHaveLength(1)
   })
   */
-
-  it('should allow user to open settings', () => {
-    store.dispatch({ type: APP_FINISHED_LOADING })
-    store.dispatch({ type: USER_LOGGED_IN })
-    store.dispatch({ type: SHOW_SETTINGS })
-    wrapper.update()
-    expect(wrapper.find('Settings').length).toBeGreaterThan(0)
-  })
 })

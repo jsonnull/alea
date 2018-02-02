@@ -1,57 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login component renders correctly 1`] = `
-<ThemeProvider
-  theme={
-    Object {
-      "background": "#f7f7f7",
-      "backgroundInverted": "#3c3c3c",
-      "backgroundInvertedSecondary": "#555",
-      "backgroundSecondary": "#ebe3d6",
-      "borderColor": "#cdc5ba",
-      "color": "black",
-      "colorInverted": "#f7f7f7",
-      "colorMedium": "#999",
-      "colorSecondary": "#3c3c3c",
-      "map": "#bfbca5",
-      "modalBackground": "#f7f7f7",
-      "modalOverlay": "rgba(0, 0, 0, 0.5)",
-      "name": "light",
-    }
-  }
->
+<styled.div>
   <styled.div>
-    <Connect(Header) />
-    <styled.div>
-      <styled.h1>
-        <Logo
-          height="25px"
-        />
-      </styled.h1>
-      <form
-        onSubmit={[Function]}
+    <styled.h1>
+      <Logo
+        height="25px"
+      />
+    </styled.h1>
+    <form
+      onSubmit={[Function]}
+    >
+      <styled.input
+        name="username"
+        onChange={[Function]}
+        placeholder="email"
+        type="text"
+        value="test@example.com"
+      />
+      <styled.input
+        name="password"
+        onChange={[Function]}
+        placeholder="password"
+        type="password"
+        value="test"
+      />
+      <styled.button
+        onClick={[Function]}
       >
-        <styled.input
-          name="username"
-          onChange={[Function]}
-          placeholder="email"
-          type="text"
-          value="test@example.com"
-        />
-        <styled.input
-          name="password"
-          onChange={[Function]}
-          placeholder="password"
-          type="password"
-          value="test"
-        />
-        <styled.button
-          onClick={[Function]}
-        >
-          Login
-        </styled.button>
-      </form>
-    </styled.div>
+        Login
+      </styled.button>
+    </form>
   </styled.div>
-</ThemeProvider>
+</styled.div>
 `;
