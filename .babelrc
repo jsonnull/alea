@@ -19,9 +19,6 @@
     "development": {
       "plugins": ["react-hot-loader/babel"]
     },
-    "production": {
-      "presets": ["minify"]
-    },
     "test": {
       "plugins": [
         "transform-es2015-modules-commonjs"
