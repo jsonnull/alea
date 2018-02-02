@@ -2,35 +2,33 @@
 
 exports[`Login component renders correctly 1`] = `
 <styled.div>
-  <styled.div>
-    <styled.h1>
-      <Logo
-        height="25px"
-      />
-    </styled.h1>
-    <form
-      onSubmit={[Function]}
+  <styled.h1>
+    <Logo
+      height="25px"
+    />
+  </styled.h1>
+  <form
+    onSubmit={[Function]}
+  >
+    <styled.input
+      name="username"
+      onChange={[Function]}
+      placeholder="email"
+      type="text"
+      value="test@example.com"
+    />
+    <styled.input
+      name="password"
+      onChange={[Function]}
+      placeholder="password"
+      type="password"
+      value="test"
+    />
+    <styled.button
+      onClick={[Function]}
     >
-      <styled.input
-        name="username"
-        onChange={[Function]}
-        placeholder="email"
-        type="text"
-        value="test@example.com"
-      />
-      <styled.input
-        name="password"
-        onChange={[Function]}
-        placeholder="password"
-        type="password"
-        value="test"
-      />
-      <styled.button
-        onClick={[Function]}
-      >
-        Login
-      </styled.button>
-    </form>
-  </styled.div>
+      Login
+    </styled.button>
+  </form>
 </styled.div>
 `;

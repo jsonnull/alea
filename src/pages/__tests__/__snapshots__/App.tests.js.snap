@@ -8,35 +8,31 @@ exports[`App component redirects if no user is logged in 1`] = `
 `;
 
 exports[`App component renders correctly when finished loading 1`] = `
-<styled.div>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/sessions"
-    />
-    <Route
-      component={[Function]}
-      path="/g/:name/:id"
-    />
-  </Switch>
-</styled.div>
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/sessions"
+  />
+  <Route
+    component={[Function]}
+    path="/g/:name/:id"
+  />
+</Switch>
 `;
 
 exports[`App component renders correctly when loading 1`] = `<LoadingModal />`;
 
 exports[`App component renders correctly when settings should be showing 1`] = `
-<styled.div>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/sessions"
-    />
-    <Route
-      component={[Function]}
-      path="/g/:name/:id"
-    />
-  </Switch>
-</styled.div>
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/sessions"
+  />
+  <Route
+    component={[Function]}
+    path="/g/:name/:id"
+  />
+</Switch>
 `;

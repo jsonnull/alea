@@ -15,17 +15,6 @@ type Props = {
   onLogin: Function
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`
-
 const Dialog = styled.div`
   width: 300px;
   align-self: center;
@@ -64,30 +53,28 @@ const Button = styled.button`
 
 export const Login = (props: Props) => {
   return (
-    <Container>
-      <Dialog>
-        <Heading>
-          <Logo height="25px" />
-        </Heading>
-        <form onSubmit={props.onLogin}>
-          <Input
-            name="username"
-            type="text"
-            placeholder="email"
-            value={props.email}
-            onChange={props.onEmailChange}
-          />
-          <Input
-            name="password"
-            type="password"
-            placeholder="password"
-            value={props.password}
-            onChange={props.onPasswordChange}
-          />
-          <Button onClick={props.onLogin}>Login</Button>
-        </form>
-      </Dialog>
-    </Container>
+    <Dialog>
+      <Heading>
+        <Logo height="25px" />
+      </Heading>
+      <form onSubmit={props.onLogin}>
+        <Input
+          name="username"
+          type="text"
+          placeholder="email"
+          value={props.email}
+          onChange={props.onEmailChange}
+        />
+        <Input
+          name="password"
+          type="password"
+          placeholder="password"
+          value={props.password}
+          onChange={props.onPasswordChange}
+        />
+        <Button onClick={props.onLogin}>Login</Button>
+      </form>
+    </Dialog>
   )
 }
 
