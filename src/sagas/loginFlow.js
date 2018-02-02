@@ -1,10 +1,12 @@
 // @flow
 import type { Saga } from 'redux-saga'
 import { call, put, select, take } from 'redux-saga/effects'
+import { push } from 'react-router-redux'
 import performLogin from '../firebase/login'
 import performLogout from '../firebase/logout'
 import {
   APP_FINISHED_LOADING,
+  HIDE_SETTINGS,
   PERFORM_USER_LOGIN,
   PERFORM_USER_LOGOUT,
   USER_LOGGED_IN,
@@ -32,6 +34,8 @@ export default function* login(): Saga<void> {
     } else if (action.type == PERFORM_USER_LOGOUT) {
       yield call(performLogout)
       yield put({ type: USER_LOGGED_OUT })
+      yield put({ type: HIDE_SETTINGS })
+      yield put(push('/'))
       userIsLoggedIn = false
     }
   }

@@ -1,8 +1,10 @@
 // @flow
 import { call, put, take } from 'redux-saga/effects'
+import { push } from 'react-router-redux'
 import { performUserLogin } from '../../actions'
 import {
   APP_FINISHED_LOADING,
+  HIDE_SETTINGS,
   PERFORM_USER_LOGIN,
   PERFORM_USER_LOGOUT,
   USER_LOGGED_IN,
@@ -57,6 +59,14 @@ describe('login saga', () => {
 
   it('should report user logged out', () => {
     expect(gen.next().value).toEqual(put({ type: USER_LOGGED_OUT }))
+  })
+
+  it('should ensure settings modal is closed', () => {
+    expect(gen.next().value).toEqual(put({ type: HIDE_SETTINGS }))
+  })
+
+  it('should redirect the user to the homepage', () => {
+    expect(gen.next().value).toEqual(put(push('/')))
   })
 
   it('should continue', () => {
