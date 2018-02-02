@@ -1,22 +1,17 @@
 // @flow
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Tooltip from '../Tooltip'
 import Button from './Button'
 
-type Props = {
-  goHome: Function
-}
-
-const Home = (props: Props) => {
-  const { goHome } = props
-
-  return (
-    <Tooltip placement="right" content="Home">
-      <Button square onClick={goHome}>
+const Home = () => (
+  <Tooltip placement="right" content="Home">
+    <Link to="/sessions">
+      <Button square>
         <i className="fa fa-home" />
       </Button>
-    </Tooltip>
-  )
-}
+    </Link>
+  </Tooltip>
+)
 
 export default Home

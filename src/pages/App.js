@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { Route, Switch } from 'react-router'
+import { Route, Switch, Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import type { State } from '../store'
@@ -40,11 +40,16 @@ const Game = () => (
 
 type Props = {
   appIsLoading: boolean,
+  userIsLoggedIn: boolean,
   location: Object
 }
 export class App extends React.Component<Props> {
   render() {
-    const { appIsLoading } = this.props
+    const { appIsLoading, userIsLoggedIn } = this.props
+
+    if (!userIsLoggedIn) {
+      return <Redirect to="/login" />
+    }
 
     if (appIsLoading) {
       return <Loading />
@@ -63,6 +68,7 @@ export class App extends React.Component<Props> {
 
 const mapStateToProps = (state: State): Props => ({
   appIsLoading: state.ui.appIsLoading,
+  userIsLoggedIn: state.ui.userIsLoggedIn,
   location: state.router.location
 })
 

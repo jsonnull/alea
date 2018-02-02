@@ -1,51 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component renders correctly 1`] = `
+exports[`Header component renders correctly when logged in 1`] = `
 <div
-  className="sc-EHOje gfEPLT"
+  className="sc-bZQynM mLqIE"
 >
   <div
-    className="sc-bZQynM iWmotD"
+    className="sc-gzVnrw bsXxGB"
   >
     <div
       onMouseOut={[Function]}
       onMouseOver={[Function]}
     >
       <div>
-        <div
-          className="sc-htpNat cSgXwK"
+        <a
+          href="/sessions"
           onClick={[Function]}
         >
-          <i
-            className="fa fa-home"
-          />
-        </div>
+          <div
+            className="sc-htpNat imBihp"
+          >
+            <i
+              className="fa fa-home"
+            />
+          </div>
+        </a>
       </div>
     </div>
   </div>
   <div
-    className="sc-bZQynM iWmotD"
+    className="sc-gzVnrw bsXxGB"
   >
     <div
-      className="sc-bxivhb hLukyn"
-    />
+      className="sc-ifAKCX iZhNjb"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <div
+          className="sc-htpNat hdXGOE"
+        >
+          <div
+            className="sc-bxivhb hOcivn"
+          />
+        </div>
+      </a>
+    </div>
   </div>
   <div
-    className="sc-gzVnrw lfBqcd"
+    className="sc-htoDjs dyWdAa"
   >
     <div
-      className="sc-ifAKCX eQgzMa"
+      className="sc-EHOje dWgitW"
     >
       test
     </div>
     <div
-      className="sc-htpNat cSgXwK"
+      className="sc-htpNat imBihp"
       onClick={[Function]}
     >
       <i
         className="fa fa-cog"
       />
     </div>
+  </div>
+</div>
+`;
+
+exports[`Header component renders correctly with no user 1`] = `
+<div
+  className="sc-bZQynM mLqIE"
+>
+  <div
+    className="sc-gzVnrw bsXxGB"
+  >
+    <div
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div>
+        <a
+          href="/sessions"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-htpNat imBihp"
+          >
+            <i
+              className="fa fa-home"
+            />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gzVnrw bsXxGB"
+  >
+    <div
+      className="sc-ifAKCX iZhNjb"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <div
+          className="sc-htpNat hdXGOE"
+        >
+          <div
+            className="sc-bxivhb hOcivn"
+          />
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    className="sc-htoDjs dyWdAa"
+  >
+    <a
+      href="/login"
+      onClick={[Function]}
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+    >
+      <div
+        className="sc-htpNat hdXGOE"
+      >
+        Login
+      </div>
+    </a>
   </div>
 </div>
 `;

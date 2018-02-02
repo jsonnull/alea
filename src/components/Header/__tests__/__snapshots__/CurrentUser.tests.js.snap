@@ -2,7 +2,7 @@
 
 exports[`Header CurrentUser component renders correctly 1`] = `
 <div
-  className="sc-bwzfXH jRMsSN"
+  className="sc-bwzfXH JnvRe"
 >
   test
 </div>

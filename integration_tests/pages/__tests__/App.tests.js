@@ -16,6 +16,7 @@ describe('App container', () => {
 
   beforeEach(() => {
     store = setupStore()
+    store.dispatch({ type: USER_LOGGED_IN })
 
     wrapper = mount(
       <Provider store={store}>

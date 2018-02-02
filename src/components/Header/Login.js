@@ -1,15 +1,12 @@
 // @flow
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from './Button'
 
-type Props = {
-  showLogin: Function
-}
-
-const Login = (props: Props) => {
-  const { showLogin } = props
-
-  return <Button onClick={showLogin}>Login</Button>
-}
+const Login = () => (
+  <Link to="/login" style={{ textDecoration: 'none' }}>
+    <Button>Login</Button>
+  </Link>
+)
 
 export default Login

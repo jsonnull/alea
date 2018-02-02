@@ -28,25 +28,23 @@ const Right = Column.extend`justify-content: flex-end;`
 
 type Props = {
   username: string | null,
-  goHome: Function,
-  showLogin: Function,
   showSettings: Function
 }
 
 const Header = (props: Props) => {
-  const { username, goHome, showLogin, showSettings } = props
+  const { username, showSettings } = props
 
   return (
     <Container>
       <Column>
-        <Home goHome={goHome} />
+        <Home />
       </Column>
       <Column>
         <Logo />
       </Column>
       <Right>
         {username === null ? (
-          <Login showLogin={showLogin} />
+          <Login />
         ) : (
           <React.Fragment>
             <CurrentUser username={username} />

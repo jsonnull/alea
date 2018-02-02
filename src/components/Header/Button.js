@@ -12,6 +12,7 @@ const Button = styled.div`
   background: ${props => props.theme.backgroundInverted};
   cursor: pointer;
   border-radius: 5px;
+  color: ${props => props.theme.colorInverted};
 
   &:hover {
     background: ${props => props.theme.backgroundInvertedSecondary};
