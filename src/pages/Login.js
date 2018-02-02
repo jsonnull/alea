@@ -4,7 +4,6 @@ import styled, { ThemeProvider } from 'styled-components'
 import { connect } from 'react-redux'
 import { compose, withHandlers, withState } from 'recompose'
 import { performUserLogin } from '../actions'
-import Header from '../containers/Header'
 import { light as theme } from '../styles/themes'
 import { fonts } from '../styles/common'
 import Logo from '../components/Logo'
@@ -68,7 +67,6 @@ export const Login = (props: Props) => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <Header />
         <Dialog>
           <Heading>
             <Logo height="25px" />

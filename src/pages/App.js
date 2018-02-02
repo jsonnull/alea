@@ -2,15 +2,12 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import { connect } from 'react-redux'
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import type { State } from '../store'
-import Header from '../containers/Header'
 import Sessions from '../containers/Sessions'
-import Settings from '../containers/Settings'
 import Chat from '../containers/Chat'
 import Map from '../containers/Map'
 import Sidebar from '../containers/Sidebar'
-import * as themes from '../styles/themes'
 import { CONSTS } from '../styles/common'
 import Loading from '../components/Loading'
 
@@ -43,39 +40,29 @@ const Game = () => (
 
 type Props = {
   appIsLoading: boolean,
-  location: Object,
-  theme: Object
+  location: Object
 }
 export class App extends React.Component<Props> {
   render() {
-    const { appIsLoading, theme } = this.props
+    const { appIsLoading } = this.props
 
     if (appIsLoading) {
-      return (
-        <ThemeProvider theme={themes['light']}>
-          <Loading />
-        </ThemeProvider>
-      )
+      return <Loading />
     }
 
     return (
-      <ThemeProvider theme={theme}>
-        <Container>
-          <Header />
-          <Switch>
-            <Route exact path="/sessions" component={Sessions} />
-            <Route path="/g/:name/:id" component={Game} />
-          </Switch>
-          <Settings />
-        </Container>
-      </ThemeProvider>
+      <Container>
+        <Switch>
+          <Route exact path="/sessions" component={Sessions} />
+          <Route path="/g/:name/:id" component={Game} />
+        </Switch>
+      </Container>
     )
   }
 }
 
 const mapStateToProps = (state: State): Props => ({
   appIsLoading: state.ui.appIsLoading,
-  theme: themes[state.preferences.theme],
   location: state.router.location
 })
 
