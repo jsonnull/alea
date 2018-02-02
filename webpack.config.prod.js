@@ -13,8 +13,11 @@ module.exports = {
       '@firebase/app',
       '@firebase/auth',
       '@firebase/database',
+      'core-js',
+      'lodash',
       'redux',
-      'react-redux'
+      'react-redux',
+      'redux-orm'
     ]
   },
   output: {
