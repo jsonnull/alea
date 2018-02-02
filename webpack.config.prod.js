@@ -48,6 +48,7 @@ module.exports = {
   devtool: 'source-map',
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
