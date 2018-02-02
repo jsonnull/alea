@@ -9,7 +9,7 @@ import {
   USER_LOGGED_IN
 } from '../../../src/actions/types'
 import setupStore, { history } from '../../setupStore'
-import App from '../../../src/containers/App'
+import App from '../../../src/pages/App'
 
 describe('App container', () => {
   let store, wrapper
@@ -36,6 +36,8 @@ describe('App container', () => {
     expect(wrapper.find('LoadingModal')).toHaveLength(0)
   })
 
+  // TODO: Ensure this test coverage is present on new Login page tests
+  /*
   it('should show login', () => {
     store.dispatch({ type: APP_FINISHED_LOADING })
     wrapper.update()
@@ -48,6 +50,7 @@ describe('App container', () => {
     wrapper.update()
     expect(wrapper.find('Sessions')).toHaveLength(1)
   })
+  */
 
   it('should allow user to open settings', () => {
     store.dispatch({ type: APP_FINISHED_LOADING })

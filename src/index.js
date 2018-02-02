@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 import initializeFirebase from './firebase/initialize'
-import Entry from './containers/Entry'
+import Pages from './pages'
 import createStore from './store'
 import './assets'
 
@@ -27,7 +27,7 @@ initializeFirebase(config, store)
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Entry />
+      <Pages />
     </ConnectedRouter>
   </Provider>,
   ((document.getElementById('root'): any): Element)

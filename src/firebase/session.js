@@ -12,7 +12,10 @@ export default class Session implements SessionSubscription {
 
   onSessionData(callback: Function) {
     this.ref.on('value', sessionSnapshot => {
-      callback(sessionSnapshot.val())
+      const val = sessionSnapshot.val()
+      if (val) {
+        callback(val)
+      }
     })
   }
 

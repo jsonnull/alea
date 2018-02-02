@@ -1,8 +1,9 @@
 // @flow
 import React from 'react'
 import { Route, Switch } from 'react-router'
+import { connect } from 'react-redux'
 import styled, { ThemeProvider } from 'styled-components'
-import Login from '../containers/Login'
+import type { State } from '../store'
 import Header from '../containers/Header'
 import Sessions from '../containers/Sessions'
 import Settings from '../containers/Settings'
@@ -11,7 +12,7 @@ import Map from '../containers/Map'
 import Sidebar from '../containers/Sidebar'
 import * as themes from '../styles/themes'
 import { CONSTS } from '../styles/common'
-import Loading from './Loading'
+import Loading from '../components/Loading'
 
 const Container = styled.div`
   display: flex;
@@ -40,15 +41,14 @@ const Game = () => (
   </GameInner>
 )
 
-export type Props = {
+type Props = {
   appIsLoading: boolean,
-  userIsLoggedIn: boolean,
   location: Object,
   theme: Object
 }
-class App extends React.Component<Props> {
+export class App extends React.Component<Props> {
   render() {
-    const { appIsLoading, userIsLoggedIn, theme } = this.props
+    const { appIsLoading, theme } = this.props
 
     if (appIsLoading) {
       return (
@@ -58,20 +58,12 @@ class App extends React.Component<Props> {
       )
     }
 
-    if (!userIsLoggedIn) {
-      return (
-        <ThemeProvider theme={themes['light']}>
-          <Login />
-        </ThemeProvider>
-      )
-    }
-
     return (
       <ThemeProvider theme={theme}>
         <Container>
           <Header />
           <Switch>
-            <Route exact path="/" component={Sessions} />
+            <Route exact path="/sessions" component={Sessions} />
             <Route path="/g/:name/:id" component={Game} />
           </Switch>
           <Settings />
@@ -81,4 +73,10 @@ class App extends React.Component<Props> {
   }
 }
 
-export default App
+const mapStateToProps = (state: State): Props => ({
+  appIsLoading: state.ui.appIsLoading,
+  theme: themes[state.preferences.theme],
+  location: state.router.location
+})
+
+export default connect(mapStateToProps)(App)

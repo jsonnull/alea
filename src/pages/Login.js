@@ -1,10 +1,13 @@
 // @flow
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import { connect } from 'react-redux'
+import { compose, withHandlers, withState } from 'recompose'
+import { performUserLogin } from '../actions'
 import Header from '../containers/Header'
 import { light as theme } from '../styles/themes'
 import { fonts } from '../styles/common'
-import Logo from './Logo'
+import Logo from '../components/Logo'
 
 type Props = {
   email: string,
@@ -25,7 +28,7 @@ const Container = styled.div`
   bottom: 0;
 `
 
-const Login = styled.div`
+const Dialog = styled.div`
   width: 300px;
   align-self: center;
   margin: auto;
@@ -61,12 +64,12 @@ const Button = styled.button`
   margin: 0 auto 0;
 `
 
-export default (props: Props) => {
+export const Login = (props: Props) => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
         <Header />
-        <Login>
+        <Dialog>
           <Heading>
             <Logo height="25px" />
           </Heading>
@@ -87,8 +90,31 @@ export default (props: Props) => {
             />
             <Button onClick={props.onLogin}>Login</Button>
           </form>
-        </Login>
+        </Dialog>
       </Container>
     </ThemeProvider>
   )
 }
+
+const enhance = compose(
+  connect(null, (dispatch: Function) => ({
+    login: (email: string, password: string) =>
+      dispatch(performUserLogin(email, password))
+  })),
+  withState('email', 'setEmail', ''),
+  withState('password', 'setPassword', ''),
+  withHandlers({
+    onEmailChange: ({ setEmail }) => (e: Object) => setEmail(e.target.value),
+    onPasswordChange: ({ setPassword }) => (e: Object) =>
+      setPassword(e.target.value),
+    onLogin: ({ login, email, password, setPassword }) => (e: Object) => {
+      e.preventDefault()
+      e.stopPropagation()
+
+      login(email, password)
+      setPassword('')
+    }
+  })
+)
+
+export default enhance(Login)

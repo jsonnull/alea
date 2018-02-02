@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import Header from '../containers/Header'
 import { light as theme } from '../styles/themes'
 import { CONSTS, colors } from '../styles/common'
-import Logo from './Logo'
+import Logo from '../components/Logo'
 
 const Container = styled.div`
   display: flex;

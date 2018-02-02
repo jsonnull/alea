@@ -7,7 +7,7 @@ import { performUserLogin } from '../../../src/actions'
 import { APP_FINISHED_LOADING } from '../../../src/actions/types'
 import setupStore, { history } from '../../setupStore'
 import loginFunction from '../../../src/firebase/login'
-import Login from '../../../src/containers/Login'
+import Login from '../../../src/pages/Login'
 
 describe('Login container', () => {
   const store = setupStore()
