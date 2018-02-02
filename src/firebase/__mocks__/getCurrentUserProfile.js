@@ -1,5 +1,5 @@
 // @flow
-import type { UserProfile } from 'types'
+import type { UserProfile } from '../../types'
 
 const mockData = { displayName: 'test_user', photoURL: null }
 

@@ -1,10 +1,10 @@
 // @flow
-import { take, call } from 'redux-saga/effects'
-import { CHANGE_THEME, TOGGLE_CHAT_PIN } from 'actions/types'
+import { call, take } from 'redux-saga/effects'
+import { CHANGE_THEME, TOGGLE_CHAT_PIN } from '../../../actions/types'
 import savePreferences from '../savePreferences'
-import mockSaveFunction from 'firebase/savePreferences'
+import mockSaveFunction from '../../../firebase/savePreferences'
 
-jest.mock('firebase/savePreferences')
+jest.mock('../../../firebase/savePreferences')
 
 const mockData = { theme: 'light', chatPinned: true }
 

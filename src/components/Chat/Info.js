@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import { fontSize } from 'styles/common'
+import { fontSize } from '../../styles/common'
 
 const Container = styled.div`
   background-color: ${props => props.theme.backgroundSecondary};

@@ -1,11 +1,11 @@
 // @flow
 import type { Saga } from 'redux-saga'
 import { call, select, takeEvery } from 'redux-saga/effects'
+import { SEND_MESSAGE } from '../../actions/types'
+import type { Action } from '../../actions/types'
+import currentUser from '../../selectors/currentUser'
+import sendMessage from '../../firebase/sendMessage'
 import CommandParser from './commandParser'
-import { SEND_MESSAGE } from 'actions/types'
-import type { Action } from 'actions/types'
-import currentUser from 'selectors/currentUser'
-import sendMessage from 'firebase/sendMessage'
 
 export function* sendMessageWithResult(
   commandParser: CommandParser,

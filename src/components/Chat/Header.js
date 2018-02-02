@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import Tooltip from 'components/Tooltip'
-import { fontSize } from 'styles/common'
+import Tooltip from '../Tooltip'
+import { fontSize } from '../../styles/common'
 
 const Container = styled.div`
   background-color: ${props =>

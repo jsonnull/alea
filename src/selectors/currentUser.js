@@ -1,8 +1,8 @@
 // @flow
 import { createSelector } from 'reselect'
-import currentUserIdSelector from './currentUserId'
 import orm from '../models/orm'
 import type { State } from '../store'
+import currentUserIdSelector from './currentUserId'
 
 const databaseSelector = (state: State) => state.orm
 

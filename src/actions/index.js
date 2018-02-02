@@ -1,9 +1,15 @@
 // @flow
+import type {
+  Message,
+  SessionMeta,
+  Tab,
+  ThemeName,
+  UserProfile
+} from '../types'
+import type { PreferencesState } from '../reducers/preferences'
+import type { UserDataState } from '../reducers/user/data'
+import type { SessionState } from '../reducers/session'
 import type { Action } from './types'
-import type { SessionMeta, Message, ThemeName, Tab, UserProfile } from 'types'
-import type { PreferencesState } from 'reducers/preferences'
-import type { UserDataState } from 'reducers/user/data'
-import type { SessionState } from 'reducers/session'
 
 /*
  * Messages

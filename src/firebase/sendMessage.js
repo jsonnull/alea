@@ -2,8 +2,8 @@
 import firebase from '@firebase/app'
 import '@firebase/firestore'
 import '@firebase/auth'
-import type { FirebaseMessage } from 'firebase/types'
-import type { MessageResult } from 'types'
+import type { MessageResult } from '../types'
+import type { FirebaseMessage } from './types'
 
 type SendMessageOpts = {
   from: string,

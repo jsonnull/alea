@@ -2,10 +2,10 @@
 import { call, takeEvery } from 'redux-saga/effects'
 import sendMessages, { sendMessageWithResult } from '../index'
 import CommandParser from '../commandParser'
-import { SEND_MESSAGE } from 'actions/types'
-import sendMessage from 'firebase/sendMessage'
+import { SEND_MESSAGE } from '../../../actions/types'
+import sendMessage from '../../../firebase/sendMessage'
 
-jest.mock('firebase/sendMessage')
+jest.mock('../../../firebase/sendMessage')
 
 const commandParser = new CommandParser()
 

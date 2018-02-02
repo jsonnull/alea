@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react'
 import styled from 'styled-components'
+import type { Message } from '../../types'
 import MessageView from './Message'
-import type { Message } from 'types'
 
 const MessagesWrapper = styled.div`
   min-height: 0;

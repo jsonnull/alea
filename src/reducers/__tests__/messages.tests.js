@@ -1,6 +1,6 @@
 // @flow
 import reduce from '../messages'
-import { receiveMessage } from 'actions'
+import { receiveMessage } from '../../actions'
 
 const INIT_ACTION = { type: '@@INIT' }
 

@@ -3,7 +3,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import renderer from 'react-test-renderer'
 import Button from '../Button.js'
-import { light } from 'styles/themes'
+import { light } from '../../styles/themes'
 
 describe('Button component', () => {
   it('renders correctly with no options', () => {

@@ -1,5 +1,5 @@
 // @flow
-import type { MessageResult } from 'types'
+import type { MessageResult } from '../../types'
 
 type SendMessageOpts = {
   from: string,

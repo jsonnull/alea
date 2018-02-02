@@ -2,8 +2,8 @@
 import React from 'react'
 import Transition from 'react-transition-group/Transition'
 import styled from 'styled-components'
-import { timings } from 'styles/common'
 import onClickOutside from 'react-onclickoutside'
+import { timings } from '../styles/common'
 
 type TransitionState = 'entering' | 'entered' | 'exiting' | 'exited'
 

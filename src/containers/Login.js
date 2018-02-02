@@ -1,8 +1,8 @@
 // @flow
 import { connect } from 'react-redux'
-import { compose, withState, withHandlers } from 'recompose'
-import { performUserLogin } from 'actions'
-import Login from 'components/Login'
+import { compose, withHandlers, withState } from 'recompose'
+import { performUserLogin } from '../actions'
+import Login from '../components/Login'
 
 const enhance = compose(
   connect(null, (dispatch: Function) => ({

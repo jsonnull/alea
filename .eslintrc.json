@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["plugin:react/recommended", "plugin:flowtype/recommended"],
+  "env": {
+    "jest": true
+  },
+  "plugins": ["react", "flowtype", "import"],
+  "rules": {
+    "eqeqeq": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/order": "error",
+    "import/no-webpack-loader-syntax": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "flowtype/require-valid-file-annotation": [
+      "error",
+      "always",
+      {
+        "annotationStyle": "line"
+      }
+    ]
+  },
+  "settings": {
+    "import/core-modules": ["redux-saga/effects", "redux-saga/utils"]
+  }
+}

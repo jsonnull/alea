@@ -1,14 +1,14 @@
 // @flow
-import { take, put, call } from 'redux-saga/effects'
+import { call, put, take } from 'redux-saga/effects'
 import { cloneableGenerator } from 'redux-saga/utils'
-import { changeDisplayName } from 'actions'
-import { CHANGE_DISPLAY_NAME } from 'actions/types'
+import { changeDisplayName } from '../../actions'
+import { CHANGE_DISPLAY_NAME } from '../../actions/types'
 import saveUserProfile from '../saveUserProfile'
-import getCurrentUserEmail from 'firebase/getCurrentUserEmail'
-import saveProfile from 'firebase/saveProfile'
+import getCurrentUserEmail from '../../firebase/getCurrentUserEmail'
+import saveProfile from '../../firebase/saveProfile'
 
-jest.mock('firebase/getCurrentUserEmail')
-jest.mock('firebase/saveProfile')
+jest.mock('../../firebase/getCurrentUserEmail')
+jest.mock('../../firebase/saveProfile')
 
 describe('saveUserProfile saga', () => {
   const mockId = 'testUserId'

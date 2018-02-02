@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
+import type { Tab } from '../../types'
 import Session from './Session'
-import type { Tab } from 'types'
 
 type Props = {
   tab: Tab

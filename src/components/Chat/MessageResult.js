@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import type { MessageResult, Roll } from 'types'
+import type { MessageResult, Roll } from '../../types'
 
 const RollSpan = styled.span`font-weight: bold;`
 

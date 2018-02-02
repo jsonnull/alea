@@ -1,6 +1,6 @@
 // @flow
+import type { ThemeName } from '../types'
 import { colors } from './common'
-import type { ThemeName } from 'types'
 
 export type Theme = {
   name: ThemeName,

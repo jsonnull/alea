@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
+import type { Tab } from '../../types'
 import MenuItem from './MenuItem'
-import type { Tab } from 'types'
 
 const MenuContainer = styled.div`
   display: flex;

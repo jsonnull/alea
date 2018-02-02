@@ -1,7 +1,7 @@
 // @flow
 import reduce from '../preferences'
-import * as types from 'actions/types'
-import { changeTheme, hydratePreferences } from 'actions'
+import * as types from '../../actions/types'
+import { changeTheme, hydratePreferences } from '../../actions'
 
 const INIT_ACTION = { type: '@@INIT' }
 

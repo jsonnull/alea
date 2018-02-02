@@ -1,6 +1,6 @@
 // @flow
 import Random from 'random-js'
-import type { MessageResult } from 'types'
+import type { MessageResult } from '../../types'
 
 export default class CommandParser {
   random: Object

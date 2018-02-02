@@ -2,11 +2,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-  defaultProps,
   branch,
   compose,
-  withState,
-  withHandlers
+  defaultProps,
+  withHandlers,
+  withState
 } from 'recompose'
 
 const Background = styled.div`

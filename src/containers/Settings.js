@@ -1,13 +1,13 @@
 // @flow
 import { connect } from 'react-redux'
-import Settings from 'components/Settings'
-import { changeTheme, changeDisplayName } from 'actions'
-import { PERFORM_USER_LOGOUT, HIDE_SETTINGS } from 'actions/types'
-import displayNameSelector from 'selectors/displayName'
-import * as themes from 'styles/themes'
-import type { ThemeName } from 'types'
-import type { Theme } from 'styles/themes'
-import type { State } from 'store'
+import Settings from '../components/Settings'
+import { changeDisplayName, changeTheme } from '../actions'
+import { HIDE_SETTINGS, PERFORM_USER_LOGOUT } from '../actions/types'
+import displayNameSelector from '../selectors/displayName'
+import * as themes from '../styles/themes'
+import type { ThemeName } from '../types'
+import type { Theme } from '../styles/themes'
+import type { State } from '../store'
 
 export type StateProps = {
   theme: Theme,

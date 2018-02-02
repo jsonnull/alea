@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
+import { fontSize } from '../../styles/common'
 import Button from './Button'
-import { fontSize } from 'styles/common'
 
 const SmallButton = Button.extend`font-size: ${fontSize.small};`
 

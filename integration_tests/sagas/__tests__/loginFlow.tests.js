@@ -1,9 +1,12 @@
 // @flow
 import setupStore from '../../setupStore'
-import loginFunction from 'firebase/login'
-import logoutFunction from 'firebase/logout'
-import { performUserLogin } from 'actions'
-import { APP_FINISHED_LOADING, PERFORM_USER_LOGOUT } from 'actions/types'
+import loginFunction from '../../../src/firebase/login'
+import logoutFunction from '../../../src/firebase/logout'
+import { performUserLogin } from '../../../src/actions'
+import {
+  APP_FINISHED_LOADING,
+  PERFORM_USER_LOGOUT
+} from '../../../src/actions/types'
 
 describe('login saga integration', () => {
   const store = setupStore()

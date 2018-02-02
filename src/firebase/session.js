@@ -1,7 +1,7 @@
 // @flow
 import firebase from '@firebase/app'
 import '@firebase/database'
-import type { SessionSubscription, Ref } from './types'
+import type { Ref, SessionSubscription } from './types'
 
 export default class Session implements SessionSubscription {
   ref: Ref

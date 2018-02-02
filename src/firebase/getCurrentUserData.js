@@ -2,7 +2,7 @@
 import firebase from '@firebase/app'
 import '@firebase/firestore'
 import '@firebase/auth'
-import type { UserDataState } from 'reducers/user/data'
+import type { UserDataState } from '../reducers/user/data'
 
 export default function getCurrentUserData(): Promise<?UserDataState> {
   return new Promise((resolve, reject) => {

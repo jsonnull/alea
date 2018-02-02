@@ -1,6 +1,6 @@
 // @flow
 import { createSelector } from 'reselect'
-import type { State } from 'store'
+import type { State } from '../store'
 
 // All sessions begin with `/g/` in the URL
 const sessionPrefix = '/g/'
@@ -14,9 +14,7 @@ const sessionIdSelector = createSelector(
       return null
     }
 
-    const id = location
-      .replace(sessionPrefix, '')
-      .split('/')
+    const id = location.replace(sessionPrefix, '').split('/')
 
     if (id.length > 0) {
       return id[0]

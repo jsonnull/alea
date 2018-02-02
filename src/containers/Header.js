@@ -1,10 +1,10 @@
 // @flow
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import Header from 'components/Header'
-import { SHOW_SETTINGS } from 'actions/types'
-import type { State } from 'store'
-import displayNameSelector from 'selectors/displayName'
+import Header from '../components/Header'
+import { SHOW_SETTINGS } from '../actions/types'
+import type { State } from '../store'
+import displayNameSelector from '../selectors/displayName'
 
 type StateProps = {
   username: string | null

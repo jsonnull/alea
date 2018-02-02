@@ -1,16 +1,16 @@
 // @flow
 import { eventChannel } from 'redux-saga'
-import { take, put, select, fork, cancel, cancelled } from 'redux-saga/effects'
-import selectCurrentSessionId from 'selectors/sessionId'
-import { hydrateSession } from 'actions'
-import {
-  USER_LOGGED_IN,
-  USER_LOGGED_OUT,
-  SWITCH_TO_SESSION
-} from 'actions/types'
-import type { Action } from 'actions/types'
 import type { Saga } from 'redux-saga'
-import Session from 'firebase/session'
+import { cancel, cancelled, fork, put, select, take } from 'redux-saga/effects'
+import selectCurrentSessionId from '../selectors/sessionId'
+import { hydrateSession } from '../actions'
+import {
+  SWITCH_TO_SESSION,
+  USER_LOGGED_IN,
+  USER_LOGGED_OUT
+} from '../actions/types'
+import type { Action } from '../actions/types'
+import Session from '../firebase/session'
 
 export function* subscribeToSession(sessionId: string): Saga<void> {
   // Create the session

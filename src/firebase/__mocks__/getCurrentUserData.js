@@ -1,5 +1,5 @@
 // @flow
-import type { UserDataState } from 'reducers/user/data'
+import type { UserDataState } from '../../reducers/user/data'
 
 const mockUserData: UserDataState = {
   sessions: [{ id: 'globalSession1' }, { id: 'globalSession2' }]

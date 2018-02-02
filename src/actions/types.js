@@ -1,8 +1,14 @@
 // @flow
-import type { SessionMeta, Message, ThemeName, Tab, UserProfile } from 'types'
-import type { PreferencesState } from 'reducers/preferences'
-import type { UserDataState } from 'reducers/user/data'
-import type { SessionState } from 'reducers/session'
+import type {
+  Message,
+  SessionMeta,
+  Tab,
+  ThemeName,
+  UserProfile
+} from '../types'
+import type { PreferencesState } from '../reducers/preferences'
+import type { UserDataState } from '../reducers/user/data'
+import type { SessionState } from '../reducers/session'
 
 export const LOAD_MESSAGES = 'LOAD_MESSAGES'
 export const SEND_MESSAGE = 'SEND_MESSAGE'

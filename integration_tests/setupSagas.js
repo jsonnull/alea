@@ -13,18 +13,18 @@ import loginFlow from '../src/sagas/loginFlow'
 import switchSessions from '../src/sagas/switchSessions'
 
 // Mock implementations
-jest.mock('firebase/session')
-jest.mock('firebase/getSessionMeta')
-jest.mock('firebase/getCurrentUserPreferences')
-jest.mock('firebase/getCurrentUserProfile')
-jest.mock('firebase/getCurrentUserData')
-jest.mock('firebase/messages')
-jest.mock('firebase/getCurrentUserEmail')
-jest.mock('firebase/savePreferences')
-jest.mock('firebase/saveProfile')
-jest.mock('firebase/sendMessage')
-jest.mock('firebase/login')
-jest.mock('firebase/logout')
+jest.mock('../src/firebase/session')
+jest.mock('../src/firebase/getSessionMeta')
+jest.mock('../src/firebase/getCurrentUserPreferences')
+jest.mock('../src/firebase/getCurrentUserProfile')
+jest.mock('../src/firebase/getCurrentUserData')
+jest.mock('../src/firebase/messages')
+jest.mock('../src/firebase/getCurrentUserEmail')
+jest.mock('../src/firebase/savePreferences')
+jest.mock('../src/firebase/saveProfile')
+jest.mock('../src/firebase/sendMessage')
+jest.mock('../src/firebase/login')
+jest.mock('../src/firebase/logout')
 
 export default function* rootSaga(): Generator<*, *, *> {
   // yield fork(loadCurrentSession)

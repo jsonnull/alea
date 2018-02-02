@@ -1,9 +1,9 @@
 // @flow
 import { connect } from 'react-redux'
-import { switchToSession } from 'actions'
+import { switchToSession } from '../actions'
 import Sessions from '../components/Sessions'
-import type { State } from 'store'
-import type { SessionInfo } from 'types'
+import type { State } from '../store'
+import type { SessionInfo } from '../types'
 
 type StateProps = {
   sessions: Array<SessionInfo>

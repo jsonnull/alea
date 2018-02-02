@@ -1,9 +1,9 @@
 // @flow
 import type { Saga } from 'redux-saga'
-import { take, call, put } from 'redux-saga/effects'
-import { hydratePreferences } from 'actions'
-import { USER_LOGGED_IN, APP_FINISHED_LOADING } from 'actions/types'
-import getPreferences from 'firebase/getCurrentUserPreferences'
+import { call, put, take } from 'redux-saga/effects'
+import { hydratePreferences } from '../../actions'
+import { APP_FINISHED_LOADING, USER_LOGGED_IN } from '../../actions/types'
+import getPreferences from '../../firebase/getCurrentUserPreferences'
 
 export default function* loadPreferences(): Saga<void> {
   while (true) {

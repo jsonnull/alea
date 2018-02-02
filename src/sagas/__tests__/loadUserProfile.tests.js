@@ -1,11 +1,11 @@
 // @flow
-import { take, call, put } from 'redux-saga/effects'
-import { hydrateUserProfile } from 'actions'
-import { USER_LOGGED_IN } from 'actions/types'
+import { call, put, take } from 'redux-saga/effects'
+import { hydrateUserProfile } from '../../actions'
+import { USER_LOGGED_IN } from '../../actions/types'
 import loadUserProfile from '../loadUserProfile'
-import getUserProfile from 'firebase/getCurrentUserProfile'
+import getUserProfile from '../../firebase/getCurrentUserProfile'
 
-jest.mock('firebase/getCurrentUserProfile')
+jest.mock('../../firebase/getCurrentUserProfile')
 
 const mockId = 'testUserId'
 const mockAction = { type: USER_LOGGED_IN, id: mockId }

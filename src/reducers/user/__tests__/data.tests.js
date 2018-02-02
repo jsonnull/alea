@@ -1,7 +1,7 @@
 // @flow
 import reduce from '../data'
-import { hydrateUserData, hydrateSessionMeta } from 'actions'
-import type { SessionMeta } from 'types'
+import { hydrateSessionMeta, hydrateUserData } from '../../../actions'
+import type { SessionMeta } from '../../../types'
 
 const INIT_ACTION = { type: '@@INIT' }
 

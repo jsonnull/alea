@@ -1,11 +1,11 @@
 // @flow
 import type { Saga } from 'redux-saga'
-import { take, call, put } from 'redux-saga/effects'
-import { hydrateUserProfile } from 'actions'
-import { USER_LOGGED_IN } from 'actions/types'
-import getUserProfile from 'firebase/getCurrentUserProfile'
-import type { UserProfile } from 'types'
-import type { Action } from 'actions/types'
+import { call, put, take } from 'redux-saga/effects'
+import { hydrateUserProfile } from '../actions'
+import { USER_LOGGED_IN } from '../actions/types'
+import getUserProfile from '../firebase/getCurrentUserProfile'
+import type { UserProfile } from '../types'
+import type { Action } from '../actions/types'
 
 export default function* loadUserProfile(): Saga<void> {
   // Wait for user auth to complete

@@ -1,7 +1,7 @@
 // @flow
-import * as types from 'actions/types'
+import * as types from '../actions/types'
 import type { Action } from '../actions/types'
-import type { Message } from 'types'
+import type { Message } from '../types'
 
 export type MessagesState = Array<Message>
 

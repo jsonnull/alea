@@ -1,15 +1,15 @@
 // @flow
-import { take, put } from 'redux-saga/effects'
-import { createMockTask, cloneableGenerator } from 'redux-saga/utils'
-import { switchToSession, hydrateSession } from 'actions'
+import { put, take } from 'redux-saga/effects'
+import { cloneableGenerator, createMockTask } from 'redux-saga/utils'
+import { hydrateSession, switchToSession } from '../../actions'
 import {
+  SWITCH_TO_SESSION,
   USER_LOGGED_IN,
-  USER_LOGGED_OUT,
-  SWITCH_TO_SESSION
-} from 'actions/types'
+  USER_LOGGED_OUT
+} from '../../actions/types'
 import loadCurrentSession, { subscribeToSession } from '../loadCurrentSession'
 
-jest.mock('firebase/session')
+jest.mock('../../firebase/session')
 
 describe('loadCurrentSession saga', () => {
   const start = cloneableGenerator(loadCurrentSession)()

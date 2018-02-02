@@ -1,9 +1,9 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import Label from 'components/Label'
-import Button from 'components/Button'
-import type { ThemeName } from 'types'
+import Label from '../Label'
+import Button from '../Button'
+import type { ThemeName } from '../../types'
 
 const DarkButton = Button.extend`margin-left: 5px;`
 

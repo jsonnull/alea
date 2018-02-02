@@ -1,6 +1,6 @@
 // @flow
-import * as types from 'actions/types'
-import type { Action } from 'actions/types'
+import * as types from '../actions/types'
+import type { Action } from '../actions/types'
 
 export type UIState = {
   appIsLoading: boolean,

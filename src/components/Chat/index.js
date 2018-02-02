@@ -1,11 +1,11 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
+import type { Message } from '../../types'
 import Header from './Header'
 import Info from './Info'
 import Compose from './Compose'
 import MessageList from './MessageList'
-import type { Message } from 'types'
 
 const CHAT_WIDTH = '320px'
 

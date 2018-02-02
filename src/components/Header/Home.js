@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
-import Button from './Button'
 import Tooltip from '../Tooltip'
+import Button from './Button'
 
 type Props = {
   goHome: Function

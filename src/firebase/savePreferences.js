@@ -2,7 +2,7 @@
 import firebase from '@firebase/app'
 import '@firebase/firestore'
 import '@firebase/auth'
-import type { PreferencesState } from 'reducers/preferences'
+import type { PreferencesState } from '../reducers/preferences'
 
 const savePreferences = (preferences: PreferencesState) => {
   const uid = firebase.auth().currentUser.uid

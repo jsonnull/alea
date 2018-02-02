@@ -1,18 +1,18 @@
 // @flow
-import { take, put, call } from 'redux-saga/effects'
-import { performUserLogin } from 'actions'
+import { call, put, take } from 'redux-saga/effects'
+import { performUserLogin } from '../../actions'
 import {
   APP_FINISHED_LOADING,
   PERFORM_USER_LOGIN,
   PERFORM_USER_LOGOUT,
   USER_LOGGED_IN,
   USER_LOGGED_OUT
-} from 'actions/types'
+} from '../../actions/types'
 import loginFlow from '../loginFlow'
-import login from 'firebase/login'
-import logout from 'firebase/logout'
-jest.mock('firebase/login')
-jest.mock('firebase/logout')
+import login from '../../firebase/login'
+import logout from '../../firebase/logout'
+jest.mock('../../firebase/login')
+jest.mock('../../firebase/logout')
 
 describe('login saga', () => {
   const gen = loginFlow()

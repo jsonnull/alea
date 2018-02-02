@@ -13,7 +13,7 @@ exports[`Header component renders correctly 1`] = `
     >
       <div>
         <div
-          className="sc-bdVaJa kgrFwP"
+          className="sc-htpNat cSgXwK"
           onClick={[Function]}
         >
           <i
@@ -39,7 +39,7 @@ exports[`Header component renders correctly 1`] = `
       test
     </div>
     <div
-      className="sc-bdVaJa kgrFwP"
+      className="sc-htpNat cSgXwK"
       onClick={[Function]}
     >
       <i

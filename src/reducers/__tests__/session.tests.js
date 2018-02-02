@@ -1,6 +1,6 @@
 // @flow
 import reduce from '../session'
-import { hydrateSession } from 'actions'
+import { hydrateSession } from '../../actions'
 
 const INIT_ACTION = { type: '@@INIT' }
 

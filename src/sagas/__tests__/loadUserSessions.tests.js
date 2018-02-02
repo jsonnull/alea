@@ -1,12 +1,12 @@
 // @flow
 import { call, put, takeEvery } from 'redux-saga/effects'
 import loadSessionsWatcher, { loadSessions } from '../loadUserSessions'
-import { hydrateUserData } from 'actions'
-import { USER_LOGGED_IN } from 'actions/types'
-import getCurrentUserData from 'firebase/getCurrentUserData'
-import type { UserDataState } from 'reducers/user/data'
+import { hydrateUserData } from '../../actions'
+import { USER_LOGGED_IN } from '../../actions/types'
+import getCurrentUserData from '../../firebase/getCurrentUserData'
+import type { UserDataState } from '../../reducers/user/data'
 
-jest.mock('firebase/getCurrentUserData')
+jest.mock('../../firebase/getCurrentUserData')
 
 const mockUserData: UserDataState = {
   sessions: [{ id: 'globalSession1' }, { id: 'globalSession2' }]

@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
+import type { SessionInfo } from '../../types'
 import Item from './ListItem'
-import type { SessionInfo } from 'types'
 
 const EmptyList = styled.div`margin: 2rem 0;`
 

@@ -2,9 +2,9 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import Header from '../containers/Header'
+import { light as theme } from '../styles/themes'
+import { fonts } from '../styles/common'
 import Logo from './Logo'
-import { light as theme } from 'styles/themes'
-import { fonts } from 'styles/common'
 
 type Props = {
   email: string,

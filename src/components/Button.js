@@ -1,7 +1,7 @@
 // @flow
 import styled, { css } from 'styled-components'
-import * as themes from 'styles/themes'
-import { fontSize, colors, timings } from 'styles/common'
+import * as themes from '../styles/themes'
+import { colors, fontSize, timings } from '../styles/common'
 
 function shade(hex: string, lum: number = 0) {
   hex = hex.replace(/[^0-9a-f]/gi, '')

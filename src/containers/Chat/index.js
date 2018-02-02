@@ -1,10 +1,10 @@
 // @flow
 import { connect } from 'react-redux'
 import Chat from '../../components/Chat'
-import { sendMessage } from 'actions'
-import { TOGGLE_CHAT_PIN } from 'actions/types'
-import type { Message } from 'types'
-import type { State } from 'store'
+import { sendMessage } from '../../actions'
+import { TOGGLE_CHAT_PIN } from '../../actions/types'
+import type { Message } from '../../types'
+import type { State } from '../../store'
 
 type StateProps = {
   messages: Array<Message>,

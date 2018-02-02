@@ -2,7 +2,7 @@
 import firebase from '@firebase/app'
 import '@firebase/auth'
 import '@firebase/firestore'
-import type { PreferencesState } from 'reducers/preferences'
+import type { PreferencesState } from '../reducers/preferences'
 
 const getUserPreferences = (): Promise<PreferencesState> => {
   return new Promise((resolve, reject) => {

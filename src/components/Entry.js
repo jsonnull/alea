@@ -1,9 +1,9 @@
 // @flow
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router'
+import { Redirect, Route, Switch } from 'react-router'
 import Login from '../containers/Login'
-import Home from './Home'
 import App from '../containers/App'
+import Home from './Home'
 
 export type Props = {
   userIsLoggedIn: boolean,

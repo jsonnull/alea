@@ -1,9 +1,9 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import Label from 'components/Label'
-import Input from 'components/Input'
-import editable from 'hoc/editable'
+import Label from '../Label'
+import Input from '../Input'
+import editable from '../../hoc/editable'
 
 type Props = {
   name: string,

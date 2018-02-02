@@ -1,7 +1,7 @@
 // @flow
 import firebase from '@firebase/app'
 import '@firebase/auth'
-import type { UserProfile } from 'types'
+import type { UserProfile } from '../types'
 
 const getCurrentUserProfile = (): UserProfile => {
   const currentUser = firebase.auth().currentUser

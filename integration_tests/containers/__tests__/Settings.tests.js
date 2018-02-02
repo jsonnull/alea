@@ -4,14 +4,14 @@ import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { ConnectedRouter } from 'react-router-redux'
-import { light } from 'styles/themes'
+import { light } from '../../../src/styles/themes'
 import { userLoggedIn, hydrateUserProfile } from '../../../src/actions'
 import {
   APP_FINISHED_LOADING,
   USER_LOGGED_IN
 } from '../../../src/actions/types'
 import setupStore, { history } from '../../setupStore'
-import logoutFunction from 'firebase/logout'
+import logoutFunction from '../../../src/firebase/logout'
 import Settings from '../../../src/containers/Settings'
 
 describe('Settings container', () => {

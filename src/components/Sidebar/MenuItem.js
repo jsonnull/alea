@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from 'styles/common'
-import Tooltip from 'components/Tooltip'
+import { colors } from '../../styles/common'
+import Tooltip from '../Tooltip'
 
 const Item = styled.div`
   text-align: center;

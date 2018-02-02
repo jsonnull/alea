@@ -1,11 +1,11 @@
 // @flow
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { hydrateSessionMeta } from 'actions'
-import { HYDRATE_USER_DATA } from 'actions/types'
+import { hydrateSessionMeta } from '../../actions'
+import { HYDRATE_USER_DATA } from '../../actions/types'
 import loadMeta, { loadAllMeta, loadSessionMeta } from '../loadSessionMeta'
-import getSessionMeta from 'firebase/getSessionMeta'
+import getSessionMeta from '../../firebase/getSessionMeta'
 
-jest.mock('firebase/getSessionMeta')
+jest.mock('../../firebase/getSessionMeta')
 
 const mockData = { name: 'test' }
 

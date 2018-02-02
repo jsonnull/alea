@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react'
 import styled from 'styled-components'
-import { Manager, Target, Popper, Arrow } from 'react-popper'
+import { Arrow, Manager, Popper, Target } from 'react-popper'
+import { fontSize } from '../../styles/common'
 import Portal from './Portal'
-import { fontSize } from 'styles/common'
 
 const TooltipDiv = styled.div`
   color: white;

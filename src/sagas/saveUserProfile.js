@@ -1,11 +1,11 @@
 // @flow
 import type { Saga } from 'redux-saga'
-import { take, put, call, select } from 'redux-saga/effects'
-import { changeDisplayName } from 'actions'
-import { CHANGE_DISPLAY_NAME } from 'actions/types'
-import getCurrentUserEmail from 'firebase/getCurrentUserEmail'
-import saveProfile from 'firebase/saveProfile'
-import type { UserProfile } from 'types'
+import { call, put, select, take } from 'redux-saga/effects'
+import { changeDisplayName } from '../actions'
+import { CHANGE_DISPLAY_NAME } from '../actions/types'
+import getCurrentUserEmail from '../firebase/getCurrentUserEmail'
+import saveProfile from '../firebase/saveProfile'
+import type { UserProfile } from '../types'
 
 export default function* saveUserProfile(): Saga<void> {
   while (true) {

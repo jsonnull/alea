@@ -1,6 +1,6 @@
 // @flow
 import styled from 'styled-components'
-import { fontSize } from 'styles/common'
+import { fontSize } from '../styles/common'
 
 const Label = styled.label`
   font-size: ${fontSize.small};

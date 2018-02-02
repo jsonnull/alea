@@ -1,11 +1,11 @@
 // @flow
 import { put, take } from 'redux-saga/effects'
-import { createMockTask, cloneableGenerator } from 'redux-saga/utils'
-import { receiveMessage } from 'actions'
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from 'actions/types'
+import { cloneableGenerator, createMockTask } from 'redux-saga/utils'
+import { receiveMessage } from '../../actions'
+import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../../actions/types'
 import receiveMessages, { subscribeToMessages } from '../receiveMessages'
 
-jest.mock('firebase/messages')
+jest.mock('../../firebase/messages')
 
 const mockMessage = {
   id: 'test',

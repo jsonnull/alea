@@ -2,7 +2,7 @@
 import { hot } from 'react-hot-loader'
 import { connect } from 'react-redux'
 import Entry from '../components/Entry'
-import type { State } from 'store'
+import type { State } from '../store'
 import type { Props } from '../components/Entry'
 
 const mapStateToProps = (state: State): Props => ({

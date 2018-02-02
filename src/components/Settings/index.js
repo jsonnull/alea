@@ -1,11 +1,11 @@
 // @flow
 import React from 'react'
-import Modal from 'components/Modal'
-import Logout from 'components/Settings/Logout'
-import Name from 'components/Settings/Name'
-import ThemeSwitcher from 'components/Settings/ThemeSwitcher'
-import type { Theme } from 'styles/themes'
-import type { StateProps, DispatchProps } from 'containers/Settings'
+import Modal from '../Modal'
+import type { Theme } from '../../styles/themes'
+import type { DispatchProps, StateProps } from '../../containers/Settings'
+import Logout from './Logout'
+import Name from './Name'
+import ThemeSwitcher from './ThemeSwitcher'
 
 type Props = {
   theme: Theme

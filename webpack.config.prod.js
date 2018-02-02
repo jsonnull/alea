@@ -41,9 +41,6 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    modules: ['node_modules', 'src']
-  },
   devtool: 'source-map',
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),

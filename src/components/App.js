@@ -1,8 +1,7 @@
 // @flow
 import React from 'react'
-import { Switch, Route } from 'react-router'
+import { Route, Switch } from 'react-router'
 import styled, { ThemeProvider } from 'styled-components'
-import Loading from './Loading'
 import Login from '../containers/Login'
 import Header from '../containers/Header'
 import Sessions from '../containers/Sessions'
@@ -10,8 +9,9 @@ import Settings from '../containers/Settings'
 import Chat from '../containers/Chat'
 import Map from '../containers/Map'
 import Sidebar from '../containers/Sidebar'
-import * as themes from 'styles/themes'
-import { CONSTS } from 'styles/common'
+import * as themes from '../styles/themes'
+import { CONSTS } from '../styles/common'
+import Loading from './Loading'
 
 const Container = styled.div`
   display: flex;

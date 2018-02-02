@@ -1,10 +1,10 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import type { Message } from 'types'
-import MessageResult from './MessageResult'
 import Timeago from 'timeago.js'
-import { fontSize } from 'styles/common'
+import type { Message } from '../../types'
+import { fontSize } from '../../styles/common'
+import MessageResult from './MessageResult'
 
 type Props = {
   message: Message,

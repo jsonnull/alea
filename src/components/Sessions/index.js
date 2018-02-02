@@ -1,10 +1,10 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import { fonts, fontSize } from 'styles/common'
+import { fontSize, fonts } from '../../styles/common'
+import type { SessionInfo } from '../../types'
 import Create from './Create'
 import List from './List'
-import type { SessionInfo } from 'types'
 
 type Props = {
   sessions: Array<SessionInfo>,

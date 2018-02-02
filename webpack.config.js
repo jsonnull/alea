@@ -52,9 +52,6 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    modules: ['node_modules', 'src']
-  },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({

@@ -1,10 +1,10 @@
 // @flow
 import type { Saga } from 'redux-saga'
 import { eventChannel } from 'redux-saga'
-import { put, take, fork, cancel, cancelled } from 'redux-saga/effects'
-import { receiveMessage } from 'actions'
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from 'actions/types'
-import Messages from 'firebase/messages'
+import { cancel, cancelled, fork, put, take } from 'redux-saga/effects'
+import { receiveMessage } from '../actions'
+import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../actions/types'
+import Messages from '../firebase/messages'
 
 export function* subscribeToMessages(): Saga<void> {
   const subscription = new Messages()

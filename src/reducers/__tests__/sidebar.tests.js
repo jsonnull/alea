@@ -1,6 +1,6 @@
 // @flow
 import reduce from '../sidebar'
-import { changeSidebarTab } from 'actions'
+import { changeSidebarTab } from '../../actions'
 
 const INIT_ACTION = { type: '@@INIT' }
 

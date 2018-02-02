@@ -1,9 +1,9 @@
 // @flow
 import { connect } from 'react-redux'
-import { changeSidebarTab } from 'actions'
+import { changeSidebarTab } from '../../actions'
 import Sidebar from '../../components/Sidebar'
-import type { State } from 'store'
-import type { Tab } from 'types'
+import type { State } from '../../store'
+import type { Tab } from '../../types'
 
 type StateProps = {
   name: string,

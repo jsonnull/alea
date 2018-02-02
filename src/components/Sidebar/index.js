@@ -1,10 +1,10 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import Menu from './Menu'
 import Content from '../../containers/Sidebar/Content'
-import type { Tab } from 'types'
-import { colors, fonts, fontSize } from 'styles/common'
+import type { Tab } from '../../types'
+import { colors, fontSize, fonts } from '../../styles/common'
+import Menu from './Menu'
 
 const Container = styled.div`
   background-color: ${props => props.theme.background};

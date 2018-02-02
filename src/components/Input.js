@@ -1,6 +1,6 @@
 // @flow
 import styled from 'styled-components'
-import { fonts, fontSize } from 'styles/common'
+import { fontSize, fonts } from '../styles/common'
 
 const Input = styled.input`
   padding: 6px 1rem;

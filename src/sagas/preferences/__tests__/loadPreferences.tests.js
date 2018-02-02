@@ -1,11 +1,11 @@
 // @flow
-import { take, call, put } from 'redux-saga/effects'
-import { hydratePreferences } from 'actions'
-import { USER_LOGGED_IN, APP_FINISHED_LOADING } from 'actions/types'
+import { call, put, take } from 'redux-saga/effects'
+import { hydratePreferences } from '../../../actions'
+import { APP_FINISHED_LOADING, USER_LOGGED_IN } from '../../../actions/types'
 import loadPreferences from '../loadPreferences'
-import getPreferences from 'firebase/getCurrentUserPreferences'
+import getPreferences from '../../../firebase/getCurrentUserPreferences'
 
-jest.mock('firebase/getCurrentUserPreferences')
+jest.mock('../../../firebase/getCurrentUserPreferences')
 
 const mockData = { theme: 'light', chatPinned: true }
 

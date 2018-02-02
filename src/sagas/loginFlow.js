@@ -1,15 +1,15 @@
 // @flow
 import type { Saga } from 'redux-saga'
-import { take, call, put, select } from 'redux-saga/effects'
-import performLogin from 'firebase/login'
-import performLogout from 'firebase/logout'
+import { call, put, select, take } from 'redux-saga/effects'
+import performLogin from '../firebase/login'
+import performLogout from '../firebase/logout'
 import {
   APP_FINISHED_LOADING,
   PERFORM_USER_LOGIN,
   PERFORM_USER_LOGOUT,
   USER_LOGGED_IN,
   USER_LOGGED_OUT
-} from 'actions/types'
+} from '../actions/types'
 
 export default function* login(): Saga<void> {
   // Wait for app to complete loading

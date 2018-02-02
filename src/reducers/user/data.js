@@ -1,7 +1,7 @@
 // @flow
-import * as types from 'actions/types'
-import type { Action } from 'actions/types'
-import type { SessionInfo } from 'types'
+import * as types from '../../actions/types'
+import type { Action } from '../../actions/types'
+import type { SessionInfo } from '../../types'
 
 export type UserDataState = {
   sessions: Array<SessionInfo>

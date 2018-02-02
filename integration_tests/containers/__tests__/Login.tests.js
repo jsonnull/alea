@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import { performUserLogin } from '../../../src/actions'
 import { APP_FINISHED_LOADING } from '../../../src/actions/types'
 import setupStore, { history } from '../../setupStore'
-import loginFunction from 'firebase/login'
+import loginFunction from '../../../src/firebase/login'
 import Login from '../../../src/containers/Login'
 
 describe('Login container', () => {

@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import type { SessionInfo } from 'types'
-import { fonts, fontSize } from 'styles/common'
+import type { SessionInfo } from '../../types'
+import { fontSize, fonts } from '../../styles/common'
 
 const Tag = styled.div`
   display: inline-block;

@@ -1,5 +1,5 @@
 // @flow
-import type { PreferencesState } from 'reducers/preferences'
+import type { PreferencesState } from '../../reducers/preferences'
 
 const savePreferences = (_preferences: PreferencesState) => {}
 
