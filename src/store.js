@@ -1,21 +1,16 @@
 // @flow
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import { routerMiddleware, routerReducer } from 'react-router-redux'
-import { createReducer } from 'redux-orm'
 import createSagaMiddleware from 'redux-saga'
 import * as reducers from './reducers'
 import type { ReducerState } from './reducers'
-import orm from './models/orm'
 import sagas from './sagas/'
 
 /* State tree */
-export type State = {
-  orm: Object
-} & ReducerState
+export type State = ReducerState
 
 export default function createStoreWithMiddleware(history: Object) {
   const reducer = combineReducers({
-    orm: createReducer(orm),
     ...reducers,
     router: routerReducer
   })

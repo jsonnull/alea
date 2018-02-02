@@ -48,9 +48,9 @@ export type Action =
   | { type: 'PERFORM_USER_LOGOUT' }
   | { type: 'USER_LOGGED_OUT' }
   // User Profile
-  | { type: 'CHANGE_DISPLAY_NAME', id: string, name: string }
-  | { type: 'HYDRATE_USER_PROFILE', id: string, user: UserProfile }
-  | { type: 'UPDATE_USER_PROFILE', id: string, user: UserProfile }
+  | { type: 'CHANGE_DISPLAY_NAME', name: string }
+  | { type: 'HYDRATE_USER_PROFILE', user: UserProfile }
+  | { type: 'UPDATE_USER_PROFILE', user: UserProfile }
   // User Preferences
   | { type: 'HYDRATE_PREFERENCES', prefs: PreferencesState }
   | { type: 'CHANGE_THEME', theme: ThemeName }

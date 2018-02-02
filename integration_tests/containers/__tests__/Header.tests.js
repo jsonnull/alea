@@ -14,7 +14,7 @@ describe('Header container', () => {
   // Mimic user login and basic details
   store.dispatch(userLoggedIn('testUserId'))
   store.dispatch(
-    hydrateUserProfile('testUserId', {
+    hydrateUserProfile({
       displayName: 'anonymous',
       photoURL: null
     })

@@ -38,21 +38,18 @@ export const userLoggedIn = (id: string): Action => ({
 /*
  * User Profile
  */
-export const changeDisplayName = (id: string, name: string): Action => ({
+export const changeDisplayName = (name: string): Action => ({
   type: 'CHANGE_DISPLAY_NAME',
-  id,
   name
 })
 
-export const hydrateUserProfile = (id: string, user: UserProfile): Action => ({
+export const hydrateUserProfile = (user: UserProfile): Action => ({
   type: 'HYDRATE_USER_PROFILE',
-  id,
   user
 })
 
-export const updateUserProfile = (id: string, user: UserProfile): Action => ({
+export const updateUserProfile = (user: UserProfile): Action => ({
   type: 'UPDATE_USER_PROFILE',
-  id,
   user
 })
 

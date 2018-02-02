@@ -7,8 +7,7 @@ import getUserProfile from '../../firebase/getCurrentUserProfile'
 
 jest.mock('../../firebase/getCurrentUserProfile')
 
-const mockId = 'testUserId'
-const mockAction = { type: USER_LOGGED_IN, id: mockId }
+const mockAction = { type: USER_LOGGED_IN }
 const mockData = { displayName: 'test_user', photoURL: null }
 
 describe('loadUserProfile saga', () => {
@@ -23,9 +22,7 @@ describe('loadUserProfile saga', () => {
   })
 
   it('should hydrate the redux store with profile', () => {
-    expect(gen.next(mockData).value).toEqual(
-      put(hydrateUserProfile(mockId, mockData))
-    )
+    expect(gen.next(mockData).value).toEqual(put(hydrateUserProfile(mockData)))
   })
 
   it('should listen for next login', () => {

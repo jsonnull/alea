@@ -13,7 +13,7 @@ export default function* loadUserProfile(): Saga<void> {
     const action: Action = yield take(USER_LOGGED_IN)
     if (action.type === USER_LOGGED_IN) {
       const user: UserProfile = yield call(getUserProfile)
-      yield put(hydrateUserProfile(action.id, user))
+      yield put(hydrateUserProfile(user))
     }
   }
 }

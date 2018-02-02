@@ -11,17 +11,15 @@ jest.mock('../../firebase/getCurrentUserEmail')
 jest.mock('../../firebase/saveProfile')
 
 describe('saveUserProfile saga', () => {
-  const mockId = 'testUserId'
   const mockEmail = 'email@example.com'
   const gen = cloneableGenerator(saveUserProfile)()
 
-  const emptyNameAction = { type: CHANGE_DISPLAY_NAME, id: mockId, name: '' }
+  const emptyNameAction = { type: CHANGE_DISPLAY_NAME, name: '' }
   const emptyNameProfile = {
     displayName: ''
   }
   const filledNameAction = {
     type: CHANGE_DISPLAY_NAME,
-    id: mockId,
     name: 'test'
   }
   const filledNameProfile = {
@@ -47,7 +45,7 @@ describe('saveUserProfile saga', () => {
 
   it('should put the users email in place of the name', () => {
     expect(withEmptyName.next(mockEmail).value).toEqual(
-      put(changeDisplayName(mockId, mockEmail))
+      put(changeDisplayName(mockEmail))
     )
   })
 

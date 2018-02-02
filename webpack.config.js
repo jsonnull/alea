@@ -19,8 +19,7 @@ module.exports = {
       'core-js',
       'lodash',
       'redux',
-      'react-redux',
-      'redux-orm'
+      'react-redux'
     ]
   },
   output: {

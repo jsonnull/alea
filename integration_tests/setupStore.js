@@ -2,10 +2,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createMemoryHistory } from 'history'
-import { createReducer } from 'redux-orm'
 import createSagaMiddleware from 'redux-saga'
 import sinon from 'sinon'
-import orm from '../src/models/orm'
 import * as reducers from '../src/reducers'
 import sagas from './setupSagas'
 
@@ -22,7 +20,6 @@ export default function createStoreWithMiddleware() {
   // $FlowFixMe: This is erroring for some reason
   const reducer = combineReducers({
     spyReducer,
-    orm: createReducer(orm),
     ...reducers,
     router: routerReducer
   })
