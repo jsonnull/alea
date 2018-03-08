@@ -1,27 +1,14 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
 module.exports = {
-  entry: {
-    app: [
-      'webpack-dev-server/client?http://localhost:8080',
-      'webpack/hot/only-dev-server',
-      './src/index.js'
-    ],
-    vendor: [
-      'react',
-      'react-dom',
-      '@firebase/app',
-      '@firebase/auth',
-      '@firebase/database',
-      'core-js',
-      'lodash',
-      'redux',
-      'react-redux'
-    ]
-  },
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './src/index.js'
+  ],
+  mode: 'development',
   output: {
     filename: '[name].js',
     path: resolve(__dirname, 'public'),
@@ -55,18 +42,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
-    }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new InlineManifestWebpackPlugin({
-      name: 'webpackManifest'
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
   devtool: 'eval-source-map',
   devServer: {

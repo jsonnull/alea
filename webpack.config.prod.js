@@ -1,29 +1,16 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-  entry: {
-    app: './src/index.js',
-    vendor: [
-      'react',
-      'react-dom',
-      '@firebase/app',
-      '@firebase/auth',
-      '@firebase/database',
-      'core-js',
-      'lodash',
-      'redux',
-      'react-redux'
-    ]
-  },
+  entry: './src/index.js',
   output: {
     filename: '[name].[chunkhash].js',
     path: resolve(__dirname, 'public'),
     publicPath: '/'
   },
+  mode: 'production',
   module: {
     rules: [
       {
@@ -45,17 +32,16 @@ module.exports = {
     ]
   },
   devtool: 'source-map',
+  optimization: {
+    minimize: false,
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
-    }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    }),
-    new InlineManifestWebpackPlugin({
-      name: 'webpackManifest'
     }),
     new webpack.DefinePlugin({
       'process.env': {
