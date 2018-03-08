@@ -1,4 +1,3 @@
 # .prettierrc
-parser: flow
 semi: false
 singleQuote: true
