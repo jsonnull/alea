@@ -7,8 +7,7 @@ import type {
   UserProfile
 } from '../types'
 import type { PreferencesState } from '../reducers/preferences'
-import type { UserDataState } from '../reducers/user/data'
-import type { SessionState } from '../reducers/session'
+import type { SessionsState } from '../reducers/sessions'
 
 export const LOAD_MESSAGES = 'LOAD_MESSAGES'
 export const SEND_MESSAGE = 'SEND_MESSAGE'
@@ -26,7 +25,7 @@ export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE'
 export const HYDRATE_PREFERENCES = 'HYDRATE_PREFERENCES'
 export const CHANGE_THEME = 'CHANGE_THEME'
 export const TOGGLE_CHAT_PIN = 'TOGGLE_CHAT_PIN'
-export const HYDRATE_USER_DATA = 'HYDRATE_USER_DATA'
+export const HYDRATE_SESSIONS_LIST = 'HYDRATE_SESSIONS_LIST'
 export const HYDRATE_SESSION_META = 'HYDRATE_SESSION_META'
 export const HYDRATE_SESSION = 'HYDRATE_SESSION'
 export const SWITCH_TO_SESSION = 'SWITCH_TO_SESSION'
@@ -44,7 +43,7 @@ export type Action =
   | { type: 'HIDE_SETTINGS' }
   // User
   | { type: 'PERFORM_USER_LOGIN', email: string, password: string }
-  | { type: 'USER_LOGGED_IN', id: string }
+  | { type: 'USER_LOGGED_IN', id: string, email: string }
   | { type: 'PERFORM_USER_LOGOUT' }
   | { type: 'USER_LOGGED_OUT' }
   // User Profile
@@ -55,11 +54,11 @@ export type Action =
   | { type: 'HYDRATE_PREFERENCES', prefs: PreferencesState }
   | { type: 'CHANGE_THEME', theme: ThemeName }
   | { type: 'TOGGLE_CHAT_PIN' }
-  // User Data
-  | { type: 'HYDRATE_USER_DATA', user: UserDataState }
+  // Sessions
+  | { type: 'HYDRATE_SESSIONS_LIST', sessions: SessionsState }
   | { type: 'HYDRATE_SESSION_META', sessionId: string, meta: SessionMeta }
-  // User Session
-  | { type: 'HYDRATE_SESSION', session: SessionState }
+  // Current Session
+  // | { type: 'HYDRATE_SESSION', session: SessionState }
   | { type: 'SWITCH_TO_SESSION', sessionId: string }
   // Sidebar
   | { type: 'CHANGE_SIDEBAR_TAB', tab: Tab }

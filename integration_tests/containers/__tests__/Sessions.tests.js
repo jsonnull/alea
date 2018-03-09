@@ -3,7 +3,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { ConnectedRouter } from 'react-router-redux'
-import { hydrateUserData } from '../../../src/actions'
+import { hydrateSessionsList } from '../../../src/actions'
 import setupStore, { history } from '../../setupStore'
 import Sessions from '../../../src/containers/Sessions'
 
@@ -22,24 +22,22 @@ describe('Sessions container', () => {
     )
   })
 
-  const data = {
-    sessions: [
-      {
-        id: 'id1',
-        meta: {
-          name: 'testName1'
-        }
-      },
-      {
-        id: 'id2',
-        meta: {
-          name: 'testName2'
-        }
+  const sessions = [
+    {
+      id: 'id1',
+      meta: {
+        name: 'testName1'
       }
-    ]
-  }
+    },
+    {
+      id: 'id2',
+      meta: {
+        name: 'testName2'
+      }
+    }
+  ]
   const storeWithSessions = setupStore()
-  storeWithSessions.dispatch(hydrateUserData(data))
+  storeWithSessions.dispatch(hydrateSessionsList(sessions))
   const wrapper = mount(
     <Provider store={storeWithSessions}>
       <ConnectedRouter history={history}>

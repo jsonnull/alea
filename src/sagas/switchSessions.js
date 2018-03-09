@@ -18,7 +18,7 @@ export function* switchToSession(action: Action): Saga<void> {
 
   if (sessionId !== currentSessionId) {
     // Get session name
-    const sessions = yield select(state => state.user.data.sessions)
+    const sessions = yield select(state => state.sessions)
 
     // FIXME: Is there some way to remove these if statements?
     const session = sessions.find(el => el.id === sessionId)

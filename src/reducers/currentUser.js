@@ -4,16 +4,16 @@ import type { Action } from '../actions/types'
 
 export type CurrentUserState = {
   id: null | string,
+  email: string,
   displayName: string,
-  photoURL: ?string,
-  sessions: Array<string>
+  photoURL: ?string
 }
 
 export const initialState = {
   id: null,
+  email: 'anonymous',
   displayName: 'anonymous',
-  photoURL: undefined,
-  sessions: []
+  photoURL: undefined
 }
 
 export default function reducer(
@@ -22,7 +22,7 @@ export default function reducer(
 ) {
   switch (action.type) {
     case types.USER_LOGGED_IN:
-      return { ...state, id: action.id }
+      return { ...state, id: action.id, email: action.email }
     case types.PERFORM_USER_LOGOUT:
       return { ...initialState }
     case types.UPDATE_USER_PROFILE:

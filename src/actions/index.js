@@ -7,8 +7,7 @@ import type {
   UserProfile
 } from '../types'
 import type { PreferencesState } from '../reducers/preferences'
-import type { UserDataState } from '../reducers/user/data'
-import type { SessionState } from '../reducers/session'
+import type { SessionsState } from '../reducers/sessions'
 import type { Action } from './types'
 
 /*
@@ -30,9 +29,10 @@ export const performUserLogin = (email: string, password: string): Action => ({
   password
 })
 
-export const userLoggedIn = (id: string): Action => ({
+export const userLoggedIn = (id: string, email: string): Action => ({
   type: 'USER_LOGGED_IN',
-  id
+  id,
+  email
 })
 
 /*
@@ -69,9 +69,9 @@ export const changeTheme = (theme: ThemeName): Action => ({
 /*
  * User Data
  */
-export const hydrateUserData = (user: UserDataState): Action => ({
-  type: 'HYDRATE_USER_DATA',
-  user
+export const hydrateSessionsList = (sessions: SessionsState): Action => ({
+  type: 'HYDRATE_SESSIONS_LIST',
+  sessions
 })
 
 export const hydrateSessionMeta = (
@@ -86,10 +86,10 @@ export const hydrateSessionMeta = (
 /*
  * Session
  */
-export const hydrateSession = (session: SessionState): Action => ({
-  type: 'HYDRATE_SESSION',
-  session
-})
+// export const hydrateSession = (session: SessionState): Action => ({
+// type: 'HYDRATE_SESSION',
+// session
+// })
 
 export const switchToSession = (sessionId: string): Action => ({
   type: 'SWITCH_TO_SESSION',

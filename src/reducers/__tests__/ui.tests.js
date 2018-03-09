@@ -10,6 +10,12 @@ const DEFAULT_STATE = {
   showSettings: false
 }
 
+const loginAction = {
+  type: types.USER_LOGGED_IN,
+  id: 'test',
+  email: 'test@example.com'
+}
+
 describe('ui reducer', () => {
   it('should have correct initial state', () => {
     expect(reduce(undefined, INIT_ACTION)).toEqual(DEFAULT_STATE)
@@ -23,9 +29,7 @@ describe('ui reducer', () => {
   })
 
   it('should handle USER_LOGGED_IN', () => {
-    expect(
-      reduce(undefined, { type: types.USER_LOGGED_IN, id: 'test' })
-    ).toEqual({
+    expect(reduce(undefined, loginAction)).toEqual({
       ...DEFAULT_STATE,
       userIsLoggedIn: true
     })

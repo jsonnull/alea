@@ -16,7 +16,7 @@ export default class Messages implements MessagesSubscription {
   }
 
   onMessageData(callback: Function) {
-    this.query.onSnapshot(
+    this.unsubscribe = this.query.onSnapshot(
       snapshot => {
         snapshot.docChanges.forEach(change => {
           if (change.type === 'added') {
@@ -39,6 +39,7 @@ export default class Messages implements MessagesSubscription {
   close() {
     if (this.unsubscribe) {
       this.unsubscribe()
+      this.unsubscribe = null
     }
   }
 }

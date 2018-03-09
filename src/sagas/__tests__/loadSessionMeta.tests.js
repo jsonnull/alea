@@ -1,7 +1,7 @@
 // @flow
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { hydrateSessionMeta } from '../../actions'
-import { HYDRATE_USER_DATA } from '../../actions/types'
+import { HYDRATE_SESSIONS_LIST } from '../../actions/types'
 import loadMeta, { loadAllMeta, loadSessionMeta } from '../loadSessionMeta'
 import getSessionMeta from '../../firebase/getSessionMeta'
 
@@ -53,8 +53,10 @@ describe('loadAllMeta generator', () => {
 describe('loadMeta saga', () => {
   const gen = loadMeta()
 
-  it('should wait for HYDRATE_USER_DATA instruction', () => {
-    expect(gen.next().value).toEqual(takeLatest(HYDRATE_USER_DATA, loadAllMeta))
+  it('should wait for HYDRATE_SESSIONS_LIST instruction', () => {
+    expect(gen.next().value).toEqual(
+      takeLatest(HYDRATE_SESSIONS_LIST, loadAllMeta)
+    )
   })
 
   it('should be done', () => {

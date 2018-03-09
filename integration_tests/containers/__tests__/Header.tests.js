@@ -12,7 +12,7 @@ describe('Header container', () => {
   const store = setupStore()
 
   // Mimic user login and basic details
-  store.dispatch(userLoggedIn('testUserId'))
+  store.dispatch(userLoggedIn('testUserId', 'test@example.com'))
   store.dispatch(
     hydrateUserProfile({
       displayName: 'anonymous',

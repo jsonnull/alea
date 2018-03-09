@@ -4,10 +4,8 @@ import { cloneableGenerator } from 'redux-saga/utils'
 import { changeDisplayName } from '../../actions'
 import { CHANGE_DISPLAY_NAME } from '../../actions/types'
 import saveUserProfile from '../saveUserProfile'
-import getCurrentUserEmail from '../../firebase/getCurrentUserEmail'
 import saveProfile from '../../firebase/saveProfile'
 
-jest.mock('../../firebase/getCurrentUserEmail')
 jest.mock('../../firebase/saveProfile')
 
 describe('saveUserProfile saga', () => {
@@ -16,6 +14,8 @@ describe('saveUserProfile saga', () => {
 
   const emptyNameAction = { type: CHANGE_DISPLAY_NAME, name: '' }
   const emptyNameProfile = {
+    email: mockEmail,
+    photoURL: null,
     displayName: ''
   }
   const filledNameAction = {
@@ -23,8 +23,9 @@ describe('saveUserProfile saga', () => {
     name: 'test'
   }
   const filledNameProfile = {
-    displayName: 'test',
-    photoURL: null
+    email: mockEmail,
+    photoURL: null,
+    displayName: 'test'
   }
   const withEmptyName = gen.clone()
   const withUserName = gen.clone()
@@ -37,14 +38,8 @@ describe('saveUserProfile saga', () => {
     expect(withEmptyName.next(emptyNameAction).value).toHaveProperty('SELECT')
   })
 
-  it('should get the users email if no name is present', () => {
-    expect(withEmptyName.next(emptyNameProfile).value).toEqual(
-      call(getCurrentUserEmail)
-    )
-  })
-
   it('should put the users email in place of the name', () => {
-    expect(withEmptyName.next(mockEmail).value).toEqual(
+    expect(withEmptyName.next(emptyNameProfile).value).toEqual(
       put(changeDisplayName(mockEmail))
     )
   })
@@ -54,7 +49,10 @@ describe('saveUserProfile saga', () => {
     withUserName.next()
     withUserName.next(filledNameAction)
     expect(withUserName.next(filledNameProfile).value).toEqual(
-      call(saveProfile, filledNameProfile)
+      call(saveProfile, {
+        photoURL: null,
+        displayName: 'test'
+      })
     )
   })
 })

@@ -2,18 +2,24 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
-import { ConnectedRouter } from 'react-router-redux'
-import { hydrateSession } from '../../../src/actions'
+import { push, ConnectedRouter } from 'react-router-redux'
+import { hydrateSessionsList } from '../../../src/actions'
 import setupStore, { history } from '../../setupStore'
 import Sidebar from '../../../src/containers/Sidebar'
 
 describe('Sidebar container', () => {
   const store = setupStore()
-  store.dispatch(
-    hydrateSession({
-      name: 'Test Session'
-    })
-  )
+  const sessions = [
+    {
+      id: 'id1',
+      meta: {
+        name: 'Test Session'
+      }
+    }
+  ]
+  store.dispatch(hydrateSessionsList(sessions))
+  store.dispatch(push('/g/test-session/id1'))
+
   const wrapper = mount(
     <Provider store={store}>
       <ConnectedRouter history={history}>

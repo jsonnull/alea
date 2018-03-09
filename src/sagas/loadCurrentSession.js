@@ -3,7 +3,7 @@ import { eventChannel } from 'redux-saga'
 import type { Saga } from 'redux-saga'
 import { cancel, cancelled, fork, put, select, take } from 'redux-saga/effects'
 import selectCurrentSessionId from '../selectors/sessionId'
-import { hydrateSession } from '../actions'
+// import { hydrateSession } from '../actions'
 import {
   SWITCH_TO_SESSION,
   USER_LOGGED_IN,
@@ -28,7 +28,7 @@ export function* subscribeToSession(sessionId: string): Saga<void> {
   try {
     while (true) {
       const sessionData = yield take(channel)
-      yield put(hydrateSession(sessionData))
+      // yield put(hydrateSession(sessionData))
     }
   } finally {
     if (yield cancelled()) {

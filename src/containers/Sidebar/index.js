@@ -2,6 +2,7 @@
 import { connect } from 'react-redux'
 import { changeSidebarTab } from '../../actions'
 import Sidebar from '../../components/Sidebar'
+import sessionNameSelector from '../../selectors/sessionName'
 import type { State } from '../../store'
 import type { Tab } from '../../types'
 
@@ -12,7 +13,7 @@ type StateProps = {
 }
 const mapStateToProps = (state: State): StateProps => {
   return {
-    name: state.session.name,
+    name: sessionNameSelector(state),
     open: state.sidebar.open,
     tab: state.sidebar.tab
   }

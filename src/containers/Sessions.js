@@ -9,7 +9,7 @@ type StateProps = {
   sessions: Array<SessionInfo>
 }
 const mapStateToProps = (state: State, ownProps): StateProps => ({
-  sessions: state.user.data.sessions,
+  sessions: state.sessions,
   ...ownProps
 })
 

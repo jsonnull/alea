@@ -2,17 +2,15 @@
 import currentUser from './currentUser'
 import messages from './messages'
 import preferences from './preferences'
-import session from './session'
+import sessions from './sessions'
 import sidebar from './sidebar'
 import ui from './ui'
-import user from './user/'
 import type { CurrentUserState } from './currentUser'
 import type { MessagesState } from './messages'
 import type { PreferencesState } from './preferences'
-import type { SessionState } from './session'
+import type { SessionsState } from './sessions'
 import type { SidebarState } from './sidebar'
 import type { UIState } from './ui'
-import type { UserState } from './user'
 
 type RouterState = {
   location: {
@@ -26,11 +24,10 @@ export type ReducerState = {
   currentUser: CurrentUserState,
   messages: MessagesState,
   preferences: PreferencesState,
-  session: SessionState,
+  sessions: SessionsState,
   sidebar: SidebarState,
   ui: UIState,
-  user: UserState,
   router: RouterState
 }
 
-export { currentUser, messages, preferences, session, sidebar, ui, user }
+export { currentUser, messages, preferences, sessions, sidebar, ui }

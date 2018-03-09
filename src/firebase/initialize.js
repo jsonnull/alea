@@ -9,7 +9,7 @@ const initialize = (config: Object, store: Object) => {
 
   firebase.auth().onAuthStateChanged((user: ?Object) => {
     if (user) {
-      store.dispatch(userLoggedIn(user.uid))
+      store.dispatch(userLoggedIn(user.uid, user.email))
     } else {
       store.dispatch({ type: APP_FINISHED_LOADING })
     }
