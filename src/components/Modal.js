@@ -63,7 +63,12 @@ type ContentProps = {
 }
 class Content extends React.Component<ContentProps> {
   handleClickOutside = () => {
-    this.props.dismiss()
+    const state = this.props.state
+
+    // Only call the dismiss function if we're currently showing
+    if (state == 'entering' || state == 'entered') {
+      this.props.dismiss()
+    }
   }
 
   render() {
