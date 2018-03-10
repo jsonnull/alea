@@ -6,7 +6,12 @@ type Props = {
   createSession: Function
 }
 
-const CreateButton = Button.extend`align-self: flex-start;`
+const CreateButton = Button.extend`
+  display: block;
+  flex: 0;
+  margin-bottom: auto;
+  margin-right: auto;
+`
 
 const Create = (props: Props) => {
   return <CreateButton onClick={props.createSession}>Create Game</CreateButton>
