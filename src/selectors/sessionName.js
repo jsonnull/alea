@@ -1,8 +1,8 @@
 // @flow
 import { createSelector } from 'reselect'
-import sessionIdSelector from './sessionId'
 import type { State } from '../store'
 import type { SessionInfo } from '../types'
+import sessionIdSelector from './sessionId'
 
 const sessionsSelector = (state: State) => state.sessions
 

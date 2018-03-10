@@ -9,7 +9,7 @@ import type { UserProfile } from '../types'
 
 export default function* saveUserProfile(): Saga<void> {
   while (true) {
-    const action = yield take(CHANGE_DISPLAY_NAME)
+    yield take(CHANGE_DISPLAY_NAME)
     const profile = yield select(currentUser)
     if (profile.displayName === '') {
       const email = profile.email

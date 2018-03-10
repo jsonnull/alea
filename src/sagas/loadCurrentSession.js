@@ -1,7 +1,7 @@
 // @flow
 import { eventChannel } from 'redux-saga'
 import type { Saga } from 'redux-saga'
-import { cancel, cancelled, fork, put, select, take } from 'redux-saga/effects'
+import { cancel, cancelled, fork, select, take } from 'redux-saga/effects'
 import selectCurrentSessionId from '../selectors/sessionId'
 // import { hydrateSession } from '../actions'
 import {
@@ -28,6 +28,7 @@ export function* subscribeToSession(sessionId: string): Saga<void> {
   try {
     while (true) {
       const sessionData = yield take(channel)
+      console.log(sessionData)
       // yield put(hydrateSession(sessionData))
     }
   } finally {

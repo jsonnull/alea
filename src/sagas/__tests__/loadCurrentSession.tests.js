@@ -1,5 +1,5 @@
 // @flow
-import { put, take } from 'redux-saga/effects'
+import { take } from 'redux-saga/effects'
 import { cloneableGenerator, createMockTask } from 'redux-saga/utils'
 import { switchToSession } from '../../actions'
 import {
