@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header Button component renders correctly 1`] = `
+.c0 {
+  height: 3.25rem;
+  width: auto;
+  line-height: 3.25rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 <div
-  className="sc-bdVaJa ensBxF"
+  className="c0"
 />
 `;

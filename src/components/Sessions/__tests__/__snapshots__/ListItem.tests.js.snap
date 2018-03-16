@@ -1,18 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sessions ListItem component renders correctly 1`] = `
+.c2 {
+  display: inline-block;
+  border-radius: 2px;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.c1 {
+  font-family: Lora;
+  font-size: 1.8rem;
+}
+
+.c0 {
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0 1rem 2rem;
+  -webkit-flex: 1 0 25%;
+  -ms-flex: 1 0 25%;
+  flex: 1 0 25%;
+  max-width: 25%;
+  min-height: 100px;
+  cursor: pointer;
+}
+
 <div
-  className="sc-htpNat hpQGuX"
+  className="c0"
   onClick={[Function]}
 >
   <div>
     <div
-      className="sc-bwzfXH cIzktr"
+      className="c1"
     >
       testName
     </div>
     <div
-      className="sc-bdVaJa jGqIIH"
+      className="c2"
     >
       Current
     </div>

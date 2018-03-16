@@ -1,11 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chat Compose component renders correctly 1`] = `
+.c0 {
+  border: 0;
+  height: 50px;
+  line-height: 3rem;
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  resize: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-family: -apple-system,BlinkMacSystemFont,  "Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans",  "Helvetica Neue",sans-serif;
+}
+
 <form
-  className="sc-bdVaJa bDWFJH"
+  className=""
 >
   <textarea
-    className="sc-bwzfXH lhFdOS"
+    className="c0"
     onChange={[Function]}
     onKeyUp={[Function]}
     placeholder="Send a message..."

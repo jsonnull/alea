@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Map component renders correctly 1`] = `
+.c0 {
+  box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.2);
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
 <div
-  className="sc-bdVaJa dqvAPw"
+  className="c0"
 />
 `;

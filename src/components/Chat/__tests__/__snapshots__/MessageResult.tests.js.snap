@@ -1,8 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chat MessageResult component renders correctly 1`] = `
+.c1 {
+  font-weight: bold;
+}
+
+.c0 {
+  padding: 0 1rem 0.2rem;
+}
+
+.c2 {
+  font-weight: bold;
+}
+
 <div
-  className="sc-bwzfXH dslxFQ"
+  className="c0"
 >
   <i
     className="fa fa-cube"
@@ -12,7 +24,7 @@ exports[`Chat MessageResult component renders correctly 1`] = `
     <span>
       
       <span
-        className="sc-bdVaJa hCboOS"
+        className="c1"
         style={
           Object {
             "color": "inherit",
@@ -25,7 +37,7 @@ exports[`Chat MessageResult component renders correctly 1`] = `
   </span>
    = 
   <span
-    className="sc-htpNat joRjxB"
+    className="c2"
   >
     4
   </span>

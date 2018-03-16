@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Logo component renders correctly 1`] = `
+.c0 svg {
+  height: 16px;
+  fill: currentColor;
+}
+
 <div
-  className="sc-bdVaJa dPljGk"
+  className="c0"
   dangerouslySetInnerHTML={
     Object {
       "__html": Object {},

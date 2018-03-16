@@ -1,14 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Settings Name component renders correctly 1`] = `
+.c0 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: block;
+}
+
+.c1 {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding-left: 0;
+  border-bottom: 1px solid;
+  margin: 0 0 1rem;
+  width: 100%;
+}
+
+.c1:hover {
+  cursor: pointer;
+}
+
 <div>
   <label
-    className="sc-bdVaJa eHwgaL"
+    className="c0"
   >
     Display Name:
   </label>
   <div
-    className="sc-bxivhb eiqJAG"
+    className="c1"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}

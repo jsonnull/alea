@@ -1,11 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chat header component renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c2 {
+  display: block;
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+.c2 i {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.c1 {
+  margin-left: auto;
+}
+
 <div
-  className="sc-htpNat cXsAUZ"
+  className="c0"
 >
   <div
-    className="sc-ifAKCX hiytbS"
+    className="c1"
   >
     <div
       onMouseOut={[Function]}
@@ -13,7 +41,7 @@ exports[`Chat header component renders correctly 1`] = `
     >
       <div>
         <div
-          className="sc-bxivhb dHiVnA"
+          className="c2"
           onClick={[Function]}
         >
           <i

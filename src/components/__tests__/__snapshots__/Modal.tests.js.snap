@@ -1,21 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal component renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 600px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
 <div
-  className="sc-bdVaJa kAYprr"
+  className="c0"
 >
   <div
-    className="sc-bwzfXH dcHuJA"
+    className="c1"
   />
 </div>
 `;
 
 exports[`Modal component renders correctly when not set to show 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  -webkit-transform: translateX(-100000px);
+  -ms-transform: translateX(-100000px);
+  transform: translateX(-100000px);
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 600px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
 <div
-  className="sc-bdVaJa kWnJmF"
+  className="c0"
 >
   <div
-    className="sc-bwzfXH cdUXKa"
+    className="c1"
   />
 </div>
 `;
