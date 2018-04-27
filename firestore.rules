@@ -10,7 +10,6 @@ service cloud.firestore {
       allow read: if request.auth != null;
       // Only allow session owner to change session info
       allow write: if resource.data.owner == request.auth.uid;
-
     }
 
     // Messages
