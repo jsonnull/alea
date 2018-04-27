@@ -29,7 +29,16 @@ const RequireUser = (outerProps: Props) => {
         }
 
         if (initialAuthFinished && !userIsLoggedIn) {
-          return <Redirect to="/login" />
+          return (
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: {
+                  from: props.location.pathname
+                }
+              }}
+            />
+          )
         }
 
         return <Component {...props} />

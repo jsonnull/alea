@@ -1,6 +1,15 @@
 // @flow
-import React from 'react'
+import { connect } from 'react-redux'
+import { compose, withProps } from 'recompose'
 import performLogin from 'frontend/firebase/login'
 import Login from 'frontend/components/Login'
+import type { State } from 'frontend/store'
 
-export default () => <Login performLogin={performLogin} />
+const mapStateToProps = (state: State) => ({
+  userId: state.currentUser.id
+})
+
+export default compose(
+  connect(mapStateToProps, {}),
+  withProps({ performLogin })
+)(Login)

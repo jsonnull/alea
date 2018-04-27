@@ -1,11 +1,17 @@
 // @flow
 import * as React from 'react'
 import Logo from 'frontend/components/Logo'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Wrapper, Heading, Input, Button, Error, Forgot } from './styles'
 
 type Props = {
-  performLogin: Function
+  performLogin: Function,
+  userId: null | string,
+  location: {
+    state?: {
+      from: string
+    }
+  }
 }
 
 type State = {
@@ -36,6 +42,7 @@ export default class Login extends React.Component<Props, State> {
     const password = this.password.current.value
 
     const result = await performLogin(username, password)
+    // See if an error occurred
     if (result.code) {
       if (result.code == 'auth/invalid-email') {
         this.setState({ error: 'The email you entered is invalid.' })
@@ -44,11 +51,19 @@ export default class Login extends React.Component<Props, State> {
       } else if (result.code == 'auth/user-not-found') {
         this.setState({ error: 'There is no account for the given email.' })
       }
+      return
     }
   }
 
   render() {
+    const { from } = this.props.location.state || { from: '/sessions' }
+    const { userId } = this.props
     const { error } = this.state
+
+    if (userId) {
+      return <Redirect to={from} />
+    }
+
     return (
       <Wrapper>
         <Heading>

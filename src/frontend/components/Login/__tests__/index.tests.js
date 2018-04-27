@@ -7,7 +7,9 @@ describe('Login component', () => {
   const renderer = new ShallowRenderer()
 
   it('renders correctly', () => {
-    renderer.render(<Login performLogin={() => {}} />)
+    renderer.render(
+      <Login location={{}} userId={null} performLogin={() => {}} />
+    )
     const tree = renderer.getRenderOutput()
     expect(tree).toMatchSnapshot()
   })

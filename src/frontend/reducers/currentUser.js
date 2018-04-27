@@ -23,7 +23,7 @@ export default function reducer(
   switch (action.type) {
     case types.USER_LOGGED_IN:
       return { ...state, id: action.id, email: action.email }
-    case types.PERFORM_USER_LOGOUT:
+    case types.USER_LOGGED_OUT:
       return { ...initialState }
     case types.UPDATE_USER_PROFILE:
     case types.HYDRATE_USER_PROFILE:
