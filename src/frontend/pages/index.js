@@ -13,6 +13,7 @@ import Sessions from 'frontend/containers/Sessions'
 import Game from './Game'
 import Home from './Home'
 import Login from './Login'
+import ResetPassword from './ResetPassword'
 import type { State } from 'frontend/store'
 
 const Container = styled.div`
@@ -49,6 +50,7 @@ class Entry extends React.Component<Props> {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/forgot_password" component={ResetPassword} />
               <RequireUser exact path="/sessions" component={Sessions} />
               <RequireUser exact path="/g/:name/:id" component={Game} />
             </Switch>

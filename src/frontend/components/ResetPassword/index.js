@@ -1,54 +1,57 @@
 // @flow
 import * as React from 'react'
 import Logo from 'frontend/components/Logo'
-import { Link } from 'react-router-dom'
-import { Wrapper, Heading, Input, Button, Error, Forgot } from './styles'
+import { Wrapper, Heading, Input, Button, Error, Success } from './styles'
 
 type Props = {
-  performLogin: Function
+  sendPasswordResetEmail: Function
 }
 
 type State = {
-  error: string | null
+  error: string | null,
+  success: string | null
 }
 
-export default class Login extends React.Component<Props, State> {
+export default class ResetPasswordNew extends React.Component<Props, State> {
   state = {
-    error: null
+    error: null,
+    success: null
   }
 
   username = React.createRef()
-  password = React.createRef()
 
   submit = async (e: SyntheticEvent<>) => {
-    const { performLogin } = this.props
+    const { sendPasswordResetEmail } = this.props
 
     e.preventDefault()
     e.stopPropagation()
 
-    this.setState({ error: null })
+    this.setState({ error: null, success: null })
 
-    if (!this.username.current || !this.password.current) {
+    if (!this.username.current) {
       return
     }
 
     const username = this.username.current.value
-    const password = this.password.current.value
 
-    const result = await performLogin(username, password)
-    if (result.code) {
+    const result = await sendPasswordResetEmail(username)
+    if (result.error === true) {
       if (result.code == 'auth/invalid-email') {
         this.setState({ error: 'The email you entered is invalid.' })
-      } else if (result.code == 'auth/wrong-password') {
-        this.setState({ error: 'The password is incorrect.' })
       } else if (result.code == 'auth/user-not-found') {
         this.setState({ error: 'There is no account for the given email.' })
+      } else {
+        this.setState({ error: 'An unexpected error occurred.' })
       }
+    } else if (result.success === true) {
+      this.setState({
+        success: 'Check your email to complete your password reset.'
+      })
     }
   }
 
   render() {
-    const { error } = this.state
+    const { error, success } = this.state
     return (
       <Wrapper>
         <Heading>
@@ -61,19 +64,11 @@ export default class Login extends React.Component<Props, State> {
             placeholder="email"
             innerRef={this.username}
           />
-          <Input
-            name="password"
-            type="password"
-            placeholder="password"
-            innerRef={this.password}
-          />
           {error && <Error>{error}</Error>}
+          {success && <Success>{success}</Success>}
           <Button large onClick={this.submit}>
-            Login
+            Reset my password
           </Button>
-          <Forgot>
-            <Link to="/forgot_password">Forgot Password?</Link>
-          </Forgot>
         </form>
       </Wrapper>
     )

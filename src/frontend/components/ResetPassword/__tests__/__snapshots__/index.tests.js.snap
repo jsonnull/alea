@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login component renders correctly 1`] = `
+exports[`Password reset component renders correctly 1`] = `
 <styled.div>
   <styled.h1>
     <Logo
@@ -20,30 +20,12 @@ exports[`Login component renders correctly 1`] = `
       placeholder="email"
       type="text"
     />
-    <styled.input
-      innerRef={
-        Object {
-          "current": null,
-        }
-      }
-      name="password"
-      placeholder="password"
-      type="password"
-    />
     <styled.button
       large={true}
       onClick={[Function]}
     >
-      Login
+      Reset my password
     </styled.button>
-    <styled.div>
-      <Link
-        replace={false}
-        to="/forgot_password"
-      >
-        Forgot Password?
-      </Link>
-    </styled.div>
   </form>
 </styled.div>
 `;

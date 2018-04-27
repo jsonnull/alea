@@ -55,16 +55,16 @@ const outlineMixin = css`
 
 export const Button = styled.button`
   display: inline-block;
-  font-size: ${fontSize.small};
-  line-height: 3rem;
-  height: 3rem;
+  font-size: ${props => (props.large ? fontSize.normal : fontSize.small)};
+  line-height: ${props => (props.large ? '4rem' : '3rem')};
+  height: ${props => (props.large ? '4rem' : '3rem')};
   padding: 0 1rem;
   outline: 0;
   color: ${themes.dark.color};
   background: ${colors.blue};
   box-shadow: ${boxShadow(colors.blue)};
   border: none;
-  border-radius: 4px;
+  border-radius: ${props => (props.large ? '5px' : '4px')};
   cursor: pointer;
   transition: background, box-shadow;
   transition-duration: 0.1s;

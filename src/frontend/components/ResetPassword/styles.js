@@ -1,6 +1,6 @@
 // @flow
 import styled from 'styled-components'
-import { fontSize, colors } from 'frontend/styles/common'
+import { colors } from 'frontend/styles/common'
 import InputBase from 'frontend/components/Input'
 import ButtonBase from 'frontend/components/Button'
 
@@ -24,7 +24,6 @@ export const Heading = styled.h1`
 `
 
 export const Input = InputBase.extend`
-  font-size: ${fontSize.normal};
   padding: 2rem 1rem;
   background: none;
   border: 1px solid ${props => props.theme.borderColor};
@@ -35,7 +34,6 @@ export const Input = InputBase.extend`
 export const Button = ButtonBase.extend`
   display: block;
   width: 100%;
-  margin-bottom: 2rem;
 `
 
 export const Error = styled.div`
@@ -44,17 +42,8 @@ export const Error = styled.div`
   font-style: italic;
 `
 
-export const Forgot = styled.div`
-  text-align: center;
-
-  & a,
-  & a:link,
-  & a:visited {
-    color: ${colors.lightBlue};
-    text-decoration: none;
-  }
-
-  & a:hover {
-    color: ${colors.blue};
-  }
+export const Success = styled.div`
+  margin-bottom: 2rem;
+  color: ${colors.green};
+  font-style: italic;
 `
