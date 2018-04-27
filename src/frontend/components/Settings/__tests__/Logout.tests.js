@@ -5,7 +5,7 @@ import Logout from '../Logout.js'
 
 describe('Settings Logout component', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Logout logout={() => {}} />).toJSON()
+    const tree = renderer.create(<Logout performLogout={() => {}} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

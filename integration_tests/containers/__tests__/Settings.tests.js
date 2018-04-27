@@ -6,7 +6,6 @@ import { ThemeProvider } from 'styled-components'
 import { light } from 'frontend/styles/themes'
 import { userLoggedIn, hydrateUserProfile } from 'frontend/actions'
 import { APP_FINISHED_LOADING, USER_LOGGED_IN } from 'frontend/actions/types'
-import logoutFunction from 'frontend/firebase/logout'
 import Settings from 'frontend/containers/Settings'
 
 describe('Settings container', () => {
@@ -41,6 +40,8 @@ describe('Settings container', () => {
     expect(store.getState().preferences.theme).toEqual('dark')
   })
 
+  // FIXME: This will be a navigation event instead
+  /*
   it('should allow the user to log out', () => {
     store.dispatch({ type: USER_LOGGED_IN })
     expect(store.getState().ui.userIsLoggedIn).toBe(true)
@@ -51,4 +52,5 @@ describe('Settings container', () => {
     // $FlowJestError
     expect(logoutFunction.called).toBe(true)
   })
+  */
 })

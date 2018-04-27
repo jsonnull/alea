@@ -11,18 +11,24 @@ exports[`Login component renders correctly 1`] = `
     onSubmit={[Function]}
   >
     <styled.input
+      innerRef={
+        Object {
+          "current": null,
+        }
+      }
       name="username"
-      onChange={[Function]}
       placeholder="email"
       type="text"
-      value="test@example.com"
     />
     <styled.input
+      innerRef={
+        Object {
+          "current": null,
+        }
+      }
       name="password"
-      onChange={[Function]}
       placeholder="password"
       type="password"
-      value="test"
     />
     <styled.button
       onClick={[Function]}

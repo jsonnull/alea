@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Button from '../Button'
 
 type Props = {
-  logout: Function
+  performLogout: Function
 }
 
 const Container = styled.div`
@@ -15,7 +15,7 @@ const Container = styled.div`
 const Logout = (props: Props) => {
   return (
     <Container>
-      <Button red onClick={props.logout}>
+      <Button red onClick={props.performLogout}>
         Logout
       </Button>
     </Container>

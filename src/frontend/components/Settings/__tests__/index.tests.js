@@ -17,7 +17,7 @@ describe('Settings component', () => {
             changeDisplayName={() => {}}
             theme={light}
             changeTheme={() => {}}
-            logout={() => {}}
+            performLogout={() => {}}
             dismissSettings={() => {}}
           />
         </ThemeProvider>

@@ -1,16 +1,21 @@
 // @flow
 import React from 'react'
 import Modal from '../Modal'
-import type { Theme } from 'frontend/styles/themes'
-import type { DispatchProps, StateProps } from 'frontend/containers/Settings'
 import Logout from './Logout'
 import Name from './Name'
 import ThemeSwitcher from './ThemeSwitcher'
+import type { ThemeName } from 'common/types'
+import type { Theme } from 'frontend/styles/themes'
 
 type Props = {
-  theme: Theme
-} & StateProps &
-  DispatchProps
+  theme: Theme,
+  performLogout: Function,
+  changeTheme: (theme: ThemeName) => void,
+  changeDisplayName: (name: string) => void,
+  dismissSettings: Function,
+  displayName: string,
+  showSettings: boolean
+}
 
 const Settings = (props: Props) => {
   const {
@@ -19,7 +24,7 @@ const Settings = (props: Props) => {
     changeDisplayName,
     theme,
     changeTheme,
-    logout,
+    performLogout,
     dismissSettings
   } = props
 
@@ -31,7 +36,7 @@ const Settings = (props: Props) => {
 
           <ThemeSwitcher currentTheme={theme.name} changeTheme={changeTheme} />
 
-          <Logout logout={logout} />
+          <Logout performLogout={performLogout} />
         </div>
       )}
     </Modal>

@@ -1,20 +1,26 @@
 // @flow
 import firebase from '@firebase/app'
 import '@firebase/auth'
-import { PERFORM_USER_LOGIN } from 'frontend/actions/types'
-import type { Action } from 'frontend/actions/types'
+import type { DBUser } from 'common/types'
 
-const loginWithEmailAndPassword = (action: Action) => {
-  if (action.type !== PERFORM_USER_LOGIN) {
-    return
-  }
-
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(action.email, action.password)
-    .catch(() => {
-      console.log('there was an error')
-    })
+type AuthError = {
+  code: string,
+  message: string
 }
 
-export default loginWithEmailAndPassword
+const performLogin = async (
+  email: string,
+  password: string
+): Promise<DBUser | AuthError> => {
+  try {
+    const user: DBUser = await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+
+    return user
+  } catch (error) {
+    return error
+  }
+}
+
+export default performLogin
