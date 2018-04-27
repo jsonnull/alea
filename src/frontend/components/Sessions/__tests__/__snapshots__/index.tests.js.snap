@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sessions component renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 0 2rem;
+}
+
+.c2 {
+  font-size: 2.5rem;
+  line-height: 1;
+  font-family: Lora;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.c6 {
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 3rem;
+  height: 3rem;
+  padding: 0 1rem;
+  outline: 0;
+  color: #eee;
+  background: #046380;
+  box-shadow: inset 0 -20px 10px -10px #045d78;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: background,box-shadow;
+  transition: background,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: block;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+  margin-bottom: auto;
+  margin-right: auto;
+}
+
+.c6:hover {
+  background: #045a74;
+  box-shadow: inset 0 -20px 10px -10px #03546d;
+  -webkit-transition: background,box-shadow;
+  transition: background,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.c5 {
+  font-family: Lora;
+  font-size: 1.8rem;
+}
+
+.c4 {
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0 1rem 2rem;
+  -webkit-flex: 1 0 25%;
+  -ms-flex: 1 0 25%;
+  flex: 1 0 25%;
+  max-width: 25%;
+  min-height: 100px;
+  cursor: pointer;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <h1
+      className="c2"
+    >
+      Your Games
+    </h1>
+    <div
+      className="c3"
+    >
+      <div
+        className="c4"
+        onClick={[Function]}
+      >
+        <div
+          className="c5"
+        >
+          testName
+        </div>
+      </div>
+    </div>
+    <button
+      className="c6"
+      onClick={[Function]}
+    >
+      Create Game
+    </button>
+  </div>
+</div>
+`;
