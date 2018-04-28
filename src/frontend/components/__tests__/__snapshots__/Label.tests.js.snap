@@ -5,6 +5,7 @@ exports[`Label component renders correctly 1`] = `
   font-size: 1.3rem;
   font-weight: bold;
   display: block;
+  margin-bottom: 5px;
 }
 
 <label

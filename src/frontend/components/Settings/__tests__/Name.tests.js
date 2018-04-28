@@ -6,7 +6,7 @@ import Name from '../Name.js'
 describe('Settings Name component', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Name name="name" onChange={() => {}} />)
+      .create(<Name name="name" saveDisplayName={() => {}} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })

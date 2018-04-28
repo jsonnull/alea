@@ -21,7 +21,8 @@ export const colors = {
   green: '#8c9b7a',
   blue: '#046380',
   lightBlue: '#057091',
-  lightGray: '#e6e6e6'
+  lightGray: '#e6e6e6',
+  gray: '#999'
 }
 
 export const timings = {

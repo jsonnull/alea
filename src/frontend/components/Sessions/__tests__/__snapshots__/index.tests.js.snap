@@ -1,46 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sessions component renders correctly 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  padding: 0 2rem;
-}
-
-.c2 {
-  font-size: 2.5rem;
-  line-height: 1;
-  font-family: Lora;
-  padding: 1rem 0;
-  margin: 0;
-}
-
-.c6 {
+.c5 {
   display: inline-block;
   font-size: 1.3rem;
   line-height: 3rem;
@@ -70,7 +31,7 @@ exports[`Sessions component renders correctly 1`] = `
   margin-right: auto;
 }
 
-.c6:hover {
+.c5:hover {
   background: #045a74;
   box-shadow: inset 0 -20px 10px -10px #03546d;
   -webkit-transition: background,box-shadow;
@@ -81,12 +42,12 @@ exports[`Sessions component renders correctly 1`] = `
   transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
 }
 
-.c5 {
+.c4 {
   font-family: Lora;
   font-size: 1.8rem;
 }
 
-.c4 {
+.c3 {
   padding: 1rem;
   border-radius: 5px;
   margin: 0 1rem 2rem;
@@ -98,7 +59,7 @@ exports[`Sessions component renders correctly 1`] = `
   cursor: pointer;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -110,37 +71,59 @@ exports[`Sessions component renders correctly 1`] = `
   margin-right: -1rem;
 }
 
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem 2rem;
+  margin: 0 auto;
+}
+
+.c1 {
+  font-size: 2.5rem;
+  line-height: 1;
+  font-family: Lora;
+  padding-bottom: 5px;
+  border-bottom: 1px solid;
+  margin: 4rem 0 2rem;
+}
+
 <div
   className="c0"
 >
-  <div
+  <h1
     className="c1"
   >
-    <h1
-      className="c2"
-    >
-      Your Games
-    </h1>
+    Your Games
+  </h1>
+  <div
+    className="c2"
+  >
     <div
       className="c3"
+      onClick={[Function]}
     >
       <div
         className="c4"
-        onClick={[Function]}
       >
-        <div
-          className="c5"
-        >
-          testName
-        </div>
+        testName
       </div>
     </div>
-    <button
-      className="c6"
-      onClick={[Function]}
-    >
-      Create Game
-    </button>
   </div>
+  <button
+    className="c5"
+    onClick={[Function]}
+  >
+    Create Game
+  </button>
 </div>
 `;

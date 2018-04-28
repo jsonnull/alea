@@ -1,18 +1,15 @@
 // @flow
 import React from 'react'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
-type Props = {
-  showSettings: Function
-}
-
-const Settings = (props: Props) => {
-  const { showSettings } = props
-
+const Settings = () => {
   return (
-    <Button square onClick={showSettings}>
-      <i className="fa fa-cog" />
-    </Button>
+    <Link to="/settings">
+      <Button square>
+        <i className="fa fa-cog" />
+      </Button>
+    </Link>
   )
 }
 

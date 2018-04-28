@@ -2,39 +2,23 @@
 
 exports[`Settings Name component renders correctly 1`] = `
 .c0 {
-  font-size: 1.3rem;
-  font-weight: bold;
-  display: block;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: -apple-system,BlinkMacSystemFont,  "Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans",  "Helvetica Neue",sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
-.c1 {
-  position: relative;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding-left: 0;
-  border-bottom: 1px solid;
-  margin: 0 0 1rem;
-  width: 100%;
+.c0:focus {
+  background: undefined;
+  border-color: undefined;
 }
 
-.c1:hover {
-  cursor: pointer;
-}
-
-<div>
-  <label
-    className="c0"
-  >
-    Display Name:
-  </label>
-  <div
-    className="c1"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    name
-  </div>
-</div>
+<input
+  className="c0"
+  onBlur={[Function]}
+  onChange={[Function]}
+  value="name"
+/>
 `;

@@ -7,6 +7,7 @@ const Label = styled.label`
   color: ${props => props.theme.colorSecondary};
   font-weight: ${props => (props.theme.name == 'dark' ? 'normal' : 'bold')};
   display: block;
+  margin-bottom: 5px;
 `
 
 export default Label

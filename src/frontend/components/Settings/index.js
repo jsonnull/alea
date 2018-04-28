@@ -1,9 +1,22 @@
 // @flow
 import React from 'react'
-import Modal from '../Modal'
-import Logout from './Logout'
+import { Link } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import Page from 'frontend/components/Page'
+import Heading from 'frontend/components/Heading'
+import Label from 'frontend/components/Label'
+import Button from 'frontend/components/Button'
 import Name from './Name'
-import ThemeSwitcher from './ThemeSwitcher'
+import {
+  Row,
+  ThemeButtons,
+  ThemeContainer,
+  ThemeHeader,
+  ThemeArea,
+  ThemeSidebar,
+  ThemeChat
+} from './styles'
+import * as themes from 'frontend/styles/themes'
 import type { ThemeName } from 'common/types'
 import type { Theme } from 'frontend/styles/themes'
 
@@ -12,34 +25,69 @@ type Props = {
   performLogout: Function,
   changeTheme: (theme: ThemeName) => void,
   changeDisplayName: (name: string) => void,
-  dismissSettings: Function,
-  displayName: string,
-  showSettings: boolean
+  displayName: string
 }
 
 const Settings = (props: Props) => {
   const {
-    showSettings,
     displayName,
     changeDisplayName,
     theme,
     changeTheme,
-    performLogout,
-    dismissSettings
+    performLogout
   } = props
 
+  const isLightTheme = theme.name == 'light'
+  const isDarkTheme = theme.name == 'dark'
+
   return (
-    <Modal show={showSettings} dismiss={dismissSettings}>
-      {() => (
-        <div>
-          <Name name={displayName} onChange={changeDisplayName} />
+    <Page>
+      <Heading>Profile</Heading>
+      <Row>
+        <Label>Display Name:</Label>
+        <Name name={displayName} saveDisplayName={changeDisplayName} />
+      </Row>
 
-          <ThemeSwitcher currentTheme={theme.name} changeTheme={changeTheme} />
+      <Heading>Preferences</Heading>
+      <Row>
+        <Label>Theme</Label>
 
-          <Logout performLogout={performLogout} />
-        </div>
-      )}
-    </Modal>
+        <ThemeButtons>
+          <ThemeProvider theme={themes['light']}>
+            <ThemeContainer
+              selected={isLightTheme}
+              onClick={() => changeTheme('light')}
+            >
+              <ThemeHeader />
+              <ThemeArea>
+                <ThemeSidebar />
+                <ThemeChat />
+              </ThemeArea>
+            </ThemeContainer>
+          </ThemeProvider>
+          <ThemeProvider theme={themes['dark']}>
+            <ThemeContainer
+              selected={isDarkTheme}
+              onClick={() => changeTheme('dark')}
+            >
+              <ThemeHeader />
+              <ThemeArea>
+                <ThemeSidebar />
+                <ThemeChat />
+              </ThemeArea>
+            </ThemeContainer>
+          </ThemeProvider>
+        </ThemeButtons>
+      </Row>
+      <Row>
+        <Label>Logout</Label>
+        <Link to="/logout">
+          <Button red onClick={performLogout}>
+            Logout
+          </Button>
+        </Link>
+      </Row>
+    </Page>
   )
 }
 

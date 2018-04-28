@@ -77,6 +77,10 @@ exports[`Header component renders correctly when logged in 1`] = `
   -ms-flex: 1;
   flex: 1;
   padding: 0.5rem;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 .c6 {
@@ -157,14 +161,18 @@ exports[`Header component renders correctly when logged in 1`] = `
     >
       test
     </div>
-    <div
-      className="c2"
+    <a
+      href="/settings"
       onClick={[Function]}
     >
-      <i
-        className="fa fa-cog"
-      />
-    </div>
+      <div
+        className="c2"
+      >
+        <i
+          className="fa fa-cog"
+        />
+      </div>
+    </a>
   </div>
 </div>
 `;
@@ -234,6 +242,10 @@ exports[`Header component renders correctly with no user 1`] = `
   -ms-flex: 1;
   flex: 1;
   padding: 0.5rem;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 .c6 {

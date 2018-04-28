@@ -1,54 +1,46 @@
 // @flow
 import React from 'react'
-import styled from 'styled-components'
-import Label from '../Label'
-import Input from '../Input'
-import editable from 'frontend/hoc/editable'
+import Input from 'frontend/components/Input'
 
 type Props = {
   name: string,
-  onChange: Function
+  saveDisplayName: Function
 }
 
-const Editable = editable(
-  styled.div`
-    position: relative;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding-left: 0;
-    border-bottom: 1px solid ${props => props.theme.borderColor};
-    color: ${props => props.theme.color};
-    margin: 0 0 1rem;
-    width: 100%;
-    &:hover {
-      cursor: pointer;
+type State = {
+  name: string
+}
+
+export default class Name extends React.Component<Props, State> {
+  state = {
+    name: this.props.name
+  }
+
+  componentWillReceiveProps(prev: Props) {
+    // See if there's a new name
+    if (this.props.name !== prev.name) {
+      this.setState({ name: this.props.name })
     }
-  `
-)
+  }
 
-const NameInput = Input.extend`
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid ${props => props.theme.borderColor};
-  color: ${props => props.theme.color};
-  margin: 0 0 1rem;
-  width: 100%;
-  padding: 0;
-`
+  onChange = (e: SyntheticEvent<HTMLInputElement>) => {
+    this.setState({ name: e.currentTarget.value })
+  }
 
-const Name = (props: Props) => {
-  return (
-    <div>
-      <Label>Display Name:</Label>
-      <Editable
-        isHovering={true}
-        value={props.name}
-        input={NameInput}
-        onChange={props.onChange}
+  onBlur = () => {
+    if (this.state.name != this.props.name) {
+      this.props.saveDisplayName(this.state.name)
+    }
+  }
+
+  render() {
+    return (
+      <Input
+        editable
+        value={this.state.name}
+        onChange={this.onChange}
+        onBlur={this.onBlur}
       />
-    </div>
-  )
+    )
+  }
 }
-
-export default Name

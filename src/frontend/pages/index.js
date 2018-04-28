@@ -33,6 +33,7 @@ const Inner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  background: ${props => props.theme.background};
 `
 
 type Props = {
@@ -51,11 +52,11 @@ class Entry extends React.Component<Props> {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/forgot_password" component={ResetPassword} />
+              <RequireUser exact path="/settings" component={Settings} />
               <RequireUser exact path="/sessions" component={Sessions} />
               <RequireUser exact path="/g/:name/:id" component={Game} />
             </Switch>
           </Inner>
-          <Settings />
         </Container>
       </ThemeProvider>
     )
