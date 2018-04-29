@@ -1,6 +1,11 @@
 // @flow
 
 const User = `
+  type Profile {
+    id: ID!
+    username: String
+  }
+
   type Preferences {
     id: ID!
     chatPinned: Boolean
@@ -9,6 +14,7 @@ const User = `
 
   type User {
     id: ID!
+    profile: Profile
     preferences: Preferences
     games: [Game]
   }
@@ -20,6 +26,7 @@ const User = `
 
   extend type Mutation {
     setChatPinned(isPinned: Boolean!): Preferences
+    setTheme(theme: String!): Preferences
   }
 `
 

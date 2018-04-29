@@ -20,5 +20,5 @@ export const getCurrentUserGamesQuery = gql`
 `
 
 export const getCurrentUserGames = graphql(getCurrentUserGamesQuery, {
-  name: 'currentUserWithGames'
+  name: 'currentUserGamesQuery'
 })

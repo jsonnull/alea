@@ -23,5 +23,5 @@ export const getCurrentUserPreferencesQuery = gql`
 
 export const getCurrentUserPreferences = graphql(
   getCurrentUserPreferencesQuery,
-  { name: 'currentUserWithPreferences' }
+  { name: 'currentUserPreferencesQuery' }
 )

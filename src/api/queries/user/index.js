@@ -2,6 +2,7 @@
 import user from './rootUser'
 import games from './games'
 import preferences from './preferences'
+import profile from './profile'
 import currentUser from './currentUser'
 
 export default {
@@ -11,6 +12,7 @@ export default {
   },
   User: {
     games,
-    preferences
+    preferences,
+    profile
   }
 }

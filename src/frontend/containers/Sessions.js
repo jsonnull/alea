@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import slug from 'slugg'
 import { changeSidebarTab, switchToSession } from 'frontend/actions'
+import queryHandler from 'frontend/components/queryHandler'
 import Sessions from 'frontend/components/Sessions'
 import { getCurrentUserGames } from 'frontend/graphql/queries/currentUser/getCurrentUserGames'
 
@@ -17,5 +18,14 @@ const mapDispatchToProps = dispatch => ({
 
 export default compose(
   connect(undefined, mapDispatchToProps),
-  getCurrentUserGames
+  getCurrentUserGames,
+  queryHandler({
+    queries: ['currentUserGamesQuery'],
+    mergeData: props => ({
+      ...props,
+      currentUser: {
+        games: props.currentUserGamesQuery.currentUser.games
+      }
+    })
+  })
 )(Sessions)

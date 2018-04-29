@@ -9,17 +9,17 @@ import type { GetGameMessagesType } from 'frontend/graphql/queries/game/getGameM
 import type { GetCurrentUserPreferencesType } from 'frontend/graphql/queries/currentUser/getCurrentUserPreferences'
 
 type Props = {
-  gameWithMessages: {
+  isLoading: boolean,
+  hasError: boolean,
+  errors: Array<string>,
+  gameMessagesQuery: {
     loading: boolean,
-    error: ?string,
     game: GetGameMessagesType
   },
-  subscribeToNewMessages: Function,
-  currentUserWithPreferences: {
-    loading: boolean,
-    error: ?string,
+  currentUserPreferencesQuery: {
     currentUser: GetCurrentUserPreferencesType
   },
+  subscribeToNewMessages: Function,
   setChatPinned: Function,
   sendMessage: Function
 }
@@ -42,15 +42,15 @@ class Chat extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prev: Props) {
-    const { gameWithMessages } = this.props
+    const { gameMessagesQuery } = this.props
 
     // Do not allow old subscription messages to continue if we're mounting a
     // new chat or regaining network status
-    if (gameWithMessages.loading) {
+    if (gameMessagesQuery.loading) {
       this.unsubscribe()
     }
 
-    if (prev.gameWithMessages.loading && !gameWithMessages.loading) {
+    if (prev.gameMessagesQuery.loading && !gameMessagesQuery.loading) {
       this.subscribe()
     }
   }
@@ -75,12 +75,14 @@ class Chat extends React.Component<Props, State> {
 
   render() {
     const {
-      currentUserWithPreferences,
-      gameWithMessages,
+      isLoading,
+      hasError,
+      currentUserPreferencesQuery,
+      gameMessagesQuery,
       setChatPinned
     } = this.props
 
-    if (currentUserWithPreferences.loading || gameWithMessages.loading) {
+    if (isLoading) {
       return (
         <Container>
           <Loading>Connecting to chat...</Loading>
@@ -88,7 +90,7 @@ class Chat extends React.Component<Props, State> {
       )
     }
 
-    if (currentUserWithPreferences.error || gameWithMessages.error) {
+    if (hasError) {
       return (
         <Container>
           <Error>There was an error.</Error>
@@ -96,12 +98,12 @@ class Chat extends React.Component<Props, State> {
       )
     }
 
-    const messages = gameWithMessages.game.messageConnection.edges.map(
+    const messages = gameMessagesQuery.game.messageConnection.edges.map(
       edge => edge.node
     )
 
     const isPinned =
-      currentUserWithPreferences.currentUser.preferences.chatPinned
+      currentUserPreferencesQuery.currentUser.preferences.chatPinned
 
     const shownMessages = isPinned ? messages : messages.slice(-4)
 

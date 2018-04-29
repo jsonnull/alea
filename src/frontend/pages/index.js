@@ -1,12 +1,12 @@
 // @flow
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
-import { connect } from 'react-redux'
+import styled from 'styled-components'
 import { hot } from 'react-hot-loader'
-import { Route, Switch } from 'react-router'
+import { withRouter, Route, Switch } from 'react-router'
 import RequireUser from './utils/RequireUser'
-import * as themes from 'frontend/styles/themes'
+import WaitForAuth from './utils/WaitForAuth'
 import { CONSTS } from 'frontend/styles/common'
+import ThemeProvider from 'frontend/components/ThemeProvider'
 import Header from 'frontend/containers/Header'
 import Settings from 'frontend/containers/Settings'
 import Sessions from 'frontend/containers/Sessions'
@@ -14,7 +14,6 @@ import Game from './Game'
 import Home from './Home'
 import Login from './Login'
 import ResetPassword from './ResetPassword'
-import type { State } from 'frontend/store'
 
 const Container = styled.div`
   position: absolute;
@@ -36,39 +35,26 @@ const Inner = styled.div`
   background: ${props => props.theme.background};
 `
 
-type Props = {
-  theme: Object
-}
-class Entry extends React.Component<Props> {
-  render() {
-    const { theme } = this.props
+const Entry = () => (
+  <ThemeProvider>
+    <Container>
+      <Header />
+      <Inner>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <WaitForAuth exact path="/login" component={Login} />
+          <WaitForAuth
+            exact
+            path="/forgot_password"
+            component={ResetPassword}
+          />
+          <RequireUser exact path="/settings" component={Settings} />
+          <RequireUser exact path="/sessions" component={Sessions} />
+          <RequireUser exact path="/g/:name/:id" component={Game} />
+        </Switch>
+      </Inner>
+    </Container>
+  </ThemeProvider>
+)
 
-    return (
-      <ThemeProvider theme={theme}>
-        <Container>
-          <Header />
-          <Inner>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/forgot_password" component={ResetPassword} />
-              <RequireUser exact path="/settings" component={Settings} />
-              <RequireUser exact path="/sessions" component={Sessions} />
-              <RequireUser exact path="/g/:name/:id" component={Game} />
-            </Switch>
-          </Inner>
-        </Container>
-      </ThemeProvider>
-    )
-  }
-}
-
-const mapStateToProps = (state: State): Props => ({
-  theme: themes[state.preferences.theme],
-  // Next line is required so component updates when we dispatch a new location
-  location: state.router.location
-})
-
-const Connected = connect(mapStateToProps)(Entry)
-
-export default hot(module)(Connected)
+export default hot(module)(withRouter(Entry))

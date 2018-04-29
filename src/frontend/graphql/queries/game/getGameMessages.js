@@ -17,7 +17,7 @@ const getGameByMatchOptions = {
     }
   }),
   props: props => ({
-    gameWithMessages: props.data,
+    gameMessagesQuery: props.data,
     subscribeToNewMessages: () => {
       // No existing query results, do not subscribe
       if (!props.data.game) {

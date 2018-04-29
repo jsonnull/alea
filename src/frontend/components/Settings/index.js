@@ -17,35 +17,38 @@ import {
   ThemeChat
 } from './styles'
 import * as themes from 'frontend/styles/themes'
-import type { ThemeName } from 'common/types'
-import type { Theme } from 'frontend/styles/themes'
 
 type Props = {
-  theme: Theme,
-  performLogout: Function,
-  changeTheme: (theme: ThemeName) => void,
-  changeDisplayName: (name: string) => void,
-  displayName: string
+  isLoading: boolean,
+  hasError: boolean,
+  currentUser: {
+    preferences: Object,
+    profile: Object
+  },
+  setTheme: Function,
+  changeDisplayName: (name: string) => void
 }
 
 const Settings = (props: Props) => {
-  const {
-    displayName,
-    changeDisplayName,
-    theme,
-    changeTheme,
-    performLogout
-  } = props
+  const { isLoading } = props
+  if (isLoading) {
+    return null
+  }
 
-  const isLightTheme = theme.name == 'light'
-  const isDarkTheme = theme.name == 'dark'
+  const { theme } = props.currentUser.preferences
+  const { username } = props.currentUser.profile
+
+  const { changeDisplayName, setTheme } = props
+
+  const isLightTheme = theme == 'light'
+  const isDarkTheme = theme == 'dark'
 
   return (
     <Page>
       <Heading>Profile</Heading>
       <Row>
         <Label>Display Name:</Label>
-        <Name name={displayName} saveDisplayName={changeDisplayName} />
+        <Name name={username} saveDisplayName={changeDisplayName} />
       </Row>
 
       <Heading>Preferences</Heading>
@@ -56,7 +59,7 @@ const Settings = (props: Props) => {
           <ThemeProvider theme={themes['light']}>
             <ThemeContainer
               selected={isLightTheme}
-              onClick={() => changeTheme('light')}
+              onClick={() => setTheme('light')}
             >
               <ThemeHeader />
               <ThemeArea>
@@ -68,7 +71,7 @@ const Settings = (props: Props) => {
           <ThemeProvider theme={themes['dark']}>
             <ThemeContainer
               selected={isDarkTheme}
-              onClick={() => changeTheme('dark')}
+              onClick={() => setTheme('dark')}
             >
               <ThemeHeader />
               <ThemeArea>
@@ -82,9 +85,7 @@ const Settings = (props: Props) => {
       <Row>
         <Label>Logout</Label>
         <Link to="/logout">
-          <Button red onClick={performLogout}>
-            Logout
-          </Button>
+          <Button red>Logout</Button>
         </Link>
       </Row>
     </Page>
