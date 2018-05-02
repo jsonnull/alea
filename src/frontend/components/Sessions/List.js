@@ -19,8 +19,7 @@ const Loading = () => <div>Loading...</div>
 
 type Props = {
   loading: boolean,
-  currentUser: { games?: Array<GetCurrentUserGamesType> },
-  setSession: Function
+  currentUser: { games?: Array<GetCurrentUserGamesType> }
 }
 
 const FullList = (props: Props) => {
@@ -50,11 +49,7 @@ const FullList = (props: Props) => {
   return (
     <List>
       {sessions.map(session => (
-        <Item
-          key={session.id}
-          name={session.name}
-          setSession={() => props.setSession(session.id, session.name)}
-        />
+        <Item key={session.id} id={session.id} name={session.name} />
       ))}
     </List>
   )

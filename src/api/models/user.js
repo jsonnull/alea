@@ -20,6 +20,10 @@ export const getUserById = async (id: string): Promise<DBUser> => {
 }
 
 export const getCurrentUser = async () => {
+  if (!firebase.auth().currentUser) {
+    return null
+  }
+
   const uid = firebase.auth().currentUser.uid
 
   return getUserById(uid)

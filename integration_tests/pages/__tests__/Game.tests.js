@@ -2,7 +2,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import AppContainer, { setupStore } from '../../appContainer'
-import { push } from 'react-router-redux'
 import { Route } from 'react-router'
 import Game from 'frontend/pages/Game'
 
@@ -11,7 +10,6 @@ describe('Game view', () => {
 
   beforeEach(() => {
     store = setupStore()
-    store.dispatch(push('/g/name/id'))
 
     wrapper = mount(
       <AppContainer store={store}>

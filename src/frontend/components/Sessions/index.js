@@ -9,21 +9,16 @@ import type { GetCurrentUserGamesType } from 'frontend/graphql/queries/currentUs
 type Props = {
   isLoading: boolean,
   hasError: boolean,
-  currentUser: { games?: Array<GetCurrentUserGamesType> },
-  switchToSession: Function
+  currentUser: { games?: Array<GetCurrentUserGamesType> }
 }
 
 const Sessions = (props: Props) => {
-  const { isLoading, currentUser, switchToSession } = props
+  const { isLoading, currentUser } = props
 
   return (
     <Page>
       <Heading>Your Games</Heading>
-      <List
-        loading={isLoading}
-        currentUser={currentUser}
-        setSession={switchToSession}
-      />
+      <List loading={isLoading} currentUser={currentUser} />
       <Create createSession={() => {}} />
     </Page>
   )

@@ -3,17 +3,11 @@ import * as types from 'frontend/actions/types'
 import type { Action } from 'frontend/actions/types'
 
 export type CurrentUserState = {
-  id: null | string,
-  email: string,
-  displayName: string,
-  photoURL: ?string
+  id: ?string
 }
 
-export const initialState = {
-  id: null,
-  email: 'anonymous',
-  displayName: 'anonymous',
-  photoURL: undefined
+const initialState = {
+  id: null
 }
 
 export default function reducer(
@@ -22,14 +16,9 @@ export default function reducer(
 ) {
   switch (action.type) {
     case types.USER_LOGGED_IN:
-      return { ...state, id: action.id, email: action.email }
+      return { ...state, id: action.id }
     case types.USER_LOGGED_OUT:
       return { ...initialState }
-    case types.UPDATE_USER_PROFILE:
-    case types.HYDRATE_USER_PROFILE:
-      return { ...state, ...action.user }
-    case types.CHANGE_DISPLAY_NAME:
-      return { ...state, displayName: action.name }
     default:
       return state
   }

@@ -5,7 +5,6 @@ import { changeSidebarTab } from 'frontend/actions'
 const INIT_ACTION = { type: '@@INIT' }
 
 const DEFAULT_STATE = {
-  open: true,
   tab: 'Session'
 }
 

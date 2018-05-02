@@ -4,7 +4,7 @@ const Message = `
   type Message {
     id: ID!
     from: String!
-    result: String
+    result: [JSON!]
     text: String!
     timestamp: Date!
   }

@@ -1,6 +1,8 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import slug from 'slugg'
 import { fontSize, fonts } from 'frontend/styles/common'
 
 const SessionName = styled.div`
@@ -20,15 +22,18 @@ const Session = styled.div`
 `
 
 type Props = {
-  name: string,
-  setSession: Function
+  id: string,
+  name: string
 }
 
 const Item = (props: Props) => {
+  const { id, name } = props
   return (
-    <Session onClick={props.setSession}>
-      <SessionName>{props.name}</SessionName>
-    </Session>
+    <Link to={`/g/${slug(name)}/${id}`}>
+      <Session>
+        <SessionName>{props.name}</SessionName>
+      </Session>
+    </Link>
   )
 }
 

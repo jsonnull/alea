@@ -9,7 +9,14 @@ describe('Header component', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <Header username={null} showSettings={() => {}} />
+          <Header
+            isLoading={false}
+            hasError={false}
+            currentUserProfileQuery={{}}
+            userIsLoggedIn={false}
+            username={null}
+            showSettings={() => {}}
+          />
         </MemoryRouter>
       )
       .toJSON()
@@ -20,7 +27,14 @@ describe('Header component', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <Header username="test" showSettings={() => {}} />
+          <Header
+            isLoading={false}
+            hasError={false}
+            currentUserProfileQuery={{}}
+            userIsLoggedIn={false}
+            username="test"
+            showSettings={() => {}}
+          />
         </MemoryRouter>
       )
       .toJSON()

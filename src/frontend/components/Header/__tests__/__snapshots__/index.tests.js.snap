@@ -159,7 +159,7 @@ exports[`Header component renders correctly when logged in 1`] = `
     <div
       className="c7"
     >
-      test
+      
     </div>
     <a
       href="/settings"
@@ -215,6 +215,18 @@ exports[`Header component renders correctly with no user 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+.c7 {
+  height: 3.25rem;
+  width: auto;
+  line-height: 3.25rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.3rem;
 }
 
 .c0 {
@@ -321,19 +333,21 @@ exports[`Header component renders correctly with no user 1`] = `
   <div
     className="c6"
   >
+    <div
+      className="c7"
+    >
+      
+    </div>
     <a
-      href="/login"
+      href="/settings"
       onClick={[Function]}
-      style={
-        Object {
-          "textDecoration": "none",
-        }
-      }
     >
       <div
-        className="c4"
+        className="c2"
       >
-        Login
+        <i
+          className="fa fa-cog"
+        />
       </div>
     </a>
   </div>

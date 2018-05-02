@@ -11,15 +11,19 @@ import type { State } from 'frontend/store'
 type Props = {
   children?: React.Node,
   isLoading: boolean,
-  currentUser: {
-    preferences: Object
+  currentUserPreferencesQuery: {
+    currentUser: ?{
+      preferences: Object
+    }
   }
 }
 
 const Provider = (props: Props) => {
-  const theme = props.isLoading
-    ? themes.light
-    : themes[props.currentUser.preferences.theme]
+  const { isLoading, currentUserPreferencesQuery: { currentUser } } = props
+  const theme =
+    isLoading || !currentUser
+      ? themes.light
+      : themes[currentUser.preferences.theme]
 
   return <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
 }
@@ -27,13 +31,7 @@ const Provider = (props: Props) => {
 const ProviderWithQuery = compose(
   getCurrentUserPreferences,
   queryHandler({
-    queries: ['currentUserPreferencesQuery'],
-    mergeData: props => ({
-      ...props,
-      currentUser: {
-        preferences: props.currentUserPreferencesQuery.currentUser.preferences
-      }
-    })
+    queries: ['currentUserPreferencesQuery']
   })
 )(Provider)
 

@@ -7,8 +7,7 @@ const INIT_ACTION = { type: '@@INIT' }
 const DEFAULT_STATE = {
   initialAuthFinished: false,
   appIsLoading: true,
-  userIsLoggedIn: false,
-  showSettings: false
+  userIsLoggedIn: false
 }
 
 const loginAction = {
@@ -47,20 +46,6 @@ describe('ui reducer', () => {
     expect(reduce(undefined, { type: types.USER_LOGGED_OUT })).toEqual({
       ...DEFAULT_STATE,
       userIsLoggedIn: false
-    })
-  })
-
-  it('should handle SHOW_SETTINGS', () => {
-    expect(reduce(undefined, { type: types.SHOW_SETTINGS })).toEqual({
-      ...DEFAULT_STATE,
-      showSettings: true
-    })
-  })
-
-  it('should handle HIDE_SETTINGS', () => {
-    expect(reduce(undefined, { type: types.HIDE_SETTINGS })).toEqual({
-      ...DEFAULT_STATE,
-      showSettings: false
     })
   })
 })

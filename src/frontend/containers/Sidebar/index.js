@@ -3,14 +3,11 @@ import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import { changeSidebarTab } from 'frontend/actions'
 import Sidebar from 'frontend/components/Sidebar'
-import sessionIdSelector from 'frontend/selectors/sessionId'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import type { State } from 'frontend/store'
 
 const mapStateToProps = (state: State) => ({
-  sessionId: sessionIdSelector(state),
-  open: state.sidebar.open,
   tab: state.sidebar.tab
 })
 
@@ -32,7 +29,7 @@ export default compose(
     name: 'currentSession',
     options: ownProps => ({
       variables: {
-        id: ownProps.sessionId
+        id: ownProps.match.params.id
       }
     })
   })

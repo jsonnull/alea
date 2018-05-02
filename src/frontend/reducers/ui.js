@@ -5,15 +5,13 @@ import type { Action } from 'frontend/actions/types'
 export type UIState = {
   initialAuthFinished: boolean,
   appIsLoading: boolean,
-  userIsLoggedIn: boolean,
-  showSettings: boolean
+  userIsLoggedIn: boolean
 }
 
 const initialState = {
   initialAuthFinished: false,
   appIsLoading: true,
-  userIsLoggedIn: false,
-  showSettings: false
+  userIsLoggedIn: false
 }
 
 export default function reducer(state: UIState = initialState, action: Action) {
@@ -37,16 +35,6 @@ export default function reducer(state: UIState = initialState, action: Action) {
       return {
         ...state,
         userIsLoggedIn: false
-      }
-    case types.SHOW_SETTINGS:
-      return {
-        ...state,
-        showSettings: true
-      }
-    case types.HIDE_SETTINGS:
-      return {
-        ...state,
-        showSettings: false
       }
     default:
       return state

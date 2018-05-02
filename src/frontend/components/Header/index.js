@@ -8,11 +8,15 @@ import Login from './Login'
 import { Container, Column } from './styles'
 
 type Props = {
-  username: string | null
+  isLoading: boolean,
+  userIsLoggedIn: boolean,
+  currentUserProfileQuery: {
+    currentUser?: { profile: { username: string } }
+  }
 }
 
-const Header = (props: Props) => {
-  const { username } = props
+const Header = (_props: Props) => {
+  let username = ''
 
   return (
     <Container>

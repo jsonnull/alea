@@ -1,12 +1,15 @@
 // @flow
-const GraphQLDate = require('graphql-date')
+import GraphQLJSON from 'graphql-type-json'
+import GraphQLDate from 'graphql-date'
 
 const typeDefs = `
   scalar Date
+  scalar JSON
 `
 
 const resolvers = {
-  Date: GraphQLDate
+  Date: GraphQLDate,
+  JSON: GraphQLJSON
 }
 
 export default {

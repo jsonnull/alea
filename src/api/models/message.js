@@ -1,6 +1,9 @@
 // @flow
 import firebase from '@firebase/app'
 import '@firebase/firestore'
+import CommandParser from '../utils/commandParser'
+
+const commandParser = new CommandParser()
 
 export const getMessagesByGameId = async (id: string, _first: number) => {
   const collection = firebase
@@ -59,10 +62,12 @@ export const listenToNewMessages = (id: string) => (callback: Function) => {
 export const sendMessage = (id: string, text: string) => {
   const messagesCollection = firebase.firestore().collection(`messages`)
 
+  const result = commandParser.getMessageResult(text)
+
   const message = {
     from: 'jsonnull',
-    result: null,
-    text: text,
+    result,
+    text,
     game: id,
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
   }

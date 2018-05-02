@@ -18,7 +18,7 @@ const GameInner = styled.div`
 
 const Game = ({ match }: Object) => (
   <GameInner>
-    <Sidebar />
+    <Sidebar match={match} />
     <Map />
     <Chat match={match} />
   </GameInner>

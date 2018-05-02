@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 import initializeFirebase from 'frontend/firebase/initialize'
-import Pages from 'frontend/pages'
+import Routes from 'frontend/routes'
 import createStore from 'frontend/store'
 import client from 'api/index'
 import 'frontend/assets'
@@ -30,7 +30,7 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Pages />
+        <Routes />
       </ConnectedRouter>
     </Provider>
   </ApolloProvider>,
