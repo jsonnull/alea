@@ -4,8 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
 import { Provider } from 'react-redux'
-import createBrowserHistory from 'history/createBrowserHistory'
-import { ConnectedRouter } from 'react-router-redux'
+import { BrowserRouter } from 'react-router-dom'
 import initializeFirebase from 'frontend/firebase/initialize'
 import Routes from 'frontend/routes'
 import createStore from 'frontend/store'
@@ -22,16 +21,15 @@ const config = {
   messagingSenderId: '120753444769'
 }
 
-let history = createBrowserHistory()
 let store = createStore(history)
 initializeFirebase(config, store)
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <BrowserRouter>
         <Routes />
-      </ConnectedRouter>
+      </BrowserRouter>
     </Provider>
   </ApolloProvider>,
   ((document.getElementById('root'): any): Element)

@@ -2,8 +2,8 @@
 import * as React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
-import setupStore, { history, dispatchSpy } from './store'
+import { BrowserRouter } from 'react-router-dom'
+import setupStore, { dispatchSpy } from './store'
 import client from './api'
 
 type Props = {
@@ -13,11 +13,11 @@ type Props = {
 const App = (props: Props) => (
   <ApolloProvider client={client}>
     <Provider store={props.store}>
-      <ConnectedRouter history={history}>{props.children}</ConnectedRouter>
+      <BrowserRouter>{props.children}</BrowserRouter>
     </Provider>
   </ApolloProvider>
 )
 
 export default App
 
-export { setupStore, history, dispatchSpy }
+export { setupStore, dispatchSpy }

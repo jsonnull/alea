@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { mount } from 'enzyme'
-import App, { history, setupStore, dispatchSpy } from '../../appContainer'
+import App, { setupStore, dispatchSpy } from '../../appContainer'
 import { userLoggedIn } from 'frontend/actions'
 import Header from 'frontend/containers/Header'
 

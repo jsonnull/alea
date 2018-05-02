@@ -1,6 +1,5 @@
 // @flow
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
-import { routerMiddleware, routerReducer } from 'react-router-redux'
 import * as reducers from './reducers'
 import type { ReducerState } from './reducers'
 
@@ -8,12 +7,9 @@ import type { ReducerState } from './reducers'
 export type State = ReducerState
 
 export default function createStoreWithMiddleware(history: Object) {
-  const reducer = combineReducers({
-    ...reducers,
-    router: routerReducer
-  })
+  const reducer = combineReducers(reducers)
 
-  const middleware = [routerMiddleware(history)]
+  const middleware = []
 
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

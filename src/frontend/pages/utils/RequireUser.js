@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
-import { Route, Redirect } from 'react-router'
+import { compose } from 'recompose'
+import { Route, Redirect, withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import type { State } from 'frontend/store'
 import Loading from 'frontend/components/Loading'
@@ -49,8 +50,7 @@ const RequireUser = (outerProps: Props) => {
 
 const mapStateToProps = (state: State) => ({
   initialAuthFinished: state.ui.initialAuthFinished,
-  userIsLoggedIn: state.ui.userIsLoggedIn,
-  location: state.router.location
+  userIsLoggedIn: state.ui.userIsLoggedIn
 })
 
-export default connect(mapStateToProps, {})(RequireUser)
+export default compose(connect(mapStateToProps, {}), withRouter)(RequireUser)
