@@ -26,7 +26,7 @@ type Props = {
     profile: Object
   },
   setTheme: Function,
-  changeDisplayName: (name: string) => void
+  setUsername: (name: string) => void
 }
 
 const Settings = (props: Props) => {
@@ -38,7 +38,7 @@ const Settings = (props: Props) => {
   const { theme } = props.currentUser.preferences
   const { username } = props.currentUser.profile
 
-  const { changeDisplayName, setTheme } = props
+  const { setUsername, setTheme } = props
 
   const isLightTheme = theme == 'light'
   const isDarkTheme = theme == 'dark'
@@ -48,7 +48,7 @@ const Settings = (props: Props) => {
       <Heading>Profile</Heading>
       <Row>
         <Label>Display Name:</Label>
-        <Name name={username} saveDisplayName={changeDisplayName} />
+        <Name name={username} saveDisplayName={setUsername} />
       </Row>
 
       <Heading>Preferences</Heading>

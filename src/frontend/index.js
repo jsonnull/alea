@@ -21,7 +21,7 @@ const config = {
   messagingSenderId: '120753444769'
 }
 
-let store = createStore(history)
+let store = createStore()
 initializeFirebase(config, store)
 
 ReactDOM.render(

@@ -6,7 +6,7 @@ import type { ReducerState } from './reducers'
 /* State tree */
 export type State = ReducerState
 
-export default function createStoreWithMiddleware(history: Object) {
+export default function createStoreWithMiddleware() {
   const reducer = combineReducers(reducers)
 
   const middleware = []

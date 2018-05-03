@@ -4,9 +4,7 @@ import '@firebase/auth'
 import '@firebase/firestore'
 
 export const getProfileForCurrentUser = async () => {
-  const uid = firebase.auth().currentUser.uid
-
-  return getProfileById(uid)
+  return getProfileFromCurrentUser()
 }
 
 export const getProfileById = async (id: string) => {
@@ -24,5 +22,17 @@ export const getProfileById = async (id: string) => {
   return {
     id: id,
     username: data.username || id
+  }
+}
+
+export const getProfileFromCurrentUser = async () => {
+  const user = firebase.auth().currentUser
+
+  const id = user.uid
+  const username = user.displayName
+
+  return {
+    id,
+    username
   }
 }

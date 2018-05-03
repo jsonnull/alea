@@ -27,6 +27,7 @@ const User = `
   extend type Mutation {
     setChatPinned(isPinned: Boolean!): Preferences
     setTheme(theme: String!): Preferences
+    setUsername(name: String!): Profile
   }
 `
 
