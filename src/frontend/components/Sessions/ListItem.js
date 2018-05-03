@@ -29,11 +29,11 @@ type Props = {
 const Item = (props: Props) => {
   const { id, name } = props
   return (
-    <Link to={`/g/${slug(name)}/${id}`}>
-      <Session>
+    <Session>
+      <Link to={`/g/${slug(name)}/${id}`}>
         <SessionName>{props.name}</SessionName>
-      </Session>
-    </Link>
+      </Link>
+    </Session>
   )
 }
 

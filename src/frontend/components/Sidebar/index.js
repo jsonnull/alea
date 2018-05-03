@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Content from 'frontend/containers/Sidebar/Content'
 import type { Tab } from 'common/types'
-import { colors, fontSize, fonts } from 'frontend/styles/common'
+import { fontSize, fonts } from 'frontend/styles/common'
 import Menu from './Menu'
 
 const Container = styled.div`
@@ -14,7 +14,7 @@ const Container = styled.div`
 `
 
 const Top = styled.div`
-  background: ${colors.lightGray};
+  background: ${props => props.theme.backgroundSecondary};
 `
 
 const Header = styled.h1`

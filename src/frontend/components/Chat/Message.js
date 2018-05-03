@@ -16,6 +16,7 @@ const MessageContainer = styled.div`
   border-bottom: 1px solid ${props => props.theme.borderColor};
   display: inline-block;
   width: 100%;
+  color: ${props => props.theme.color};
 
   &:first-child {
     margin-top: auto;

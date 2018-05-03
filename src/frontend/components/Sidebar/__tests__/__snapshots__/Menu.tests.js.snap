@@ -9,7 +9,7 @@ exports[`Sidebar Menu component renders correctly 1`] = `
   background-repeat: no-repeat;
   background-size: 100% 4px;
   background-position: 0 4.4rem;
-  background-image: linear-gradient(black 0%,black 100%);
+  background-image: linear-gradient( 0%, 100% );
   -webkit-transition: background-size 100ms,background-position 100ms;
   transition: background-size 100ms,background-position 100ms;
 }
@@ -28,7 +28,7 @@ exports[`Sidebar Menu component renders correctly 1`] = `
   background-repeat: no-repeat;
   background-size: 0 4px;
   background-position: 50% 4.4rem;
-  background-image: linear-gradient(black 0%,black 100%);
+  background-image: linear-gradient( 0%, 100% );
   -webkit-transition: background-size 100ms,background-position 100ms;
   transition: background-size 100ms,background-position 100ms;
 }

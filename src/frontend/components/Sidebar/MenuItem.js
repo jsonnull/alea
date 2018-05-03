@@ -10,16 +10,17 @@ const Item = styled.div`
   width: 4.8rem;
   line-height: 4.8rem;
   background-repeat: no-repeat;
+  color: ${props => props.theme.color};
   background-size: ${props => (props.selected ? '100% 4px' : '0 4px')};
   background-position: ${props => (props.selected ? '0 4.4rem' : '50% 4.4rem')};
-  background-image: linear-gradient(black 0%, black 100%);
+  background-image: linear-gradient(
+    ${props => props.theme.color} 0%,
+    ${props => props.theme.color} 100%
+  );
   transition: background-size 100ms, background-position 100ms;
 
   &:hover {
-    background-color: ${props =>
-      props.theme.name === 'dark'
-        ? props.theme.backgroundSecondary
-        : colors.lightBlue};
+    background-color: ${colors.lightBlue};
     color: white;
     cursor: pointer;
   }
