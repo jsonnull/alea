@@ -10,15 +10,18 @@ const SessionName = styled.div`
   font-size: ${fontSize.medium};
 `
 
-const Session = styled.div`
+const Session = styled(Link)`
+  display: block;
   padding: 1rem;
+  min-height: 100px;
   border-radius: 5px;
   margin: 0 1rem 2rem;
   flex: 1 0 25%;
   max-width: 25%;
-  min-height: 100px;
   cursor: pointer;
   background-color: ${props => props.theme.backgroundSecondary};
+  color: ${props => props.theme.color};
+  text-decoration: none;
 `
 
 type Props = {
@@ -29,10 +32,8 @@ type Props = {
 const Item = (props: Props) => {
   const { id, name } = props
   return (
-    <Session>
-      <Link to={`/g/${slug(name)}/${id}`}>
-        <SessionName>{props.name}</SessionName>
-      </Link>
+    <Session to={`/g/${slug(name)}/${id}`}>
+      <SessionName>{props.name}</SessionName>
     </Session>
   )
 }
