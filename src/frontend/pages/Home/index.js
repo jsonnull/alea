@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import { light as theme } from '../styles/themes'
+import { light as theme } from 'frontend/styles/themes'
 import { colors } from 'frontend/styles/common'
 import Logo from 'frontend/components/Logo'
 

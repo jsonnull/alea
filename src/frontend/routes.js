@@ -14,6 +14,7 @@ import Sessions from 'frontend/containers/Sessions'
 import Game from 'frontend/pages/Game'
 import Home from 'frontend/pages/Home'
 import Login from 'frontend/pages/Login'
+import Logout from 'frontend/pages/Logout'
 import ResetPassword from 'frontend/pages/ResetPassword'
 
 const Body = styled.div`
@@ -46,6 +47,7 @@ const Entry = () => (
             <Route exact path="/" component={Home} />(
             <Route exact path="/login" component={Login} />
             <Route exact path="/forgot_password" component={ResetPassword} />
+            <RequireUser exact path="/logout" component={Logout} />
             <RequireUser exact path="/settings" component={Settings} />
             <RequireUser exact path="/sessions" component={Sessions} />
             <RequireUser exact path="/g/:name/:id" component={Game} />
