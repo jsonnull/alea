@@ -7,7 +7,6 @@ import ButtonBase from 'frontend/components/Button'
 // @flow
 export const Wrapper = styled.div`
   width: 300px;
-  align-self: center;
   margin: auto;
   background: ${props => props.theme.background};
   border-radius: 5px;
