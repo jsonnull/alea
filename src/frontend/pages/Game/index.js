@@ -1,6 +1,7 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
+import Header from 'frontend/containers/Header'
 import Chat from 'frontend/containers/Chat'
 import Map from 'frontend/containers/Map'
 import Sidebar from 'frontend/containers/Sidebar'
@@ -17,11 +18,14 @@ const GameInner = styled.div`
 `
 
 const Game = ({ match }: Object) => (
-  <GameInner>
-    <Sidebar match={match} />
-    <Map />
-    <Chat match={match} />
-  </GameInner>
+  <React.Fragment>
+    <Header />
+    <GameInner>
+      <Sidebar match={match} />
+      <Map />
+      <Chat match={match} />
+    </GameInner>
+  </React.Fragment>
 )
 
 export default Game

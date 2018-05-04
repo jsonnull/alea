@@ -1,5 +1,13 @@
 // @flow
+import * as React from 'react'
 import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  background: ${props => props.theme.background};
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`
 
 const Page = styled.div`
   display: flex;
@@ -11,4 +19,8 @@ const Page = styled.div`
   margin: 0 auto;
 `
 
-export default Page
+export default ({ children }: { children: React.Node }) => (
+  <Wrapper>
+    <Page>{children}</Page>
+  </Wrapper>
+)

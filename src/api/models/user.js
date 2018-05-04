@@ -21,7 +21,7 @@ export const getUserById = async (id: string): Promise<DBUser> => {
 
 export const getCurrentUser = async () => {
   if (!firebase.auth().currentUser) {
-    return null
+    throw new Error('Error getting `currentUser`, user is not logged in.')
   }
 
   const uid = firebase.auth().currentUser.uid
