@@ -9,7 +9,16 @@
     ],
     "headers": [
       {
-        "source": "index.html",
+        "source": "**/*.@(js)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=7200"
+          }
+        ]
+      },
+      {
+        "source": "**",
         "headers": [
           {
             "key": "Cache-Control",
