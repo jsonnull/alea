@@ -1,6 +1,7 @@
 // @flow
 export const fonts = {
-  heading: 'Lora',
+  title: 'Lora',
+  heading: 'Lato',
   body: `
     /* 1 */ -apple-system, BlinkMacSystemFont,
     /* 2 */ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
@@ -12,7 +13,8 @@ export const fontSize = {
   small: '1.3rem',
   normal: '1.5rem',
   medium: '1.8rem',
-  large: '2.5rem'
+  large: '2.5rem',
+  huge: '3.2rem'
 }
 
 export const colors = {
@@ -27,8 +29,4 @@ export const colors = {
 
 export const timings = {
   easeOutQuad: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-}
-
-export const CONSTS = {
-  headerHeight: '4.25rem'
 }

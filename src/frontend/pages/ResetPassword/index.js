@@ -1,13 +1,13 @@
 // @flow
 import React from 'react'
 import sendPasswordResetEmail from 'frontend/firebase/sendPasswordReset'
-import Header from 'frontend/containers/Header'
+import FrontHeader from 'frontend/containers/FrontHeader'
 import ResetPassword from 'frontend/components/ResetPassword'
 import { Background } from './styles'
 
 export default () => (
   <Background>
-    <Header />
+    <FrontHeader />
     <ResetPassword sendPasswordResetEmail={sendPasswordResetEmail} />
   </Background>
 )

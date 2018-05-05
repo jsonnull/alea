@@ -1,11 +1,16 @@
 // @flow
 import * as React from 'react'
-import Home from './Home'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import Button from './Button'
 import Logo from './Logo'
 import CurrentUser from './CurrentUser'
 import Settings from './Settings'
-import Login from './Login'
 import { Container, Column } from './styles'
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+`
 
 type Props = {
   isLoading: boolean,
@@ -21,20 +26,18 @@ const Header = (_props: Props) => {
   return (
     <Container>
       <Column>
-        <Home />
+        <NavLink to="/sessions">
+          <Button>Games</Button>
+        </NavLink>
       </Column>
-      <Column>
+      <Column middle>
         <Logo />
       </Column>
       <Column right>
-        {username === null ? (
-          <Login />
-        ) : (
-          <React.Fragment>
-            <CurrentUser username={username} />
-            <Settings />
-          </React.Fragment>
-        )}
+        <React.Fragment>
+          <CurrentUser username={username} />
+          <Settings />
+        </React.Fragment>
       </Column>
     </Container>
   )

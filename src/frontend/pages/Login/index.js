@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { connect } from 'react-redux'
-import Header from 'frontend/containers/Header'
+import FrontHeader from 'frontend/containers/FrontHeader'
 import performLogin from 'frontend/firebase/login'
 import Login from 'frontend/components/Login'
 import { Background } from './styles'
@@ -9,7 +9,7 @@ import type { State } from 'frontend/store'
 
 const LoginView = (props: any) => (
   <Background>
-    <Header />
+    <FrontHeader />
     <Login {...props} performLogin={performLogin} />
   </Background>
 )

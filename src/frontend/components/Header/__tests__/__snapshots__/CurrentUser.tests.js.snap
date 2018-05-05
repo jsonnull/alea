@@ -2,14 +2,12 @@
 
 exports[`Header CurrentUser component renders correctly 1`] = `
 .c0 {
-  height: 3.25rem;
+  height: 4rem;
   width: auto;
-  line-height: 3.25rem;
   padding: 0 1rem;
   text-align: center;
   font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 5px;
   font-size: 1.3rem;
 }
 
