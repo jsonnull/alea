@@ -1,11 +1,9 @@
 // @flow
 import styled from 'styled-components'
-import { fontSize } from 'frontend/styles/common'
 
 const Label = styled.label`
-  font-size: ${fontSize.small};
   color: ${props => props.theme.colorSecondary};
-  font-weight: ${props => (props.theme.name == 'dark' ? 'normal' : 'bold')};
+  font-weight: 600;
   display: block;
   margin-bottom: 5px;
 `

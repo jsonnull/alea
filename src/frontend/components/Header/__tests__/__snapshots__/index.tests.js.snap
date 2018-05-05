@@ -6,7 +6,7 @@ exports[`Header component renders correctly when loading 1`] = `
   width: auto;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
@@ -15,7 +15,7 @@ exports[`Header component renders correctly when loading 1`] = `
   width: 4rem;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
@@ -29,7 +29,7 @@ exports[`Header component renders correctly when loading 1`] = `
   width: auto;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   padding-top: 12px;
   line-height: 1;
@@ -40,7 +40,7 @@ exports[`Header component renders correctly when loading 1`] = `
   width: auto;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   font-size: 1.3rem;
 }
@@ -183,7 +183,7 @@ exports[`Header component renders correctly when logged in 1`] = `
   width: auto;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
@@ -192,7 +192,7 @@ exports[`Header component renders correctly when logged in 1`] = `
   width: 4rem;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
@@ -206,7 +206,7 @@ exports[`Header component renders correctly when logged in 1`] = `
   width: auto;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   padding-top: 12px;
   line-height: 1;
@@ -217,7 +217,7 @@ exports[`Header component renders correctly when logged in 1`] = `
   width: auto;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   font-size: 1.3rem;
 }

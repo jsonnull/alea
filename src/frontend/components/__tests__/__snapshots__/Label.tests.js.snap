@@ -2,8 +2,7 @@
 
 exports[`Label component renders correctly 1`] = `
 .c0 {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-weight: 600;
   display: block;
   margin-bottom: 5px;
 }

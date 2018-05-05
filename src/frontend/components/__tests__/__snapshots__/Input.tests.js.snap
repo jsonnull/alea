@@ -6,7 +6,7 @@ exports[`Input component renders correctly 1`] = `
   border: 1px solid;
   border-radius: 4px;
   font-family: -apple-system,BlinkMacSystemFont,  "Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans",  "Helvetica Neue",sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1;
 }
 

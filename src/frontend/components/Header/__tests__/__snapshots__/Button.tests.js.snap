@@ -6,7 +6,7 @@ exports[`Header Button component renders correctly 1`] = `
   width: auto;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 

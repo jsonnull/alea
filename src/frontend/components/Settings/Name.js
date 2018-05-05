@@ -36,7 +36,6 @@ export default class Name extends React.Component<Props, State> {
   render() {
     return (
       <Input
-        editable
         value={this.state.name}
         onChange={this.onChange}
         onBlur={this.onBlur}

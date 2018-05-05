@@ -47,7 +47,7 @@ const Settings = (props: Props) => {
     <Page>
       <Heading>Profile</Heading>
       <Row>
-        <Label>Display Name:</Label>
+        <Label>Display Name</Label>
         <Name name={username} saveDisplayName={setUsername} />
       </Row>
 

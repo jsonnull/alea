@@ -11,10 +11,10 @@ export const fonts = {
 
 export const fontSize = {
   small: '1.3rem',
-  normal: '1.5rem',
-  medium: '1.8rem',
-  large: '2.5rem',
-  huge: '3.2rem'
+  normal: '1.4rem',
+  medium: '1.6rem',
+  large: '2.4rem',
+  huge: '3.0rem'
 }
 
 export const colors = {
