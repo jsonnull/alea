@@ -55,7 +55,7 @@ export default class ResetPasswordNew extends React.Component<Props, State> {
     return (
       <Wrapper>
         <Heading>
-          <Logo height="25px" />
+          <Logo height="26px" />
         </Heading>
         <form onSubmit={this.submit}>
           <Input

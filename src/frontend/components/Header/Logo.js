@@ -3,29 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Button from './Button'
-
-const logoEmbed =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAAAMCAQAAABboSKXAAAAAnNCSVQICFXsRgQAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAADBUlEQVQ4y83US4iXZRTH8Z+NN7QIRU3EcUJEK3NjNYKMaTRaEFJZSSVechYqShpFSRJq0kYtJbAyLNsUJTnhpZuQWaG5EEscywtvQhcYUYbUvKTOfFrM69/BiLae1XPO+b3P+Z7Ded6kYl5SWFXxulpjpzW5lkwXzTilRyVyCIuuLchJ2u3JSuQrzLm2ILfjIL6uRDZjWnkeo8E4nZLEAI9rMLbM3KveIDWmGpeoMsFUfcvcaDNNMaj8ql69KnUa3F6p0Vm9Bo+pThLDzPCg6xOd1KtXrbvJ7bkkavGnIf7GiDK2qX2uevoSZ7EhSXxXzvyDJNGElf4CL1gPjumXGF7qzpmQqMNFj2rFJZOSxChHS83MxFJtzuGwPonDmGU36i9DfoxXEx9i7VWQK7AksRhj3WCpceZoxc2JrdjhaTvQYrHnnMbsxETT1NmCLxIDccFqCzRhe+Imx13ylGGWecD92K6rOm2WJbZhv33+MLQdZ6hWF9UkxuGMXlcgdXIC9xhsPOaXDXRzFHVle9MTt+F0kljX3lSpnIgDiT44m5Q1DiYW4pOKbgMWGWywZpvLZXs+0UVVu2AtLigUfgHPdoDs7bKd0mJ+opcljoExHSD7VyCXX4Y0ykaX/gU5EocSH+G1CuTeynK0aCwhn7jyZPo7h7322GOPwyhcV4HsrhW3VNSjnfCWekf+D9IqbSaa+5+Q76Oxcu83mNvhIV8FuRLfV7zezuORxBZMSRzBOzonqg32LWaUnd+daCz9AThTue9lw3FGlVr8nOiH80niThxJLMAFtWXdN7Ffr0RPd5W7fvl3aKCzmNWhh0b8oMouzEvMAb/70QUDfYpfvaIZD5cTeCYxAm26JdbjdTVasdU6HEvcCnok7sPxxI0O4bxN3jXeCOdw0h4nTU/s6jBZbysURnaAXKBQmK1JYUWSmG63U1q8lxhim2Yv2qqwUJV9CqsTkxUKdyQ+V9iYaPCTA2YqFGo8pFCoTcxTKFQn+nrDb87bqXNilM80O2OXfrpoUljeTvQPR26bCLlSuF4AAAAASUVORK5CYII='
-
-const logoEmbedHiDPI =
-  'data:image/png;base64,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'
-
-const Logo = styled.div`
-  position: relative;
-  top: 10px;
-  width: 82px;
-  height: 12px;
-  background-image: url(${logoEmbed});
-  background-size: 82px 12px;
-
-  @media only screen and (-webkit-min-device-pixel-ratio: 1.25),
-    @media only screen and (-moz-min-device-pixel-ratio: 1.25),
-    @media only screen and (-o-min-device-pixel-ratio: 5/4),
-    @media only screen and (min-device-pixel-ratio: 1.25) {
-    background-image: url(${logoEmbedHiDPI});
-  }
-  ${';'};
-`
+import LogoSvg from 'frontend/components/Logo'
 
 const Wrapper = styled.div`
   margin: auto;
@@ -36,7 +14,7 @@ const LogoButton = () => (
   <Wrapper>
     <Link to="/">
       <Button>
-        <Logo />
+        <LogoSvg height="12px" />
       </Button>
     </Link>
   </Wrapper>
