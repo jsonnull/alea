@@ -1,14 +1,15 @@
 // @flow
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import Logo from '../Logo'
 import spinner from './spinner.svg'
+import { colors } from 'frontend/styles/common'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
   position: absolute;
+  background: ${colors.blue};
   top: 0;
   left: 0;
   right: 0;
@@ -16,21 +17,7 @@ const Container = styled.div`
 `
 
 const Loading = styled.div`
-  width: 300px;
-  background: ${props => props.theme.background};
-  border-radius: 5px;
-  padding: 2rem;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  align-self: center;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-`
-
-const Title = styled.div`
-  text-align: center;
-  margin: 0;
-  margin-bottom: 1rem;
 `
 
 const spin = keyframes`
@@ -55,9 +42,6 @@ const Spinner = styled.img.attrs({
 const LoadingModal = () => (
   <Container>
     <Loading>
-      <Title>
-        <Logo height="25px" />
-      </Title>
       <Spinner />
     </Loading>
   </Container>

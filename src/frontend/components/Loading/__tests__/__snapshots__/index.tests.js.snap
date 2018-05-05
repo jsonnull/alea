@@ -1,11 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading component renders correctly 1`] = `
-.c3 svg {
-  height: 25px;
-  fill: currentColor;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -19,6 +14,7 @@ exports[`Loading component renders correctly 1`] = `
   -ms-flex-align: stretch;
   align-items: stretch;
   position: absolute;
+  background: #046380;
   top: 0;
   left: 0;
   right: 0;
@@ -26,30 +22,10 @@ exports[`Loading component renders correctly 1`] = `
 }
 
 .c1 {
-  width: 300px;
-  border-radius: 5px;
-  padding: 2rem;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
   margin: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
 }
 
 .c2 {
-  text-align: center;
-  margin: 0;
-  margin-bottom: 1rem;
-}
-
-.c4 {
   -webkit-animation: iECmZH 1.4s infinite linear;
   animation: iECmZH 1.4s infinite linear;
   -webkit-transform: translateZ(0);
@@ -66,21 +42,8 @@ exports[`Loading component renders correctly 1`] = `
   <div
     className="c1"
   >
-    <div
-      className="c2"
-    >
-      <div
-        className="c3"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": Object {},
-          }
-        }
-        height="25px"
-      />
-    </div>
     <img
-      className="c4"
+      className="c2"
       src={Object {}}
     />
   </div>
