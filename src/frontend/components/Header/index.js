@@ -14,14 +14,15 @@ const NavLink = styled(Link)`
 
 type Props = {
   isLoading: boolean,
-  userIsLoggedIn: boolean,
   currentUserProfileQuery: {
     currentUser?: { profile: { username: string } }
   }
 }
 
-const Header = (_props: Props) => {
-  let username = ''
+const Header = (props: Props) => {
+  const username = props.isLoading
+    ? ''
+    : props.currentUserProfileQuery.currentUser.profile.username
 
   return (
     <Container>
