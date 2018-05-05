@@ -15,7 +15,7 @@ const NavLink = styled(Link)`
 type Props = {
   isLoading: boolean,
   currentUserProfileQuery: {
-    currentUser?: { profile: { username: string } }
+    currentUser: { profile: { username: string } }
   }
 }
 

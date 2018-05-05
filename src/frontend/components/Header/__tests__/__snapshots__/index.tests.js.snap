@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component renders correctly when logged in 1`] = `
+exports[`Header component renders correctly when loading 1`] = `
 .c3 {
   height: 4rem;
   width: auto;
@@ -177,7 +177,7 @@ exports[`Header component renders correctly when logged in 1`] = `
 </div>
 `;
 
-exports[`Header component renders correctly with no user 1`] = `
+exports[`Header component renders correctly when logged in 1`] = `
 .c3 {
   height: 4rem;
   width: auto;
@@ -336,7 +336,7 @@ exports[`Header component renders correctly with no user 1`] = `
     <div
       className="c8"
     >
-      
+      test
     </div>
     <a
       href="/settings"

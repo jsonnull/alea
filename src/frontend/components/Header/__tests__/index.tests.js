@@ -5,17 +5,16 @@ import { MemoryRouter } from 'react-router'
 import Header from '../index.js'
 
 describe('Header component', () => {
-  it('renders correctly with no user', () => {
+  it('renders correctly when loading', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
           <Header
-            isLoading={false}
+            isLoading={true}
             hasError={false}
-            currentUserProfileQuery={{}}
-            userIsLoggedIn={false}
-            username={null}
-            showSettings={() => {}}
+            currentUserProfileQuery={{
+              currentUser: { profile: { username: '' } }
+            }}
           />
         </MemoryRouter>
       )
@@ -30,10 +29,9 @@ describe('Header component', () => {
           <Header
             isLoading={false}
             hasError={false}
-            currentUserProfileQuery={{}}
-            userIsLoggedIn={false}
-            username="test"
-            showSettings={() => {}}
+            currentUserProfileQuery={{
+              currentUser: { profile: { username: 'test' } }
+            }}
           />
         </MemoryRouter>
       )
