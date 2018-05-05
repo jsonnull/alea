@@ -4,7 +4,7 @@ exports[`Login component renders correctly 1`] = `
 <styled.div>
   <styled.h1>
     <Logo
-      height="25px"
+      height="26px"
     />
   </styled.h1>
   <form
