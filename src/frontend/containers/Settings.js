@@ -2,26 +2,19 @@
 import { compose } from 'recompose'
 import Settings from 'frontend/components/Settings'
 import queryHandler from 'frontend/components/queryHandler'
-import setTheme from 'frontend/graphql/mutations/user/setTheme'
 import setUsername from 'frontend/graphql/mutations/user/setUsername'
 import updateUserAvatar from 'frontend/graphql/mutations/user/updateUserAvatar'
-import { getCurrentUserPreferences } from 'frontend/graphql/queries/currentUser/getCurrentUserPreferences'
 import { getCurrentUserProfile } from 'frontend/graphql/queries/currentUser/getCurrentUserProfile'
 
 export default compose(
-  getCurrentUserPreferences,
   getCurrentUserProfile,
-  setTheme,
   setUsername,
   updateUserAvatar,
   queryHandler({
-    queries: ['currentUserPreferencesQuery', 'currentUserProfileQuery'],
+    queries: ['currentUserProfileQuery'],
     mergeData: props => ({
       ...props,
-      currentUser: {
-        preferences: props.currentUserPreferencesQuery.currentUser.preferences,
-        profile: props.currentUserProfileQuery.currentUser.profile
-      }
+      currentUser: props.currentUserProfileQuery.currentUser
     })
   })
 )(Settings)

@@ -134,6 +134,15 @@ exports[`Header component renders correctly when logged in 1`] = `
   fill: currentColor;
 }
 
+.c7 {
+  text-decoration: none;
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -260,9 +269,8 @@ exports[`Header component renders correctly when logged in 1`] = `
     >
       test username
     </a>
-    <a
-      className="c2"
-      href="/settings"
+    <div
+      className="c7"
       onClick={[Function]}
     >
       <svg
@@ -281,7 +289,7 @@ exports[`Header component renders correctly when logged in 1`] = `
           style={Object {}}
         />
       </svg>
-    </a>
+    </div>
   </div>
 </div>
 `;

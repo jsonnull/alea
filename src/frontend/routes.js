@@ -11,6 +11,7 @@ import Game from './pages/Game'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Logout from './pages/Logout'
+import Preferences from './pages/Preferences'
 import ResetPassword from './pages/ResetPassword'
 import Sessions from './pages/Sessions'
 import Settings from './pages/Settings'
@@ -29,6 +30,7 @@ const Entry = () => (
               <Switch>
                 <Route exact path="/logout" component={Logout} />
                 <Route exact path="/settings" component={Settings} />
+                <Route exact path="/preferences" component={Preferences} />
                 <Route exact path="/sessions" component={Sessions} />
                 <Route exact path="/g/:name/:id" component={Game} />
               </Switch>
