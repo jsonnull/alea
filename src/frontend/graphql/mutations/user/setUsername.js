@@ -4,6 +4,7 @@ import gql from 'graphql-tag'
 import { getCurrentUserProfileQuery } from '../../queries/currentUser/getCurrentUserProfile'
 import profileDataFragment from '../../fragments/profile/profileData'
 import type { ProfileDataType } from '../../fragments/profile/profileData'
+import type { DBProfile } from 'common/types'
 
 export type SetUsernameType = {
   data: {
@@ -24,8 +25,13 @@ const setUsernameMutation = gql`
 
 const setUsernameOptions = {
   props: ({ _ownProps, mutate }) => ({
-    // Add setChatPinned on props based on `mutate`
     setUsername: (name: string) => {
+      const optimisticProfile: DBProfile = {
+        id: 'none',
+        username: name,
+        avatar: null
+      }
+
       return mutate({
         variables: {
           name
@@ -34,7 +40,7 @@ const setUsernameOptions = {
           __typename: 'Mutation',
           setUsername: {
             __typename: 'Profile',
-            username: name
+            ...optimisticProfile
           }
         },
         update: (store, { data: { setUsername } }) => {

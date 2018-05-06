@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import Input from 'frontend/components/Input'
 
 type Props = {
@@ -16,20 +16,28 @@ export default class Name extends React.Component<Props, State> {
     name: this.props.name
   }
 
-  componentWillReceiveProps(prev: Props) {
+  static getDerivedStateFromProps(nextProps: Props, prevState: State) {
     // See if there's a new name
-    if (this.props.name !== prev.name) {
-      this.setState({ name: this.props.name })
+    if (nextProps.name !== prevState.name) {
+      return { name: nextProps.name }
     }
+
+    return null
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ name: e.currentTarget.value })
   }
 
-  onBlur = () => {
+  submit = () => {
     if (this.state.name != this.props.name) {
       this.props.saveDisplayName(this.state.name)
+    }
+  }
+
+  handleKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    if (e.key == 'Enter') {
+      this.submit()
     }
   }
 
@@ -38,7 +46,8 @@ export default class Name extends React.Component<Props, State> {
       <Input
         value={this.state.name}
         onChange={this.onChange}
-        onBlur={this.onBlur}
+        onBlur={this.submit}
+        onKeyPress={this.handleKeyPress}
       />
     )
   }
