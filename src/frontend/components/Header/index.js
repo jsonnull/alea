@@ -1,44 +1,54 @@
 // @flow
 import * as React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import Button from './Button'
-import Logo from './Logo'
-import CurrentUser from './CurrentUser'
-import Settings from './Settings'
-import { Container, Column } from './styles'
+import LogoSvg from 'frontend/components/Logo'
+import slug from 'slugg'
+import { Button, LogoWrapper, Container, Column } from './styles'
+import type { DBProfile } from 'common/types'
 
-const NavLink = styled(Link)`
-  text-decoration: none;
-`
-
-type Props = {
-  isLoading: boolean,
-  currentUserProfileQuery: {
-    currentUser: { profile: { username: string } }
-  }
-}
+type Props =
+  | {
+      isLoading: true,
+      currentUserProfileQuery: null
+    }
+  | {
+      isLoading: false,
+      currentUserProfileQuery: {
+        currentUser: { profile: DBProfile }
+      }
+    }
 
 const Header = (props: Props) => {
-  const username = props.isLoading
-    ? ''
-    : props.currentUserProfileQuery.currentUser.profile.username
+  const currentUser = props.isLoading
+    ? null
+    : props.currentUserProfileQuery.currentUser
 
   return (
     <Container>
       <Column>
-        <NavLink to="/sessions">
-          <Button>Games</Button>
-        </NavLink>
+        <Button to="/sessions">Games</Button>
       </Column>
       <Column middle>
-        <Logo />
+        <Button to="/">
+          <LogoWrapper>
+            <LogoSvg height="16px" />
+          </LogoWrapper>
+        </Button>
       </Column>
       <Column right>
-        <React.Fragment>
-          <CurrentUser username={username} />
-          <Settings />
-        </React.Fragment>
+        {currentUser && (
+          <React.Fragment>
+            <Button
+              to={`/u/${slug(currentUser.profile.username)}/${
+                currentUser.profile.id
+              }`}
+            >
+              {currentUser.profile.username}
+            </Button>
+            <Button to="/settings">
+              <i className="fa fa-cog" />
+            </Button>
+          </React.Fragment>
+        )}
       </Column>
     </Container>
   )

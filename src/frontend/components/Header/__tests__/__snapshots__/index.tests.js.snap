@@ -1,48 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header component renders correctly when loading 1`] = `
-.c3 {
-  height: 4rem;
-  width: auto;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.c9 {
-  height: 4rem;
-  width: 4rem;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.c6 svg {
+.c5 svg {
   height: 16px;
   fill: currentColor;
-}
-
-.c5 {
-  height: 4rem;
-  width: auto;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-  padding-top: 12px;
-  line-height: 1;
-}
-
-.c8 {
-  height: 4rem;
-  width: auto;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-  font-size: 1.3rem;
 }
 
 .c0 {
@@ -75,7 +36,7 @@ exports[`Header component renders correctly when loading 1`] = `
   justify-content: flex-start;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -92,7 +53,7 @@ exports[`Header component renders correctly when loading 1`] = `
   justify-content: center;
 }
 
-.c7 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -111,6 +72,17 @@ exports[`Header component renders correctly when loading 1`] = `
 
 .c2 {
   text-decoration: none;
+  height: 4rem;
+  min-width: 4rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.c4 {
+  padding-top: 12px;
+  line-height: 1;
 }
 
 <div
@@ -124,25 +96,22 @@ exports[`Header component renders correctly when loading 1`] = `
       href="/sessions"
       onClick={[Function]}
     >
-      <div
-        className="c3"
-      >
-        Games
-      </div>
+      Games
     </a>
   </div>
   <div
-    className="c4"
+    className="c3"
   >
     <a
+      className="c2"
       href="/"
       onClick={[Function]}
     >
       <div
-        className="c5"
+        className="c4"
       >
         <div
-          className="c6"
+          className="c5"
           dangerouslySetInnerHTML={
             Object {
               "__html": Object {},
@@ -154,72 +123,15 @@ exports[`Header component renders correctly when loading 1`] = `
     </a>
   </div>
   <div
-    className="c7"
-  >
-    <div
-      className="c8"
-    >
-      
-    </div>
-    <a
-      href="/settings"
-      onClick={[Function]}
-    >
-      <div
-        className="c9"
-      >
-        <i
-          className="fa fa-cog"
-        />
-      </div>
-    </a>
-  </div>
+    className="c6"
+  />
 </div>
 `;
 
 exports[`Header component renders correctly when logged in 1`] = `
-.c3 {
-  height: 4rem;
-  width: auto;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.c9 {
-  height: 4rem;
-  width: 4rem;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.c6 svg {
+.c5 svg {
   height: 16px;
   fill: currentColor;
-}
-
-.c5 {
-  height: 4rem;
-  width: auto;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-  padding-top: 12px;
-  line-height: 1;
-}
-
-.c8 {
-  height: 4rem;
-  width: auto;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.4rem;
-  cursor: pointer;
-  font-size: 1.3rem;
 }
 
 .c0 {
@@ -252,7 +164,7 @@ exports[`Header component renders correctly when logged in 1`] = `
   justify-content: flex-start;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -269,7 +181,7 @@ exports[`Header component renders correctly when logged in 1`] = `
   justify-content: center;
 }
 
-.c7 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -288,6 +200,17 @@ exports[`Header component renders correctly when logged in 1`] = `
 
 .c2 {
   text-decoration: none;
+  height: 4rem;
+  min-width: 4rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.c4 {
+  padding-top: 12px;
+  line-height: 1;
 }
 
 <div
@@ -301,25 +224,22 @@ exports[`Header component renders correctly when logged in 1`] = `
       href="/sessions"
       onClick={[Function]}
     >
-      <div
-        className="c3"
-      >
-        Games
-      </div>
+      Games
     </a>
   </div>
   <div
-    className="c4"
+    className="c3"
   >
     <a
+      className="c2"
       href="/"
       onClick={[Function]}
     >
       <div
-        className="c5"
+        className="c4"
       >
         <div
-          className="c6"
+          className="c5"
           dangerouslySetInnerHTML={
             Object {
               "__html": Object {},
@@ -331,24 +251,23 @@ exports[`Header component renders correctly when logged in 1`] = `
     </a>
   </div>
   <div
-    className="c7"
+    className="c6"
   >
-    <div
-      className="c8"
-    >
-      test
-    </div>
     <a
+      className="c2"
+      href="/u/test-username/testId"
+      onClick={[Function]}
+    >
+      test username
+    </a>
+    <a
+      className="c2"
       href="/settings"
       onClick={[Function]}
     >
-      <div
-        className="c9"
-      >
-        <i
-          className="fa fa-cog"
-        />
-      </div>
+      <i
+        className="fa fa-cog"
+      />
     </a>
   </div>
 </div>
