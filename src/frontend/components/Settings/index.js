@@ -7,6 +7,7 @@ import Heading from 'frontend/components/Heading'
 import Label from 'frontend/components/Label'
 import Button from 'frontend/components/Button'
 import Name from './Name'
+import Avatar from './Avatar'
 import {
   Row,
   ThemeButtons,
@@ -17,16 +18,18 @@ import {
   ThemeChat
 } from './styles'
 import * as themes from 'frontend/styles/themes'
+import type { DBProfile, DBPreferences } from 'common/types'
 
 type Props = {
   isLoading: boolean,
   hasError: boolean,
   currentUser: {
-    preferences: Object,
-    profile: Object
+    preferences: DBPreferences,
+    profile: DBProfile
   },
-  setTheme: Function,
-  setUsername: (name: string) => void
+  setTheme: (name: string) => void,
+  setUsername: (name: string) => void,
+  updateUserAvatar: (avatar: string) => void
 }
 
 const Settings = (props: Props) => {
@@ -36,9 +39,9 @@ const Settings = (props: Props) => {
   }
 
   const { theme } = props.currentUser.preferences
-  const { username } = props.currentUser.profile
+  const { username, avatar } = props.currentUser.profile
 
-  const { setUsername, setTheme } = props
+  const { setUsername, setTheme, updateUserAvatar } = props
 
   const isLightTheme = theme == 'light'
   const isDarkTheme = theme == 'dark'
@@ -49,6 +52,11 @@ const Settings = (props: Props) => {
       <Row>
         <Label>Display Name</Label>
         <Name name={username} saveDisplayName={setUsername} />
+      </Row>
+
+      <Row>
+        <Label>Avatar</Label>
+        <Avatar avatar={avatar} updateUserAvatar={updateUserAvatar} />
       </Row>
 
       <Heading>Preferences</Heading>

@@ -6,7 +6,8 @@ import type { DBProfile } from 'common/types'
 
 const defaultProfile: DBProfile = {
   id: 'none',
-  username: 'anonymous'
+  username: 'anonymous',
+  avatar: null
 }
 
 export const getProfileForCurrentUser = async (): Promise<DBProfile> => {
@@ -36,11 +37,12 @@ export const getProfileById = async (id: string): Promise<DBProfile> => {
     return { ...defaultProfile }
   }
 
-  const { username = 'anonymous' } = profile.data()
+  const { username = 'anonymous', avatar = null } = profile.data()
 
   return {
     ...defaultProfile,
     id,
-    username
+    username,
+    avatar
   }
 }

@@ -4,6 +4,7 @@ const User = `
   type Profile {
     id: ID!
     username: String
+    avatar: String
   }
 
   type Preferences {
@@ -28,6 +29,7 @@ const User = `
     setChatPinned(isPinned: Boolean!): Preferences
     setTheme(theme: String!): Preferences
     setUsername(name: String!): Profile
+    updateUserAvatar(avatar: String!): Profile
   }
 `
 

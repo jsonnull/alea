@@ -60,5 +60,6 @@ export type DBGame = {
 
 export type DBProfile = {
   id: string,
-  username: string
+  username: string,
+  avatar: ?string
 }

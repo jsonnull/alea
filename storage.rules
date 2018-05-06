@@ -1,0 +1,18 @@
+service firebase.storage {
+  match /b/avaland-db534.appspot.com/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    match /avatars {
+      match /{userId} {
+        // Allow all users to see avatars
+        allow read: if request.auth != null;
+        // Only allow user to upload image for their avatar, up to 1mb
+        allow write: if userId == request.auth.uid
+                     && request.resource.size < 1 * 1024 * 1024
+                     && request.resource.contentType.matches('image/.*');
+      }
+    }
+  }
+}
