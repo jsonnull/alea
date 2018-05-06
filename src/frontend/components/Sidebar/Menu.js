@@ -1,8 +1,9 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import type { Tab } from 'common/types'
 import MenuItem from './MenuItem'
+import { SessionIcon, CharacterIcon } from 'frontend/components/icon'
 
 const MenuContainer = styled.div`
   display: flex;
@@ -13,11 +14,11 @@ const MenuContainer = styled.div`
     props.theme.name === 'dark' ? props.theme.backgroundSecondary : ''};
 `
 
-type MenuButton = [Tab, string] | 'separator'
+type MenuButton = [Tab, React.ComponentType<any>]
 
 const buttons: Array<MenuButton> = [
-  ['Session', 'fa-globe'],
-  ['Character', 'fa-id-card-o']
+  ['Session', SessionIcon],
+  ['Character', CharacterIcon]
 ]
 
 type Props = {

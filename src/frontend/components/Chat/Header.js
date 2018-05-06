@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Tooltip from '../Tooltip'
 import { fontSize } from 'frontend/styles/common'
+import { PinIcon, UnpinIcon } from 'frontend/components/icon'
 
 const Container = styled.div`
   background-color: ${props =>
@@ -37,12 +38,6 @@ type Props = {
 const Header = (props: Props) => {
   const { isPinned, setChatPinned } = props
 
-  let toggleChat = isPinned ? (
-    <i className="fa fa-chevron-left" />
-  ) : (
-    <i className="fa fa-thumb-tack" />
-  )
-
   const tooltip = isPinned ? 'Unpin Chat' : 'Pin Chat'
 
   return (
@@ -50,7 +45,7 @@ const Header = (props: Props) => {
       <Outer>
         <Tooltip placement="left" content={tooltip}>
           <Toggle onClick={() => setChatPinned(!isPinned)} isPinned={isPinned}>
-            {toggleChat}
+            {isPinned ? <UnpinIcon /> : <PinIcon />}
           </Toggle>
         </Tooltip>
       </Outer>

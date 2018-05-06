@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import type { MessageResult, Roll } from 'common/types'
+import { RollIcon } from 'frontend/components/icon'
 
 const RollSpan = styled.span`
   font-weight: bold;
@@ -83,7 +84,7 @@ const Results = (props: Props) => {
 
   return (
     <ResultsContainer>
-      <i className="fa fa-cube" />{' '}
+      <RollIcon />{' '}
       {results.map((result, i) => (
         <span key={i}>
           <RollContainer roll={result} isFirst={i === 0} />

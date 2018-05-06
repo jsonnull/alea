@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import { colors } from 'frontend/styles/common'
 import Tooltip from '../Tooltip'
@@ -28,18 +28,18 @@ const Item = styled.div`
 
 type Props = {
   name: string,
-  icon: string,
+  icon: React.ComponentType<any>,
   selected: boolean,
   action: Function
 }
 
 const MenuItem = (props: Props) => {
-  const { name, icon, selected, action } = props
+  const { name, icon: Icon, selected, action } = props
 
   return (
     <Tooltip content={name} placement="bottom">
       <Item selected={selected} onClick={() => action(name)}>
-        <i className={`fa ${icon}`} />
+        <Icon />
       </Item>
     </Tooltip>
   )

@@ -2,6 +2,7 @@
 import * as React from 'react'
 import LogoSvg from 'frontend/components/Logo'
 import slug from 'slugg'
+import { SettingsIcon } from 'frontend/components/icon'
 import { Button, LogoWrapper, Container, Column } from './styles'
 import type { DBProfile } from 'common/types'
 
@@ -45,7 +46,7 @@ const Header = (props: Props) => {
               {currentUser.profile.username}
             </Button>
             <Button to="/settings">
-              <i className="fa fa-cog" />
+              <SettingsIcon />
             </Button>
           </React.Fragment>
         )}

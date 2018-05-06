@@ -57,6 +57,29 @@
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.6.tgz#a4b81ca8cdeb1acbc7923289a4a514f61b59db86"
 
+"@fortawesome/fontawesome-common-types@^0.2.0-8":
+  version "0.2.0-8"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-8.tgz#50bbcc3d585f2d4423e5269821b6ce6fcca00033"
+
+"@fortawesome/fontawesome-svg-core@^1.2.0-13":
+  version "1.2.0-13"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-13.tgz#d772f99de6ae3d59b22861abf5188f02161b30c9"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.0-8"
+
+"@fortawesome/free-solid-svg-icons@^5.1.0-10":
+  version "5.1.0-10"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0-10.tgz#7bd5292fee95a424d4f734521e592f8f54c25b3f"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.0-8"
+
+"@fortawesome/react-fontawesome@^0.1.0-10":
+  version "0.1.0-10"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.0-10.tgz#e33c487b693db2ee03f4440081192a3eba4848e3"
+  dependencies:
+    humps "^2.0.1"
+    prop-types "^15.5.7"
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
@@ -3163,10 +3186,6 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
 
-font-awesome@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
-
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -3869,6 +3888,10 @@ http-signature@~1.2.0:
 https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
+
+humps@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
 
 husky@^0.14.3:
   version "0.14.3"
