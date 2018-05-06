@@ -43,12 +43,11 @@ export type UserProfile = {
 }
 
 export type DBUser = {
-  id: string,
-  username: string,
-  sessions: Array<Object>
+  id: string
 }
 
 export type DBPreferences = {
+  id: string,
   chatPinned: boolean,
   theme: ThemeName
 }
@@ -57,4 +56,9 @@ export type DBGame = {
   id: string,
   name: string,
   owner: string
+}
+
+export type DBProfile = {
+  id: string,
+  username: string
 }

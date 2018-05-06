@@ -1,11 +1,15 @@
 // @flow
-import { getGameFromRef } from 'api/models/game'
-import type { DBUser } from 'common/types'
+import { getUserGames } from 'api/models/user'
+import type { DBUser, DBGame } from 'common/types'
 
-const games = async (user: DBUser, _args: {}, _ctx: Object) => {
-  const { sessions } = user
+const games = async (
+  user: DBUser,
+  _args: {},
+  _ctx: Object
+): Promise<Array<DBGame>> => {
+  const { id } = user
 
-  return Promise.all(sessions.map(getGameFromRef))
+  return getUserGames(id)
 }
 
 export default games

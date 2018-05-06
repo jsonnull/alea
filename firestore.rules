@@ -20,8 +20,16 @@ service cloud.firestore {
 
     // Users
     match /users/{userId} {
-      // Only allow the user to read/write their own profiles
+      // Only allow the user to read/write their own data
       allow read, write: if request.auth.uid == userId;
+    }
+
+    // User Profiles
+    match /userProfiles/{userId} {
+      // Allow all users to see all sessions
+      allow read: if request.auth != null;
+      // Only allow user to change their info
+      allow write: if request.auth.uid == userId;
     }
 
     // Preferences

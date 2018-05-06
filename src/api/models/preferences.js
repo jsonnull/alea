@@ -2,16 +2,25 @@
 import firebase from '@firebase/app'
 import '@firebase/auth'
 import '@firebase/firestore'
+import type { DBPreferences } from 'common/types'
 
-export const getPreferencesForCurrentUser = async () => {
+const defaultPreferences = {
+  theme: 'light',
+  chatPinned: false
+}
+
+export const getPreferencesForCurrentUser = async (): Promise<
+  DBPreferences
+> => {
   const uid = firebase.auth().currentUser.uid
 
   return getPreferencesById(uid)
 }
 
-export const getPreferencesById = async (id: string) => {
-  const db = firebase.firestore()
-  const preferencesCollection = db.collection('preferences')
+export const getPreferencesById = async (
+  id: string
+): Promise<DBPreferences> => {
+  const preferencesCollection = firebase.firestore().collection('preferences')
 
   const doc = await preferencesCollection.doc(id).get()
 
@@ -19,5 +28,10 @@ export const getPreferencesById = async (id: string) => {
     throw new Error(`Could not get preferences for user with id ${id}`)
   }
 
-  return doc.data()
+  const preferences = doc.data()
+
+  return {
+    ...defaultPreferences,
+    ...preferences
+  }
 }
