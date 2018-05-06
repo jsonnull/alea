@@ -39,3 +39,11 @@ export const LogoWrapper = styled.div`
   padding-top: 12px;
   line-height: 1;
 `
+
+export const Avatar = styled.img`
+  float: right;
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem 0 0.5rem 0.8rem;
+  border-radius: 3px;
+`

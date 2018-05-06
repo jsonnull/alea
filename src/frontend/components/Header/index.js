@@ -3,7 +3,7 @@ import * as React from 'react'
 import LogoSvg from 'frontend/components/Logo'
 import slug from 'slugg'
 import UserDropdown from './components/dropdown'
-import { Button, LogoWrapper, Container, Column } from './styles'
+import { Button, LogoWrapper, Avatar, Container, Column } from './styles'
 import type { DBProfile } from 'common/types'
 
 type Props =
@@ -19,9 +19,9 @@ type Props =
     }
 
 const Header = (props: Props) => {
-  const currentUser = props.isLoading
+  const profile = props.isLoading
     ? null
-    : props.currentUserProfileQuery.currentUser
+    : props.currentUserProfileQuery.currentUser.profile
 
   return (
     <Container>
@@ -36,14 +36,11 @@ const Header = (props: Props) => {
         </Button>
       </Column>
       <Column right>
-        {currentUser && (
+        {profile && (
           <React.Fragment>
-            <Button
-              to={`/u/${slug(currentUser.profile.username)}/${
-                currentUser.profile.id
-              }`}
-            >
-              {currentUser.profile.username}
+            <Button to={`/u/${slug(profile.username)}/${profile.id}`}>
+              {profile.username}
+              {profile.avatar && <Avatar src={profile.avatar} />}
             </Button>
             <UserDropdown />
           </React.Fragment>
