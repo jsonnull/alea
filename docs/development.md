@@ -3,8 +3,8 @@
 The first thing to do is clone the repo:
 
 ```
-git clone https://github.com/jsonnull/aleamancer.git
-cd aleamancer
+git clone https://github.com/jsonnull/alea.git
+cd alea
 ```
 
 We use yarn to manage dependencies. Run it to get all dependencies needed to
