@@ -3,7 +3,7 @@
 exports[`Button component renders correctly with green option set 1`] = `
 .c0 {
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 3rem;
   height: 3rem;
   padding: 0 1rem;
@@ -51,7 +51,7 @@ exports[`Button component renders correctly with green option set 1`] = `
 exports[`Button component renders correctly with no options 1`] = `
 .c0 {
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 3rem;
   height: 3rem;
   padding: 0 1rem;
@@ -92,7 +92,7 @@ exports[`Button component renders correctly with no options 1`] = `
 exports[`Button component renders correctly with outline option set 1`] = `
 .c0 {
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 3rem;
   height: 3rem;
   padding: 0 1rem;
@@ -142,7 +142,7 @@ exports[`Button component renders correctly with outline option set 1`] = `
 exports[`Button component renders correctly with red option set 1`] = `
 .c0 {
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 3rem;
   height: 3rem;
   padding: 0 1rem;

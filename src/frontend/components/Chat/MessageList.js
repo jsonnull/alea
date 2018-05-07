@@ -17,8 +17,6 @@ const Messages = styled.div`
   display: flex;
   flex-direction: column;
   flex: ${props => (props.isPinned ? '1' : 'none')};
-
-  align-items: ${props => (props.isPinned ? '' : 'flex-end')};
 `
 
 type Props = {

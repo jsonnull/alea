@@ -13,7 +13,6 @@ const Container = styled.div`
 `
 
 const Toggle = styled.div`
-  display: block;
   font-size: ${fontSize.small};
   color: ${props =>
     props.isPinned ? props.theme.color : props.theme.colorInverted};

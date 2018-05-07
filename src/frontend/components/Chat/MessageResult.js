@@ -59,7 +59,8 @@ const RollContainer = (props: RollContainerProps) => {
 }
 
 const ResultsContainer = styled.div`
-  padding: 0 1rem 0.2rem;
+  margin-top: 0.6rem;
+  padding: 0;
 `
 const Total = styled.span`
   font-weight: bold;
