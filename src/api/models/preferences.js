@@ -4,7 +4,8 @@ import '@firebase/auth'
 import '@firebase/firestore'
 import type { DBPreferences } from 'common/types'
 
-const defaultPreferences = {
+const defaultPreferences: DBPreferences = {
+  id: 'none',
   theme: 'light',
   chatPinned: false
 }

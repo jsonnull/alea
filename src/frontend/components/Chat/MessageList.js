@@ -1,32 +1,13 @@
 // @flow
 import * as React from 'react'
-import styled from 'styled-components'
-import type { Message } from 'common/types'
-import MessageView from './Message'
-
-const MessagesWrapper = styled.div`
-  min-height: 0;
-  flex: 1;
-`
-const Messages = styled.div`
-  overflow-y: ${props => (props.isPinned ? 'scroll' : 'hidden')};
-  overflow-x: hidden;
-  width: 315px;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  flex: ${props => (props.isPinned ? '1' : 'none')};
-`
 
 type Props = {
-  messages: Array<Message>,
-  isPinned: boolean
+  children?: Function
 }
 
 export default class MessageList extends React.Component<Props> {
   timer: IntervalID
-  scroll: ?HTMLElement
+  scroll = React.createRef()
 
   componentDidMount() {
     // Every minute, update chat timestamps
@@ -34,8 +15,8 @@ export default class MessageList extends React.Component<Props> {
   }
 
   componentDidUpdate() {
-    if (this.scroll) {
-      this.scroll.scrollTop += 10000
+    if (this.scroll && this.scroll.current) {
+      this.scroll.current.scrollTop += 10000
     }
   }
 
@@ -44,24 +25,10 @@ export default class MessageList extends React.Component<Props> {
   }
 
   render() {
-    const { isPinned } = this.props
-    return (
-      <MessagesWrapper>
-        <Messages
-          isPinned={isPinned}
-          innerRef={el => {
-            this.scroll = el
-          }}
-        >
-          {this.props.messages.map(message => (
-            <MessageView
-              key={message.id}
-              message={message}
-              isPinned={isPinned}
-            />
-          ))}
-        </Messages>
-      </MessagesWrapper>
-    )
+    if (!this.props.children) {
+      return null
+    }
+
+    return this.props.children(this.scroll)
   }
 }

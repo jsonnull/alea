@@ -7,8 +7,9 @@ import formatDate from './formatDate'
 import type { Message } from 'common/types'
 
 type Props = {
-  message: Message,
-  isPinned: boolean
+  username: string,
+  avatar: ?string,
+  message: Message
 }
 
 const MessageContainer = styled.div`
@@ -24,10 +25,17 @@ const MessageContainer = styled.div`
   }
 `
 
-const Avatar = styled.div`
+const AvatarArea = styled.div`
   width: 4rem;
   height: 4rem;
-  background-color: #999;
+  background-color: ${props => props.theme.borderColor};
+  border-radius: 4px;
+`
+
+const Avatar = styled.img`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4px;
 `
 
 const MessageBody = styled.div`
@@ -59,17 +67,17 @@ const Text = styled.div`
 
 export default class MessageView extends React.Component<Props> {
   render() {
-    const { isPinned } = this.props
-    const { from, timestamp, text, result } = this.props.message
+    const { username, avatar } = this.props
+    const { timestamp, text, result } = this.props.message
     const hoverText = new Date(timestamp)
     const formattedDate = formatDate(timestamp)
 
     return (
-      <MessageContainer isPinned={isPinned}>
-        <Avatar />
+      <MessageContainer>
+        <AvatarArea>{avatar && <Avatar src={avatar} />}</AvatarArea>
         <MessageBody>
           <From>
-            {from} <Sent title={hoverText}>{formattedDate}</Sent>
+            {username} <Sent title={hoverText}>{formattedDate}</Sent>
           </From>
           <Text>{text}</Text>
           <MessageResult result={result} />

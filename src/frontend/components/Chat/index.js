@@ -1,12 +1,14 @@
 // @flow
 import React from 'react'
-import { Container, Loading, Error } from './styles'
+import { Container, Loading, Error, Messages, MessagesWrapper } from './styles'
 import Header from './Header'
 import Info from './Info'
 import Compose from './Compose'
 import MessageList from './MessageList'
+import MessageView from './Message'
 import type { GetGameMessagesType } from 'frontend/graphql/queries/game/getGameMessages'
 import type { GetCurrentUserPreferencesType } from 'frontend/graphql/queries/currentUser/getCurrentUserPreferences'
+import type { DBGameParticipant } from 'common/types'
 
 type Props = {
   isLoading: boolean,
@@ -19,6 +21,7 @@ type Props = {
   currentUserPreferencesQuery: {
     currentUser: GetCurrentUserPreferencesType
   },
+  participants: ?Array<DBGameParticipant>,
   subscribeToNewMessages: Function,
   setChatPinned: Function,
   sendMessage: Function
@@ -79,10 +82,11 @@ class Chat extends React.Component<Props, State> {
       hasError,
       currentUserPreferencesQuery,
       gameMessagesQuery,
-      setChatPinned
+      setChatPinned,
+      participants
     } = this.props
 
-    if (isLoading) {
+    if (isLoading || !participants) {
       return (
         <Container>
           <Loading>Connecting to chat...</Loading>
@@ -110,8 +114,36 @@ class Chat extends React.Component<Props, State> {
     return (
       <Container isPinned={isPinned}>
         <Header isPinned={isPinned} setChatPinned={setChatPinned} />
-        <MessageList messages={shownMessages} isPinned={isPinned} />
-        <Compose onSend={this.sendMessage} isPinned={isPinned} />
+        <MessageList>
+          {scrollRef => (
+            <MessagesWrapper>
+              <Messages isPinned={isPinned} innerRef={scrollRef}>
+                {shownMessages.map(message => {
+                  const participant = participants.find(
+                    p => p.id === message.from
+                  ) || {
+                    profile: {
+                      avatar: null,
+                      username: message.from.slice(0, 4)
+                    }
+                  }
+
+                  const { avatar, username } = participant.profile
+
+                  return (
+                    <MessageView
+                      key={message.id}
+                      message={message}
+                      username={username}
+                      avatar={avatar}
+                    />
+                  )
+                })}
+              </Messages>
+            </MessagesWrapper>
+          )}
+        </MessageList>
+        <Compose onSend={this.sendMessage} />
         <Info />
       </Container>
     )

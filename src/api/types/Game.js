@@ -10,10 +10,17 @@ const Game = `
     node: Message!
   }
 
+  type GameParticipant {
+    id: ID!
+    lastSeen: Date
+    profile: Profile!
+  }
+
   type Game {
     id: ID!
     name: String!
     owner: User!
+    participants: [GameParticipant]!
     messageConnection(first: Int): GameMessageConnection!
   }
 

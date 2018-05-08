@@ -4,7 +4,7 @@ import '@firebase/auth'
 import '@firebase/firestore'
 import type { DBProfile } from 'common/types'
 
-const defaultProfile: DBProfile = {
+export const defaultProfile: DBProfile = {
   id: 'none',
   username: 'anonymous',
   avatar: null

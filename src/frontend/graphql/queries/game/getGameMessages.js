@@ -75,6 +75,7 @@ const getGameByMatchOptions = {
 export const getGameMessagesQuery = gql`
   query getGameMessages($id: ID!) {
     game(id: $id) {
+      id
       ...gameMessages
     }
   }

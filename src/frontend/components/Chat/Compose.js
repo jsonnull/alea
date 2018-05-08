@@ -23,8 +23,7 @@ const Input = styled.textarea.attrs({
 `
 
 type Props = {
-  onSend: Function,
-  isPinned: boolean
+  onSend: Function
 }
 
 type State = {
@@ -101,8 +100,6 @@ export default class Compose extends React.Component<Props, State> {
   }
 
   render() {
-    const { isPinned } = this.props
-
     const style = {}
     if (this.state.height !== 0) {
       Object.assign(style, { height: this.state.height + 'px' })
@@ -117,7 +114,6 @@ export default class Compose extends React.Component<Props, State> {
             this.autogrow = el
           }}
           style={style}
-          isPinned={isPinned}
           onChange={e => this.handleChange(e)}
           onKeyUp={e => this.handleKeyUp(e)}
         />

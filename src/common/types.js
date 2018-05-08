@@ -42,6 +42,12 @@ export type UserProfile = {
   photoURL: string | null
 }
 
+export type DBGameParticipant = {
+  id: string,
+  lastSeen: ?Date,
+  profile: DBProfile
+}
+
 export type DBUser = {
   id: string
 }
@@ -55,7 +61,8 @@ export type DBPreferences = {
 export type DBGame = {
   id: string,
   name: string,
-  owner: string
+  owner: string,
+  participants: Array<DBGameParticipant>
 }
 
 export type DBProfile = {

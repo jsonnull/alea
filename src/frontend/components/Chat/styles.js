@@ -31,3 +31,18 @@ export const Loading = styled.div`
 `
 
 export const Error = Loading
+
+export const MessagesWrapper = styled.div`
+  min-height: 0;
+  flex: 1;
+`
+export const Messages = styled.div`
+  overflow-y: ${props => (props.isPinned ? 'scroll' : 'hidden')};
+  overflow-x: hidden;
+  width: 315px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex: ${props => (props.isPinned ? '1' : 'none')};
+`
