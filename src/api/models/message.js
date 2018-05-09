@@ -65,7 +65,7 @@ export const sendMessage = (id: string, text: string) => {
   const result = commandParser.getMessageResult(text)
 
   const message = {
-    from: firebase.auth().currentUser.displayName,
+    from: firebase.auth().currentUser.uid,
     result,
     text,
     game: id,
