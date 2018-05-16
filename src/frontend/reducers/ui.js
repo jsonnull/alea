@@ -10,7 +10,6 @@ export type UIState = {
 
 const initialState = {
   initialAuthFinished: false,
-  appIsLoading: true,
   userIsLoggedIn: false
 }
 
@@ -20,11 +19,6 @@ export default function reducer(state: UIState = initialState, action: Action) {
       return {
         ...state,
         initialAuthFinished: true
-      }
-    case types.APP_FINISHED_LOADING:
-      return {
-        ...state,
-        appIsLoading: false
       }
     case types.USER_LOGGED_IN:
       return {
