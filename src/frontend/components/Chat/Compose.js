@@ -23,7 +23,9 @@ const Input = styled.textarea.attrs({
 `
 
 type Props = {
-  onSend: Function
+  onSend: Function,
+  lockEnter: Function,
+  unlockEnter: Function
 }
 
 type State = {
@@ -64,6 +66,14 @@ export default class Compose extends React.Component<Props, State> {
       this.setState({ height: 0 })
       window.requestAnimationFrame(() => this.calculateHeight())
     }
+  }
+
+  handleFocus = () => {
+    this.props.lockEnter()
+  }
+
+  handleBlur = () => {
+    this.props.unlockEnter()
   }
 
   calculateHeight() {
@@ -114,6 +124,8 @@ export default class Compose extends React.Component<Props, State> {
             this.autogrow = el
           }}
           style={style}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
           onChange={e => this.handleChange(e)}
           onKeyUp={e => this.handleKeyUp(e)}
         />

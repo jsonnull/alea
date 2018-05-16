@@ -4,11 +4,7 @@ import * as types from 'frontend/actions/types'
 
 const INIT_ACTION = { type: '@@INIT' }
 
-const DEFAULT_STATE = {
-  initialAuthFinished: false,
-  appIsLoading: true,
-  userIsLoggedIn: false
-}
+const DEFAULT_STATE = reduce(undefined, INIT_ACTION)
 
 const loginAction = {
   type: types.USER_LOGGED_IN,
@@ -17,21 +13,10 @@ const loginAction = {
 }
 
 describe('ui reducer', () => {
-  it('should have correct initial state', () => {
-    expect(reduce(undefined, INIT_ACTION)).toEqual(DEFAULT_STATE)
-  })
-
   it('should handle INITIAL_AUTH_FINISHED', () => {
     expect(reduce(undefined, { type: types.INITIAL_AUTH_FINISHED })).toEqual({
       ...DEFAULT_STATE,
       initialAuthFinished: true
-    })
-  })
-
-  it('should handle APP_FINISHED_LOADING', () => {
-    expect(reduce(undefined, { type: types.APP_FINISHED_LOADING })).toEqual({
-      ...DEFAULT_STATE,
-      appIsLoading: false
     })
   })
 

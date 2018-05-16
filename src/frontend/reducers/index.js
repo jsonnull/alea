@@ -1,24 +1,18 @@
 // @flow
 import currentUser from './currentUser'
+import enterLock from './enterLock'
 import sidebar from './sidebar'
 import ui from './ui'
 import type { CurrentUserState } from './currentUser'
+import type { LockState } from './enterLock'
 import type { SidebarState } from './sidebar'
 import type { UIState } from './ui'
 
-type RouterState = {
-  location: {
-    pathname: string,
-    search: string,
-    hash: string
-  }
-}
-
 export type ReducerState = {
-  sidebar: SidebarState,
   currentUser: CurrentUserState,
-  ui: UIState,
-  router: RouterState
+  enterLock: LockState,
+  sidebar: SidebarState,
+  ui: UIState
 }
 
-export { currentUser, sidebar, ui }
+export { currentUser, enterLock, sidebar, ui }

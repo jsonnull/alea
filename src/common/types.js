@@ -1,22 +1,22 @@
 // @flow
 
-export type Roll =
-  | number
-  | {
-      die: number,
-      result: number,
-      mod?: 'keep' | 'drop',
-      operation: '+' | '-'
-    }
+export type RollAction =
+  | { type: 'number', number: number, operation: '+' | '-' }
+  | { type: 'roll', die: number, result: number, operation: '+' | '-' }
 
-export type MessageResult = Array<Roll>
+export type Roll = Array<RollAction>
+
+export type MessageResult = {
+  type: 'rolls',
+  rolls: Array<Roll>
+}
 
 /* Message type */
 export type Message = {
   id: string,
   from: string,
   text: string,
-  result: ?MessageResult,
+  result: ?string,
   timestamp: Date
 }
 

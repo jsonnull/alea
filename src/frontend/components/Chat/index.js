@@ -24,7 +24,10 @@ type Props = {
   participants: ?Array<DBGameParticipant>,
   subscribeToNewMessages: Function,
   setChatPinned: Function,
-  sendMessage: Function
+  sendMessage: Function,
+  enterLock: boolean,
+  lockEnter: Function,
+  unlockEnter: Function
 }
 
 type State = {
@@ -37,7 +40,10 @@ class Chat extends React.Component<Props, State> {
   }
 
   sendMessage = (text: string) => {
-    this.props.sendMessage(text.trim())
+    const trimmed = text.trim()
+    if (trimmed.length > 0) {
+      this.props.sendMessage(trimmed)
+    }
   }
 
   componentDidMount() {
@@ -143,7 +149,11 @@ class Chat extends React.Component<Props, State> {
             </MessagesWrapper>
           )}
         </MessageList>
-        <Compose onSend={this.sendMessage} />
+        <Compose
+          onSend={this.sendMessage}
+          lockEnter={this.props.lockEnter}
+          unlockEnter={this.props.unlockEnter}
+        />
         <Info />
       </Container>
     )

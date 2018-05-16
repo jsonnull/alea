@@ -1,5 +1,6 @@
 // @flow
 import { compose } from 'recompose'
+import enterLock from 'frontend/containers/enterLock'
 import Chat from 'frontend/components/Chat'
 import queryHandler from 'frontend/components/queryHandler'
 import setChatPinned from 'frontend/graphql/mutations/user/setChatPinned'
@@ -8,6 +9,7 @@ import { getCurrentUserPreferences } from 'frontend/graphql/queries/currentUser/
 import { getGameMessagesByMatch } from 'frontend/graphql/queries/game/getGameMessages'
 
 export default compose(
+  enterLock,
   getGameMessagesByMatch,
   getCurrentUserPreferences,
   setChatPinned,
