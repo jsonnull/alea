@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fontSize } from 'frontend/styles/common'
-import MessageResult from './MessageResult'
+import Result from './components/Result'
 import formatDate from './formatDate'
 import type { Message } from 'common/types'
 
@@ -80,7 +80,7 @@ export default class MessageView extends React.Component<Props> {
             {username} <Sent title={hoverText}>{formattedDate}</Sent>
           </From>
           <Text>{text}</Text>
-          <MessageResult result={result} />
+          <Result result={result} />
         </MessageBody>
       </MessageContainer>
     )

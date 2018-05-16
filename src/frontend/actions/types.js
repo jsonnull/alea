@@ -3,6 +3,8 @@ import type { Tab } from 'common/types'
 
 export const SHOW_ROLL_MANAGER = 'SHOW_ROLL_MANAGER'
 export const HIDE_ROLL_MANAGER = 'HIDE_ROLL_MANAGER'
+export const LOCK_ENTER = 'LOCK_ENTER'
+export const UNLOCK_ENTER = 'UNLOCK_ENTER'
 export const INITIAL_AUTH_FINISHED = 'INITIAL_AUTH_FINISHED'
 export const USER_LOGGED_IN = 'USER_LOGGED_IN'
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT'
@@ -13,6 +15,9 @@ export type Action =
   // UI
   | { type: 'SHOW_ROLL_MANAGER' }
   | { type: 'HIDE_ROLL_MANAGER' }
+  // 'Enter' key lock
+  | { type: 'LOCK_ENTER' }
+  | { type: 'UNLOCK_ENTER' }
   // User
   | { type: 'INITIAL_AUTH_FINISHED' }
   | { type: 'USER_LOGGED_IN', id: string, email: string }
