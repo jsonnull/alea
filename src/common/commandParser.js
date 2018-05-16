@@ -1,5 +1,5 @@
 // @flow
-import { getRollResult } from './rolLCommand'
+import { getRollResult } from './rollCommand'
 import type { MessageResult } from 'common/types'
 
 export function getMessageResult(text: string): ?MessageResult {
