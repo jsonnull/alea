@@ -65,6 +65,9 @@ export const sendMessage = (id: string, text: string) => {
   if (result) {
     result = performRolls(result)
   }
+  if (result) {
+    result = JSON.stringify(result)
+  }
 
   const message = {
     from: firebase.auth().currentUser.uid,

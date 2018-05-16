@@ -16,7 +16,7 @@ export type Message = {
   id: string,
   from: string,
   text: string,
-  result: ?MessageResult,
+  result: ?string,
   timestamp: Date
 }
 
