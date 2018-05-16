@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
-import styled from 'styled-components'
-import type { MessageResult, Roll } from 'common/types'
+import type { MessageResult } from 'common/types'
 import { RollIcon } from 'frontend/components/icon'
 import { Container } from './styles'
 

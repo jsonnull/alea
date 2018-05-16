@@ -1,7 +1,6 @@
 // @flow
 import * as types from 'frontend/actions/types'
 import type { Action } from 'frontend/actions/types'
-import type { Tab } from 'common/types'
 
 export type LockState = boolean
 
